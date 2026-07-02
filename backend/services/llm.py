@@ -11,8 +11,15 @@ client = AzureOpenAI(
 DEPLOYMENT = os.getenv("AZURE_OPENAI_DEPLOYMENT", "gpt-4o")
 
 
-def call_llm(system: str, user: str, max_tokens: int = 6000) -> str:
-    """Single chat completion call to Azure OpenAI. Returns the assistant message text."""
+def call_llm(system: str, user: str, max_tokens: int = 8000, reasoning_effort: str = "low") -> str:
+    """
+    Single chat completion call to Azure OpenAI. Returns the assistant message text.
+
+    gpt-5-nano is a reasoning model: with default reasoning effort it can burn the
+    entire token budget on hidden reasoning and return EMPTY output (especially for
+    token-heavy scripts like Tamil/Kannada). We cap reasoning_effort at "low" so
+    there is always budget left for the actual answer.
+    """
     response = client.chat.completions.create(
         model=DEPLOYMENT,
         messages=[
@@ -20,19 +27,23 @@ def call_llm(system: str, user: str, max_tokens: int = 6000) -> str:
             {"role": "user", "content": user},
         ],
         max_completion_tokens=max_tokens,
+        reasoning_effort=reasoning_effort,
     )
     content = response.choices[0].message.content
-    if content is None:
+    if not content or not content.strip():
         finish = response.choices[0].finish_reason
+        usage = response.usage
+        reasoning = getattr(getattr(usage, "completion_tokens_details", None), "reasoning_tokens", "?")
         raise ValueError(
-            f"LLM returned empty content (finish_reason={finish!r}). "
-            "The reasoning model consumed all tokens before producing output — "
-            "increase max_completion_tokens."
+            f"LLM returned empty content (finish_reason={finish!r}, "
+            f"reasoning_tokens={reasoning}/{max_tokens}). The reasoning model consumed "
+            "the token budget before producing output — raise max_completion_tokens "
+            "or lower reasoning_effort."
         )
     return content
 
 
-def call_llm_json(system: str, user: str, max_tokens: int = 6000, _retry: bool = True) -> dict | list:
+def call_llm_json(system: str, user: str, max_tokens: int = 8000, _retry: bool = True) -> dict | list:
     """
     Call Azure OpenAI expecting JSON. On parse failure, retries once with an
     explicit correction instruction appended to the system prompt.
