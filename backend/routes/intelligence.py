@@ -57,7 +57,7 @@ async def get_attribution(req: AttributionRequest):
     result = call_llm_json(
         system=ATTRIBUTION_SYSTEM,
         user=attribution_user(req),
-        max_tokens=6000,
+        max_tokens=8000,
     )
     return result
 
@@ -68,7 +68,7 @@ async def get_enforcement(req: EnforcementRequest):
     result = call_llm_json(
         system=ENFORCEMENT_SYSTEM,
         user=enforcement_user(req),
-        max_tokens=6000,
+        max_tokens=8000,
     )
     return result
 
@@ -79,7 +79,7 @@ async def get_forecast(req: ForecastRequest):
     result = call_llm_json(
         system=FORECAST_SYSTEM,
         user=forecast_user(req),
-        max_tokens=6000,
+        max_tokens=8000,
     )
     return result
 
@@ -90,7 +90,7 @@ async def get_advisory(req: AdvisoryRequest):
     result = call_llm(
         system=ADVISORY_SYSTEM,
         user=advisory_user(req),
-        max_tokens=6000,
+        max_tokens=8000,
     )
     return {"advisory": result, "language": req.language, "city": req.city}
 

@@ -93,8 +93,12 @@ These caused real debugging pain — read before touching the LLM or proxy code.
 
 ### Azure OpenAI `gpt-5-nano` is a REASONING model
 - Consumes **1,400–2,300 hidden reasoning tokens** before producing any visible output.
-- Uses `max_completion_tokens`, **not** `max_tokens`. All calls set it to **6000–8000**;
-  anything under ~4000 returns empty content because reasoning eats the whole budget.
+- Uses `max_completion_tokens`, **not** `max_tokens`. All calls set it to **8000**.
+- **`reasoning_effort="low"` is REQUIRED** (`services/llm.py`). With default reasoning
+  effort, token-heavy scripts like Tamil/Kannada consume the ENTIRE budget on hidden
+  reasoning (`reasoning_tokens == max`, `finish_reason == "length"`) and return an
+  **empty** advisory. `"low"` caps reasoning (~1500 tokens) leaving room for output.
+- `call_llm` also guards against empty/whitespace content and raises a descriptive error.
 - Does **not** support a custom `temperature` — must be omitted entirely.
 - Requires API version **`2025-04-01-preview`**. Stable versions like `2024-02-01` return 404.
 - `services/llm.py` guards against `None` content and raises a clear error if the budget runs out.
