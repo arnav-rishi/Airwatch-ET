@@ -12,7 +12,12 @@ from services.cache import warm_cache
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    await warm_cache()
+    # Non-fatal on serverless: a cold start must not 500 if the AQI upstream is
+    # slow/down. The /api/aqi/live route re-fetches on an empty cache anyway.
+    try:
+        await warm_cache()
+    except Exception as exc:  # noqa: BLE001
+        print(f"[cache] warm failed (non-fatal): {exc}")
     yield
 
 
@@ -25,9 +30,10 @@ app.add_middleware(
         "http://localhost:5174",
         "http://localhost:5175",
         "http://localhost:3000",
-        # Add your Vercel URL here once deployed, e.g.:
-        # "https://airwatch-india.vercel.app",
     ],
+    # Allow the deployed frontend and any Vercel preview deployment
+    # (e.g. https://airwatch-et-frontend.vercel.app, *-git-*.vercel.app).
+    allow_origin_regex=r"https://.*\.vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
