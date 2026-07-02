@@ -1,5 +1,11 @@
 .env
+.env.*
 .env.production
+
+# Never commit raw secret files
+Keys.txt
+keys.txt
+.vercel
 __pycache__/
 *.pyc
 venv/
