@@ -1,3 +1,4 @@
+import asyncio
 import httpx
 import os
 import json
@@ -35,61 +36,92 @@ async def _fetch_with_retry(client: httpx.AsyncClient, url: str, **kwargs) -> ht
     return resp
 
 
-async def fetch_india_stations() -> list[dict]:
+def _curated_cities() -> list[dict]:
+    """The canonical list of major Indian cities (name, state, coords) to display.
+
+    Sourced from cities_fallback.json so the map is always well-distributed across
+    India and identical on every machine. We fetch LIVE AQI for each of these below.
     """
-    Fetch all active AQI monitoring stations in India from WAQI.
-    Returns list ready for Leaflet map rendering.
-    Falls back to OpenAQ, then static JSON.
+    with open(FALLBACK_PATH) as f:
+        return json.load(f)
+
+
+async def _fetch_city_live(client: httpx.AsyncClient, city: dict) -> dict | None:
+    """
+    Fetch live AQI for one curated city via WAQI's named city feed (/feed/{slug}/).
+    Returns a station dict ONLY if the feed has a real live AQI reading; otherwise
+    returns None (the city is skipped — we never pad the map with stale values).
     """
     token = os.getenv("WAQI_TOKEN")
     try:
-        async with httpx.AsyncClient(timeout=12.0) as client:
-            resp = await _fetch_with_retry(
-                client,
-                f"{WAQI_BASE}/map/bounds/",
-                params={"latlng": INDIA_BOUNDS, "token": token},
-            )
-            data = resp.json()
-
+        resp = await _fetch_with_retry(
+            client,
+            f"{WAQI_BASE}/feed/{city['slug']}/",
+            params={"token": token},
+        )
+        data = resp.json()
         if data.get("status") != "ok":
-            raise ValueError(f"WAQI status: {data.get('status')}")
+            return None
 
-        stations = []
-        for s in data.get("data", []):
-            raw_aqi = s.get("aqi")
-            if not raw_aqi or raw_aqi == "-":
-                continue
-            try:
-                aqi_val = int(raw_aqi)
-            except (ValueError, TypeError):
-                continue
+        d = data["data"]
+        raw_aqi = d.get("aqi")
+        # WAQI reports "-" when a station has no current reading — skip those.
+        if not isinstance(raw_aqi, int):
+            return None
 
-            cat = aqi_category(aqi_val)
-            geo = s.get("lat"), s.get("lon")
-            station_name = s.get("station", {}).get("name", "Unknown")
+        pm25 = d.get("iaqi", {}).get("pm25", {}).get("v")
+        # Prefer the station's own coordinates so the pin sits on the real station.
+        geo = d.get("city", {}).get("geo") or [city["lat"], city["lon"]]
 
-            stations.append({
-                "city": _clean_station_name(station_name),
-                "station_raw": station_name,
-                "lat": float(geo[0]),
-                "lon": float(geo[1]),
-                "aqi": aqi_val,
-                "pm25": None,
-                "primary_pollutant": "PM2.5",
-                "updated_at": s.get("station", {}).get("time", ""),
-                "source": "waqi_live",
-                **cat,
-                "radius": circle_radius(aqi_val),
-            })
-
-        return stations if len(stations) > 5 else _load_fallback()
-
+        cat = aqi_category(raw_aqi)
+        return {
+            "city": city["city"],
+            "state": city["state"],
+            "lat": float(geo[0]),
+            "lon": float(geo[1]),
+            "aqi": raw_aqi,
+            "pm25": pm25,
+            "primary_pollutant": d.get("dominentpol", "pm25").upper(),
+            "station_raw": d.get("city", {}).get("name", city["city"]),
+            "updated_at": d.get("time", {}).get("s", ""),
+            "source": "waqi_live",
+            **cat,
+            "radius": circle_radius(raw_aqi),
+        }
     except Exception:
+        return None
+
+
+async def fetch_india_stations() -> list[dict]:
+    """
+    Fetch live AQI for a curated list of major Indian cities from WAQI (named feeds,
+    in parallel). Returns ONLY cities that have a real live reading right now.
+
+    If WAQI is entirely unreachable (network/token failure → zero live cities), the
+    full static dataset is returned so the app is never blank. When live data exists,
+    no static cities are mixed in.
+    """
+    cities = _curated_cities()
+    try:
+        async with httpx.AsyncClient(timeout=12.0) as client:
+            results = await asyncio.gather(
+                *[_fetch_city_live(client, c) for c in cities],
+                return_exceptions=True,
+            )
+        stations = [r for r in results if isinstance(r, dict)]
+        if stations:
+            return stations
+        # Total WAQI failure — try OpenAQ, then static.
         try:
             from services.openaq import fetch_live_aqi
-            return await fetch_live_aqi()
+            live = await fetch_live_aqi()
+            if live:
+                return live
         except Exception:
-            return _load_fallback()
+            pass
+        return _load_fallback()
+    except Exception:
+        return _load_fallback()
 
 
 async def fetch_city_feed(city_name: str) -> dict:
