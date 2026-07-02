@@ -53,8 +53,16 @@ airwatch/
                               AdvisoryGenerator, ForecastChart, ErrorBoundary
 ```
 
-**Data flow (3-tier fallback for AQI):** WAQI → OpenAQ → static `cities_fallback.json`.
+**Data flow (map stations):** A curated list of major Indian cities
+(`data/cities_fallback.json`, each with a WAQI `slug`) is fetched **live** in parallel via
+WAQI's **named city feeds** (`/feed/{slug}/`). Only cities with a real current reading are
+shown — the map is never padded with stale values. If WAQI is entirely unreachable
+(zero live cities), it falls back OpenAQ → static dataset so the app is never blank.
 Station data is cached at startup (`lifespan` in `main.py`) for 10 minutes.
+
+> ⚠️ Do NOT use WAQI's `/map/bounds/` or `/feed/geo:lat;lon/` for this — bounds returns a
+> downsampled cluster dominated by Nepal/Tibet stations, and geo-feed frequently resolves
+> distant cities to a default Delhi station. Named feeds (`/feed/{slug}/`) are the reliable path.
 
 ---
 
