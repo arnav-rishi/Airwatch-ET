@@ -22,6 +22,11 @@ export default function EnforcementSidebar({ enforcement, loading }) {
         <p className="text-slate-400 text-sm mt-1">
           AI-generated recommendations based on real-time AQI data — {enforcement.generated_at}
         </p>
+        {enforcement.multi_agent && (
+          <p className="text-xs text-blue-400 mt-1">
+            Multi-agent chain: Source Attribution Agent findings fed into the Enforcement Agent's reasoning
+          </p>
+        )}
       </div>
 
       {enforcement.priorities?.map((p) => (
@@ -36,6 +41,11 @@ export default function EnforcementSidebar({ enforcement, loading }) {
             <div>
               <h3 className="font-bold text-white text-lg">{p.city}</h3>
               <p className="text-slate-400 text-sm">{p.violation_type}</p>
+              {enforcement.attributed_sources?.[p.city] && (
+                <p className="text-xs text-blue-400 mt-0.5">
+                  Attribution Agent: {enforcement.attributed_sources[p.city]}
+                </p>
+              )}
             </div>
             <div className="ml-auto text-right">
               <div className="text-2xl font-black text-red-400">{p.aqi_at_decision}</div>

@@ -72,10 +72,15 @@ async def fetch_live_aqi() -> list[dict]:
         return load_fallback()
 
 
-async def fetch_city_history(city_name: str, lat: float, lon: float) -> list[dict]:
+async def fetch_city_history(city_name: str, lat: float, lon: float) -> dict:
     """
     Fetch last 24 hourly PM2.5 readings for a city using coordinates.
-    Returns list of {hour, aqi, pm25}.
+
+    Returns {"points": [{hour, aqi, pm25}, ...], "source": "openaq_measurements" | "synthetic_diurnal"}.
+    The source tag lets the frontend disclose when the trend line is a modelled
+    estimate rather than real station history — mirroring how map markers already
+    disclose "waqi_live" vs "fallback" per station, so no chart on the site shows
+    numbers without the user being able to tell where they came from.
     """
     try:
         async with httpx.AsyncClient(timeout=10.0) as client:
@@ -94,7 +99,7 @@ async def fetch_city_history(city_name: str, lat: float, lon: float) -> list[dic
             results = resp.json().get("results", [])
 
         if not results:
-            return _generate_synthetic_history(city_name)
+            return {"points": _generate_synthetic_history(city_name), "source": "synthetic_diurnal"}
 
         history = []
         for r in results:
@@ -105,10 +110,10 @@ async def fetch_city_history(city_name: str, lat: float, lon: float) -> list[dic
                 "aqi": aqi,
                 "pm25": val,
             })
-        return list(reversed(history))
+        return {"points": list(reversed(history)), "source": "openaq_measurements"}
 
     except Exception:
-        return _generate_synthetic_history(city_name)
+        return {"points": _generate_synthetic_history(city_name), "source": "synthetic_diurnal"}
 
 
 def _generate_synthetic_history(city_name: str) -> list[dict]:

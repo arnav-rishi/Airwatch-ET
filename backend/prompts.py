@@ -1,20 +1,121 @@
 # ─── Source Attribution ───────────────────────────────────────────────────────
 
-# Published CPCB / ARAI source apportionment studies for major Indian cities.
+# Published CPCB / ARAI source apportionment studies for major Indian cities, as a
+# structured evidence table rather than opaque prose — this is what lets the API
+# response cite a specific study back to the frontend (see get_baseline_citation
+# below) instead of the citation existing only inside an LLM prompt no one can see.
 CPCB_SOURCE_APPORTIONMENT = {
-    "Delhi":      "Road dust 28%, Vehicles 20%, Industry 11%, Biomass burning 11%, Construction 6%, Secondary aerosol 24% (CPCB/ARAI 2021)",
-    "Mumbai":     "Transport 30%, Industry 35%, Marine/sea salt 18%, Construction 8%, Others 14% (MPCB 2020)",
-    "Kolkata":    "Vehicles 25%, Industry 22%, Biomass burning 15%, Road dust 18%, Construction 12%, Others 8% (WBPCB 2021)",
-    "Chennai":    "Road dust 30%, Vehicles 28%, Industry 14%, Construction 15%, Others 13% (TNPCB 2022)",
-    "Bengaluru":  "Vehicles 35%, Construction 22%, Road dust 20%, Industry 12%, Others 11% (KSPCB 2022)",
-    "Hyderabad":  "Vehicles 30%, Industry 25%, Road dust 22%, Construction 13%, Others 10% (TSPCB 2021)",
-    "Ahmedabad":  "Industry 30%, Vehicles 28%, Road dust 20%, Construction 12%, Others 10% (GPCB 2020)",
-    "Pune":       "Vehicles 35%, Construction 20%, Industry 18%, Road dust 17%, Others 10% (MPCB 2021)",
-    "Kanpur":     "Industry 32%, Vehicles 24%, Biomass burning 20%, Road dust 14%, Others 10% (UPPCB 2020)",
-    "Lucknow":    "Vehicles 28%, Industry 25%, Biomass burning 22%, Road dust 15%, Others 10% (UPPCB 2021)",
-    "Patna":      "Biomass burning 28%, Vehicles 22%, Road dust 20%, Industry 18%, Others 12% (BSPCB 2021)",
-    "Jaipur":     "Road dust 32%, Vehicles 26%, Construction 18%, Industry 14%, Others 10% (RSPCB 2020)",
+    "Delhi": {
+        "citation": "CPCB/ARAI 2021",
+        "breakdown": [
+            {"source": "Road dust", "pct": 28}, {"source": "Vehicles", "pct": 20},
+            {"source": "Industry", "pct": 11}, {"source": "Biomass burning", "pct": 11},
+            {"source": "Construction", "pct": 6}, {"source": "Secondary aerosol", "pct": 24},
+        ],
+    },
+    "Mumbai": {
+        "citation": "MPCB 2020",
+        "breakdown": [
+            {"source": "Transport", "pct": 30}, {"source": "Industry", "pct": 35},
+            {"source": "Marine/sea salt", "pct": 18}, {"source": "Construction", "pct": 8},
+            {"source": "Others", "pct": 14},
+        ],
+    },
+    "Kolkata": {
+        "citation": "WBPCB 2021",
+        "breakdown": [
+            {"source": "Vehicles", "pct": 25}, {"source": "Industry", "pct": 22},
+            {"source": "Biomass burning", "pct": 15}, {"source": "Road dust", "pct": 18},
+            {"source": "Construction", "pct": 12}, {"source": "Others", "pct": 8},
+        ],
+    },
+    "Chennai": {
+        "citation": "TNPCB 2022",
+        "breakdown": [
+            {"source": "Road dust", "pct": 30}, {"source": "Vehicles", "pct": 28},
+            {"source": "Industry", "pct": 14}, {"source": "Construction", "pct": 15},
+            {"source": "Others", "pct": 13},
+        ],
+    },
+    "Bengaluru": {
+        "citation": "KSPCB 2022",
+        "breakdown": [
+            {"source": "Vehicles", "pct": 35}, {"source": "Construction", "pct": 22},
+            {"source": "Road dust", "pct": 20}, {"source": "Industry", "pct": 12},
+            {"source": "Others", "pct": 11},
+        ],
+    },
+    "Hyderabad": {
+        "citation": "TSPCB 2021",
+        "breakdown": [
+            {"source": "Vehicles", "pct": 30}, {"source": "Industry", "pct": 25},
+            {"source": "Road dust", "pct": 22}, {"source": "Construction", "pct": 13},
+            {"source": "Others", "pct": 10},
+        ],
+    },
+    "Ahmedabad": {
+        "citation": "GPCB 2020",
+        "breakdown": [
+            {"source": "Industry", "pct": 30}, {"source": "Vehicles", "pct": 28},
+            {"source": "Road dust", "pct": 20}, {"source": "Construction", "pct": 12},
+            {"source": "Others", "pct": 10},
+        ],
+    },
+    "Pune": {
+        "citation": "MPCB 2021",
+        "breakdown": [
+            {"source": "Vehicles", "pct": 35}, {"source": "Construction", "pct": 20},
+            {"source": "Industry", "pct": 18}, {"source": "Road dust", "pct": 17},
+            {"source": "Others", "pct": 10},
+        ],
+    },
+    "Kanpur": {
+        "citation": "UPPCB 2020",
+        "breakdown": [
+            {"source": "Industry", "pct": 32}, {"source": "Vehicles", "pct": 24},
+            {"source": "Biomass burning", "pct": 20}, {"source": "Road dust", "pct": 14},
+            {"source": "Others", "pct": 10},
+        ],
+    },
+    "Lucknow": {
+        "citation": "UPPCB 2021",
+        "breakdown": [
+            {"source": "Vehicles", "pct": 28}, {"source": "Industry", "pct": 25},
+            {"source": "Biomass burning", "pct": 22}, {"source": "Road dust", "pct": 15},
+            {"source": "Others", "pct": 10},
+        ],
+    },
+    "Patna": {
+        "citation": "BSPCB 2021",
+        "breakdown": [
+            {"source": "Biomass burning", "pct": 28}, {"source": "Vehicles", "pct": 22},
+            {"source": "Road dust", "pct": 20}, {"source": "Industry", "pct": 18},
+            {"source": "Others", "pct": 12},
+        ],
+    },
+    "Jaipur": {
+        "citation": "RSPCB 2020",
+        "breakdown": [
+            {"source": "Road dust", "pct": 32}, {"source": "Vehicles", "pct": 26},
+            {"source": "Construction", "pct": 18}, {"source": "Industry", "pct": 14},
+            {"source": "Others", "pct": 10},
+        ],
+    },
 }
+
+
+def _format_baseline(entry: dict) -> str:
+    parts = ", ".join(f"{b['source']} {b['pct']}%" for b in entry["breakdown"])
+    return f"{parts} ({entry['citation']})"
+
+
+def get_baseline_citation(city: str) -> str | None:
+    """The study name/year backing a city's CPCB baseline, if one exists —
+    surfaced in the /attribution API response so the frontend can show a real,
+    checkable citation next to the AI's numbers instead of a bare percentage."""
+    entry = CPCB_SOURCE_APPORTIONMENT.get(city)
+    return entry["citation"] if entry else None
+
 
 ATTRIBUTION_SYSTEM = """You are an air quality analyst for Indian cities with deep expertise in
 pollution source attribution. You are given a city's current AQI, meteorological conditions,
@@ -26,9 +127,10 @@ The percentages must sum to 100."""
 
 
 def attribution_user(req) -> str:
-    baseline = CPCB_SOURCE_APPORTIONMENT.get(
-        req.city,
-        "No published CPCB source apportionment available - estimate based on city type and conditions."
+    entry = CPCB_SOURCE_APPORTIONMENT.get(req.city)
+    baseline = (
+        _format_baseline(entry) if entry
+        else "No published CPCB source apportionment available - estimate based on city type and conditions."
     )
     return f"""Estimate the current pollution source attribution for the following city:
 
@@ -65,12 +167,20 @@ Respond ONLY with this JSON:
 ENFORCEMENT_SYSTEM = """You are an enforcement intelligence officer for India's Central
 Pollution Control Board. Given real-time AQI data from multiple cities, you generate
 prioritised, evidence-backed field enforcement recommendations for pollution control
-authorities. Always respond with ONLY valid JSON - no preamble, no markdown fences."""
+authorities. Always respond with ONLY valid JSON - no preamble, no markdown fences.
+
+Some cities below already carry a "dominant_source" — the output of a separate Source
+Attribution Agent that reasoned over that city's live weather, time of day, and CPCB
+baseline data before you were called. Treat that as a upstream finding, not a fresh
+guess: your recommended violation_type and action for that city MUST target that
+specific source (e.g. dominant_source "Industry" → industrial stack inspection, not
+generic dust control) rather than reasoning about the city from AQI alone."""
 
 
 def enforcement_user(req) -> str:
     cities_text = "\n".join(
         f"- {c['city']}: AQI {c['aqi']} ({c.get('label','')}) | PM2.5: {c.get('pm25') or '-'} μg/m³"
+        + (f" | Source Attribution Agent's dominant_source: {c['dominant_source']}" if c.get('dominant_source') else "")
         for c in req.top_cities
     )
     return f"""Current top pollution cities in India:
@@ -122,12 +232,22 @@ Respond ONLY with this exact JSON (all 3 priority objects must be present):
 
 # ─── AQI Forecast ─────────────────────────────────────────────────────────────
 
+# The forecast is a hybrid: utils/forecast_baseline.py computes a deterministic
+# statistical forecast (persistence + trend + wind-dispersion physics) with no
+# LLM call, and the LLM below is anchored to it as a starting point it must
+# explain or justify diverging from — not asked to invent numbers from a blank
+# page. See routes/intelligence.py::get_forecast for how the two are combined.
 FORECAST_SYSTEM = """You are a predictive air quality modeller for Indian cities.
-Using historical AQI trends and meteorological forecasts, you predict AQI for the
-next 24 hours at hourly intervals. Always respond with ONLY valid JSON."""
+You are given a deterministic statistical baseline forecast (computed from recent
+AQI trend and wind-dispersion physics, not by you) — treat it as your starting
+point of record, not a suggestion. Explain it, and adjust it only where you have
+a concrete meteorological or diurnal-traffic reason the baseline wouldn't
+capture — if you deviate from the baseline by more than a few points at any
+hour, your narrative must state the specific reason why. Always respond with
+ONLY valid JSON."""
 
 
-def forecast_user(req) -> str:
+def forecast_user(req, baseline: list[dict]) -> str:
     history_text = " → ".join(
         f"{h['hour']}:{h['aqi']}" for h in req.history_24h[-8:]
     )
@@ -135,25 +255,30 @@ def forecast_user(req) -> str:
         f"  {f['time']}: {f['temp_c']}°C, wind {f['wind_speed_kmh']} km/h, {f['description']}"
         for f in req.weather_forecast[:4]
     )
+    baseline_text = ", ".join(f"{b['hour']}: {b['predicted_aqi']}" for b in baseline)
     return f"""City: {req.city}
 Current AQI: {req.current_aqi}
 Last 8 hours AQI trend: {history_text}
 
+Statistical baseline forecast (deterministic, already computed — your starting point):
+{baseline_text}
+
 Upcoming weather forecast:
 {forecast_text}
 
-Predict AQI for the next 12 hours (at 2-hour intervals).
-Factor in: typical diurnal traffic patterns for Indian cities, weather-induced
-dispersion or stagnation, and the current trend trajectory.
+Reconcile your forecast with the statistical baseline above. Only diverge from
+it where you have a specific, stated meteorological or diurnal-traffic reason —
+typical diurnal traffic patterns for Indian cities and weather-induced
+dispersion/stagnation are valid reasons; inventing an unrelated number is not.
 
 Respond ONLY with:
 {{
   "city": "{req.city}",
   "forecast": [
     {{"hour": "HH:00", "predicted_aqi": <integer>, "confidence": "high|medium|low"}},
-    ... (6 entries, 2-hr intervals)
+    ... (6 entries, 2-hr intervals, matching the baseline's hours above)
   ],
-  "narrative": "<3-sentence summary of what to expect and why>",
+  "narrative": "<3-sentence summary of what to expect, and where/why you diverged from the statistical baseline, if at all>",
   "peak_hour": "<HH:00>",
   "peak_aqi": <integer>
 }}"""

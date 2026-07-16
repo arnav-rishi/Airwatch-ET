@@ -1,6 +1,7 @@
 from contextlib import asynccontextmanager
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 from dotenv import load_dotenv
 
 load_dotenv(override=True)
@@ -8,6 +9,7 @@ load_dotenv(override=True)
 from routes.aqi import router as aqi_router
 from routes.intelligence import router as intel_router
 from services.cache import warm_cache
+from services.rate_limit import check_rate_limit
 
 
 @asynccontextmanager
@@ -38,6 +40,23 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+@app.middleware("http")
+async def rate_limit_intel_routes(request: Request, call_next):
+    """Throttle the LLM-backed /api/intel/* routes so one caller can't burn
+    Azure OpenAI budget unbounded on a public deployment. AQI data routes are
+    cheap (cached/static) and left unthrottled."""
+    if request.url.path.startswith("/api/intel/"):
+        client_id = request.client.host if request.client else "unknown"
+        allowed, retry_after = check_rate_limit(client_id)
+        if not allowed:
+            return JSONResponse(
+                status_code=429,
+                content={"detail": "Rate limit exceeded. Please slow down and try again shortly."},
+                headers={"Retry-After": str(retry_after)},
+            )
+    return await call_next(request)
+
 
 app.include_router(aqi_router, prefix="/api/aqi", tags=["AQI Data"])
 app.include_router(intel_router, prefix="/api/intel", tags=["Intelligence"])
