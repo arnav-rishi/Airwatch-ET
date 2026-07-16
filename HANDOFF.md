@@ -14,13 +14,15 @@ Frontend map, city detail, enforcement, and advisory chatbot are all functional.
 
 | Area | Status |
 |------|--------|
-| Live AQI map (Leaflet, 21 real WAQI stations) | ✅ Working |
-| City detail panel (feed + weather + 24h history) | ✅ Working |
-| Source attribution (LLM, CPCB-anchored) | ✅ Working |
-| Enforcement priorities (LLM, top-5 cities) | ✅ Working |
+| Live AQI map (Leaflet, 43 curated cities via WAQI, per-city fallback) | ✅ Working |
+| City detail panel (feed + weather + 24h history, real-vs-synthetic disclosed) | ✅ Working |
+| Source attribution (LLM, CPCB-anchored, with deterministic confidence score) | ✅ Working |
+| Enforcement priorities (multi-agent: Attribution feeds Enforcement) | ✅ Working |
 | Citizen advisory chatbot (multilingual) | ✅ Working |
-| 24h forecast endpoint | ✅ Endpoint works; not yet wired into a UI tab |
-| Deployment (Vercel + backend host) | ⬜ Not done |
+| 24h forecast (hybrid: statistical baseline + LLM narrative, backtested MAE) | ✅ Working, wired into the city panel |
+| Rate limiting on `/api/intel/*` | ✅ Working (in-memory, per-process) |
+| CI (`.github/workflows/ci.yml`) | ✅ Runs pytest + frontend build on every push |
+| Deployment (Vercel + backend host) | ⚠️ Config ready; `deployment` branch is stale — see §6 |
 
 ---
 
@@ -28,22 +30,27 @@ Frontend map, city detail, enforcement, and advisory chatbot are all functional.
 
 ```
 airwatch/
+├── .github/workflows/ci.yml  pytest + frontend build on every push/PR
 ├── backend/                 FastAPI (Python 3.11)
-│   ├── main.py              App + CORS + lifespan cache warm
+│   ├── main.py              App + CORS + rate-limit middleware + lifespan cache warm
 │   ├── routes/
 │   │   ├── aqi.py           /api/aqi/live, /api/aqi/city/{name}
 │   │   └── intelligence.py  /api/intel/{attribution,enforcement,forecast,advisory}
 │   ├── services/
-│   │   ├── waqi.py          Primary AQI source (India bounds query)
-│   │   ├── openaq.py        Backup AQI source
+│   │   ├── waqi.py          Primary AQI source (per-city named feeds + per-city fallback)
+│   │   ├── openaq.py        Backup AQI source + 24h history (tags source: real vs synthetic)
 │   │   ├── openweather.py   Weather context for LLM prompts
 │   │   ├── llm.py           Azure OpenAI wrapper (call_llm, call_llm_json)
-│   │   └── cache.py         10-min in-memory station cache
-│   ├── utils/aqi_calculator.py   CPCB AQI breakpoints + categories
-│   ├── prompts.py           All LLM system/user prompt builders
-│   ├── data/cities_fallback.json Static fallback data
+│   │   ├── cache.py         10-min in-memory station cache
+│   │   └── rate_limit.py    In-memory sliding-window limiter for /api/intel/*
+│   ├── utils/
+│   │   ├── aqi_calculator.py         CPCB AQI breakpoints + categories
+│   │   ├── forecast_baseline.py      Deterministic stat forecast + backtest (no LLM)
+│   │   └── attribution_confidence.py Divergence-from-baseline confidence scoring
+│   ├── prompts.py           All LLM system/user prompt builders + CPCB citation table
+│   ├── data/cities_fallback.json Static fallback data (43 cities)
 │   ├── test_endpoints.py    HTTP integration suite (run against live server)
-│   └── tests/               Unit tests (pytest)
+│   └── tests/               Unit tests (pytest) + conftest.py env bootstrap
 └── frontend/                React + Vite + Tailwind v4
     └── src/
         ├── App.jsx          Tabs: Map / Enforcement / Advisory
@@ -54,11 +61,15 @@ airwatch/
 ```
 
 **Data flow (map stations):** A curated list of major Indian cities
-(`data/cities_fallback.json`, each with a WAQI `slug`) is fetched **live** in parallel via
-WAQI's **named city feeds** (`/feed/{slug}/`). Only cities with a real current reading are
-shown — the map is never padded with stale values. If WAQI is entirely unreachable
-(zero live cities), it falls back OpenAQ → static dataset so the app is never blank.
-Station data is cached at startup (`lifespan` in `main.py`) for 10 minutes.
+(`data/cities_fallback.json`, 43 cities as of 2026-07-17, each with a WAQI `slug`) is fetched
+**live** in parallel via WAQI's **named city feeds** (`/feed/{slug}/`). Every curated city is
+always shown: one whose live feed fails (bad slug, timeout, no current reading) falls back to
+its own last-known static reading (`source: "fallback"`) instead of being dropped — so a single
+flaky request no longer thins out the map, it only ages that one marker. The map tooltip already
+shows each station's `source`, so live vs. fallback is transparent per-marker. Only if the HTTP
+client itself fails entirely does it fall back further, to OpenAQ → the full static dataset, so
+the app is never blank. Station data is cached at startup (`lifespan` in `main.py`) for 10
+minutes.
 
 > ⚠️ Do NOT use WAQI's `/map/bounds/` or `/feed/geo:lat;lon/` for this — bounds returns a
 > downsampled cluster dominated by Nepal/Tibet stations, and geo-feed frequently resolves
@@ -110,6 +121,16 @@ These caused real debugging pain — read before touching the LLM or proxy code.
 - Does **not** support a custom `temperature` — must be omitted entirely.
 - Requires API version **`2025-04-01-preview`**. Stable versions like `2024-02-01` return 404.
 - `services/llm.py` guards against `None` content and raises a clear error if the budget runs out.
+- **The `openai` Python package must actually be new enough to send `max_completion_tokens`
+  and `reasoning_effort` to the Chat Completions endpoint.** `requirements.txt` used to read
+  `openai>=1.30.0`, which resolves to old releases that raise
+  `TypeError: Completions.create() got an unexpected keyword argument 'max_completion_tokens'`
+  — a hard crash on every LLM call, not a graceful fallback. Verified working at
+  **`openai==2.45.0`**, now pinned exactly in `requirements.txt`. Don't loosen this pin
+  without testing an actual `call_llm()` round trip first.
+- Relatedly: `openai==1.30.5` also breaks under `httpx>=0.28` (it still passes a `proxies`
+  kwarg to `httpx.Client` that 0.28 removed) — another reason to install exactly from
+  `requirements.txt` rather than letting pip resolve latest-compatible versions freely.
 
 ### Ports
 - Backend runs on **8001** (port 8000 was blocked by Windows — WinError 10013).
@@ -138,6 +159,34 @@ These caused real debugging pain — read before touching the LLM or proxy code.
 - City dropdown deduplicates stations by city (keeps highest-AQI per city) so the dropdown
   and the status bar always agree.
 
+### Hybrid forecast, multi-agent enforcement, and confidence scoring — why they exist
+The original forecast/attribution endpoints were 100% LLM output with nothing to check them
+against — plausible numbers, no accuracy claim. Three additions close that gap without adding
+new infrastructure or fabricating data:
+- **`utils/forecast_baseline.py`** computes a forecast with zero LLM calls (persistence + linear
+  trend + a wind-dispersion multiplier) and backtests its own accuracy (MAE) against real held-out
+  history. `routes/intelligence.py::get_forecast` hands this to the LLM as the number it must
+  explain or justify diverging from, instead of asking it to invent numbers from a blank page.
+  `ForecastChart.jsx` plots both lines so a viewer can see exactly where (if anywhere) the AI
+  actually disagreed with the deterministic baseline.
+- **`utils/attribution_confidence.py`** measures how far the LLM's returned source breakdown
+  actually is from the CPCB baseline it was anchored to (`prompts.py::CPCB_SOURCE_APPORTIONMENT`),
+  and surfaces `high`/`medium`/`low`/`unverified` confidence in the API response and in
+  `CityPanel.jsx`. High divergence isn't automatically wrong, but it's now visible instead of
+  buried in free-form prose.
+- **Multi-agent enforcement** (`routes/intelligence.py::_attribute_city`): `/enforcement/auto` now
+  runs the Attribution Agent for each of the top-5 cities in parallel first, and the Enforcement
+  Agent is instructed to ground its recommended violation type in that upstream `dominant_source`
+  finding rather than re-guessing from AQI alone. Trade-off, stated plainly: this adds a real
+  sequential dependency (~one attribution call's latency, ~15-20s) to `/enforcement/auto` — it's
+  not free.
+
+None of this claims to be a validated meteorological model or a trained classifier — it's a
+linear baseline and a rule-based divergence check, honestly scoped to what's actually being
+computed. See the repo's Phase 8-10 design-review conversation for the full reasoning on why
+this was the highest-value addition relative to more exotic-sounding alternatives (federated
+learning, TinyML, etc.) that this project doesn't have the hardware/data to do honestly.
+
 ---
 
 ## 5. Required API Keys (.env)
@@ -156,12 +205,21 @@ Copy `backend/.env.example` to `backend/.env` and fill in:
 
 ## 6. What's Next (suggested)
 
-1. **Wire the forecast into the UI** — `/api/intel/forecast` works and `ForecastChart.jsx`
-   exists, but there's no tab/panel calling it yet.
-2. **Deploy** — frontend to Vercel (set `VITE_API_URL`), backend to a host (Render/Railway/
-   Azure). Add the deployed frontend URL to `allow_origins` in `main.py`.
-3. **Persist cache** — current cache is in-memory per-process; consider Redis for multi-worker.
-4. **Rate-limiting / cost control** on LLM endpoints before any public demo.
-5. **Presentation / demo script** for the hackathon submission.
+1. **Sync the `deployment` branch** — it's currently behind `master` (missing the per-city WAQI
+   fallback fix and everything in this document). Needs an explicit decision to merge/push since
+   it triggers live Vercel auto-redeploy on two projects.
+2. **Persist cache** — current cache and rate limiter are in-memory per-process; consider Redis
+   for multi-worker/serverless deployments where they currently do nothing across invocations.
+3. **Real sensor fusion** — WAQI and OpenAQ are currently a strict waterfall (primary → backup),
+   not a fusion. A confidence-weighted combination when both sources return a value for the same
+   city would be a real, modest accuracy improvement.
+4. **Satellite data fusion (Sentinel-5P NO2)** — the highest-novelty-ceiling extension available;
+   almost no comparable project pulls real satellite retrieval data instead of ground stations.
+   Needs a real geospatial ingestion pipeline and validation against ground truth to be honest,
+   not just a visual overlay.
+5. **PII handling for advisory queries** — free-text citizen queries go to Azure OpenAI with no
+   stated retention policy. A naive regex scrubber would give false confidence; this needs a
+   properly resourced solution (e.g. Azure Content Safety's PII detection).
+6. **Presentation / demo script** for the hackathon submission.
 
 See `PS5_AirQuality_Implementation_Plan.md` (repo root) for the original full plan.
