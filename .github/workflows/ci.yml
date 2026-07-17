@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [master, deployment]
+  pull_request:
+    branches: [master, deployment]
+
+jobs:
+  backend-tests:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    env:
+      # Placeholder credentials, not secrets: services/llm.py constructs an
+      # AzureOpenAI client at import time and raises immediately if these are
+      # unset, so even the deterministic unit tests (which never call the LLM)
+      # need *something* here to import cleanly. Real deployments set real
+      # values via their own secrets — see .env.example.
+      AZURE_OPENAI_API_KEY: placeholder
+      AZURE_OPENAI_ENDPOINT: https://placeholder.openai.azure.com
+      AZURE_OPENAI_DEPLOYMENT: gpt-5-nano
+      AZURE_OPENAI_API_VERSION: 2025-04-01-preview
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run test suite
+        run: pytest tests/ -v
+
+  frontend-build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install dependencies
+        run: npm ci
+      - name: Build
+        run: npm run build

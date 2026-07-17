@@ -46,11 +46,36 @@ def _curated_cities() -> list[dict]:
         return json.load(f)
 
 
-async def _fetch_city_live(client: httpx.AsyncClient, city: dict) -> dict | None:
+def _fallback_station(city: dict) -> dict:
+    """Build a station dict from a curated city's static last-known reading.
+
+    Used when that specific city's live WAQI feed fails or has no current
+    reading, so a bad/stale slug or a single flaky request drops only that
+    one city's freshness — never the city itself off the map.
+    """
+    cat = aqi_category(city["aqi"])
+    return {
+        "city": city["city"],
+        "state": city["state"],
+        "lat": city["lat"],
+        "lon": city["lon"],
+        "aqi": city["aqi"],
+        "pm25": city.get("pm25"),
+        "primary_pollutant": city.get("primary_pollutant", "PM2.5"),
+        "station_raw": city["city"],
+        "updated_at": city.get("updated_at", ""),
+        "source": "fallback",
+        **cat,
+        "radius": circle_radius(city["aqi"]),
+    }
+
+
+async def _fetch_city_live(client: httpx.AsyncClient, city: dict) -> dict:
     """
     Fetch live AQI for one curated city via WAQI's named city feed (/feed/{slug}/).
-    Returns a station dict ONLY if the feed has a real live AQI reading; otherwise
-    returns None (the city is skipped — we never pad the map with stale values).
+    Returns a live station dict when the feed has a real current reading; otherwise
+    falls back to that city's static last-known reading so it never disappears
+    from the map — it just won't be tagged "waqi_live".
     """
     token = os.getenv("WAQI_TOKEN")
     try:
@@ -61,13 +86,13 @@ async def _fetch_city_live(client: httpx.AsyncClient, city: dict) -> dict | None
         )
         data = resp.json()
         if data.get("status") != "ok":
-            return None
+            return _fallback_station(city)
 
         d = data["data"]
         raw_aqi = d.get("aqi")
-        # WAQI reports "-" when a station has no current reading — skip those.
+        # WAQI reports "-" when a station has no current reading — use fallback.
         if not isinstance(raw_aqi, int):
-            return None
+            return _fallback_station(city)
 
         pm25 = d.get("iaqi", {}).get("pm25", {}).get("v")
         # Prefer the station's own coordinates so the pin sits on the real station.
@@ -89,17 +114,18 @@ async def _fetch_city_live(client: httpx.AsyncClient, city: dict) -> dict | None
             "radius": circle_radius(raw_aqi),
         }
     except Exception:
-        return None
+        return _fallback_station(city)
 
 
 async def fetch_india_stations() -> list[dict]:
     """
     Fetch live AQI for a curated list of major Indian cities from WAQI (named feeds,
-    in parallel). Returns ONLY cities that have a real live reading right now.
+    in parallel). Every curated city is always returned — one whose live feed fails
+    falls back to its own last-known static reading (source="fallback") rather than
+    being dropped, so the map always shows the full curated set.
 
-    If WAQI is entirely unreachable (network/token failure → zero live cities), the
-    full static dataset is returned so the app is never blank. When live data exists,
-    no static cities are mixed in.
+    If constructing the HTTP client itself fails (rare), falls back to OpenAQ, then
+    the full static dataset, so the app is never blank.
     """
     cities = _curated_cities()
     try:
@@ -111,7 +137,6 @@ async def fetch_india_stations() -> list[dict]:
         stations = [r for r in results if isinstance(r, dict)]
         if stations:
             return stations
-        # Total WAQI failure — try OpenAQ, then static.
         try:
             from services.openaq import fetch_live_aqi
             live = await fetch_live_aqi()

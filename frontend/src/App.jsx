@@ -11,6 +11,7 @@ export default function App() {
   const [selectedCity, setSelectedCity] = useState(null)
   const [cityDetail, setCityDetail] = useState(null)
   const [attribution, setAttribution] = useState(null)
+  const [forecast, setForecast] = useState(null)
   const [enforcement, setEnforcement] = useState(null)
   const [enforcementLoading, setEnforcementLoading] = useState(false)
   const [activeTab, setActiveTab] = useState('map')
@@ -29,15 +30,22 @@ export default function App() {
     setSelectedCity(station)
     setCityDetail(null)
     setAttribution(null)
+    setForecast(null)
 
-    // Step 1: fetch real city detail (includes real weather from OWM)
-    const detail = await api.getCityDetail(station.city, station.lat, station.lon)
+    // Step 1: fetch real city detail (includes real weather + forecast from OWM)
+    let detail
+    try {
+      detail = await api.getCityDetail(station.city, station.lat, station.lon)
+    } catch (e) {
+      console.error(e)
+      return
+    }
     setCityDetail(detail)
 
     // Step 2: pass REAL weather values to attribution
     const now = new Date()
     const weather = detail.weather || {}
-    const attr = await api.getAttribution({
+    api.getAttribution({
       city: station.city,
       state: station.state || '',
       aqi: station.aqi,
@@ -47,8 +55,17 @@ export default function App() {
       weather_desc: weather.description || 'clear',
       wind_speed_kmh: weather.wind_speed_kmh || 0,
       humidity_pct: weather.humidity_pct || 50,
-    })
-    setAttribution(attr)
+    }).then(setAttribution).catch(console.error)
+
+    // Step 3: 24hr AQI forecast, using real history + OWM forecast
+    if (detail.history?.length) {
+      api.getForecast({
+        city: station.city,
+        current_aqi: station.aqi,
+        history_24h: detail.history,
+        weather_forecast: detail.weather_forecast || [],
+      }).then(setForecast).catch(console.error)
+    }
   }
 
   return (
@@ -89,7 +106,7 @@ export default function App() {
             {selectedCity && (
               <div className="w-96 overflow-y-auto border-l border-[#2d3348] bg-[#1a1f2e]">
                 <CityPanel city={selectedCity} detail={cityDetail} attribution={attribution}
-                  onClose={() => setSelectedCity(null)} />
+                  forecast={forecast} onClose={() => setSelectedCity(null)} />
               </div>
             )}
           </>

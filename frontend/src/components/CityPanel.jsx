@@ -1,10 +1,18 @@
 import { PieChart, Pie, Cell, LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts'
+import ForecastChart from './ForecastChart'
 
 const SOURCE_COLORS = ['#3b82f6', '#f97316', '#a855f7', '#10b981', '#94a3b8']
 const AQI_COLOR = (aqi) =>
   aqi > 300 ? '#C62828' : aqi > 200 ? '#FF5722' : aqi > 100 ? '#FFC107' : '#00C853'
 
-export default function CityPanel({ city, detail, attribution, onClose }) {
+const CONFIDENCE_STYLE = {
+  high: 'bg-green-900/30 text-green-400 border-green-700',
+  medium: 'bg-yellow-900/30 text-yellow-400 border-yellow-700',
+  low: 'bg-red-900/30 text-red-400 border-red-700',
+  unverified: 'bg-slate-800 text-slate-400 border-slate-600',
+}
+
+export default function CityPanel({ city, detail, attribution, forecast, onClose }) {
   const sources = attribution
     ? [
         { name: 'Traffic', value: attribution.traffic },
@@ -43,7 +51,21 @@ export default function CityPanel({ city, detail, attribution, onClose }) {
       {/* Source Attribution */}
       {attribution ? (
         <div>
-          <h3 className="text-sm font-semibold text-slate-300 mb-3">Pollution Sources</h3>
+          <div className="flex items-center gap-2 mb-3">
+            <h3 className="text-sm font-semibold text-slate-300">Pollution Sources</h3>
+            {attribution.attribution_confidence && (
+              <span
+                className={`text-[10px] px-1.5 py-0.5 rounded border ${CONFIDENCE_STYLE[attribution.attribution_confidence] || CONFIDENCE_STYLE.unverified}`}
+                title={
+                  attribution.baseline_divergence != null
+                    ? `${attribution.baseline_divergence} pts total divergence from the cited CPCB baseline`
+                    : 'No CPCB baseline on file for this city — cannot verify'
+                }
+              >
+                {attribution.attribution_confidence} confidence
+              </span>
+            )}
+          </div>
           <div className="flex items-center gap-4">
             <PieChart width={120} height={120}>
               <Pie data={sources} cx={55} cy={55} innerRadius={30} outerRadius={55} dataKey="value">
@@ -62,6 +84,11 @@ export default function CityPanel({ city, detail, attribution, onClose }) {
           </div>
           {attribution.reasoning && (
             <p className="text-xs text-slate-400 mt-2 italic">{attribution.reasoning}</p>
+          )}
+          {attribution.baseline_citation && (
+            <p className="text-xs text-slate-500 mt-1">
+              Baseline source: <span className="text-slate-400">{attribution.baseline_citation}</span>
+            </p>
           )}
         </div>
       ) : (
@@ -89,7 +116,19 @@ export default function CityPanel({ city, detail, attribution, onClose }) {
               />
             </LineChart>
           </ResponsiveContainer>
+          <p className="text-xs text-slate-600 mt-1">
+            {detail.history_source === 'synthetic_diurnal'
+              ? 'Modelled estimate — no live station history available for this city right now'
+              : 'Source: OpenAQ measurements'}
+          </p>
         </div>
+      )}
+
+      {/* 24hr Forecast */}
+      {detail?.history?.length > 0 && (
+        forecast
+          ? <ForecastChart forecast={forecast} />
+          : <div className="text-center py-4 text-slate-500 text-sm">Forecasting next 12 hours...</div>
       )}
 
       {/* Real Multi-Pollutant Breakdown from WAQI feed */}
