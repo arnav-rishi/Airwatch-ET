@@ -11,6 +11,13 @@ FALLBACK_PATH = Path(__file__).parent.parent / "data" / "cities_fallback.json"
 
 # India bounding box: SW corner (8.07, 68.20) → NE corner (37.08, 97.40)
 INDIA_BOUNDS = "8.07,68.20,37.08,97.40"
+_INDIA_MIN_LAT, _INDIA_MIN_LON, _INDIA_MAX_LAT, _INDIA_MAX_LON = (
+    float(v) for v in INDIA_BOUNDS.split(",")
+)
+
+
+def _in_india(lat: float, lon: float) -> bool:
+    return _INDIA_MIN_LAT <= lat <= _INDIA_MAX_LAT and _INDIA_MIN_LON <= lon <= _INDIA_MAX_LON
 
 
 def _load_fallback() -> list[dict]:
@@ -97,13 +104,21 @@ async def _fetch_city_live(client: httpx.AsyncClient, city: dict) -> dict:
         pm25 = d.get("iaqi", {}).get("pm25", {}).get("v")
         # Prefer the station's own coordinates so the pin sits on the real station.
         geo = d.get("city", {}).get("geo") or [city["lat"], city["lon"]]
+        lat, lon = float(geo[0]), float(geo[1])
+
+        # Some city-name slugs collide with a same-named place abroad (e.g.
+        # "kochi" also resolves to Kōchi, Japan on WAQI). If the station WAQI
+        # actually returned isn't in India, this isn't our curated city's data
+        # at all — fall back rather than mislabel a foreign reading as CPCB/India.
+        if not _in_india(lat, lon):
+            return _fallback_station(city)
 
         cat = aqi_category(raw_aqi)
         return {
             "city": city["city"],
             "state": city["state"],
-            "lat": float(geo[0]),
-            "lon": float(geo[1]),
+            "lat": lat,
+            "lon": lon,
             "aqi": raw_aqi,
             "pm25": pm25,
             "primary_pollutant": d.get("dominentpol", "pm25").upper(),

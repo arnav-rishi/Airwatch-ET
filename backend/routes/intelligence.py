@@ -4,6 +4,7 @@ from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 from services.llm import call_llm, call_llm_json
 from services.openweather import fetch_weather, fetch_forecast
+from services.cache import get_cached_attribution, set_cached_attribution
 from utils.aqi_calculator import aqi_category
 from utils.attribution_confidence import score_attribution_confidence
 from utils.forecast_baseline import compute_baseline_forecast, backtest_baseline
@@ -58,6 +59,10 @@ async def get_attribution(req: AttributionRequest):
     Returns a source breakdown (traffic, industrial, construction, biomass, other)
     as percentages for a city, reasoned by GPT-4o.
     """
+    cached = get_cached_attribution(req.city)
+    if cached:
+        return cached
+
     result = call_llm_json(
         system=ATTRIBUTION_SYSTEM,
         user=attribution_user(req),
@@ -72,6 +77,7 @@ async def get_attribution(req: AttributionRequest):
     # Deterministic confidence check: how far did the LLM actually stray from
     # the baseline it was anchored to? See utils/attribution_confidence.py.
     result.update(score_attribution_confidence(req.city, result))
+    set_cached_attribution(req.city, result)
     return result
 
 
@@ -129,6 +135,10 @@ async def _attribute_city(city: dict) -> str | None:
     into enforcement without a dominant_source hint, not that the whole endpoint fails.
     """
     try:
+        cached = get_cached_attribution(city["city"])
+        if cached:
+            return cached.get("dominant_source")
+
         weather = await fetch_weather(city["lat"], city["lon"])
         now = datetime.now()
         attr_req = AttributionRequest(
@@ -142,6 +152,7 @@ async def _attribute_city(city: dict) -> str | None:
         result = call_llm_json(
             system=ATTRIBUTION_SYSTEM, user=attribution_user(attr_req), max_tokens=8000,
         )
+        set_cached_attribution(city["city"], result)
         return result.get("dominant_source")
     except Exception:
         return None
@@ -185,7 +196,10 @@ async def get_auto_enforcement():
             user=enforcement_user(req),
             max_tokens=8000,
         )
-        result["multi_agent"] = True
+        # Only claim the multi-agent chain actually ran if at least one city
+        # got a real attribution result — otherwise this silently degrades to
+        # AQI-only enforcement and callers shouldn't be told otherwise.
+        result["multi_agent"] = bool(attributed_sources)
         result["attributed_sources"] = attributed_sources
         return result
     except HTTPException:

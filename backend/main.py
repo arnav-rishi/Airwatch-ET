@@ -47,7 +47,14 @@ async def rate_limit_intel_routes(request: Request, call_next):
     Azure OpenAI budget unbounded on a public deployment. AQI data routes are
     cheap (cached/static) and left unthrottled."""
     if request.url.path.startswith("/api/intel/"):
-        client_id = request.client.host if request.client else "unknown"
+        # Behind Vercel's proxy, request.client.host is the proxy's own IP,
+        # not the caller's — that collapses every caller onto one bucket.
+        # Vercel forwards the real client IP in X-Forwarded-For.
+        forwarded_for = request.headers.get("x-forwarded-for")
+        if forwarded_for:
+            client_id = forwarded_for.split(",")[0].strip()
+        else:
+            client_id = request.client.host if request.client else "unknown"
         allowed, retry_after = check_rate_limit(client_id)
         if not allowed:
             return JSONResponse(

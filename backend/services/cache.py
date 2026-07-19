@@ -32,3 +32,26 @@ def get_cached_stations() -> Optional[list[dict]]:
 def set_cached_stations(stations: list[dict]):
     _cache["stations"] = stations
     _cache["fetched_at"] = datetime.utcnow()
+
+
+# Source-attribution LLM calls are the slowest part of opening a city panel and,
+# within a short window, would just re-derive the same answer (the station AQI
+# feeding them is itself only refreshed every CACHE_TTL_MINUTES). Caching by
+# city name for the same TTL trades a little staleness for skipping a full LLM
+# round trip on repeat clicks/enforcement refreshes.
+_attribution_cache: dict[str, tuple[datetime, dict]] = {}
+ATTRIBUTION_CACHE_TTL_MINUTES = 10
+
+
+def get_cached_attribution(city: str) -> Optional[dict]:
+    entry = _attribution_cache.get(city)
+    if not entry:
+        return None
+    fetched_at, result = entry
+    if datetime.utcnow() - fetched_at > timedelta(minutes=ATTRIBUTION_CACHE_TTL_MINUTES):
+        return None
+    return result
+
+
+def set_cached_attribution(city: str, result: dict):
+    _attribution_cache[city] = (datetime.utcnow(), result)

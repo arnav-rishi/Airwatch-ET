@@ -11,7 +11,11 @@ appropriately scoped for what a hand-curated citation table can support; it
 does not claim the LLM's numbers are scientifically correct, only that they
 are (or aren't) a plausible adjustment of the cited baseline.
 """
+import logging
+
 from prompts import CPCB_SOURCE_APPORTIONMENT
+
+logger = logging.getLogger(__name__)
 
 # The LLM's response schema (prompts.py::attribution_user) buckets sources
 # into 5 fixed categories that don't map 1:1 onto the raw CPCB breakdown's
@@ -39,6 +43,19 @@ def score_attribution_confidence(city: str, result: dict) -> dict:
     """
     entry = CPCB_SOURCE_APPORTIONMENT.get(city)
     if not entry:
+        return {"baseline_divergence": None, "attribution_confidence": "unverified"}
+
+    # A single missing bucket is a normal LLM omission (treated as 0 below),
+    # but *none* of the expected buckets being present means the LLM's
+    # response schema no longer matches what this module expects (e.g. the
+    # attribution_user prompt schema was renamed) — surface that loudly
+    # rather than silently scoring a divergence against an all-zero result.
+    if not any(bucket in result for bucket in _CATEGORY_MAP):
+        logger.warning(
+            "score_attribution_confidence: none of the expected buckets %s "
+            "found in result keys %s — possible schema drift with prompts.py",
+            sorted(_CATEGORY_MAP), sorted(result.keys()),
+        )
         return {"baseline_divergence": None, "attribution_confidence": "unverified"}
 
     baseline_by_bucket = {bucket: 0 for bucket in _CATEGORY_MAP}

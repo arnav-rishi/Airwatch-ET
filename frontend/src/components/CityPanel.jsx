@@ -59,10 +59,12 @@ export default function CityPanel({ city, detail, attribution, forecast, onClose
                 title={
                   attribution.baseline_divergence != null
                     ? `${attribution.baseline_divergence} pts total divergence from the cited CPCB baseline`
-                    : 'No CPCB baseline on file for this city — cannot verify'
+                    : 'CPCB has not published a source apportionment study for this city, so this estimate cannot be benchmarked against an official baseline'
                 }
               >
-                {attribution.attribution_confidence} confidence
+                {attribution.attribution_confidence === 'unverified'
+                  ? 'No CPCB baseline'
+                  : `${attribution.attribution_confidence} confidence`}
               </span>
             )}
           </div>
