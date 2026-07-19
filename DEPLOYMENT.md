@@ -1,7 +1,7 @@
 # Deploying AirWatch India to Vercel
 
 This app deploys as **two Vercel projects from this one repo**, both built from the
-`deployment` branch:
+`master` branch:
 
 | Project | Root Directory | What it is |
 |---------|----------------|------------|
@@ -17,7 +17,7 @@ Deploy the **backend first** — the frontend needs the backend's URL.
 1. Go to <https://vercel.com/new> → **Import** this GitHub repo (`arnav-rishi/Airwatch-ET`).
 2. **Project Name:** `airwatch-backend`
 3. **Root Directory:** click *Edit* → select **`backend`**.
-4. **Production Branch:** set to `deployment` (Project → Settings → Git, if not offered on import).
+4. **Production Branch:** `master` (this is Vercel's default, so it may already be set).
 5. **Environment Variables** — add all six (values live in `Keys.txt` / from your teammate,
    **never commit them**):
 
@@ -43,7 +43,7 @@ Deploy the **backend first** — the frontend needs the backend's URL.
 1. <https://vercel.com/new> → **Import the same repo again**.
 2. **Project Name:** `airwatch-frontend`
 3. **Root Directory:** **`frontend`** (framework auto-detects as **Vite**).
-4. **Production Branch:** `deployment`.
+4. **Production Branch:** `master`.
 5. **Environment Variable:**
 
    | Name | Value |
@@ -68,6 +68,6 @@ CORS is already handled: `backend/main.py` allows any `*.vercel.app` origin.
 - **Timeouts:** LLM calls are slow. `maxDuration: 60` covers them on Vercel's free tier.
 - **Cold starts:** the in-memory station cache doesn't persist between serverless
   invocations; the first request after idle re-fetches live data (a few seconds).
-- **Redeploys:** push to `deployment` → both projects auto-redeploy.
+- **Redeploys:** push to `master` → both projects auto-redeploy.
 - **Secrets:** only ever entered in Vercel's env-var UI and the local gitignored
   `backend/.env`. `Keys.txt` is gitignored and lives outside the repo.
