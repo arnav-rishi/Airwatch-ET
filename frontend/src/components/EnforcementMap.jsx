@@ -114,7 +114,8 @@ export default function EnforcementMap({ hotspot, selectedSourceId, onSelectSour
 
           {candidates.map(s => {
             const isSelected = s.id === selectedSourceId
-            const color = CATEGORY_COLORS[s.category] || '#888'
+            const isSatellite = s.source_type === 'satellite'
+            const color = isSatellite ? '#ef4444' : (CATEGORY_COLORS[s.category] || '#888')
             return (
               <CircleMarker
                 key={s.id}
@@ -127,16 +128,25 @@ export default function EnforcementMap({ hotspot, selectedSourceId, onSelectSour
                   fillColor: color,
                   fillOpacity: isSelected ? 0.95 : 0.6,
                   weight: isSelected ? 3 : 1,
+                  // Satellite detections are drawn dashed: they're observed
+                  // thermal anomalies, not registered premises, and the map
+                  // shouldn't imply the same standing for both.
+                  dashArray: isSatellite ? '3 3' : undefined,
                 }}
                 eventHandlers={{ click: () => onSelectSource?.(s.id) }}
               >
                 <Tooltip>
                   <div className="text-sm">
                     <strong>{s.dispatch_label || s.name}</strong><br />
-                    {CATEGORY_LABELS[s.category] || s.category}<br />
+                    {isSatellite
+                      ? <>🛰 Satellite fire detection<br /></>
+                      : <>{CATEGORY_LABELS[s.category] || s.category}<br /></>}
                     {s.distance_km} km {s.compass_from_hotspot} of station<br />
                     {s.upwind_alignment != null && (
                       <>Upwind alignment: {s.upwind_alignment > 0.6 ? 'directly upwind' : s.upwind_alignment > 0.2 ? 'partially upwind' : 'crosswind'} ({s.upwind_alignment})<br /></>
+                    )}
+                    {isSatellite && s.frp_mw != null && (
+                      <>Fire radiative power: {s.frp_mw} MW · confidence {s.detection_confidence}<br /></>
                     )}
                     Evidence score: <strong>{s.evidence_score}</strong>
                   </div>
@@ -165,6 +175,12 @@ export default function EnforcementMap({ hotspot, selectedSourceId, onSelectSour
             {label}
           </span>
         ))}
+        {candidates.some(s => s.source_type === 'satellite') && (
+          <span className="flex items-center gap-1.5">
+            <span className="w-2.5 h-2.5 rounded-full border border-dashed" style={{ background: '#ef444488', borderColor: '#ef4444' }} />
+            🛰 Satellite fire
+          </span>
+        )}
         <span className="flex items-center gap-1.5">
           <span className="w-4 h-0 border-t-2 border-dashed" style={{ borderColor: '#22d3ee' }} />
           Wind axis

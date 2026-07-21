@@ -8,6 +8,7 @@ from services.cache import get_cached_attribution, set_cached_attribution
 from services.source_registry import (
     get_sources_for_city, has_registry, registry_meta, registry_stats,
 )
+from services.firms import fetch_fires_near, firms_enabled
 from utils.aqi_calculator import aqi_category
 from utils.attribution_confidence import score_attribution_confidence
 from utils.enforcement_scoring import score_sources
@@ -87,12 +88,27 @@ async def get_attribution(req: AttributionRequest):
 
 @router.post("/enforcement")
 async def get_enforcement(req: EnforcementRequest):
-    """Returns today's top 3 enforcement priorities across the submitted cities."""
+    """
+    Enforcement priorities for a caller-supplied set of cities.
+
+    Runs the same geospatial correlation as /enforcement/auto — cities that
+    carry lat/lon get their registered sources ranked before the LLM is called.
+    Without this the endpoint would hand the LLM the correlation-aware prompt
+    with no candidates attached, and every recommendation would come back
+    flagged as AQI-only.
+    """
+    cities = [
+        await _enrich_city_with_candidates(c) if c.get("lat") and c.get("lon") else c
+        for c in req.top_cities
+    ]
+    enriched = EnforcementRequest(top_cities=cities)
+
     result = await acall_llm_json(
         system=ENFORCEMENT_SYSTEM,
-        user=enforcement_user(req),
+        user=enforcement_user(enriched),
         max_tokens=8000,
     )
+    result["registry_backed"] = any(c.get("candidate_sources") for c in cities)
     return result
 
 
@@ -164,7 +180,21 @@ async def _enrich_city_with_candidates(city: dict) -> dict:
     geometry alone, and no registry entry means this city goes to the LLM
     flagged as AQI-only evidence rather than failing the whole endpoint.
     """
-    sources = get_sources_for_city(city["city"])
+    sources = list(get_sources_for_city(city["city"]))
+
+    # Layer satellite-detected active fires on top of the ground register.
+    # Open waste burning is unregistered by definition, so this is the only way
+    # it enters the candidate set at all. Additive: no FIRMS key, or no fires
+    # today, just means the ground registry stands alone.
+    try:
+        fires = await fetch_fires_near(city["lat"], city["lon"])
+        for f in fires:
+            f["city"] = city["city"]
+        sources.extend(fires)
+        city["satellite_fire_count"] = len(fires)
+    except Exception:
+        city["satellite_fire_count"] = 0
+
     if not sources:
         city["candidate_sources"] = []
         return city
