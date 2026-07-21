@@ -95,6 +95,26 @@ so a reviewer can audit exactly why a facility ranked where it did. `GET /api/in
 exposes the registry directly. The endpoint also reports `response_time_seconds` — measured
 signal-to-dispatch latency, which the evaluation criteria ask to see demonstrated.
 
+This is what the Enforcement Agent actually receives — real facilities, real geometry,
+nothing for it to invent:
+
+```
+CITY: Kolkata - AQI 340 (Very Poor), PM2.5 180.0 μg/m³
+  Attribution Agent dominant_source: Industry
+  Live wind: from 315° at 12.0 km/h
+  Ranked registered emission sources near this hotspot:
+    - [way/101750901] Unregistered industry site 2.1 km NW of Kolkata centre |
+      category: industry | 2.05 km NW of station | directly UPWIND (alignment 0.999) |
+      evidence score 0.8288 | coords 22.586089,88.350254
+```
+
+**4. Geospatial documentation.** The Enforcement tab renders the correlation on a map:
+the monitoring station, every candidate source coloured by category and sized by evidence
+score, the wind axis, the 25 km screening radius, and evidence lines from each candidate
+to the station. Selecting a priority focuses its facility. Each recommendation shows the
+component-score breakdown that produced it, the exact coordinates, and a link to the
+facility on OpenStreetMap — so the evidence is checkable in the UI, not just in the API.
+
 ---
 
 **Data integrity — one AQI scale, end to end:** WAQI serves **US EPA** AQI *index* values
