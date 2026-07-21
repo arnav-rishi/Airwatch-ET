@@ -29,6 +29,8 @@ its component scores so a reviewer can see exactly why it ranked where it did.
 import re
 from math import atan2, cos, degrees, radians, sin, sqrt
 
+from utils.dispersion import describe_stability, dispersion_factor
+
 EARTH_RADIUS_KM = 6371.0
 
 # Beyond this, a source is treated as unable to contribute meaningfully to a
@@ -36,8 +38,8 @@ EARTH_RADIUS_KM = 6371.0
 # urban source still measurably affects a monitoring station on a typical day.
 MAX_RELEVANT_KM = 25.0
 
-# Component weights. Proximity and upwind geometry dominate because they are
-# physical constraints; category match is corroborating evidence from the
+# Component weights. Proximity and atmospheric dispersion dominate because they
+# are physical constraints; category match is corroborating evidence from the
 # upstream Attribution Agent. Severity is deliberately small — it's constant
 # across every source within a hotspot, so it only discriminates when ranking
 # candidates from different cities against each other.
@@ -49,7 +51,9 @@ MAX_RELEVANT_KM = 25.0
 # small enough that a markedly closer or better-aligned unnamed site still
 # outranks a named one; dispatchability breaks ties, it doesn't overrule physics.
 _W_PROXIMITY = 0.35
-_W_UPWIND = 0.28
+# Atmospheric transport: a Gaussian plume factor when wind speed is available
+# (utils/dispersion.py), falling back to cosine alignment when it isn't.
+_W_TRANSPORT = 0.28
 _W_CATEGORY = 0.18
 _W_IDENTIFIABILITY = 0.12
 _W_SEVERITY = 0.07
@@ -296,19 +300,28 @@ def score_sources(
     wind_direction_deg: float | None = None,
     dominant_source: str | None = None,
     limit: int = 5,
+    wind_speed_kmh: float | None = None,
+    is_daytime: bool = True,
+    cloudy: bool = False,
 ) -> list[dict]:
     """
     Rank registered sources by their plausibility as contributors to a hotspot.
 
     `hotspot` needs lat/lon/aqi. `sources` is the registry slice for that city.
     Returns up to `limit` candidates, each carrying its distance, bearing,
-    upwind alignment and the four component scores that produced its total — so
-    a recommendation can be audited rather than taken on faith.
+    dispersion physics and the component scores that produced its total — so a
+    recommendation can be audited rather than taken on faith.
 
-    Sources beyond MAX_RELEVANT_KM, and those clearly downwind when a wind
-    direction is known, are dropped rather than ranked low: they are excluded on
-    physical grounds, and padding a shortlist with them would misrepresent how
-    much real evidence exists.
+    Sources beyond MAX_RELEVANT_KM, and those the wind is carrying away from the
+    station, are dropped rather than ranked low: they are excluded on physical
+    grounds, and padding a shortlist with them would misrepresent how much real
+    evidence exists.
+
+    When wind speed is supplied, a Gaussian plume model (utils/dispersion.py)
+    replaces the crude cosine alignment: it accounts for crosswind spread
+    widening with distance, atmospheric stability, and the inverse wind-speed
+    relationship. Without it, the cosine is used as a fallback so the scorer
+    still functions on partial weather data.
     """
     hs_lat, hs_lon = hotspot["lat"], hotspot["lon"]
     severity = _severity_score(hotspot.get("aqi", 0))
@@ -329,11 +342,17 @@ def score_sources(
         if distance > MAX_RELEVANT_KM:
             continue
 
+        bearing = bearing_deg(hs_lat, hs_lon, src["lat"], src["lon"])
+        # Bearing from the SOURCE toward the receptor is the reciprocal — that's
+        # the direction the plume must travel, and what the dispersion model wants.
+        bearing_to_receptor = (bearing + 180.0) % 360.0
+
+        dispersion = None
         if wind_direction_deg is None:
             alignment = None
             # No wind data: score the geometry we do have and say so, rather
             # than inventing a neutral wind and hiding the gap.
-            upwind_component = 0.5
+            transport_component = 0.5
         else:
             alignment = upwind_alignment(
                 hs_lat, hs_lon, src["lat"], src["lon"], wind_direction_deg
@@ -341,16 +360,29 @@ def score_sources(
             # Physically downwind - it cannot be feeding this reading.
             if alignment < -0.2:
                 continue
-            upwind_component = (alignment + 1) / 2  # [-1,1] -> [0,1]
 
-        bearing = bearing_deg(hs_lat, hs_lon, src["lat"], src["lon"])
+            if wind_speed_kmh is None:
+                # Wind direction but no speed: fall back to the cosine. It knows
+                # the source is upwind, just not how much the plume has spread.
+                transport_component = (alignment + 1) / 2  # [-1,1] -> [0,1]
+            else:
+                dispersion = dispersion_factor(
+                    distance_km=distance,
+                    bearing_source_to_receptor=bearing_to_receptor,
+                    wind_direction_deg=wind_direction_deg,
+                    wind_speed_kmh=wind_speed_kmh,
+                    is_daytime=is_daytime,
+                    cloudy=cloudy,
+                )
+                transport_component = dispersion["factor"]
+
         proximity = _proximity_score(distance)
         category = _category_score(src["category"], dominant_source)
         identifiability = _identifiability_score(src)
 
         total = (
             _W_PROXIMITY * proximity
-            + _W_UPWIND * upwind_component
+            + _W_TRANSPORT * transport_component
             + _W_CATEGORY * category
             + _W_IDENTIFIABILITY * identifiability
             + _W_SEVERITY * severity
@@ -374,11 +406,21 @@ def score_sources(
             "evidence_score": round(total, 4),
             "score_components": {
                 "proximity": round(proximity, 3),
-                "upwind": round(upwind_component, 3),
+                "atmospheric_transport": round(transport_component, 3),
                 "category_match": round(category, 3),
                 "identifiability": round(identifiability, 3),
                 "severity": round(severity, 3),
             },
+            # The plume physics behind the transport score, so a reviewer can see
+            # crosswind offset and stability class rather than one opaque number.
+            "dispersion": {
+                "model": "gaussian_plume_briggs_urban",
+                "stability_class": dispersion["stability"],
+                "stability_description": describe_stability(dispersion["stability"]),
+                "downwind_km": dispersion["downwind_km"],
+                "crosswind_km": dispersion["crosswind_km"],
+                "plume_width_sigma_y_m": dispersion["sigma_y_m"],
+            } if dispersion else None,
         })
 
     scored.sort(key=lambda s: s["evidence_score"], reverse=True)
