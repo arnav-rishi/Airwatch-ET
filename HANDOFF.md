@@ -263,12 +263,16 @@ Recorded here so they are not rediscovered under time pressure. Full detail in t
 
 ## Deliverables
 
-| Required | Status |
-|---|---|
-| Working prototype | ✅ |
-| Architecture diagram | See `docs/` |
-| Presentation deck | See `docs/` |
-| Demo video | Script in `docs/` — recording still to be done |
+| Required | Status | Where |
+|---|---|---|
+| Working prototype | ✅ | This repo |
+| Architecture diagram | ✅ | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — Mermaid, renders on GitHub |
+| Presentation deck | ✅ | [docs/DECK.md](docs/DECK.md) — Marp; `marp DECK.md --pdf` to export |
+| Demo video | ⚠️ Script ready, **recording pending** | [docs/DEMO_SCRIPT.md](docs/DEMO_SCRIPT.md) |
+
+The demo script front-loads the pre-record checklist for a reason: the Enforcement
+tab's first load runs six LLM calls (~48 s), and the attribution cache holds only
+10 minutes. Pre-warm the tab, then record inside that window.
 
 **Before demoing:** the enforcement work lives on `feature/enforcement-intelligence`. Vercel
 builds from `master`. Merge first, or the live URL serves none of it.
