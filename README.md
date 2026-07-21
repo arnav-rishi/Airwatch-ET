@@ -33,9 +33,22 @@ AI-powered pollution analysis and a multilingual citizen health advisory chatbot
 | AI | Azure OpenAI `gpt-5-nano` (reasoning model) |
 | Data | WAQI (primary), OpenAQ (backup), OpenWeatherMap |
 
-**Resilience:** 3-tier AQI fallback (WAQI → OpenAQ → static dataset) with per-city fallback
+**Resilience:** layered AQI fallback (WAQI → OpenAQ → static dataset) with per-city fallback
 (one bad reading doesn't drop a city off the map), 10-minute station cache warmed at startup,
 retry-with-backoff on all external API calls, and rate limiting on the LLM-backed endpoints.
+
+**Data integrity — one AQI scale, end to end:** WAQI serves **US EPA** AQI *index* values
+(both `aqi` and `iaqi.pm25.v`), not μg/m³ concentrations — a live Delhi feed returning
+`iaqi.pm25: 25` means "EPA sub-index 25" (≈6 μg/m³), not "25 μg/m³". India's CPCB scale is
+stricter, so the two are not interchangeable. Every WAQI reading is therefore inverted back
+to a concentration (`epa_aqi_to_pm25`, `backend/utils/aqi_calculator.py`) and re-expressed
+on the CPCB scale before use. This matters most for **enforcement**: the hotspot ranking
+sorts live stations against static fallback ones, so mixing EPA and CPCB values silently
+mis-ranked the cities feeding the Enforcement Agent. Mid-range readings were the worst
+affected — an EPA index of 100 (truly "Satisfactory", 35.4 μg/m³) previously rendered as CPCB
+234 "Poor". The original EPA value is retained as `aqi_epa_raw` so the conversion stays
+auditable. Pollutants other than PM2.5 need their own EPA breakpoint tables to invert, so
+they are surfaced honestly as `*_index` (EPA sub-index) rather than mislabelled as μg/m³.
 
 **Beyond a pure LLM wrapper:** the 24h forecast is a hybrid — a deterministic statistical
 baseline (`backend/utils/forecast_baseline.py`, no LLM call, backtested against real history

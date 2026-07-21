@@ -138,11 +138,15 @@ export default function CityPanel({ city, detail, attribution, forecast, onClose
         <div>
           <h3 className="text-sm font-semibold text-slate-300 mb-2">Live Pollutant Readings</h3>
           <div className="grid grid-cols-2 gap-2">
+            {/* Only PM2.5 arrives as a true concentration (the backend inverts WAQI's
+                US EPA sub-index via epa_aqi_to_pm25). The rest remain EPA sub-indices,
+                so they're labelled "EPA index" and compared against index thresholds —
+                printing them as μg/m³ against CPCB concentration limits would be wrong. */}
             {[
-              { key: 'pm25', label: 'PM2.5', unit: 'μg/m³', limit: 60 },
-              { key: 'pm10', label: 'PM10',  unit: 'μg/m³', limit: 100 },
-              { key: 'no2',  label: 'NO₂',   unit: 'μg/m³', limit: 80 },
-              { key: 'o3',   label: 'O₃',    unit: 'μg/m³', limit: 100 },
+              { key: 'pm25',       label: 'PM2.5', unit: 'μg/m³',   limit: 60 },
+              { key: 'pm10_index', label: 'PM10',  unit: 'EPA index', limit: 100 },
+              { key: 'no2_index',  label: 'NO₂',   unit: 'EPA index', limit: 100 },
+              { key: 'o3_index',   label: 'O₃',    unit: 'EPA index', limit: 100 },
             ].map(({ key, label, unit, limit }) => {
               const val = detail.feed[key]
               if (!val) return null
