@@ -14,6 +14,7 @@ from utils.aqi_calculator import aqi_category
 from utils.attribution_confidence import score_attribution_confidence
 from utils.dispersion import is_cloudy
 from utils.enforcement_scoring import score_sources
+from utils.impact_metrics import enforcement_impact
 from utils.forecast_baseline import compute_baseline_forecast, backtest_baseline
 from prompts import (
     ATTRIBUTION_SYSTEM, attribution_user, get_baseline_citation,
@@ -452,6 +453,10 @@ async def get_auto_enforcement():
         result["response_time_seconds"] = round(
             (datetime.now() - signal_at).total_seconds(), 1
         )
+        # Impact figures computed from this run's own data, so the numbers a
+        # deck quotes stay tied to what the system actually did rather than
+        # being typed into a slide once and left to rot.
+        result["impact"] = enforcement_impact(result)
         return result
     except HTTPException:
         raise
