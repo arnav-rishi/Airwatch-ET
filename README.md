@@ -16,8 +16,12 @@ AI-powered pollution analysis and a multilingual citizen health advisory chatbot
 - **🔬 AI Source Attribution** — Estimates what's polluting each city (traffic, industry,
   construction, biomass), anchored to published CPCB/ARAI source-apportionment studies and
   adjusted for live weather and time of day.
-- **⚖️ Enforcement Priorities** — AI generates the day's top-3 field enforcement actions for
-  pollution-control authorities, ranked by evidence.
+- **⚖️ Enforcement Intelligence & Prioritisation** *(primary focus)* — Correlates live
+  pollution hotspots against a registry of **registered emission sources** (industries,
+  construction sites, waste sites, diesel fleet depots) with real coordinates, ranks them
+  by a deterministic evidence score — distance, **upwind alignment** against live wind
+  direction, and category match to the attributed dominant source — and issues dispatchable,
+  facility-level enforcement actions with supporting geospatial documentation.
 - **💬 Multilingual Health Advisory** — A chatbot that answers citizen air-quality questions
   in **any Indian language** (English, हिंदी, தமிழ், ಕನ್ನಡ, …), auto-detecting the language
   and replying in the same script.
@@ -36,6 +40,62 @@ AI-powered pollution analysis and a multilingual citizen health advisory chatbot
 **Resilience:** layered AQI fallback (WAQI → OpenAQ → static dataset) with per-city fallback
 (one bad reading doesn't drop a city off the map), 10-minute station cache warmed at startup,
 retry-with-backoff on all external API calls, and rate limiting on the LLM-backed endpoints.
+
+## ⚖️ Enforcement Intelligence — how the correlation works
+
+The problem statement asks for an agent that *"correlates pollution hotspot data with
+registered emission sources … and generates prioritised, evidence-backed enforcement action
+recommendations … with supporting geospatial documentation."* That correlation is done with
+arithmetic, not by asking a language model to guess a plausible zone name.
+
+**1. The registry.** `backend/data/emission_sources.json` holds registered emission sources
+with real coordinates, seeded from OpenStreetMap via the Overpass API
+(`backend/scripts/fetch_emission_sources.py`) across the four emitter types named in the
+problem statement:
+
+| Category | OSM proxy |
+|---|---|
+| Industry | `landuse=industrial`, `man_made=works` |
+| Construction | `landuse=construction`, `building=construction` |
+| Waste burning | `landuse=landfill`, `amenity=waste_transfer_station`, `waste_disposal` |
+| Diesel fleet | `amenity=bus_station`, `landuse=depot`, `building=transportation` |
+
+Seeded once and committed, so a demo never depends on Overpass being up — and so a free
+shared community endpoint isn't hammered per request. These are honest proxies, not an
+official register; open waste burning is unmapped by nature (it's illegal and unregistered),
+so landfills and transfer stations stand in for it. That caveat ships inside the registry's
+own `_meta` block and is surfaced through the API rather than hidden. A production
+deployment would swap in CPCB consent-to-operate and state PCB registers.
+
+**2. The correlation** (`backend/utils/enforcement_scoring.py` — deterministic, no LLM).
+For each hotspot, every registered source in that city is scored on:
+
+| Component | Weight | Why |
+|---|---|---|
+| Proximity | 0.35 | Linear falloff to zero at 25 km |
+| **Upwind alignment** | 0.28 | A source *downwind* of the station cannot be causing the reading |
+| Category match | 0.18 | Corroboration from the upstream Attribution Agent |
+| Dispatchability | 0.12 | ~half of OSM sites are unnamed; a named facility can actually be served notice |
+| Hotspot severity | 0.07 | Only discriminates when ranking across cities |
+
+The upwind test is the strongest single discriminator and comes free: OpenWeatherMap's
+`wind.deg` (the direction wind blows *from*) was already being fetched and discarded.
+Sources more than ~102° off the wind axis are **excluded outright**, not ranked low — they
+are eliminated on physical grounds, and padding a shortlist with them would overstate how
+much evidence exists. Unnamed sites still have exact coordinates, so they get a navigable
+positional label (*"Unregistered industry site 2.1 km NW of Kolkata centre"*) instead of a
+useless one.
+
+**3. The narration.** Only now is the LLM called — with a ranked shortlist of real
+facilities it must choose from by exact ID, citing the distance and upwind evidence it was
+handed. It no longer decides *where* to inspect; it writes the dispatch order.
+
+Every recommendation carries its component scores, coordinates, and an OpenStreetMap link,
+so a reviewer can audit exactly why a facility ranked where it did. `GET /api/intel/sources`
+exposes the registry directly. The endpoint also reports `response_time_seconds` — measured
+signal-to-dispatch latency, which the evaluation criteria ask to see demonstrated.
+
+---
 
 **Data integrity — one AQI scale, end to end:** WAQI serves **US EPA** AQI *index* values
 (both `aqi` and `iaqi.pm25.v`), not μg/m³ concentrations — a live Delhi feed returning
@@ -103,7 +163,8 @@ python test_endpoints.py        # expects: 14/14 passed
 | `GET`  | `/api/aqi/city/{name}?lat=&lon=` | City feed + weather + 24h history |
 | `POST` | `/api/intel/attribution` | Pollution source breakdown |
 | `POST` | `/api/intel/enforcement` | Enforcement priorities for given cities |
-| `GET`  | `/api/intel/enforcement/auto` | Enforcement priorities for top-5 live cities |
+| `GET`  | `/api/intel/enforcement/auto` | Registry-correlated enforcement priorities for top-5 live hotspots |
+| `GET`  | `/api/intel/sources` | Emission source registry — coverage + provenance (`?city=Delhi` for one city) |
 | `POST` | `/api/intel/forecast` | 24h AQI forecast |
 | `POST` | `/api/intel/advisory` | Multilingual citizen health advisory |
 
