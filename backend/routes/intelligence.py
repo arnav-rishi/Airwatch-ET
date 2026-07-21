@@ -7,13 +7,13 @@ from services.llm import acall_llm, acall_llm_json
 from services.openweather import fetch_weather, fetch_forecast
 from services.cache import get_cached_attribution, set_cached_attribution
 from services.source_registry import (
-    get_sources_for_city, has_registry, registry_meta, registry_stats,
+    get_sources_for_city, get_sources_near, has_registry, registry_meta, registry_stats,
 )
 from services.firms import fetch_fires_near, firms_enabled
 from utils.aqi_calculator import aqi_category
 from utils.attribution_confidence import score_attribution_confidence
 from utils.dispersion import is_cloudy
-from utils.enforcement_scoring import score_sources
+from utils.enforcement_scoring import MAX_RELEVANT_KM, score_sources
 from utils.impact_metrics import enforcement_impact
 from utils.forecast_baseline import compute_baseline_forecast, backtest_baseline
 from prompts import (
@@ -271,7 +271,11 @@ async def _enrich_city_with_candidates(city: dict) -> dict:
     geometry alone, and no registry entry means this city goes to the LLM
     flagged as AQI-only evidence rather than failing the whole endpoint.
     """
-    sources = list(get_sources_for_city(city["city"]))
+    # Spatial query, not a city-name lookup: the NCR is one airshed, so an east
+    # Delhi station has Noida and Ghaziabad industry inside its screening radius
+    # even though those sources are filed under different cities. Follows the
+    # air rather than the paperwork — and stays O(cells) as the registry grows.
+    sources = list(get_sources_near(city["lat"], city["lon"], MAX_RELEVANT_KM))
 
     # Layer satellite-detected active fires on top of the ground register.
     # Open waste burning is unregistered by definition, so this is the only way
