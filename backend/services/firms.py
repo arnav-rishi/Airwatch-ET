@@ -42,9 +42,13 @@ FIRMS_BASE = "https://firms.modaps.eosdis.nasa.gov/api/area/csv"
 # not wildfires.
 DEFAULT_SOURCE = "VIIRS_SNPP_NRT"
 
-# FIRMS accepts 1-10 days. One day keeps detections relevant to today's AQI;
-# older fires say little about a reading taken this afternoon.
-DEFAULT_DAY_RANGE = 1
+# FIRMS accepts 1-10 days, but measured against the full India bbox the larger
+# windows silently return an EMPTY body rather than an error — 1 day yielded 15
+# detections, 3 days yielded 138, and 7 and 10 days both returned nothing at
+# all. That is a server-side transaction limit, not an absence of fires, so
+# anything above 3 is actively worse than useless here. 3 days also keeps
+# detections recent enough to bear on today's reading.
+DEFAULT_DAY_RANGE = 3
 
 # Satellites revisit only a few times daily, so a short cache costs no freshness.
 CACHE_TTL_SECONDS = 1800

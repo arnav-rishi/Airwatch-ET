@@ -5,14 +5,14 @@
   "caveat": "OSM proxies for registered emitters, not an official register. Open waste burning is unmapped by nature, so landfills and waste transfer stations stand in for it. A production deployment would use CPCB consent-to-operate and state PCB registers instead.",
   "bbox_half_deg": 0.25,
   "max_per_category_per_city": 60,
-  "total_sources": 4088,
+  "total_sources": 4762,
   "by_category": {
-   "diesel_fleet": 975,
-   "industry": 1649,
-   "waste_burning": 533,
-   "construction": 931
+   "diesel_fleet": 1080,
+   "industry": 2011,
+   "waste_burning": 566,
+   "construction": 1105
   },
-  "cities_covered": 31,
+  "cities_covered": 39,
   "failed_cities": []
  },
  "sources": [
@@ -36807,6 +36807,6072 @@
    "lat": 19.948092,
    "lon": 73.841574,
    "osm_url": "https://www.openstreetmap.org/way/1470386190"
+  },
+  {
+   "id": "node/665176429",
+   "city": "Vadodara",
+   "category": "diesel_fleet",
+   "name": "Sayaji Park Busstop",
+   "lat": 22.31432,
+   "lon": 73.242823,
+   "osm_url": "https://www.openstreetmap.org/node/665176429"
+  },
+  {
+   "id": "node/2876168270",
+   "city": "Vadodara",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 22.132352,
+   "lon": 73.4118,
+   "osm_url": "https://www.openstreetmap.org/node/2876168270"
+  },
+  {
+   "id": "node/4319379290",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Yamuna mill compound",
+   "lat": 22.280794,
+   "lon": 73.215659,
+   "osm_url": "https://www.openstreetmap.org/node/4319379290"
+  },
+  {
+   "id": "node/4326493898",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Lijjat  Papad",
+   "lat": 22.28132,
+   "lon": 73.218574,
+   "osm_url": "https://www.openstreetmap.org/node/4326493898"
+  },
+  {
+   "id": "node/4326496896",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Venus composite",
+   "lat": 22.280955,
+   "lon": 73.219513,
+   "osm_url": "https://www.openstreetmap.org/node/4326496896"
+  },
+  {
+   "id": "node/4326515589",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "M.M.vora ",
+   "lat": 22.280717,
+   "lon": 73.219524,
+   "osm_url": "https://www.openstreetmap.org/node/4326515589"
+  },
+  {
+   "id": "node/4435494991",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Global fibrotec",
+   "lat": 22.327409,
+   "lon": 73.147692,
+   "osm_url": "https://www.openstreetmap.org/node/4435494991"
+  },
+  {
+   "id": "node/4435494992",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Evrest composite sokhda",
+   "lat": 22.414643,
+   "lon": 73.165598,
+   "osm_url": "https://www.openstreetmap.org/node/4435494992"
+  },
+  {
+   "id": "node/4435502489",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "vinayak fiberglass",
+   "lat": 22.282307,
+   "lon": 73.217893,
+   "osm_url": "https://www.openstreetmap.org/node/4435502489"
+  },
+  {
+   "id": "node/4435537818",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Jayraj Composite",
+   "lat": 22.444592,
+   "lon": 73.187198,
+   "osm_url": "https://www.openstreetmap.org/node/4435537818"
+  },
+  {
+   "id": "node/4542091189",
+   "city": "Vadodara",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 22.070156,
+   "lon": 73.145688,
+   "osm_url": "https://www.openstreetmap.org/node/4542091189"
+  },
+  {
+   "id": "node/4544652440",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Satyam Composite",
+   "lat": 22.251302,
+   "lon": 73.186176,
+   "osm_url": "https://www.openstreetmap.org/node/4544652440"
+  },
+  {
+   "id": "node/4546445592",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Satyam composite",
+   "lat": 22.132897,
+   "lon": 73.17207,
+   "osm_url": "https://www.openstreetmap.org/node/4546445592"
+  },
+  {
+   "id": "node/4547413789",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Uma trades",
+   "lat": 22.31579,
+   "lon": 73.199083,
+   "osm_url": "https://www.openstreetmap.org/node/4547413789"
+  },
+  {
+   "id": "node/4547440053",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Jayesh cabels",
+   "lat": 22.131971,
+   "lon": 73.172471,
+   "osm_url": "https://www.openstreetmap.org/node/4547440053"
+  },
+  {
+   "id": "node/4945452825",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Dolf industry",
+   "lat": 22.131409,
+   "lon": 73.180075,
+   "osm_url": "https://www.openstreetmap.org/node/4945452825"
+  },
+  {
+   "id": "node/5401418355",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "AMUL DAIRY - KAIRA COOP MILK UNION",
+   "lat": 22.552602,
+   "lon": 72.972839,
+   "osm_url": "https://www.openstreetmap.org/node/5401418355"
+  },
+  {
+   "id": "node/5468954622",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Shri Ganesh Tape Industries",
+   "lat": 22.305818,
+   "lon": 73.392692,
+   "osm_url": "https://www.openstreetmap.org/node/5468954622"
+  },
+  {
+   "id": "node/7563289922",
+   "city": "Vadodara",
+   "category": "diesel_fleet",
+   "name": "Waghodia Bus Depot",
+   "lat": 22.307228,
+   "lon": 73.398659,
+   "osm_url": "https://www.openstreetmap.org/node/7563289922"
+  },
+  {
+   "id": "node/8846149549",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Gujarat Refinery",
+   "lat": 22.376677,
+   "lon": 73.119277,
+   "osm_url": "https://www.openstreetmap.org/node/8846149549"
+  },
+  {
+   "id": "node/11101015559",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Krupa Multi Care",
+   "lat": 22.423323,
+   "lon": 73.115201,
+   "osm_url": "https://www.openstreetmap.org/node/11101015559"
+  },
+  {
+   "id": "node/11125359305",
+   "city": "Vadodara",
+   "category": "diesel_fleet",
+   "name": "Vadodara New Bus Station",
+   "lat": 22.313539,
+   "lon": 73.181052,
+   "osm_url": "https://www.openstreetmap.org/node/11125359305"
+  },
+  {
+   "id": "node/13051612322",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Hilti Manufacturing Private Limited",
+   "lat": 22.437298,
+   "lon": 73.203499,
+   "osm_url": "https://www.openstreetmap.org/node/13051612322"
+  },
+  {
+   "id": "way/28928033",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.251263,
+   "lon": 73.18765,
+   "osm_url": "https://www.openstreetmap.org/way/28928033"
+  },
+  {
+   "id": "way/28938457",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.26554,
+   "lon": 73.216484,
+   "osm_url": "https://www.openstreetmap.org/way/28938457"
+  },
+  {
+   "id": "way/28947573",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.531465,
+   "lon": 72.923056,
+   "osm_url": "https://www.openstreetmap.org/way/28947573"
+  },
+  {
+   "id": "way/28964678",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.541767,
+   "lon": 72.937101,
+   "osm_url": "https://www.openstreetmap.org/way/28964678"
+  },
+  {
+   "id": "way/28964747",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.543026,
+   "lon": 72.947672,
+   "osm_url": "https://www.openstreetmap.org/way/28964747"
+  },
+  {
+   "id": "way/29037171",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Nirma Lab Plant",
+   "lat": 22.463194,
+   "lon": 73.23942,
+   "osm_url": "https://www.openstreetmap.org/way/29037171"
+  },
+  {
+   "id": "way/29107962",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Gujarat Refinery",
+   "lat": 22.379308,
+   "lon": 73.118723,
+   "osm_url": "https://www.openstreetmap.org/way/29107962"
+  },
+  {
+   "id": "way/29108062",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.39594,
+   "lon": 73.117006,
+   "osm_url": "https://www.openstreetmap.org/way/29108062"
+  },
+  {
+   "id": "way/29134868",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.395781,
+   "lon": 73.198896,
+   "osm_url": "https://www.openstreetmap.org/way/29134868"
+  },
+  {
+   "id": "way/29547279",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Indu Nissan Oxo Chemical Industries Ltd.",
+   "lat": 22.367185,
+   "lon": 73.14808,
+   "osm_url": "https://www.openstreetmap.org/way/29547279"
+  },
+  {
+   "id": "way/29547338",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Gujarat State Fertilizers & Chemicals Ltd.",
+   "lat": 22.37305,
+   "lon": 73.15235,
+   "osm_url": "https://www.openstreetmap.org/way/29547338"
+  },
+  {
+   "id": "way/29550512",
+   "city": "Vadodara",
+   "category": "diesel_fleet",
+   "name": "Domestic Terminal",
+   "lat": 22.329601,
+   "lon": 73.216263,
+   "osm_url": "https://www.openstreetmap.org/way/29550512"
+  },
+  {
+   "id": "way/29917233",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.332548,
+   "lon": 73.16459,
+   "osm_url": "https://www.openstreetmap.org/way/29917233"
+  },
+  {
+   "id": "way/91882431",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Amul Dairy - Kaira Cooperative",
+   "lat": 22.552672,
+   "lon": 72.971495,
+   "osm_url": "https://www.openstreetmap.org/way/91882431"
+  },
+  {
+   "id": "way/121174532",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.278332,
+   "lon": 73.217467,
+   "osm_url": "https://www.openstreetmap.org/way/121174532"
+  },
+  {
+   "id": "way/129641491",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Waghoda GIDC",
+   "lat": 22.296843,
+   "lon": 73.380964,
+   "osm_url": "https://www.openstreetmap.org/way/129641491"
+  },
+  {
+   "id": "way/161965535",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Shree Umiya Industries",
+   "lat": 22.248068,
+   "lon": 73.177419,
+   "osm_url": "https://www.openstreetmap.org/way/161965535"
+  },
+  {
+   "id": "way/229082092",
+   "city": "Vadodara",
+   "category": "diesel_fleet",
+   "name": "City Bus Stand Vadodara",
+   "lat": 22.310263,
+   "lon": 73.182732,
+   "osm_url": "https://www.openstreetmap.org/way/229082092"
+  },
+  {
+   "id": "way/415852203",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Vadodara Power Plant",
+   "lat": 22.375899,
+   "lon": 73.100728,
+   "osm_url": "https://www.openstreetmap.org/way/415852203"
+  },
+  {
+   "id": "way/431733608",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.272291,
+   "lon": 73.16316,
+   "osm_url": "https://www.openstreetmap.org/way/431733608"
+  },
+  {
+   "id": "way/431733611",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.278048,
+   "lon": 73.160628,
+   "osm_url": "https://www.openstreetmap.org/way/431733611"
+  },
+  {
+   "id": "way/431733613",
+   "city": "Vadodara",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 22.278362,
+   "lon": 73.166842,
+   "osm_url": "https://www.openstreetmap.org/way/431733613"
+  },
+  {
+   "id": "way/431733615",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.273954,
+   "lon": 73.162578,
+   "osm_url": "https://www.openstreetmap.org/way/431733615"
+  },
+  {
+   "id": "way/431733616",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.287734,
+   "lon": 73.177206,
+   "osm_url": "https://www.openstreetmap.org/way/431733616"
+  },
+  {
+   "id": "way/431740230",
+   "city": "Vadodara",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 22.263355,
+   "lon": 73.166447,
+   "osm_url": "https://www.openstreetmap.org/way/431740230"
+  },
+  {
+   "id": "way/446231590",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Savli GIDC Manjusar",
+   "lat": 22.438085,
+   "lon": 73.21315,
+   "osm_url": "https://www.openstreetmap.org/way/446231590"
+  },
+  {
+   "id": "way/458794853",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Por Ramangamdi",
+   "lat": 22.131072,
+   "lon": 73.178225,
+   "osm_url": "https://www.openstreetmap.org/way/458794853"
+  },
+  {
+   "id": "way/472852265",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Reckitt Benckiser",
+   "lat": 22.090536,
+   "lon": 73.179836,
+   "osm_url": "https://www.openstreetmap.org/way/472852265"
+  },
+  {
+   "id": "way/472854852",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Indutch Composites Technology PVT.LTD.",
+   "lat": 22.474535,
+   "lon": 73.306271,
+   "osm_url": "https://www.openstreetmap.org/way/472854852"
+  },
+  {
+   "id": "way/505210929",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Dolf industry",
+   "lat": 22.131166,
+   "lon": 73.179996,
+   "osm_url": "https://www.openstreetmap.org/way/505210929"
+  },
+  {
+   "id": "way/542523192",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Indutch composite",
+   "lat": 22.438219,
+   "lon": 73.212773,
+   "osm_url": "https://www.openstreetmap.org/way/542523192"
+  },
+  {
+   "id": "way/542523193",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Dupont",
+   "lat": 22.435908,
+   "lon": 73.207747,
+   "osm_url": "https://www.openstreetmap.org/way/542523193"
+  },
+  {
+   "id": "way/543223813",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Bombardier Rail Coach",
+   "lat": 22.43277,
+   "lon": 73.227305,
+   "osm_url": "https://www.openstreetmap.org/way/543223813"
+  },
+  {
+   "id": "way/546116090",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.372925,
+   "lon": 73.141445,
+   "osm_url": "https://www.openstreetmap.org/way/546116090"
+  },
+  {
+   "id": "way/548047453",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Bombardian",
+   "lat": 22.242319,
+   "lon": 73.177911,
+   "osm_url": "https://www.openstreetmap.org/way/548047453"
+  },
+  {
+   "id": "way/548049702",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Vijay Flexible Containers Pvt Ltd",
+   "lat": 22.251643,
+   "lon": 73.178518,
+   "osm_url": "https://www.openstreetmap.org/way/548049702"
+  },
+  {
+   "id": "way/548662968",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "HNG Float Glass",
+   "lat": 22.546417,
+   "lon": 73.432549,
+   "osm_url": "https://www.openstreetmap.org/way/548662968"
+  },
+  {
+   "id": "way/548664633",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.549836,
+   "lon": 73.439468,
+   "osm_url": "https://www.openstreetmap.org/way/548664633"
+  },
+  {
+   "id": "way/548665632",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.542748,
+   "lon": 73.41817,
+   "osm_url": "https://www.openstreetmap.org/way/548665632"
+  },
+  {
+   "id": "way/548665642",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Moflex Suspensions Pvt.Ltd,",
+   "lat": 22.545551,
+   "lon": 73.420031,
+   "osm_url": "https://www.openstreetmap.org/way/548665642"
+  },
+  {
+   "id": "way/548665644",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Samvedna Bio Medical Waste Incinerator",
+   "lat": 22.545011,
+   "lon": 73.421912,
+   "osm_url": "https://www.openstreetmap.org/way/548665644"
+  },
+  {
+   "id": "way/548666372",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Himgiri Castings Pvt. Ltd",
+   "lat": 22.543203,
+   "lon": 73.42529,
+   "osm_url": "https://www.openstreetmap.org/way/548666372"
+  },
+  {
+   "id": "way/548666374",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Supreme Composite Cylinder",
+   "lat": 22.539537,
+   "lon": 73.431945,
+   "osm_url": "https://www.openstreetmap.org/way/548666374"
+  },
+  {
+   "id": "way/548666375",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Abeinsa Power Structures",
+   "lat": 22.54176,
+   "lon": 73.431355,
+   "osm_url": "https://www.openstreetmap.org/way/548666375"
+  },
+  {
+   "id": "way/548943354",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Tufropes Private Limited",
+   "lat": 22.461193,
+   "lon": 73.396877,
+   "osm_url": "https://www.openstreetmap.org/way/548943354"
+  },
+  {
+   "id": "way/548962509",
+   "city": "Vadodara",
+   "category": "industry",
+   "name": "Reliance Composite Solution",
+   "lat": 22.456141,
+   "lon": 73.387314,
+   "osm_url": "https://www.openstreetmap.org/way/548962509"
+  },
+  {
+   "id": "way/920074702",
+   "city": "Vadodara",
+   "category": "diesel_fleet",
+   "name": "City Bus Stand Vadodara",
+   "lat": 22.310362,
+   "lon": 73.182076,
+   "osm_url": "https://www.openstreetmap.org/way/920074702"
+  },
+  {
+   "id": "way/920074703",
+   "city": "Vadodara",
+   "category": "diesel_fleet",
+   "name": "City Bus Stand Vadodara",
+   "lat": 22.310348,
+   "lon": 73.182161,
+   "osm_url": "https://www.openstreetmap.org/way/920074703"
+  },
+  {
+   "id": "way/920074704",
+   "city": "Vadodara",
+   "category": "diesel_fleet",
+   "name": "City Bus Stand Vadodara",
+   "lat": 22.310341,
+   "lon": 73.18226,
+   "osm_url": "https://www.openstreetmap.org/way/920074704"
+  },
+  {
+   "id": "way/920074705",
+   "city": "Vadodara",
+   "category": "diesel_fleet",
+   "name": "City Bus Stand Vadodara",
+   "lat": 22.31031,
+   "lon": 73.182359,
+   "osm_url": "https://www.openstreetmap.org/way/920074705"
+  },
+  {
+   "id": "way/1332820826",
+   "city": "Vadodara",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 22.294522,
+   "lon": 73.396391,
+   "osm_url": "https://www.openstreetmap.org/way/1332820826"
+  },
+  {
+   "id": "way/1382022020",
+   "city": "Vadodara",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 22.321315,
+   "lon": 73.177945,
+   "osm_url": "https://www.openstreetmap.org/way/1382022020"
+  },
+  {
+   "id": "way/1382022021",
+   "city": "Vadodara",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 22.318421,
+   "lon": 73.178278,
+   "osm_url": "https://www.openstreetmap.org/way/1382022021"
+  },
+  {
+   "id": "node/3211182433",
+   "city": "Rajkot",
+   "category": "diesel_fleet",
+   "name": "GSRTC Central Bus Station",
+   "lat": 22.291047,
+   "lon": 70.802181,
+   "osm_url": "https://www.openstreetmap.org/node/3211182433"
+  },
+  {
+   "id": "node/4292019194",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "GIDC moteda",
+   "lat": 22.239654,
+   "lon": 70.677674,
+   "osm_url": "https://www.openstreetmap.org/node/4292019194"
+  },
+  {
+   "id": "node/4292073789",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Virat fiber",
+   "lat": 22.263397,
+   "lon": 70.830062,
+   "osm_url": "https://www.openstreetmap.org/node/4292073789"
+  },
+  {
+   "id": "node/4299626820",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Maruti industrial area",
+   "lat": 22.264055,
+   "lon": 70.825485,
+   "osm_url": "https://www.openstreetmap.org/node/4299626820"
+  },
+  {
+   "id": "node/4314216397",
+   "city": "Rajkot",
+   "category": "diesel_fleet",
+   "name": "Rajkot Bus station",
+   "lat": 22.291148,
+   "lon": 70.802141,
+   "osm_url": "https://www.openstreetmap.org/node/4314216397"
+  },
+  {
+   "id": "node/4424516795",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Raj Fiber",
+   "lat": 22.233781,
+   "lon": 70.795373,
+   "osm_url": "https://www.openstreetmap.org/node/4424516795"
+  },
+  {
+   "id": "node/4424695486",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Parfect tata",
+   "lat": 22.231552,
+   "lon": 70.800201,
+   "osm_url": "https://www.openstreetmap.org/node/4424695486"
+  },
+  {
+   "id": "node/4455197499",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Poonam fiber Industries",
+   "lat": 22.284154,
+   "lon": 70.775043,
+   "osm_url": "https://www.openstreetmap.org/node/4455197499"
+  },
+  {
+   "id": "node/4455958189",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Raj fiber",
+   "lat": 22.233772,
+   "lon": 70.795432,
+   "osm_url": "https://www.openstreetmap.org/node/4455958189"
+  },
+  {
+   "id": "node/4456591389",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Swagat fiber industries",
+   "lat": 22.234459,
+   "lon": 70.793637,
+   "osm_url": "https://www.openstreetmap.org/node/4456591389"
+  },
+  {
+   "id": "node/4685283794",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Payal forgins",
+   "lat": 22.163271,
+   "lon": 70.799019,
+   "osm_url": "https://www.openstreetmap.org/node/4685283794"
+  },
+  {
+   "id": "node/5241119321",
+   "city": "Rajkot",
+   "category": "diesel_fleet",
+   "name": "New Rajkot bus stop",
+   "lat": 22.29883,
+   "lon": 70.798367,
+   "osm_url": "https://www.openstreetmap.org/node/5241119321"
+  },
+  {
+   "id": "node/5241523721",
+   "city": "Rajkot",
+   "category": "diesel_fleet",
+   "name": "Rajkot New Bus Station",
+   "lat": 22.295499,
+   "lon": 70.79895,
+   "osm_url": "https://www.openstreetmap.org/node/5241523721"
+  },
+  {
+   "id": "node/7491687161",
+   "city": "Rajkot",
+   "category": "diesel_fleet",
+   "name": "Raiya Telephone Ex. BRTS Station",
+   "lat": 22.293883,
+   "lon": 70.770597,
+   "osm_url": "https://www.openstreetmap.org/node/7491687161"
+  },
+  {
+   "id": "node/7863772865",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Rudra Steel Industries",
+   "lat": 22.243016,
+   "lon": 70.804494,
+   "osm_url": "https://www.openstreetmap.org/node/7863772865"
+  },
+  {
+   "id": "node/8236796523",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Shree Vishwakarma Optical Industries",
+   "lat": 22.262497,
+   "lon": 70.798723,
+   "osm_url": "https://www.openstreetmap.org/node/8236796523"
+  },
+  {
+   "id": "node/12101979373",
+   "city": "Rajkot",
+   "category": "diesel_fleet",
+   "name": "Goverdhan Chowk",
+   "lat": 22.251569,
+   "lon": 70.790638,
+   "osm_url": "https://www.openstreetmap.org/node/12101979373"
+  },
+  {
+   "id": "node/12102006779",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Radheshyam Sarvajanik Gaushala",
+   "lat": 22.232793,
+   "lon": 70.788978,
+   "osm_url": "https://www.openstreetmap.org/node/12102006779"
+  },
+  {
+   "id": "node/13750393594",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "SHASHWAT ENGINEERING",
+   "lat": 22.248144,
+   "lon": 70.806116,
+   "osm_url": "https://www.openstreetmap.org/node/13750393594"
+  },
+  {
+   "id": "way/140786553",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.388459,
+   "lon": 70.795713,
+   "osm_url": "https://www.openstreetmap.org/way/140786553"
+  },
+  {
+   "id": "way/444303164",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Sahjand Industrial Area",
+   "lat": 22.262393,
+   "lon": 70.829718,
+   "osm_url": "https://www.openstreetmap.org/way/444303164"
+  },
+  {
+   "id": "way/444353300",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Maruti industrial estate",
+   "lat": 22.263587,
+   "lon": 70.825514,
+   "osm_url": "https://www.openstreetmap.org/way/444353300"
+  },
+  {
+   "id": "way/475278096",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.323729,
+   "lon": 70.78403,
+   "osm_url": "https://www.openstreetmap.org/way/475278096"
+  },
+  {
+   "id": "way/491535037",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Kuvadava GIDC",
+   "lat": 22.368401,
+   "lon": 70.961437,
+   "osm_url": "https://www.openstreetmap.org/way/491535037"
+  },
+  {
+   "id": "way/605632871",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Balaji wafers",
+   "lat": 22.261666,
+   "lon": 70.69869,
+   "osm_url": "https://www.openstreetmap.org/way/605632871"
+  },
+  {
+   "id": "way/662843954",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.229704,
+   "lon": 70.908063,
+   "osm_url": "https://www.openstreetmap.org/way/662843954"
+  },
+  {
+   "id": "way/719660782",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.466041,
+   "lon": 70.556372,
+   "osm_url": "https://www.openstreetmap.org/way/719660782"
+  },
+  {
+   "id": "way/721216942",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.390601,
+   "lon": 70.907769,
+   "osm_url": "https://www.openstreetmap.org/way/721216942"
+  },
+  {
+   "id": "way/721216943",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.390427,
+   "lon": 70.91353,
+   "osm_url": "https://www.openstreetmap.org/way/721216943"
+  },
+  {
+   "id": "way/721245246",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.43696,
+   "lon": 70.91176,
+   "osm_url": "https://www.openstreetmap.org/way/721245246"
+  },
+  {
+   "id": "way/722179793",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.144835,
+   "lon": 70.791789,
+   "osm_url": "https://www.openstreetmap.org/way/722179793"
+  },
+  {
+   "id": "way/722179799",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.069679,
+   "lon": 70.784952,
+   "osm_url": "https://www.openstreetmap.org/way/722179799"
+  },
+  {
+   "id": "way/722179802",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.055258,
+   "lon": 70.789112,
+   "osm_url": "https://www.openstreetmap.org/way/722179802"
+  },
+  {
+   "id": "way/728324029",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.166468,
+   "lon": 70.825889,
+   "osm_url": "https://www.openstreetmap.org/way/728324029"
+  },
+  {
+   "id": "way/728324030",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.149904,
+   "lon": 70.82412,
+   "osm_url": "https://www.openstreetmap.org/way/728324030"
+  },
+  {
+   "id": "way/728324883",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.139738,
+   "lon": 70.786413,
+   "osm_url": "https://www.openstreetmap.org/way/728324883"
+  },
+  {
+   "id": "way/728324884",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.136586,
+   "lon": 70.785287,
+   "osm_url": "https://www.openstreetmap.org/way/728324884"
+  },
+  {
+   "id": "way/728341735",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.385336,
+   "lon": 70.963882,
+   "osm_url": "https://www.openstreetmap.org/way/728341735"
+  },
+  {
+   "id": "way/728341747",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.372551,
+   "lon": 70.966644,
+   "osm_url": "https://www.openstreetmap.org/way/728341747"
+  },
+  {
+   "id": "way/728341748",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.374931,
+   "lon": 70.964125,
+   "osm_url": "https://www.openstreetmap.org/way/728341748"
+  },
+  {
+   "id": "way/728341749",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.376485,
+   "lon": 70.976966,
+   "osm_url": "https://www.openstreetmap.org/way/728341749"
+  },
+  {
+   "id": "way/728341751",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.400891,
+   "lon": 71.024758,
+   "osm_url": "https://www.openstreetmap.org/way/728341751"
+  },
+  {
+   "id": "way/728341752",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.40719,
+   "lon": 71.016604,
+   "osm_url": "https://www.openstreetmap.org/way/728341752"
+  },
+  {
+   "id": "way/882445128",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.081325,
+   "lon": 70.778046,
+   "osm_url": "https://www.openstreetmap.org/way/882445128"
+  },
+  {
+   "id": "way/882445132",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.156661,
+   "lon": 70.785787,
+   "osm_url": "https://www.openstreetmap.org/way/882445132"
+  },
+  {
+   "id": "way/882445133",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.165224,
+   "lon": 70.786289,
+   "osm_url": "https://www.openstreetmap.org/way/882445133"
+  },
+  {
+   "id": "way/882445134",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.165712,
+   "lon": 70.782088,
+   "osm_url": "https://www.openstreetmap.org/way/882445134"
+  },
+  {
+   "id": "way/882445135",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.175148,
+   "lon": 70.786613,
+   "osm_url": "https://www.openstreetmap.org/way/882445135"
+  },
+  {
+   "id": "way/882445137",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.175807,
+   "lon": 70.779068,
+   "osm_url": "https://www.openstreetmap.org/way/882445137"
+  },
+  {
+   "id": "way/882445138",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.158289,
+   "lon": 70.779278,
+   "osm_url": "https://www.openstreetmap.org/way/882445138"
+  },
+  {
+   "id": "way/882445141",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.170831,
+   "lon": 70.786543,
+   "osm_url": "https://www.openstreetmap.org/way/882445141"
+  },
+  {
+   "id": "way/882445142",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.166284,
+   "lon": 70.790706,
+   "osm_url": "https://www.openstreetmap.org/way/882445142"
+  },
+  {
+   "id": "way/882445143",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.170047,
+   "lon": 70.791817,
+   "osm_url": "https://www.openstreetmap.org/way/882445143"
+  },
+  {
+   "id": "way/882445144",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.156267,
+   "lon": 70.796755,
+   "osm_url": "https://www.openstreetmap.org/way/882445144"
+  },
+  {
+   "id": "way/882452868",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.203238,
+   "lon": 70.803534,
+   "osm_url": "https://www.openstreetmap.org/way/882452868"
+  },
+  {
+   "id": "way/893677760",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.222323,
+   "lon": 70.926486,
+   "osm_url": "https://www.openstreetmap.org/way/893677760"
+  },
+  {
+   "id": "way/897481599",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.101331,
+   "lon": 71.029681,
+   "osm_url": "https://www.openstreetmap.org/way/897481599"
+  },
+  {
+   "id": "way/898377843",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.135632,
+   "lon": 70.978656,
+   "osm_url": "https://www.openstreetmap.org/way/898377843"
+  },
+  {
+   "id": "way/898377844",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.14298,
+   "lon": 70.980342,
+   "osm_url": "https://www.openstreetmap.org/way/898377844"
+  },
+  {
+   "id": "way/898377846",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.137081,
+   "lon": 70.992823,
+   "osm_url": "https://www.openstreetmap.org/way/898377846"
+  },
+  {
+   "id": "way/900457911",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.389497,
+   "lon": 70.995075,
+   "osm_url": "https://www.openstreetmap.org/way/900457911"
+  },
+  {
+   "id": "way/900457913",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.409789,
+   "lon": 70.990606,
+   "osm_url": "https://www.openstreetmap.org/way/900457913"
+  },
+  {
+   "id": "way/900707401",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.428254,
+   "lon": 70.92043,
+   "osm_url": "https://www.openstreetmap.org/way/900707401"
+  },
+  {
+   "id": "way/900707408",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.35804,
+   "lon": 70.801635,
+   "osm_url": "https://www.openstreetmap.org/way/900707408"
+  },
+  {
+   "id": "way/900707412",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.430947,
+   "lon": 70.783923,
+   "osm_url": "https://www.openstreetmap.org/way/900707412"
+  },
+  {
+   "id": "way/900707417",
+   "city": "Rajkot",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.482339,
+   "lon": 70.768789,
+   "osm_url": "https://www.openstreetmap.org/way/900707417"
+  },
+  {
+   "id": "way/1302318056",
+   "city": "Rajkot",
+   "category": "construction",
+   "name": "Airport Expansion",
+   "lat": 22.390961,
+   "lon": 71.021122,
+   "osm_url": "https://www.openstreetmap.org/way/1302318056"
+  },
+  {
+   "id": "way/1302318057",
+   "city": "Rajkot",
+   "category": "construction",
+   "name": "Airport Expansion",
+   "lat": 22.37623,
+   "lon": 71.04338,
+   "osm_url": "https://www.openstreetmap.org/way/1302318057"
+  },
+  {
+   "id": "way/1302318065",
+   "city": "Rajkot",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 22.3813,
+   "lon": 71.032243,
+   "osm_url": "https://www.openstreetmap.org/way/1302318065"
+  },
+  {
+   "id": "way/1302318071",
+   "city": "Rajkot",
+   "category": "construction",
+   "name": "Rajkot International Airport",
+   "lat": 22.381705,
+   "lon": 71.039958,
+   "osm_url": "https://www.openstreetmap.org/way/1302318071"
+  },
+  {
+   "id": "way/1309620436",
+   "city": "Rajkot",
+   "category": "diesel_fleet",
+   "name": "Atal Sarovar Smart City",
+   "lat": 22.319396,
+   "lon": 70.734449,
+   "osm_url": "https://www.openstreetmap.org/way/1309620436"
+  },
+  {
+   "id": "node/2588693906",
+   "city": "Kota",
+   "category": "diesel_fleet",
+   "name": "Main Bus Stand",
+   "lat": 25.194239,
+   "lon": 75.848817,
+   "osm_url": "https://www.openstreetmap.org/node/2588693906"
+  },
+  {
+   "id": "node/8909407395",
+   "city": "Kota",
+   "category": "waste_burning",
+   "name": "G0",
+   "lat": 25.174358,
+   "lon": 75.854119,
+   "osm_url": "https://www.openstreetmap.org/node/8909407395"
+  },
+  {
+   "id": "node/8909430759",
+   "city": "Kota",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 25.178335,
+   "lon": 75.840059,
+   "osm_url": "https://www.openstreetmap.org/node/8909430759"
+  },
+  {
+   "id": "way/67195450",
+   "city": "Kota",
+   "category": "industry",
+   "name": "Kota Thermal Power Station",
+   "lat": 25.170967,
+   "lon": 75.814449,
+   "osm_url": "https://www.openstreetmap.org/way/67195450"
+  },
+  {
+   "id": "way/320397653",
+   "city": "Kota",
+   "category": "industry",
+   "name": "Instrumentation Ltd.",
+   "lat": 25.145892,
+   "lon": 75.856432,
+   "osm_url": "https://www.openstreetmap.org/way/320397653"
+  },
+  {
+   "id": "way/320865425",
+   "city": "Kota",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 25.167386,
+   "lon": 75.814278,
+   "osm_url": "https://www.openstreetmap.org/way/320865425"
+  },
+  {
+   "id": "way/320968288",
+   "city": "Kota",
+   "category": "industry",
+   "name": "J. K. Synthetics Ltd.",
+   "lat": 25.145189,
+   "lon": 75.872498,
+   "osm_url": "https://www.openstreetmap.org/way/320968288"
+  },
+  {
+   "id": "way/320968290",
+   "city": "Kota",
+   "category": "industry",
+   "name": "Multimetals",
+   "lat": 25.155322,
+   "lon": 75.86835,
+   "osm_url": "https://www.openstreetmap.org/way/320968290"
+  },
+  {
+   "id": "way/320968291",
+   "city": "Kota",
+   "category": "industry",
+   "name": "Paliwal Steels",
+   "lat": 25.152542,
+   "lon": 75.867065,
+   "osm_url": "https://www.openstreetmap.org/way/320968291"
+  },
+  {
+   "id": "way/320987864",
+   "city": "Kota",
+   "category": "industry",
+   "name": "Railway Workshop",
+   "lat": 25.228959,
+   "lon": 75.892091,
+   "osm_url": "https://www.openstreetmap.org/way/320987864"
+  },
+  {
+   "id": "way/320998777",
+   "city": "Kota",
+   "category": "industry",
+   "name": "Gopal Mill",
+   "lat": 25.232054,
+   "lon": 75.884376,
+   "osm_url": "https://www.openstreetmap.org/way/320998777"
+  },
+  {
+   "id": "way/321002645",
+   "city": "Kota",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 25.146795,
+   "lon": 75.875703,
+   "osm_url": "https://www.openstreetmap.org/way/321002645"
+  },
+  {
+   "id": "way/321002646",
+   "city": "Kota",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 25.149439,
+   "lon": 75.877664,
+   "osm_url": "https://www.openstreetmap.org/way/321002646"
+  },
+  {
+   "id": "way/321002647",
+   "city": "Kota",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 25.148512,
+   "lon": 75.879178,
+   "osm_url": "https://www.openstreetmap.org/way/321002647"
+  },
+  {
+   "id": "way/321002648",
+   "city": "Kota",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 25.150247,
+   "lon": 75.875956,
+   "osm_url": "https://www.openstreetmap.org/way/321002648"
+  },
+  {
+   "id": "way/321002649",
+   "city": "Kota",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 25.15321,
+   "lon": 75.871203,
+   "osm_url": "https://www.openstreetmap.org/way/321002649"
+  },
+  {
+   "id": "way/321024975",
+   "city": "Kota",
+   "category": "industry",
+   "name": "Food Corporation of India",
+   "lat": 25.1452,
+   "lon": 75.86254,
+   "osm_url": "https://www.openstreetmap.org/way/321024975"
+  },
+  {
+   "id": "way/321025127",
+   "city": "Kota",
+   "category": "industry",
+   "name": "Paryavaran Industrial Area",
+   "lat": 25.18524,
+   "lon": 75.79886,
+   "osm_url": "https://www.openstreetmap.org/way/321025127"
+  },
+  {
+   "id": "way/321045982",
+   "city": "Kota",
+   "category": "industry",
+   "name": "All India Radio",
+   "lat": 25.186177,
+   "lon": 75.858908,
+   "osm_url": "https://www.openstreetmap.org/way/321045982"
+  },
+  {
+   "id": "way/321045999",
+   "city": "Kota",
+   "category": "industry",
+   "name": "Rajasthan State Seeds Corporation Ltd.",
+   "lat": 25.182366,
+   "lon": 75.868042,
+   "osm_url": "https://www.openstreetmap.org/way/321045999"
+  },
+  {
+   "id": "way/427474907",
+   "city": "Kota",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 25.452751,
+   "lon": 75.633801,
+   "osm_url": "https://www.openstreetmap.org/way/427474907"
+  },
+  {
+   "id": "way/436817594",
+   "city": "Kota",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 25.060873,
+   "lon": 75.842414,
+   "osm_url": "https://www.openstreetmap.org/way/436817594"
+  },
+  {
+   "id": "way/542010205",
+   "city": "Kota",
+   "category": "diesel_fleet",
+   "name": "Bundi Bus Stand",
+   "lat": 25.438969,
+   "lon": 75.643904,
+   "osm_url": "https://www.openstreetmap.org/way/542010205"
+  },
+  {
+   "id": "way/666277723",
+   "city": "Kota",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 25.143663,
+   "lon": 75.85714,
+   "osm_url": "https://www.openstreetmap.org/way/666277723"
+  },
+  {
+   "id": "way/666277724",
+   "city": "Kota",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 25.143879,
+   "lon": 75.856126,
+   "osm_url": "https://www.openstreetmap.org/way/666277724"
+  },
+  {
+   "id": "way/666277776",
+   "city": "Kota",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 25.133787,
+   "lon": 75.885425,
+   "osm_url": "https://www.openstreetmap.org/way/666277776"
+  },
+  {
+   "id": "way/779248976",
+   "city": "Kota",
+   "category": "industry",
+   "name": "OLD GODOWNS",
+   "lat": 25.139396,
+   "lon": 75.856539,
+   "osm_url": "https://www.openstreetmap.org/way/779248976"
+  },
+  {
+   "id": "way/963161181",
+   "city": "Kota",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 25.179985,
+   "lon": 75.83572,
+   "osm_url": "https://www.openstreetmap.org/way/963161181"
+  },
+  {
+   "id": "way/963161631",
+   "city": "Kota",
+   "category": "industry",
+   "name": "I 5",
+   "lat": 25.179778,
+   "lon": 75.836001,
+   "osm_url": "https://www.openstreetmap.org/way/963161631"
+  },
+  {
+   "id": "way/963166667",
+   "city": "Kota",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 25.174247,
+   "lon": 75.854086,
+   "osm_url": "https://www.openstreetmap.org/way/963166667"
+  },
+  {
+   "id": "way/963167200",
+   "city": "Kota",
+   "category": "industry",
+   "name": "8I",
+   "lat": 25.174342,
+   "lon": 75.852969,
+   "osm_url": "https://www.openstreetmap.org/way/963167200"
+  },
+  {
+   "id": "way/963168057",
+   "city": "Kota",
+   "category": "waste_burning",
+   "name": "G",
+   "lat": 25.175117,
+   "lon": 75.848334,
+   "osm_url": "https://www.openstreetmap.org/way/963168057"
+  },
+  {
+   "id": "way/987921715",
+   "city": "Kota",
+   "category": "industry",
+   "name": "Kota Complex power station",
+   "lat": 25.129652,
+   "lon": 75.882558,
+   "osm_url": "https://www.openstreetmap.org/way/987921715"
+  },
+  {
+   "id": "way/1315893277",
+   "city": "Kota",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 25.408402,
+   "lon": 75.639395,
+   "osm_url": "https://www.openstreetmap.org/way/1315893277"
+  },
+  {
+   "id": "node/6322579630",
+   "city": "Raipur",
+   "category": "diesel_fleet",
+   "name": "Bus Depot",
+   "lat": 21.252317,
+   "lon": 81.599253,
+   "osm_url": "https://www.openstreetmap.org/node/6322579630"
+  },
+  {
+   "id": "way/65310813",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Bhilai Steel Plant",
+   "lat": 21.184379,
+   "lon": 81.390959,
+   "osm_url": "https://www.openstreetmap.org/way/65310813"
+  },
+  {
+   "id": "way/77362523",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.498797,
+   "lon": 81.783787,
+   "osm_url": "https://www.openstreetmap.org/way/77362523"
+  },
+  {
+   "id": "way/119483465",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.225786,
+   "lon": 81.779073,
+   "osm_url": "https://www.openstreetmap.org/way/119483465"
+  },
+  {
+   "id": "way/119483469",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.224181,
+   "lon": 81.78704,
+   "osm_url": "https://www.openstreetmap.org/way/119483469"
+  },
+  {
+   "id": "way/129773726",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.235038,
+   "lon": 81.406091,
+   "osm_url": "https://www.openstreetmap.org/way/129773726"
+  },
+  {
+   "id": "way/129773727",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.229313,
+   "lon": 81.413577,
+   "osm_url": "https://www.openstreetmap.org/way/129773727"
+  },
+  {
+   "id": "way/129773729",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "ACC Jamul",
+   "lat": 21.237875,
+   "lon": 81.383639,
+   "osm_url": "https://www.openstreetmap.org/way/129773729"
+  },
+  {
+   "id": "way/129773736",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.227084,
+   "lon": 81.387143,
+   "osm_url": "https://www.openstreetmap.org/way/129773736"
+  },
+  {
+   "id": "way/129773738",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.233717,
+   "lon": 81.394837,
+   "osm_url": "https://www.openstreetmap.org/way/129773738"
+  },
+  {
+   "id": "way/129773739",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.373759,
+   "lon": 81.416192,
+   "osm_url": "https://www.openstreetmap.org/way/129773739"
+  },
+  {
+   "id": "way/202180496",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Bhilai 500 MW Expansion Power Project",
+   "lat": 21.188201,
+   "lon": 81.424324,
+   "osm_url": "https://www.openstreetmap.org/way/202180496"
+  },
+  {
+   "id": "way/202184617",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Raipur Substation",
+   "lat": 21.24382,
+   "lon": 81.488361,
+   "osm_url": "https://www.openstreetmap.org/way/202184617"
+  },
+  {
+   "id": "way/310591012",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.486042,
+   "lon": 81.769915,
+   "osm_url": "https://www.openstreetmap.org/way/310591012"
+  },
+  {
+   "id": "way/311954679",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "GMR Chhattisgarh Energy Limited",
+   "lat": 21.451357,
+   "lon": 81.857265,
+   "osm_url": "https://www.openstreetmap.org/way/311954679"
+  },
+  {
+   "id": "way/363613443",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.295441,
+   "lon": 81.614644,
+   "osm_url": "https://www.openstreetmap.org/way/363613443"
+  },
+  {
+   "id": "way/363619068",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.29345,
+   "lon": 81.595816,
+   "osm_url": "https://www.openstreetmap.org/way/363619068"
+  },
+  {
+   "id": "way/363619073",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.320151,
+   "lon": 81.581482,
+   "osm_url": "https://www.openstreetmap.org/way/363619073"
+  },
+  {
+   "id": "way/363619075",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.30999,
+   "lon": 81.590845,
+   "osm_url": "https://www.openstreetmap.org/way/363619075"
+  },
+  {
+   "id": "way/363619076",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.28003,
+   "lon": 81.5792,
+   "osm_url": "https://www.openstreetmap.org/way/363619076"
+  },
+  {
+   "id": "way/419911042",
+   "city": "Raipur",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 21.154063,
+   "lon": 81.796242,
+   "osm_url": "https://www.openstreetmap.org/way/419911042"
+  },
+  {
+   "id": "way/419912250",
+   "city": "Raipur",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 21.156254,
+   "lon": 81.799835,
+   "osm_url": "https://www.openstreetmap.org/way/419912250"
+  },
+  {
+   "id": "way/419922717",
+   "city": "Raipur",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 21.164187,
+   "lon": 81.794877,
+   "osm_url": "https://www.openstreetmap.org/way/419922717"
+  },
+  {
+   "id": "way/447454130",
+   "city": "Raipur",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 21.175255,
+   "lon": 81.407184,
+   "osm_url": "https://www.openstreetmap.org/way/447454130"
+  },
+  {
+   "id": "way/453982651",
+   "city": "Raipur",
+   "category": "waste_burning",
+   "name": "Slag Dumping",
+   "lat": 21.193065,
+   "lon": 81.410967,
+   "osm_url": "https://www.openstreetmap.org/way/453982651"
+  },
+  {
+   "id": "way/454897721",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.225638,
+   "lon": 81.398778,
+   "osm_url": "https://www.openstreetmap.org/way/454897721"
+  },
+  {
+   "id": "way/455040741",
+   "city": "Raipur",
+   "category": "diesel_fleet",
+   "name": "Bus Depot",
+   "lat": 21.252488,
+   "lon": 81.599541,
+   "osm_url": "https://www.openstreetmap.org/way/455040741"
+  },
+  {
+   "id": "way/455291184",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Raipur Diesel Locomotive Shed",
+   "lat": 21.27661,
+   "lon": 81.650015,
+   "osm_url": "https://www.openstreetmap.org/way/455291184"
+  },
+  {
+   "id": "way/455320581",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Raipur Wagon Repairs",
+   "lat": 21.289194,
+   "lon": 81.662196,
+   "osm_url": "https://www.openstreetmap.org/way/455320581"
+  },
+  {
+   "id": "way/458056404",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "JK Lakshmi Cement Ltd.",
+   "lat": 21.372882,
+   "lon": 81.449377,
+   "osm_url": "https://www.openstreetmap.org/way/458056404"
+  },
+  {
+   "id": "way/458057786",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.366482,
+   "lon": 81.444884,
+   "osm_url": "https://www.openstreetmap.org/way/458057786"
+  },
+  {
+   "id": "way/458270072",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.241733,
+   "lon": 81.510336,
+   "osm_url": "https://www.openstreetmap.org/way/458270072"
+  },
+  {
+   "id": "way/459375735",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Kedia Castle Dellon Distilleries Ltd",
+   "lat": 21.278375,
+   "lon": 81.531986,
+   "osm_url": "https://www.openstreetmap.org/way/459375735"
+  },
+  {
+   "id": "way/551123966",
+   "city": "Raipur",
+   "category": "diesel_fleet",
+   "name": "Abhanpur Bus stand",
+   "lat": 21.05419,
+   "lon": 81.747365,
+   "osm_url": "https://www.openstreetmap.org/way/551123966"
+  },
+  {
+   "id": "way/637504111",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "mow  mowamart timbertimbrr Haryanaharyanshri shri haryahary shri",
+   "lat": 21.26529,
+   "lon": 81.664244,
+   "osm_url": "https://www.openstreetmap.org/way/637504111"
+  },
+  {
+   "id": "way/639411677",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.311021,
+   "lon": 81.639633,
+   "osm_url": "https://www.openstreetmap.org/way/639411677"
+  },
+  {
+   "id": "way/641352389",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.399023,
+   "lon": 81.851943,
+   "osm_url": "https://www.openstreetmap.org/way/641352389"
+  },
+  {
+   "id": "way/649255198",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.374261,
+   "lon": 81.649114,
+   "osm_url": "https://www.openstreetmap.org/way/649255198"
+  },
+  {
+   "id": "way/649255201",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.36182,
+   "lon": 81.688299,
+   "osm_url": "https://www.openstreetmap.org/way/649255201"
+  },
+  {
+   "id": "way/649255202",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Jayaswal Neco",
+   "lat": 21.352659,
+   "lon": 81.67202,
+   "osm_url": "https://www.openstreetmap.org/way/649255202"
+  },
+  {
+   "id": "way/649255215",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.229307,
+   "lon": 81.7535,
+   "osm_url": "https://www.openstreetmap.org/way/649255215"
+  },
+  {
+   "id": "way/663288128",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.236722,
+   "lon": 81.579993,
+   "osm_url": "https://www.openstreetmap.org/way/663288128"
+  },
+  {
+   "id": "way/663298393",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.350988,
+   "lon": 81.688368,
+   "osm_url": "https://www.openstreetmap.org/way/663298393"
+  },
+  {
+   "id": "way/663298394",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.334567,
+   "lon": 81.707157,
+   "osm_url": "https://www.openstreetmap.org/way/663298394"
+  },
+  {
+   "id": "way/663298397",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.339654,
+   "lon": 81.693966,
+   "osm_url": "https://www.openstreetmap.org/way/663298397"
+  },
+  {
+   "id": "way/663298398",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.349867,
+   "lon": 81.693719,
+   "osm_url": "https://www.openstreetmap.org/way/663298398"
+  },
+  {
+   "id": "way/663298405",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.347521,
+   "lon": 81.653232,
+   "osm_url": "https://www.openstreetmap.org/way/663298405"
+  },
+  {
+   "id": "way/663298406",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.317492,
+   "lon": 81.636615,
+   "osm_url": "https://www.openstreetmap.org/way/663298406"
+  },
+  {
+   "id": "way/663298409",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.315982,
+   "lon": 81.646008,
+   "osm_url": "https://www.openstreetmap.org/way/663298409"
+  },
+  {
+   "id": "way/663298420",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.255912,
+   "lon": 81.623842,
+   "osm_url": "https://www.openstreetmap.org/way/663298420"
+  },
+  {
+   "id": "way/663615976",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.293499,
+   "lon": 81.618008,
+   "osm_url": "https://www.openstreetmap.org/way/663615976"
+  },
+  {
+   "id": "way/663617635",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.391403,
+   "lon": 81.646578,
+   "osm_url": "https://www.openstreetmap.org/way/663617635"
+  },
+  {
+   "id": "way/663619118",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.365458,
+   "lon": 81.681225,
+   "osm_url": "https://www.openstreetmap.org/way/663619118"
+  },
+  {
+   "id": "way/663619120",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.374841,
+   "lon": 81.681901,
+   "osm_url": "https://www.openstreetmap.org/way/663619120"
+  },
+  {
+   "id": "way/772682229",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.343429,
+   "lon": 81.65362,
+   "osm_url": "https://www.openstreetmap.org/way/772682229"
+  },
+  {
+   "id": "way/818095960",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.213286,
+   "lon": 81.859764,
+   "osm_url": "https://www.openstreetmap.org/way/818095960"
+  },
+  {
+   "id": "way/819962947",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.043441,
+   "lon": 81.602121,
+   "osm_url": "https://www.openstreetmap.org/way/819962947"
+  },
+  {
+   "id": "way/819962948",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.045429,
+   "lon": 81.602932,
+   "osm_url": "https://www.openstreetmap.org/way/819962948"
+  },
+  {
+   "id": "way/828496975",
+   "city": "Raipur",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 21.28151,
+   "lon": 81.676362,
+   "osm_url": "https://www.openstreetmap.org/way/828496975"
+  },
+  {
+   "id": "way/835277164",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.239635,
+   "lon": 81.559016,
+   "osm_url": "https://www.openstreetmap.org/way/835277164"
+  },
+  {
+   "id": "way/835512449",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.192257,
+   "lon": 81.880228,
+   "osm_url": "https://www.openstreetmap.org/way/835512449"
+  },
+  {
+   "id": "way/942306681",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.222091,
+   "lon": 81.801581,
+   "osm_url": "https://www.openstreetmap.org/way/942306681"
+  },
+  {
+   "id": "way/942306688",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.244332,
+   "lon": 81.770028,
+   "osm_url": "https://www.openstreetmap.org/way/942306688"
+  },
+  {
+   "id": "way/942306689",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.244591,
+   "lon": 81.776476,
+   "osm_url": "https://www.openstreetmap.org/way/942306689"
+  },
+  {
+   "id": "way/942341609",
+   "city": "Raipur",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 21.181863,
+   "lon": 81.749631,
+   "osm_url": "https://www.openstreetmap.org/way/942341609"
+  },
+  {
+   "id": "way/963215878",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.184507,
+   "lon": 81.388341,
+   "osm_url": "https://www.openstreetmap.org/way/963215878"
+  },
+  {
+   "id": "way/1003091518",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.494959,
+   "lon": 81.787345,
+   "osm_url": "https://www.openstreetmap.org/way/1003091518"
+  },
+  {
+   "id": "way/1003091519",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.158952,
+   "lon": 81.800238,
+   "osm_url": "https://www.openstreetmap.org/way/1003091519"
+  },
+  {
+   "id": "way/1003091520",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.281132,
+   "lon": 81.585591,
+   "osm_url": "https://www.openstreetmap.org/way/1003091520"
+  },
+  {
+   "id": "way/1003917598",
+   "city": "Raipur",
+   "category": "diesel_fleet",
+   "name": "Interstate Bus Station Raipur",
+   "lat": 21.219563,
+   "lon": 81.631068,
+   "osm_url": "https://www.openstreetmap.org/way/1003917598"
+  },
+  {
+   "id": "way/1004593793",
+   "city": "Raipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 21.374826,
+   "lon": 81.627576,
+   "osm_url": "https://www.openstreetmap.org/way/1004593793"
+  },
+  {
+   "id": "way/1275750086",
+   "city": "Raipur",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 21.151295,
+   "lon": 81.759846,
+   "osm_url": "https://www.openstreetmap.org/way/1275750086"
+  },
+  {
+   "id": "way/1275750087",
+   "city": "Raipur",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 21.14833,
+   "lon": 81.750936,
+   "osm_url": "https://www.openstreetmap.org/way/1275750087"
+  },
+  {
+   "id": "way/1275750129",
+   "city": "Raipur",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 21.17384,
+   "lon": 81.781099,
+   "osm_url": "https://www.openstreetmap.org/way/1275750129"
+  },
+  {
+   "id": "way/1275750241",
+   "city": "Raipur",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 21.158441,
+   "lon": 81.7765,
+   "osm_url": "https://www.openstreetmap.org/way/1275750241"
+  },
+  {
+   "id": "way/1275750242",
+   "city": "Raipur",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 21.158127,
+   "lon": 81.777543,
+   "osm_url": "https://www.openstreetmap.org/way/1275750242"
+  },
+  {
+   "id": "way/1275750243",
+   "city": "Raipur",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 21.15777,
+   "lon": 81.778559,
+   "osm_url": "https://www.openstreetmap.org/way/1275750243"
+  },
+  {
+   "id": "way/1275887630",
+   "city": "Raipur",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 21.12901,
+   "lon": 81.762038,
+   "osm_url": "https://www.openstreetmap.org/way/1275887630"
+  },
+  {
+   "id": "way/1275887651",
+   "city": "Raipur",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 21.150346,
+   "lon": 81.762385,
+   "osm_url": "https://www.openstreetmap.org/way/1275887651"
+  },
+  {
+   "id": "way/1275943481",
+   "city": "Raipur",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 21.221271,
+   "lon": 81.789546,
+   "osm_url": "https://www.openstreetmap.org/way/1275943481"
+  },
+  {
+   "id": "way/1314560675",
+   "city": "Raipur",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 21.15595,
+   "lon": 81.777369,
+   "osm_url": "https://www.openstreetmap.org/way/1314560675"
+  },
+  {
+   "id": "way/1314560676",
+   "city": "Raipur",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 21.156981,
+   "lon": 81.77526,
+   "osm_url": "https://www.openstreetmap.org/way/1314560676"
+  },
+  {
+   "id": "way/1314560684",
+   "city": "Raipur",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 21.165811,
+   "lon": 81.789293,
+   "osm_url": "https://www.openstreetmap.org/way/1314560684"
+  },
+  {
+   "id": "way/1314560691",
+   "city": "Raipur",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 21.172015,
+   "lon": 81.792656,
+   "osm_url": "https://www.openstreetmap.org/way/1314560691"
+  },
+  {
+   "id": "way/1314560748",
+   "city": "Raipur",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 21.238692,
+   "lon": 81.716719,
+   "osm_url": "https://www.openstreetmap.org/way/1314560748"
+  },
+  {
+   "id": "way/1314619428",
+   "city": "Raipur",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 21.127699,
+   "lon": 81.782414,
+   "osm_url": "https://www.openstreetmap.org/way/1314619428"
+  },
+  {
+   "id": "way/1314619439",
+   "city": "Raipur",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 21.1387,
+   "lon": 81.789471,
+   "osm_url": "https://www.openstreetmap.org/way/1314619439"
+  },
+  {
+   "id": "way/1314638832",
+   "city": "Raipur",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 21.290344,
+   "lon": 81.701885,
+   "osm_url": "https://www.openstreetmap.org/way/1314638832"
+  },
+  {
+   "id": "way/1339257097",
+   "city": "Raipur",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 21.173359,
+   "lon": 81.779448,
+   "osm_url": "https://www.openstreetmap.org/way/1339257097"
+  },
+  {
+   "id": "way/1339257098",
+   "city": "Raipur",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 21.173385,
+   "lon": 81.779983,
+   "osm_url": "https://www.openstreetmap.org/way/1339257098"
+  },
+  {
+   "id": "way/1339257099",
+   "city": "Raipur",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 21.173025,
+   "lon": 81.779846,
+   "osm_url": "https://www.openstreetmap.org/way/1339257099"
+  },
+  {
+   "id": "way/1339257100",
+   "city": "Raipur",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 21.173051,
+   "lon": 81.780384,
+   "osm_url": "https://www.openstreetmap.org/way/1339257100"
+  },
+  {
+   "id": "way/1339257101",
+   "city": "Raipur",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 21.172892,
+   "lon": 81.780643,
+   "osm_url": "https://www.openstreetmap.org/way/1339257101"
+  },
+  {
+   "id": "way/1339257102",
+   "city": "Raipur",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 21.17289,
+   "lon": 81.781533,
+   "osm_url": "https://www.openstreetmap.org/way/1339257102"
+  },
+  {
+   "id": "way/1339257103",
+   "city": "Raipur",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 21.17246,
+   "lon": 81.781825,
+   "osm_url": "https://www.openstreetmap.org/way/1339257103"
+  },
+  {
+   "id": "node/13204123204",
+   "city": "Ranchi",
+   "category": "diesel_fleet",
+   "name": "ITI Bus Stand",
+   "lat": 23.376147,
+   "lon": 85.283219,
+   "osm_url": "https://www.openstreetmap.org/node/13204123204"
+  },
+  {
+   "id": "way/91661220",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Heavy Engineering Corporation Limited",
+   "lat": 23.293498,
+   "lon": 85.28974,
+   "osm_url": "https://www.openstreetmap.org/way/91661220"
+  },
+  {
+   "id": "way/134540573",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.371557,
+   "lon": 85.442247,
+   "osm_url": "https://www.openstreetmap.org/way/134540573"
+  },
+  {
+   "id": "way/176162272",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Usha Martin factory",
+   "lat": 23.370081,
+   "lon": 85.429186,
+   "osm_url": "https://www.openstreetmap.org/way/176162272"
+  },
+  {
+   "id": "way/287430039",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "S.F.C godown",
+   "lat": 23.35123,
+   "lon": 85.313428,
+   "osm_url": "https://www.openstreetmap.org/way/287430039"
+  },
+  {
+   "id": "way/287430894",
+   "city": "Ranchi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.350178,
+   "lon": 85.307933,
+   "osm_url": "https://www.openstreetmap.org/way/287430894"
+  },
+  {
+   "id": "way/287812628",
+   "city": "Ranchi",
+   "category": "construction",
+   "name": "Celebration marriage hall",
+   "lat": 23.38653,
+   "lon": 85.331767,
+   "osm_url": "https://www.openstreetmap.org/way/287812628"
+  },
+  {
+   "id": "way/360852043",
+   "city": "Ranchi",
+   "category": "diesel_fleet",
+   "name": "Transport Department",
+   "lat": 23.411539,
+   "lon": 85.441926,
+   "osm_url": "https://www.openstreetmap.org/way/360852043"
+  },
+  {
+   "id": "way/364127423",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.360981,
+   "lon": 85.332379,
+   "osm_url": "https://www.openstreetmap.org/way/364127423"
+  },
+  {
+   "id": "way/364607640",
+   "city": "Ranchi",
+   "category": "waste_burning",
+   "name": "Municipal Landfill",
+   "lat": 23.41129,
+   "lon": 85.2558,
+   "osm_url": "https://www.openstreetmap.org/way/364607640"
+  },
+  {
+   "id": "way/425278160",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "High Tension Insulated Factory",
+   "lat": 23.354216,
+   "lon": 85.362541,
+   "osm_url": "https://www.openstreetmap.org/way/425278160"
+  },
+  {
+   "id": "way/516368105",
+   "city": "Ranchi",
+   "category": "diesel_fleet",
+   "name": "Government Bus Stop",
+   "lat": 23.350092,
+   "lon": 85.327945,
+   "osm_url": "https://www.openstreetmap.org/way/516368105"
+  },
+  {
+   "id": "way/516965594",
+   "city": "Ranchi",
+   "category": "diesel_fleet",
+   "name": "Khadgara Bus Stand",
+   "lat": 23.361934,
+   "lon": 85.345678,
+   "osm_url": "https://www.openstreetmap.org/way/516965594"
+  },
+  {
+   "id": "way/659734369",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.269449,
+   "lon": 85.39705,
+   "osm_url": "https://www.openstreetmap.org/way/659734369"
+  },
+  {
+   "id": "way/659739399",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.262989,
+   "lon": 85.419836,
+   "osm_url": "https://www.openstreetmap.org/way/659739399"
+  },
+  {
+   "id": "way/659793700",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Arvind",
+   "lat": 23.272414,
+   "lon": 85.413378,
+   "osm_url": "https://www.openstreetmap.org/way/659793700"
+  },
+  {
+   "id": "way/659864271",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.321844,
+   "lon": 85.20237,
+   "osm_url": "https://www.openstreetmap.org/way/659864271"
+  },
+  {
+   "id": "way/660103152",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.281121,
+   "lon": 85.413691,
+   "osm_url": "https://www.openstreetmap.org/way/660103152"
+  },
+  {
+   "id": "way/660103211",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.369372,
+   "lon": 85.444665,
+   "osm_url": "https://www.openstreetmap.org/way/660103211"
+  },
+  {
+   "id": "way/660117861",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.490045,
+   "lon": 85.512815,
+   "osm_url": "https://www.openstreetmap.org/way/660117861"
+  },
+  {
+   "id": "way/660233979",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.502939,
+   "lon": 85.497228,
+   "osm_url": "https://www.openstreetmap.org/way/660233979"
+  },
+  {
+   "id": "way/661285998",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.553058,
+   "lon": 85.510473,
+   "osm_url": "https://www.openstreetmap.org/way/661285998"
+  },
+  {
+   "id": "way/661403590",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.300522,
+   "lon": 85.19456,
+   "osm_url": "https://www.openstreetmap.org/way/661403590"
+  },
+  {
+   "id": "way/662611539",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.324084,
+   "lon": 85.200721,
+   "osm_url": "https://www.openstreetmap.org/way/662611539"
+  },
+  {
+   "id": "way/663486812",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.359777,
+   "lon": 85.241952,
+   "osm_url": "https://www.openstreetmap.org/way/663486812"
+  },
+  {
+   "id": "way/663502813",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.338272,
+   "lon": 85.211712,
+   "osm_url": "https://www.openstreetmap.org/way/663502813"
+  },
+  {
+   "id": "way/663502814",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.336246,
+   "lon": 85.210146,
+   "osm_url": "https://www.openstreetmap.org/way/663502814"
+  },
+  {
+   "id": "way/760920054",
+   "city": "Ranchi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.455624,
+   "lon": 85.221417,
+   "osm_url": "https://www.openstreetmap.org/way/760920054"
+  },
+  {
+   "id": "way/760920057",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.470937,
+   "lon": 85.212734,
+   "osm_url": "https://www.openstreetmap.org/way/760920057"
+  },
+  {
+   "id": "way/760920064",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.458884,
+   "lon": 85.241496,
+   "osm_url": "https://www.openstreetmap.org/way/760920064"
+  },
+  {
+   "id": "way/760920065",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.460678,
+   "lon": 85.238545,
+   "osm_url": "https://www.openstreetmap.org/way/760920065"
+  },
+  {
+   "id": "way/760920074",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.454317,
+   "lon": 85.222181,
+   "osm_url": "https://www.openstreetmap.org/way/760920074"
+  },
+  {
+   "id": "way/760920075",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.455963,
+   "lon": 85.230901,
+   "osm_url": "https://www.openstreetmap.org/way/760920075"
+  },
+  {
+   "id": "way/760920076",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.457823,
+   "lon": 85.234863,
+   "osm_url": "https://www.openstreetmap.org/way/760920076"
+  },
+  {
+   "id": "way/760920077",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.453869,
+   "lon": 85.238221,
+   "osm_url": "https://www.openstreetmap.org/way/760920077"
+  },
+  {
+   "id": "way/760920083",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.449429,
+   "lon": 85.235341,
+   "osm_url": "https://www.openstreetmap.org/way/760920083"
+  },
+  {
+   "id": "way/985121391",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.302888,
+   "lon": 85.189858,
+   "osm_url": "https://www.openstreetmap.org/way/985121391"
+  },
+  {
+   "id": "way/985121392",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.308342,
+   "lon": 85.184454,
+   "osm_url": "https://www.openstreetmap.org/way/985121392"
+  },
+  {
+   "id": "way/985121393",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.325775,
+   "lon": 85.21694,
+   "osm_url": "https://www.openstreetmap.org/way/985121393"
+  },
+  {
+   "id": "way/985121394",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.337298,
+   "lon": 85.221973,
+   "osm_url": "https://www.openstreetmap.org/way/985121394"
+  },
+  {
+   "id": "way/985121395",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.331917,
+   "lon": 85.220736,
+   "osm_url": "https://www.openstreetmap.org/way/985121395"
+  },
+  {
+   "id": "way/985121398",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.310206,
+   "lon": 85.302333,
+   "osm_url": "https://www.openstreetmap.org/way/985121398"
+  },
+  {
+   "id": "way/985121399",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.308829,
+   "lon": 85.303285,
+   "osm_url": "https://www.openstreetmap.org/way/985121399"
+  },
+  {
+   "id": "way/985121407",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.353215,
+   "lon": 85.410759,
+   "osm_url": "https://www.openstreetmap.org/way/985121407"
+  },
+  {
+   "id": "way/985121409",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.314082,
+   "lon": 85.388182,
+   "osm_url": "https://www.openstreetmap.org/way/985121409"
+  },
+  {
+   "id": "way/985121410",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.310254,
+   "lon": 85.355635,
+   "osm_url": "https://www.openstreetmap.org/way/985121410"
+  },
+  {
+   "id": "way/985121413",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.369547,
+   "lon": 85.39324,
+   "osm_url": "https://www.openstreetmap.org/way/985121413"
+  },
+  {
+   "id": "way/985121414",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.368906,
+   "lon": 85.447725,
+   "osm_url": "https://www.openstreetmap.org/way/985121414"
+  },
+  {
+   "id": "way/985121415",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.368837,
+   "lon": 85.44627,
+   "osm_url": "https://www.openstreetmap.org/way/985121415"
+  },
+  {
+   "id": "way/985121416",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.372367,
+   "lon": 85.431502,
+   "osm_url": "https://www.openstreetmap.org/way/985121416"
+  },
+  {
+   "id": "way/985121417",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.369231,
+   "lon": 85.428543,
+   "osm_url": "https://www.openstreetmap.org/way/985121417"
+  },
+  {
+   "id": "way/985121418",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.370409,
+   "lon": 85.423994,
+   "osm_url": "https://www.openstreetmap.org/way/985121418"
+  },
+  {
+   "id": "way/985121419",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.374305,
+   "lon": 85.43204,
+   "osm_url": "https://www.openstreetmap.org/way/985121419"
+  },
+  {
+   "id": "way/985121421",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.357418,
+   "lon": 85.415064,
+   "osm_url": "https://www.openstreetmap.org/way/985121421"
+  },
+  {
+   "id": "way/985121422",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.348064,
+   "lon": 85.418472,
+   "osm_url": "https://www.openstreetmap.org/way/985121422"
+  },
+  {
+   "id": "way/985124368",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.199804,
+   "lon": 85.31706,
+   "osm_url": "https://www.openstreetmap.org/way/985124368"
+  },
+  {
+   "id": "way/1000324034",
+   "city": "Ranchi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.299582,
+   "lon": 85.293338,
+   "osm_url": "https://www.openstreetmap.org/way/1000324034"
+  },
+  {
+   "id": "way/1006851982",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "SNL Factory",
+   "lat": 23.416302,
+   "lon": 85.215505,
+   "osm_url": "https://www.openstreetmap.org/way/1006851982"
+  },
+  {
+   "id": "way/1008233797",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.506249,
+   "lon": 85.378765,
+   "osm_url": "https://www.openstreetmap.org/way/1008233797"
+  },
+  {
+   "id": "way/1008233812",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.497886,
+   "lon": 85.405215,
+   "osm_url": "https://www.openstreetmap.org/way/1008233812"
+  },
+  {
+   "id": "way/1008233866",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.471778,
+   "lon": 85.418538,
+   "osm_url": "https://www.openstreetmap.org/way/1008233866"
+  },
+  {
+   "id": "way/1008233870",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.47645,
+   "lon": 85.417073,
+   "osm_url": "https://www.openstreetmap.org/way/1008233870"
+  },
+  {
+   "id": "way/1008233887",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.483663,
+   "lon": 85.424074,
+   "osm_url": "https://www.openstreetmap.org/way/1008233887"
+  },
+  {
+   "id": "way/1008233894",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.483474,
+   "lon": 85.421805,
+   "osm_url": "https://www.openstreetmap.org/way/1008233894"
+  },
+  {
+   "id": "way/1008233902",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.494669,
+   "lon": 85.415051,
+   "osm_url": "https://www.openstreetmap.org/way/1008233902"
+  },
+  {
+   "id": "way/1008233905",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.485669,
+   "lon": 85.438206,
+   "osm_url": "https://www.openstreetmap.org/way/1008233905"
+  },
+  {
+   "id": "way/1008233911",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.482159,
+   "lon": 85.429365,
+   "osm_url": "https://www.openstreetmap.org/way/1008233911"
+  },
+  {
+   "id": "way/1008233922",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.48894,
+   "lon": 85.448482,
+   "osm_url": "https://www.openstreetmap.org/way/1008233922"
+  },
+  {
+   "id": "way/1008233928",
+   "city": "Ranchi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.492772,
+   "lon": 85.437859,
+   "osm_url": "https://www.openstreetmap.org/way/1008233928"
+  },
+  {
+   "id": "way/1315377204",
+   "city": "Ranchi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.323469,
+   "lon": 85.275758,
+   "osm_url": "https://www.openstreetmap.org/way/1315377204"
+  },
+  {
+   "id": "way/1315377205",
+   "city": "Ranchi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.335263,
+   "lon": 85.257946,
+   "osm_url": "https://www.openstreetmap.org/way/1315377205"
+  },
+  {
+   "id": "way/1315377206",
+   "city": "Ranchi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.342624,
+   "lon": 85.253402,
+   "osm_url": "https://www.openstreetmap.org/way/1315377206"
+  },
+  {
+   "id": "way/1315377207",
+   "city": "Ranchi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.342806,
+   "lon": 85.252306,
+   "osm_url": "https://www.openstreetmap.org/way/1315377207"
+  },
+  {
+   "id": "way/1388315100",
+   "city": "Ranchi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.37635,
+   "lon": 85.323609,
+   "osm_url": "https://www.openstreetmap.org/way/1388315100"
+  },
+  {
+   "id": "way/1388315101",
+   "city": "Ranchi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.376426,
+   "lon": 85.323665,
+   "osm_url": "https://www.openstreetmap.org/way/1388315101"
+  },
+  {
+   "id": "way/1388315102",
+   "city": "Ranchi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.375056,
+   "lon": 85.323326,
+   "osm_url": "https://www.openstreetmap.org/way/1388315102"
+  },
+  {
+   "id": "way/1433211467",
+   "city": "Ranchi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.299684,
+   "lon": 85.292313,
+   "osm_url": "https://www.openstreetmap.org/way/1433211467"
+  },
+  {
+   "id": "node/583865954",
+   "city": "Dehradun",
+   "category": "diesel_fleet",
+   "name": "Picture Palace Bus Stop",
+   "lat": 30.453361,
+   "lon": 78.083367,
+   "osm_url": "https://www.openstreetmap.org/node/583865954"
+  },
+  {
+   "id": "node/583867165",
+   "city": "Dehradun",
+   "category": "diesel_fleet",
+   "name": "Library Bus Stop",
+   "lat": 30.460038,
+   "lon": 78.066119,
+   "osm_url": "https://www.openstreetmap.org/node/583867165"
+  },
+  {
+   "id": "node/1182816652",
+   "city": "Dehradun",
+   "category": "diesel_fleet",
+   "name": "Mussoorie bus stand",
+   "lat": 30.315705,
+   "lon": 78.03341,
+   "osm_url": "https://www.openstreetmap.org/node/1182816652"
+  },
+  {
+   "id": "node/3160898476",
+   "city": "Dehradun",
+   "category": "diesel_fleet",
+   "name": "Tehri Bus Stand",
+   "lat": 30.458863,
+   "lon": 78.094704,
+   "osm_url": "https://www.openstreetmap.org/node/3160898476"
+  },
+  {
+   "id": "node/3500415605",
+   "city": "Dehradun",
+   "category": "diesel_fleet",
+   "name": "Shastradhara bus stand",
+   "lat": 30.323716,
+   "lon": 78.045909,
+   "osm_url": "https://www.openstreetmap.org/node/3500415605"
+  },
+  {
+   "id": "node/5001731228",
+   "city": "Dehradun",
+   "category": "diesel_fleet",
+   "name": "#5 tuktuk to bus going Musoorie",
+   "lat": 30.288503,
+   "lon": 77.996134,
+   "osm_url": "https://www.openstreetmap.org/node/5001731228"
+  },
+  {
+   "id": "node/11013496985",
+   "city": "Dehradun",
+   "category": "industry",
+   "name": "Dhanya Dhenu Ice Cream Factory",
+   "lat": 30.182195,
+   "lon": 78.231986,
+   "osm_url": "https://www.openstreetmap.org/node/11013496985"
+  },
+  {
+   "id": "way/118923129",
+   "city": "Dehradun",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 30.169725,
+   "lon": 78.123039,
+   "osm_url": "https://www.openstreetmap.org/way/118923129"
+  },
+  {
+   "id": "way/227274945",
+   "city": "Dehradun",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 30.069788,
+   "lon": 78.24806,
+   "osm_url": "https://www.openstreetmap.org/way/227274945"
+  },
+  {
+   "id": "way/234947521",
+   "city": "Dehradun",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 30.257291,
+   "lon": 78.026999,
+   "osm_url": "https://www.openstreetmap.org/way/234947521"
+  },
+  {
+   "id": "way/260340752",
+   "city": "Dehradun",
+   "category": "diesel_fleet",
+   "name": "Inter-State Bus Terminus",
+   "lat": 30.287357,
+   "lon": 77.997907,
+   "osm_url": "https://www.openstreetmap.org/way/260340752"
+  },
+  {
+   "id": "way/390949462",
+   "city": "Dehradun",
+   "category": "industry",
+   "name": "Amitabh Textile Mill",
+   "lat": 30.335434,
+   "lon": 77.970586,
+   "osm_url": "https://www.openstreetmap.org/way/390949462"
+  },
+  {
+   "id": "way/449520155",
+   "city": "Dehradun",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 30.344235,
+   "lon": 78.077426,
+   "osm_url": "https://www.openstreetmap.org/way/449520155"
+  },
+  {
+   "id": "way/451131123",
+   "city": "Dehradun",
+   "category": "diesel_fleet",
+   "name": "ISBT Dehradun",
+   "lat": 30.287821,
+   "lon": 77.998025,
+   "osm_url": "https://www.openstreetmap.org/way/451131123"
+  },
+  {
+   "id": "way/627223160",
+   "city": "Dehradun",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 30.261827,
+   "lon": 78.042414,
+   "osm_url": "https://www.openstreetmap.org/way/627223160"
+  },
+  {
+   "id": "way/675658610",
+   "city": "Dehradun",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 30.362681,
+   "lon": 78.07261,
+   "osm_url": "https://www.openstreetmap.org/way/675658610"
+  },
+  {
+   "id": "way/675658611",
+   "city": "Dehradun",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 30.3627,
+   "lon": 78.074014,
+   "osm_url": "https://www.openstreetmap.org/way/675658611"
+  },
+  {
+   "id": "way/805080169",
+   "city": "Dehradun",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 30.118815,
+   "lon": 77.887783,
+   "osm_url": "https://www.openstreetmap.org/way/805080169"
+  },
+  {
+   "id": "way/805080170",
+   "city": "Dehradun",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 30.11539,
+   "lon": 77.88777,
+   "osm_url": "https://www.openstreetmap.org/way/805080170"
+  },
+  {
+   "id": "way/807206174",
+   "city": "Dehradun",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 30.104738,
+   "lon": 77.865842,
+   "osm_url": "https://www.openstreetmap.org/way/807206174"
+  },
+  {
+   "id": "way/825078066",
+   "city": "Dehradun",
+   "category": "industry",
+   "name": "Indian Drugs and Pharmaceuticals Limited",
+   "lat": 30.070078,
+   "lon": 78.259976,
+   "osm_url": "https://www.openstreetmap.org/way/825078066"
+  },
+  {
+   "id": "way/825078067",
+   "city": "Dehradun",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 30.06655,
+   "lon": 78.255283,
+   "osm_url": "https://www.openstreetmap.org/way/825078067"
+  },
+  {
+   "id": "way/898877756",
+   "city": "Dehradun",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 30.333681,
+   "lon": 78.029163,
+   "osm_url": "https://www.openstreetmap.org/way/898877756"
+  },
+  {
+   "id": "way/981252574",
+   "city": "Dehradun",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 30.127212,
+   "lon": 78.164636,
+   "osm_url": "https://www.openstreetmap.org/way/981252574"
+  },
+  {
+   "id": "way/981252575",
+   "city": "Dehradun",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 30.126375,
+   "lon": 78.167993,
+   "osm_url": "https://www.openstreetmap.org/way/981252575"
+  },
+  {
+   "id": "way/981252576",
+   "city": "Dehradun",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 30.126937,
+   "lon": 78.167935,
+   "osm_url": "https://www.openstreetmap.org/way/981252576"
+  },
+  {
+   "id": "way/981252577",
+   "city": "Dehradun",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 30.127763,
+   "lon": 78.165917,
+   "osm_url": "https://www.openstreetmap.org/way/981252577"
+  },
+  {
+   "id": "way/981252578",
+   "city": "Dehradun",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 30.127174,
+   "lon": 78.166009,
+   "osm_url": "https://www.openstreetmap.org/way/981252578"
+  },
+  {
+   "id": "way/985421715",
+   "city": "Dehradun",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 30.068516,
+   "lon": 77.787736,
+   "osm_url": "https://www.openstreetmap.org/way/985421715"
+  },
+  {
+   "id": "way/1002716852",
+   "city": "Dehradun",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 30.498545,
+   "lon": 77.786311,
+   "osm_url": "https://www.openstreetmap.org/way/1002716852"
+  },
+  {
+   "id": "way/1003037872",
+   "city": "Dehradun",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 30.507344,
+   "lon": 77.801814,
+   "osm_url": "https://www.openstreetmap.org/way/1003037872"
+  },
+  {
+   "id": "way/1003037873",
+   "city": "Dehradun",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 30.507813,
+   "lon": 77.796456,
+   "osm_url": "https://www.openstreetmap.org/way/1003037873"
+  },
+  {
+   "id": "way/1078876933",
+   "city": "Dehradun",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 30.111545,
+   "lon": 78.280584,
+   "osm_url": "https://www.openstreetmap.org/way/1078876933"
+  },
+  {
+   "id": "way/1223512521",
+   "city": "Dehradun",
+   "category": "waste_burning",
+   "name": "Dehradun Waste Management Plant",
+   "lat": 30.343222,
+   "lon": 77.869212,
+   "osm_url": "https://www.openstreetmap.org/way/1223512521"
+  },
+  {
+   "id": "way/1274650407",
+   "city": "Dehradun",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 30.387838,
+   "lon": 78.04964,
+   "osm_url": "https://www.openstreetmap.org/way/1274650407"
+  },
+  {
+   "id": "way/1274650410",
+   "city": "Dehradun",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 30.397588,
+   "lon": 78.069663,
+   "osm_url": "https://www.openstreetmap.org/way/1274650410"
+  },
+  {
+   "id": "way/1274650419",
+   "city": "Dehradun",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 30.407376,
+   "lon": 78.089664,
+   "osm_url": "https://www.openstreetmap.org/way/1274650419"
+  },
+  {
+   "id": "way/1274650420",
+   "city": "Dehradun",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 30.410149,
+   "lon": 78.08977,
+   "osm_url": "https://www.openstreetmap.org/way/1274650420"
+  },
+  {
+   "id": "way/1274650421",
+   "city": "Dehradun",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 30.402197,
+   "lon": 78.097648,
+   "osm_url": "https://www.openstreetmap.org/way/1274650421"
+  },
+  {
+   "id": "way/1274650422",
+   "city": "Dehradun",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 30.412969,
+   "lon": 78.08669,
+   "osm_url": "https://www.openstreetmap.org/way/1274650422"
+  },
+  {
+   "id": "way/1274650423",
+   "city": "Dehradun",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 30.412803,
+   "lon": 78.087819,
+   "osm_url": "https://www.openstreetmap.org/way/1274650423"
+  },
+  {
+   "id": "way/1274650436",
+   "city": "Dehradun",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 30.411827,
+   "lon": 78.066532,
+   "osm_url": "https://www.openstreetmap.org/way/1274650436"
+  },
+  {
+   "id": "way/1274650437",
+   "city": "Dehradun",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 30.405398,
+   "lon": 78.084786,
+   "osm_url": "https://www.openstreetmap.org/way/1274650437"
+  },
+  {
+   "id": "way/1274650438",
+   "city": "Dehradun",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 30.397208,
+   "lon": 78.0816,
+   "osm_url": "https://www.openstreetmap.org/way/1274650438"
+  },
+  {
+   "id": "way/1274650439",
+   "city": "Dehradun",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 30.383438,
+   "lon": 78.075342,
+   "osm_url": "https://www.openstreetmap.org/way/1274650439"
+  },
+  {
+   "id": "way/1274650440",
+   "city": "Dehradun",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 30.385389,
+   "lon": 78.065639,
+   "osm_url": "https://www.openstreetmap.org/way/1274650440"
+  },
+  {
+   "id": "way/1291802309",
+   "city": "Dehradun",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 30.401613,
+   "lon": 78.126326,
+   "osm_url": "https://www.openstreetmap.org/way/1291802309"
+  },
+  {
+   "id": "way/1291802311",
+   "city": "Dehradun",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 30.399718,
+   "lon": 78.128098,
+   "osm_url": "https://www.openstreetmap.org/way/1291802311"
+  },
+  {
+   "id": "way/1408335022",
+   "city": "Dehradun",
+   "category": "construction",
+   "name": "Law",
+   "lat": 30.268412,
+   "lon": 77.992977,
+   "osm_url": "https://www.openstreetmap.org/way/1408335022"
+  },
+  {
+   "id": "way/1451833159",
+   "city": "Dehradun",
+   "category": "industry",
+   "name": "Tata Communication",
+   "lat": 30.178087,
+   "lon": 78.103953,
+   "osm_url": "https://www.openstreetmap.org/way/1451833159"
+  },
+  {
+   "id": "way/1454937702",
+   "city": "Dehradun",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 30.516084,
+   "lon": 77.948427,
+   "osm_url": "https://www.openstreetmap.org/way/1454937702"
+  },
+  {
+   "id": "relation/16570717",
+   "city": "Dehradun",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 30.123257,
+   "lon": 78.280194,
+   "osm_url": "https://www.openstreetmap.org/relation/16570717"
+  },
+  {
+   "id": "relation/17497914",
+   "city": "Dehradun",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 30.399506,
+   "lon": 78.073669,
+   "osm_url": "https://www.openstreetmap.org/relation/17497914"
+  },
+  {
+   "id": "node/1078793304",
+   "city": "Jammu",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 32.897836,
+   "lon": 74.738934,
+   "osm_url": "https://www.openstreetmap.org/node/1078793304"
+  },
+  {
+   "id": "node/1351860263",
+   "city": "Jammu",
+   "category": "diesel_fleet",
+   "name": "RS Pura Bus Stand",
+   "lat": 32.60652,
+   "lon": 74.735372,
+   "osm_url": "https://www.openstreetmap.org/node/1351860263"
+  },
+  {
+   "id": "node/2835089170",
+   "city": "Jammu",
+   "category": "diesel_fleet",
+   "name": "Local Bus Stand",
+   "lat": 32.727967,
+   "lon": 74.859528,
+   "osm_url": "https://www.openstreetmap.org/node/2835089170"
+  },
+  {
+   "id": "node/4436137789",
+   "city": "Jammu",
+   "category": "diesel_fleet",
+   "name": "Domel",
+   "lat": 32.894158,
+   "lon": 74.953994,
+   "osm_url": "https://www.openstreetmap.org/node/4436137789"
+  },
+  {
+   "id": "node/6629073686",
+   "city": "Jammu",
+   "category": "diesel_fleet",
+   "name": "Kargil House Jammu",
+   "lat": 32.704548,
+   "lon": 74.871206,
+   "osm_url": "https://www.openstreetmap.org/node/6629073686"
+  },
+  {
+   "id": "node/7734766932",
+   "city": "Jammu",
+   "category": "industry",
+   "name": "Zaki Industries",
+   "lat": 32.525361,
+   "lon": 74.609737,
+   "osm_url": "https://www.openstreetmap.org/node/7734766932"
+  },
+  {
+   "id": "way/126614723",
+   "city": "Jammu",
+   "category": "industry",
+   "name": "Industrial Area",
+   "lat": 32.558674,
+   "lon": 75.099487,
+   "osm_url": "https://www.openstreetmap.org/way/126614723"
+  },
+  {
+   "id": "way/126614747",
+   "city": "Jammu",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 32.643623,
+   "lon": 74.931706,
+   "osm_url": "https://www.openstreetmap.org/way/126614747"
+  },
+  {
+   "id": "way/168148716",
+   "city": "Jammu",
+   "category": "diesel_fleet",
+   "name": "General Bus Stand Jammu",
+   "lat": 32.729478,
+   "lon": 74.859397,
+   "osm_url": "https://www.openstreetmap.org/way/168148716"
+  },
+  {
+   "id": "way/168231348",
+   "city": "Jammu",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 32.676026,
+   "lon": 74.87408,
+   "osm_url": "https://www.openstreetmap.org/way/168231348"
+  },
+  {
+   "id": "way/179491220",
+   "city": "Jammu",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 32.643162,
+   "lon": 74.842195,
+   "osm_url": "https://www.openstreetmap.org/way/179491220"
+  },
+  {
+   "id": "way/210414986",
+   "city": "Jammu",
+   "category": "industry",
+   "name": "Janipur Power House",
+   "lat": 32.757631,
+   "lon": 74.852017,
+   "osm_url": "https://www.openstreetmap.org/way/210414986"
+  },
+  {
+   "id": "way/343684532",
+   "city": "Jammu",
+   "category": "industry",
+   "name": "Power Station",
+   "lat": 32.753376,
+   "lon": 74.815157,
+   "osm_url": "https://www.openstreetmap.org/way/343684532"
+  },
+  {
+   "id": "way/404058607",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.673937,
+   "lon": 74.906002,
+   "osm_url": "https://www.openstreetmap.org/way/404058607"
+  },
+  {
+   "id": "way/404058610",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.674844,
+   "lon": 74.906644,
+   "osm_url": "https://www.openstreetmap.org/way/404058610"
+  },
+  {
+   "id": "way/404058612",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.675368,
+   "lon": 74.906803,
+   "osm_url": "https://www.openstreetmap.org/way/404058612"
+  },
+  {
+   "id": "way/404058613",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.67502,
+   "lon": 74.908931,
+   "osm_url": "https://www.openstreetmap.org/way/404058613"
+  },
+  {
+   "id": "way/404058616",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.675788,
+   "lon": 74.907818,
+   "osm_url": "https://www.openstreetmap.org/way/404058616"
+  },
+  {
+   "id": "way/404058619",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.674316,
+   "lon": 74.908095,
+   "osm_url": "https://www.openstreetmap.org/way/404058619"
+  },
+  {
+   "id": "way/404058620",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.674408,
+   "lon": 74.906254,
+   "osm_url": "https://www.openstreetmap.org/way/404058620"
+  },
+  {
+   "id": "way/404058621",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.675674,
+   "lon": 74.90795,
+   "osm_url": "https://www.openstreetmap.org/way/404058621"
+  },
+  {
+   "id": "way/404058623",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.675367,
+   "lon": 74.906048,
+   "osm_url": "https://www.openstreetmap.org/way/404058623"
+  },
+  {
+   "id": "way/404058624",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.674512,
+   "lon": 74.906377,
+   "osm_url": "https://www.openstreetmap.org/way/404058624"
+  },
+  {
+   "id": "way/404058625",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.67435,
+   "lon": 74.907312,
+   "osm_url": "https://www.openstreetmap.org/way/404058625"
+  },
+  {
+   "id": "way/404058628",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.673069,
+   "lon": 74.90685,
+   "osm_url": "https://www.openstreetmap.org/way/404058628"
+  },
+  {
+   "id": "way/404058630",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.673617,
+   "lon": 74.906366,
+   "osm_url": "https://www.openstreetmap.org/way/404058630"
+  },
+  {
+   "id": "way/404058632",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.672163,
+   "lon": 74.906509,
+   "osm_url": "https://www.openstreetmap.org/way/404058632"
+  },
+  {
+   "id": "way/404058634",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.671926,
+   "lon": 74.90594,
+   "osm_url": "https://www.openstreetmap.org/way/404058634"
+  },
+  {
+   "id": "way/404058635",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.673309,
+   "lon": 74.904303,
+   "osm_url": "https://www.openstreetmap.org/way/404058635"
+  },
+  {
+   "id": "way/404058638",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.673899,
+   "lon": 74.904401,
+   "osm_url": "https://www.openstreetmap.org/way/404058638"
+  },
+  {
+   "id": "way/404058639",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.673187,
+   "lon": 74.906713,
+   "osm_url": "https://www.openstreetmap.org/way/404058639"
+  },
+  {
+   "id": "way/404058645",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.674123,
+   "lon": 74.908418,
+   "osm_url": "https://www.openstreetmap.org/way/404058645"
+  },
+  {
+   "id": "way/404058650",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.676223,
+   "lon": 74.906713,
+   "osm_url": "https://www.openstreetmap.org/way/404058650"
+  },
+  {
+   "id": "way/404058656",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.673542,
+   "lon": 74.908077,
+   "osm_url": "https://www.openstreetmap.org/way/404058656"
+  },
+  {
+   "id": "way/404058657",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.676002,
+   "lon": 74.907453,
+   "osm_url": "https://www.openstreetmap.org/way/404058657"
+  },
+  {
+   "id": "way/404058659",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.676245,
+   "lon": 74.90751,
+   "osm_url": "https://www.openstreetmap.org/way/404058659"
+  },
+  {
+   "id": "way/404058660",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.674077,
+   "lon": 74.904844,
+   "osm_url": "https://www.openstreetmap.org/way/404058660"
+  },
+  {
+   "id": "way/404058662",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.676297,
+   "lon": 74.906795,
+   "osm_url": "https://www.openstreetmap.org/way/404058662"
+  },
+  {
+   "id": "way/404058663",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.673354,
+   "lon": 74.904984,
+   "osm_url": "https://www.openstreetmap.org/way/404058663"
+  },
+  {
+   "id": "way/404058664",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.674722,
+   "lon": 74.906502,
+   "osm_url": "https://www.openstreetmap.org/way/404058664"
+  },
+  {
+   "id": "way/404058666",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.674896,
+   "lon": 74.90879,
+   "osm_url": "https://www.openstreetmap.org/way/404058666"
+  },
+  {
+   "id": "way/404058667",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.67509,
+   "lon": 74.905723,
+   "osm_url": "https://www.openstreetmap.org/way/404058667"
+  },
+  {
+   "id": "way/404058668",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.674578,
+   "lon": 74.90503,
+   "osm_url": "https://www.openstreetmap.org/way/404058668"
+  },
+  {
+   "id": "way/404058670",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.674731,
+   "lon": 74.905214,
+   "osm_url": "https://www.openstreetmap.org/way/404058670"
+  },
+  {
+   "id": "way/404058675",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.675125,
+   "lon": 74.905478,
+   "osm_url": "https://www.openstreetmap.org/way/404058675"
+  },
+  {
+   "id": "way/404058676",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.674025,
+   "lon": 74.906107,
+   "osm_url": "https://www.openstreetmap.org/way/404058676"
+  },
+  {
+   "id": "way/404058678",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.672567,
+   "lon": 74.906959,
+   "osm_url": "https://www.openstreetmap.org/way/404058678"
+  },
+  {
+   "id": "way/404058681",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.674041,
+   "lon": 74.908323,
+   "osm_url": "https://www.openstreetmap.org/way/404058681"
+  },
+  {
+   "id": "way/404058683",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.673048,
+   "lon": 74.90461,
+   "osm_url": "https://www.openstreetmap.org/way/404058683"
+  },
+  {
+   "id": "way/404058688",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.671824,
+   "lon": 74.905822,
+   "osm_url": "https://www.openstreetmap.org/way/404058688"
+  },
+  {
+   "id": "way/404058689",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.674647,
+   "lon": 74.905314,
+   "osm_url": "https://www.openstreetmap.org/way/404058689"
+  },
+  {
+   "id": "way/404058690",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.67371,
+   "lon": 74.905411,
+   "osm_url": "https://www.openstreetmap.org/way/404058690"
+  },
+  {
+   "id": "way/404058691",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.674106,
+   "lon": 74.906636,
+   "osm_url": "https://www.openstreetmap.org/way/404058691"
+  },
+  {
+   "id": "way/404058692",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.673412,
+   "lon": 74.906754,
+   "osm_url": "https://www.openstreetmap.org/way/404058692"
+  },
+  {
+   "id": "way/404058693",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.675514,
+   "lon": 74.907506,
+   "osm_url": "https://www.openstreetmap.org/way/404058693"
+  },
+  {
+   "id": "way/404058696",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.673132,
+   "lon": 74.904509,
+   "osm_url": "https://www.openstreetmap.org/way/404058696"
+  },
+  {
+   "id": "way/404058697",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.675174,
+   "lon": 74.908459,
+   "osm_url": "https://www.openstreetmap.org/way/404058697"
+  },
+  {
+   "id": "way/404058701",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.676019,
+   "lon": 74.906746,
+   "osm_url": "https://www.openstreetmap.org/way/404058701"
+  },
+  {
+   "id": "way/404058702",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.672153,
+   "lon": 74.905439,
+   "osm_url": "https://www.openstreetmap.org/way/404058702"
+  },
+  {
+   "id": "way/404058704",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.672723,
+   "lon": 74.906756,
+   "osm_url": "https://www.openstreetmap.org/way/404058704"
+  },
+  {
+   "id": "way/404058705",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.675739,
+   "lon": 74.906444,
+   "osm_url": "https://www.openstreetmap.org/way/404058705"
+  },
+  {
+   "id": "way/404058706",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.675218,
+   "lon": 74.907421,
+   "osm_url": "https://www.openstreetmap.org/way/404058706"
+  },
+  {
+   "id": "way/404058707",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.67424,
+   "lon": 74.904653,
+   "osm_url": "https://www.openstreetmap.org/way/404058707"
+  },
+  {
+   "id": "way/404058709",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.674176,
+   "lon": 74.908777,
+   "osm_url": "https://www.openstreetmap.org/way/404058709"
+  },
+  {
+   "id": "way/404058714",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.67542,
+   "lon": 74.907397,
+   "osm_url": "https://www.openstreetmap.org/way/404058714"
+  },
+  {
+   "id": "way/404058715",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.675395,
+   "lon": 74.905792,
+   "osm_url": "https://www.openstreetmap.org/way/404058715"
+  },
+  {
+   "id": "way/404058716",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.673108,
+   "lon": 74.904263,
+   "osm_url": "https://www.openstreetmap.org/way/404058716"
+  },
+  {
+   "id": "way/404058718",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.674912,
+   "lon": 74.905521,
+   "osm_url": "https://www.openstreetmap.org/way/404058718"
+  },
+  {
+   "id": "way/404058719",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.674034,
+   "lon": 74.907366,
+   "osm_url": "https://www.openstreetmap.org/way/404058719"
+  },
+  {
+   "id": "way/404058721",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.675189,
+   "lon": 74.907014,
+   "osm_url": "https://www.openstreetmap.org/way/404058721"
+  },
+  {
+   "id": "way/404058723",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.67447,
+   "lon": 74.907627,
+   "osm_url": "https://www.openstreetmap.org/way/404058723"
+  },
+  {
+   "id": "way/404058726",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.673642,
+   "lon": 74.908197,
+   "osm_url": "https://www.openstreetmap.org/way/404058726"
+  },
+  {
+   "id": "way/404058728",
+   "city": "Jammu",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 32.673177,
+   "lon": 74.906244,
+   "osm_url": "https://www.openstreetmap.org/way/404058728"
+  },
+  {
+   "id": "way/426340368",
+   "city": "Jammu",
+   "category": "diesel_fleet",
+   "name": "Jammu Tawi Bus Station",
+   "lat": 32.704628,
+   "lon": 74.878501,
+   "osm_url": "https://www.openstreetmap.org/way/426340368"
+  },
+  {
+   "id": "way/426340379",
+   "city": "Jammu",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 32.702275,
+   "lon": 74.884348,
+   "osm_url": "https://www.openstreetmap.org/way/426340379"
+  },
+  {
+   "id": "way/426340380",
+   "city": "Jammu",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 32.71489,
+   "lon": 74.881941,
+   "osm_url": "https://www.openstreetmap.org/way/426340380"
+  },
+  {
+   "id": "way/426340381",
+   "city": "Jammu",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 32.698024,
+   "lon": 74.885096,
+   "osm_url": "https://www.openstreetmap.org/way/426340381"
+  },
+  {
+   "id": "way/466293555",
+   "city": "Jammu",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 32.637282,
+   "lon": 74.923988,
+   "osm_url": "https://www.openstreetmap.org/way/466293555"
+  },
+  {
+   "id": "way/466293556",
+   "city": "Jammu",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 32.631664,
+   "lon": 74.920729,
+   "osm_url": "https://www.openstreetmap.org/way/466293556"
+  },
+  {
+   "id": "way/546118926",
+   "city": "Jammu",
+   "category": "industry",
+   "name": "Sub-Station Paloura",
+   "lat": 32.75551,
+   "lon": 74.841806,
+   "osm_url": "https://www.openstreetmap.org/way/546118926"
+  },
+  {
+   "id": "way/836287674",
+   "city": "Jammu",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 32.542589,
+   "lon": 75.106981,
+   "osm_url": "https://www.openstreetmap.org/way/836287674"
+  },
+  {
+   "id": "way/1253567051",
+   "city": "Jammu",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 32.75709,
+   "lon": 74.900059,
+   "osm_url": "https://www.openstreetmap.org/way/1253567051"
+  },
+  {
+   "id": "way/1308594126",
+   "city": "Jammu",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 32.532661,
+   "lon": 75.108885,
+   "osm_url": "https://www.openstreetmap.org/way/1308594126"
+  },
+  {
+   "id": "node/354065017",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "East Fort",
+   "lat": 8.483404,
+   "lon": 76.947462,
+   "osm_url": "https://www.openstreetmap.org/node/354065017"
+  },
+  {
+   "id": "node/360378970",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Kattakada",
+   "lat": 8.506953,
+   "lon": 77.080957,
+   "osm_url": "https://www.openstreetmap.org/node/360378970"
+  },
+  {
+   "id": "node/1488474515",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Pappanamcode",
+   "lat": 8.470538,
+   "lon": 76.98104,
+   "osm_url": "https://www.openstreetmap.org/node/1488474515"
+  },
+  {
+   "id": "node/1621386442",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "கொல்லங்கோடு - കൊല്ലങ്കോട്",
+   "lat": 8.28894,
+   "lon": 77.107615,
+   "osm_url": "https://www.openstreetmap.org/node/1621386442"
+  },
+  {
+   "id": "node/2152043257",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Kaliyikkavila",
+   "lat": 8.334671,
+   "lon": 77.171512,
+   "osm_url": "https://www.openstreetmap.org/node/2152043257"
+  },
+  {
+   "id": "node/2883508357",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "വെഞ്ഞാറമ്മൂട്",
+   "lat": 8.677989,
+   "lon": 76.910372,
+   "osm_url": "https://www.openstreetmap.org/node/2883508357"
+  },
+  {
+   "id": "node/2883508360",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Venjaramoodu Private Bus Stand",
+   "lat": 8.679654,
+   "lon": 76.9124,
+   "osm_url": "https://www.openstreetmap.org/node/2883508360"
+  },
+  {
+   "id": "node/2933131841",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Kilimanoor Private Bus Stand",
+   "lat": 8.77008,
+   "lon": 76.878644,
+   "osm_url": "https://www.openstreetmap.org/node/2933131841"
+  },
+  {
+   "id": "node/3906562538",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Medical College",
+   "lat": 8.522508,
+   "lon": 76.930056,
+   "osm_url": "https://www.openstreetmap.org/node/3906562538"
+  },
+  {
+   "id": "node/4410752289",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Enchakkal",
+   "lat": 8.478744,
+   "lon": 76.937497,
+   "osm_url": "https://www.openstreetmap.org/node/4410752289"
+  },
+  {
+   "id": "node/4434041235",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Marayamuttom",
+   "lat": 8.416605,
+   "lon": 77.10773,
+   "osm_url": "https://www.openstreetmap.org/node/4434041235"
+  },
+  {
+   "id": "node/4490151297",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Supercold Refrigeration Systems Pvt Ltd",
+   "lat": 8.545055,
+   "lon": 76.891652,
+   "osm_url": "https://www.openstreetmap.org/node/4490151297"
+  },
+  {
+   "id": "node/4688824842",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Vikas Bhavan Bus Depot",
+   "lat": 8.508559,
+   "lon": 76.946966,
+   "osm_url": "https://www.openstreetmap.org/node/4688824842"
+  },
+  {
+   "id": "node/5097234921",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Neyyar Dam",
+   "lat": 8.532709,
+   "lon": 77.144728,
+   "osm_url": "https://www.openstreetmap.org/node/5097234921"
+  },
+  {
+   "id": "node/6894794701",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Aryanad Bus Stand",
+   "lat": 8.579632,
+   "lon": 77.083054,
+   "osm_url": "https://www.openstreetmap.org/node/6894794701"
+  },
+  {
+   "id": "node/7016742691",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Parassala",
+   "lat": 8.349422,
+   "lon": 77.146475,
+   "osm_url": "https://www.openstreetmap.org/node/7016742691"
+  },
+  {
+   "id": "node/7075686804",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Neyyattinkara Bus Stand",
+   "lat": 8.397407,
+   "lon": 77.088025,
+   "osm_url": "https://www.openstreetmap.org/node/7075686804"
+  },
+  {
+   "id": "node/7089359939",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Family Plastic, Monvila",
+   "lat": 8.545424,
+   "lon": 76.890878,
+   "osm_url": "https://www.openstreetmap.org/node/7089359939"
+  },
+  {
+   "id": "node/7090063788",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Vithura",
+   "lat": 8.676365,
+   "lon": 77.095115,
+   "osm_url": "https://www.openstreetmap.org/node/7090063788"
+  },
+  {
+   "id": "node/7128053560",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "R S Hollowbricks",
+   "lat": 8.477604,
+   "lon": 77.153861,
+   "osm_url": "https://www.openstreetmap.org/node/7128053560"
+  },
+  {
+   "id": "node/7128163559",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Kandala Bus Stop",
+   "lat": 8.482899,
+   "lon": 77.072652,
+   "osm_url": "https://www.openstreetmap.org/node/7128163559"
+  },
+  {
+   "id": "node/7364436338",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Zam Zam Chicken & Mutton",
+   "lat": 8.464077,
+   "lon": 76.949414,
+   "osm_url": "https://www.openstreetmap.org/node/7364436338"
+  },
+  {
+   "id": "node/7454153723",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Mannanthala",
+   "lat": 8.560323,
+   "lon": 76.943511,
+   "osm_url": "https://www.openstreetmap.org/node/7454153723"
+  },
+  {
+   "id": "node/7454153725",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Mannanthala",
+   "lat": 8.560573,
+   "lon": 76.943123,
+   "osm_url": "https://www.openstreetmap.org/node/7454153725"
+  },
+  {
+   "id": "node/7457076249",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Shine Marbles",
+   "lat": 8.639809,
+   "lon": 76.845177,
+   "osm_url": "https://www.openstreetmap.org/node/7457076249"
+  },
+  {
+   "id": "node/7457367134",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Neptune Readymix Concrete",
+   "lat": 8.638954,
+   "lon": 76.83567,
+   "osm_url": "https://www.openstreetmap.org/node/7457367134"
+  },
+  {
+   "id": "node/7459280920",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Kerala State Transport Corporation Bus Stand",
+   "lat": 8.605466,
+   "lon": 77.003578,
+   "osm_url": "https://www.openstreetmap.org/node/7459280920"
+  },
+  {
+   "id": "node/7460124300",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "cashew nut factory",
+   "lat": 8.615737,
+   "lon": 76.997441,
+   "osm_url": "https://www.openstreetmap.org/node/7460124300"
+  },
+  {
+   "id": "node/7460345874",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Al Kush Poultry Farm",
+   "lat": 8.695377,
+   "lon": 76.815826,
+   "osm_url": "https://www.openstreetmap.org/node/7460345874"
+  },
+  {
+   "id": "node/7462250969",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Chirayinkeezhu",
+   "lat": 8.660419,
+   "lon": 76.785387,
+   "osm_url": "https://www.openstreetmap.org/node/7462250969"
+  },
+  {
+   "id": "node/7462528377",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Parappil Bus Stand",
+   "lat": 8.717499,
+   "lon": 76.979059,
+   "osm_url": "https://www.openstreetmap.org/node/7462528377"
+  },
+  {
+   "id": "node/7465461959",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Cashew Development factory",
+   "lat": 8.769519,
+   "lon": 76.880001,
+   "osm_url": "https://www.openstreetmap.org/node/7465461959"
+  },
+  {
+   "id": "node/7465461960",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "kerala Cashew Development",
+   "lat": 8.769929,
+   "lon": 76.880301,
+   "osm_url": "https://www.openstreetmap.org/node/7465461960"
+  },
+  {
+   "id": "node/7466441921",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "scrap shop",
+   "lat": 8.761953,
+   "lon": 76.78764,
+   "osm_url": "https://www.openstreetmap.org/node/7466441921"
+  },
+  {
+   "id": "node/7466614066",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "S.R Chicken Stall",
+   "lat": 8.538859,
+   "lon": 76.941259,
+   "osm_url": "https://www.openstreetmap.org/node/7466614066"
+  },
+  {
+   "id": "node/7467464924",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Suguna Daily Fressh, Amis Associates",
+   "lat": 8.520098,
+   "lon": 76.944931,
+   "osm_url": "https://www.openstreetmap.org/node/7467464924"
+  },
+  {
+   "id": "node/7469440779",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Kepco Chicken",
+   "lat": 8.51472,
+   "lon": 76.95334,
+   "osm_url": "https://www.openstreetmap.org/node/7469440779"
+  },
+  {
+   "id": "node/7472816738",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Euro Marine Ice Plant",
+   "lat": 8.583516,
+   "lon": 76.827683,
+   "osm_url": "https://www.openstreetmap.org/node/7472816738"
+  },
+  {
+   "id": "node/7474036440",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Brand Factory Mens Wear",
+   "lat": 8.768422,
+   "lon": 76.878517,
+   "osm_url": "https://www.openstreetmap.org/node/7474036440"
+  },
+  {
+   "id": "node/7475489804",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Panchami Hollow Bricks",
+   "lat": 8.456751,
+   "lon": 76.965898,
+   "osm_url": "https://www.openstreetmap.org/node/7475489804"
+  },
+  {
+   "id": "node/7492001196",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Suraksha bhavan directorate of factories",
+   "lat": 8.511731,
+   "lon": 76.928661,
+   "osm_url": "https://www.openstreetmap.org/node/7492001196"
+  },
+  {
+   "id": "node/7517472905",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Shahanas Poultry FArm",
+   "lat": 8.622923,
+   "lon": 76.796827,
+   "osm_url": "https://www.openstreetmap.org/node/7517472905"
+  },
+  {
+   "id": "node/7517791158",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Sri Murugan scrap",
+   "lat": 8.577364,
+   "lon": 76.855425,
+   "osm_url": "https://www.openstreetmap.org/node/7517791158"
+  },
+  {
+   "id": "node/7634953471",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "KSRTC Vithura",
+   "lat": 8.676026,
+   "lon": 77.095475,
+   "osm_url": "https://www.openstreetmap.org/node/7634953471"
+  },
+  {
+   "id": "node/7637162810",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Hollow brick",
+   "lat": 8.372122,
+   "lon": 77.076487,
+   "osm_url": "https://www.openstreetmap.org/node/7637162810"
+  },
+  {
+   "id": "node/7761291532",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Sree Lekshmi Cashew Factory",
+   "lat": 8.748079,
+   "lon": 76.760215,
+   "osm_url": "https://www.openstreetmap.org/node/7761291532"
+  },
+  {
+   "id": "node/7765686937",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Delta MSand Pvt.Ltd",
+   "lat": 8.446197,
+   "lon": 77.125007,
+   "osm_url": "https://www.openstreetmap.org/node/7765686937"
+  },
+  {
+   "id": "node/7765767323",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Poabs Ready Mix",
+   "lat": 8.543847,
+   "lon": 77.009931,
+   "osm_url": "https://www.openstreetmap.org/node/7765767323"
+  },
+  {
+   "id": "node/8308252556",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Fathima Poultry Shop",
+   "lat": 8.755751,
+   "lon": 76.93878,
+   "osm_url": "https://www.openstreetmap.org/node/8308252556"
+  },
+  {
+   "id": "node/8310350886",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Meezan Rubbers",
+   "lat": 8.629965,
+   "lon": 76.936174,
+   "osm_url": "https://www.openstreetmap.org/node/8310350886"
+  },
+  {
+   "id": "node/8410806153",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Arumaloor",
+   "lat": 8.476992,
+   "lon": 77.074238,
+   "osm_url": "https://www.openstreetmap.org/node/8410806153"
+  },
+  {
+   "id": "node/8423188202",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "KSRTC Attingal",
+   "lat": 8.694196,
+   "lon": 76.818873,
+   "osm_url": "https://www.openstreetmap.org/node/8423188202"
+  },
+  {
+   "id": "node/8557723233",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Diya Flour Mill",
+   "lat": 8.693601,
+   "lon": 76.783787,
+   "osm_url": "https://www.openstreetmap.org/node/8557723233"
+  },
+  {
+   "id": "node/8571461417",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "sreedurga flour mill",
+   "lat": 8.579807,
+   "lon": 76.848079,
+   "osm_url": "https://www.openstreetmap.org/node/8571461417"
+  },
+  {
+   "id": "node/8573795316",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Muralya Dairy",
+   "lat": 8.497129,
+   "lon": 77.071316,
+   "osm_url": "https://www.openstreetmap.org/node/8573795316"
+  },
+  {
+   "id": "node/8575640878",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Mannadiyar Bus Garage",
+   "lat": 8.428794,
+   "lon": 77.004777,
+   "osm_url": "https://www.openstreetmap.org/node/8575640878"
+  },
+  {
+   "id": "node/8575663236",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Sugical Factory",
+   "lat": 8.430537,
+   "lon": 77.006086,
+   "osm_url": "https://www.openstreetmap.org/node/8575663236"
+  },
+  {
+   "id": "node/8602688241",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Cement Factory",
+   "lat": 8.434507,
+   "lon": 77.050662,
+   "osm_url": "https://www.openstreetmap.org/node/8602688241"
+  },
+  {
+   "id": "node/8602795073",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Parakuzhi Naithvyavasaya Kendram",
+   "lat": 8.424439,
+   "lon": 77.06518,
+   "osm_url": "https://www.openstreetmap.org/node/8602795073"
+  },
+  {
+   "id": "node/8760221491",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Sun Enterprises",
+   "lat": 8.538704,
+   "lon": 77.020684,
+   "osm_url": "https://www.openstreetmap.org/node/8760221491"
+  },
+  {
+   "id": "node/8772027724",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Thermopenpol",
+   "lat": 8.539914,
+   "lon": 77.018431,
+   "osm_url": "https://www.openstreetmap.org/node/8772027724"
+  },
+  {
+   "id": "node/8791437087",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "M/S Peenya Industrial Gases (P) Ltd",
+   "lat": 8.505274,
+   "lon": 76.898589,
+   "osm_url": "https://www.openstreetmap.org/node/8791437087"
+  },
+  {
+   "id": "node/8897723968",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Gomez Food Industries",
+   "lat": 8.489525,
+   "lon": 76.904978,
+   "osm_url": "https://www.openstreetmap.org/node/8897723968"
+  },
+  {
+   "id": "node/8977918045",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Hollow Brick Factory",
+   "lat": 8.331003,
+   "lon": 77.053586,
+   "osm_url": "https://www.openstreetmap.org/node/8977918045"
+  },
+  {
+   "id": "node/8977918311",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Gemnpco Ice Factory, Poovar",
+   "lat": 8.320281,
+   "lon": 77.063515,
+   "osm_url": "https://www.openstreetmap.org/node/8977918311"
+  },
+  {
+   "id": "node/8987498159",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "hollow Bricks",
+   "lat": 8.322688,
+   "lon": 77.074455,
+   "osm_url": "https://www.openstreetmap.org/node/8987498159"
+  },
+  {
+   "id": "node/8987563608",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Hollow Briks",
+   "lat": 8.348477,
+   "lon": 77.072717,
+   "osm_url": "https://www.openstreetmap.org/node/8987563608"
+  },
+  {
+   "id": "node/9107044686",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "AHLA PLYWOOD FACTORY",
+   "lat": 8.765863,
+   "lon": 76.956741,
+   "osm_url": "https://www.openstreetmap.org/node/9107044686"
+  },
+  {
+   "id": "node/9332651733",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 8.364624,
+   "lon": 77.138079,
+   "osm_url": "https://www.openstreetmap.org/node/9332651733"
+  },
+  {
+   "id": "node/11064301105",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Thampanoor central",
+   "lat": 8.488248,
+   "lon": 76.95204,
+   "osm_url": "https://www.openstreetmap.org/node/11064301105"
+  },
+  {
+   "id": "node/11383342178",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Bindhu Chiken Stall",
+   "lat": 8.389151,
+   "lon": 76.998328,
+   "osm_url": "https://www.openstreetmap.org/node/11383342178"
+  },
+  {
+   "id": "node/13203217331",
+   "city": "Thiruvananthapuram",
+   "category": "waste_burning",
+   "name": "കരിയില സംഭരണി (Dried Leaves Storage)",
+   "lat": 8.732731,
+   "lon": 76.728482,
+   "osm_url": "https://www.openstreetmap.org/node/13203217331"
+  },
+  {
+   "id": "node/13204198052",
+   "city": "Thiruvananthapuram",
+   "category": "waste_burning",
+   "name": "കരിയില സംഭരണി (Dried Leaves Storage)",
+   "lat": 8.731602,
+   "lon": 76.716317,
+   "osm_url": "https://www.openstreetmap.org/node/13204198052"
+  },
+  {
+   "id": "node/13583998401",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Megha Bus (Cochin and Munnar)",
+   "lat": 8.491107,
+   "lon": 76.953954,
+   "osm_url": "https://www.openstreetmap.org/node/13583998401"
+  },
+  {
+   "id": "way/87394421",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Kerala State Road Transport Coorporation Garage",
+   "lat": 8.483562,
+   "lon": 76.948408,
+   "osm_url": "https://www.openstreetmap.org/way/87394421"
+  },
+  {
+   "id": "way/90772752",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "FCI Godown",
+   "lat": 8.470075,
+   "lon": 76.925833,
+   "osm_url": "https://www.openstreetmap.org/way/90772752"
+  },
+  {
+   "id": "way/98623850",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "FCI Kazhakkoottam",
+   "lat": 8.555696,
+   "lon": 76.872098,
+   "osm_url": "https://www.openstreetmap.org/way/98623850"
+  },
+  {
+   "id": "way/169359642",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Pallippuram Power Grid",
+   "lat": 8.592903,
+   "lon": 76.859201,
+   "osm_url": "https://www.openstreetmap.org/way/169359642"
+  },
+  {
+   "id": "way/299267525",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Agency for Development of Aquaculture Kerala (ADAK)",
+   "lat": 8.74443,
+   "lon": 76.698294,
+   "osm_url": "https://www.openstreetmap.org/way/299267525"
+  },
+  {
+   "id": "way/315265623",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Travancore Titanium Products (TTP)",
+   "lat": 8.500037,
+   "lon": 76.900106,
+   "osm_url": "https://www.openstreetmap.org/way/315265623"
+  },
+  {
+   "id": "way/315265624",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 8.504647,
+   "lon": 76.897832,
+   "osm_url": "https://www.openstreetmap.org/way/315265624"
+  },
+  {
+   "id": "way/315265625",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 8.555268,
+   "lon": 76.863581,
+   "osm_url": "https://www.openstreetmap.org/way/315265625"
+  },
+  {
+   "id": "way/315265626",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Kinfra International Apparel Parks",
+   "lat": 8.553739,
+   "lon": 76.859063,
+   "osm_url": "https://www.openstreetmap.org/way/315265626"
+  },
+  {
+   "id": "way/315265627",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 8.497695,
+   "lon": 76.896705,
+   "osm_url": "https://www.openstreetmap.org/way/315265627"
+  },
+  {
+   "id": "way/315265633",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 8.464025,
+   "lon": 76.925704,
+   "osm_url": "https://www.openstreetmap.org/way/315265633"
+  },
+  {
+   "id": "way/315265634",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "English India Clay Limited - EICL",
+   "lat": 8.513631,
+   "lon": 76.894166,
+   "osm_url": "https://www.openstreetmap.org/way/315265634"
+  },
+  {
+   "id": "way/315266837",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 8.510237,
+   "lon": 76.897006,
+   "osm_url": "https://www.openstreetmap.org/way/315266837"
+  },
+  {
+   "id": "way/315266838",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 8.510289,
+   "lon": 76.897064,
+   "osm_url": "https://www.openstreetmap.org/way/315266838"
+  },
+  {
+   "id": "way/315268835",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "KSRTC Depot",
+   "lat": 8.479603,
+   "lon": 76.947032,
+   "osm_url": "https://www.openstreetmap.org/way/315268835"
+  },
+  {
+   "id": "way/338653565",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 8.293482,
+   "lon": 77.102976,
+   "osm_url": "https://www.openstreetmap.org/way/338653565"
+  },
+  {
+   "id": "way/356315520",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Indus Maruti Service Center",
+   "lat": 8.48876,
+   "lon": 76.959618,
+   "osm_url": "https://www.openstreetmap.org/way/356315520"
+  },
+  {
+   "id": "way/382859862",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Vikasbhavan KSRTC Bus Depot",
+   "lat": 8.508769,
+   "lon": 76.946965,
+   "osm_url": "https://www.openstreetmap.org/way/382859862"
+  },
+  {
+   "id": "way/401389956",
+   "city": "Thiruvananthapuram",
+   "category": "industry",
+   "name": "Perumathura Fishing Harbour",
+   "lat": 8.636045,
+   "lon": 76.785795,
+   "osm_url": "https://www.openstreetmap.org/way/401389956"
+  },
+  {
+   "id": "way/456412757",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Ksrtc Bus Depot - Vizhinjam",
+   "lat": 8.381229,
+   "lon": 76.99252,
+   "osm_url": "https://www.openstreetmap.org/way/456412757"
+  },
+  {
+   "id": "way/548288572",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Kerala State Road Transport Corporation - Dippo, Palode",
+   "lat": 8.723584,
+   "lon": 77.030321,
+   "osm_url": "https://www.openstreetmap.org/way/548288572"
+  },
+  {
+   "id": "way/669464053",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Attingal Private Bus Station",
+   "lat": 8.695569,
+   "lon": 76.817395,
+   "osm_url": "https://www.openstreetmap.org/way/669464053"
+  },
+  {
+   "id": "way/727251859",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Poovar Bus Station",
+   "lat": 8.319415,
+   "lon": 77.072125,
+   "osm_url": "https://www.openstreetmap.org/way/727251859"
+  },
+  {
+   "id": "way/730841178",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "KSRTC Poovar Depo",
+   "lat": 8.32202,
+   "lon": 77.063833,
+   "osm_url": "https://www.openstreetmap.org/way/730841178"
+  },
+  {
+   "id": "way/736693650",
+   "city": "Thiruvananthapuram",
+   "category": "waste_burning",
+   "name": "Waste Management Unit, Nedumangadu Municipality",
+   "lat": 8.609559,
+   "lon": 76.997907,
+   "osm_url": "https://www.openstreetmap.org/way/736693650"
+  },
+  {
+   "id": "way/737539200",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Kerala State Road Transport Cooperation Bus Terminal Complex",
+   "lat": 8.488116,
+   "lon": 76.951923,
+   "osm_url": "https://www.openstreetmap.org/way/737539200"
+  },
+  {
+   "id": "way/753491161",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Kattakada",
+   "lat": 8.506668,
+   "lon": 77.08188,
+   "osm_url": "https://www.openstreetmap.org/way/753491161"
+  },
+  {
+   "id": "way/753491162",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Kerala State Road Transportation Corperation Shopping Complex Kattakada",
+   "lat": 8.506856,
+   "lon": 77.081156,
+   "osm_url": "https://www.openstreetmap.org/way/753491162"
+  },
+  {
+   "id": "way/753901301",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Neyyattinkara Bus stand",
+   "lat": 8.397633,
+   "lon": 77.087991,
+   "osm_url": "https://www.openstreetmap.org/way/753901301"
+  },
+  {
+   "id": "way/754168225",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Neyyattinkara",
+   "lat": 8.397179,
+   "lon": 77.08757,
+   "osm_url": "https://www.openstreetmap.org/way/754168225"
+  },
+  {
+   "id": "way/754168226",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Neyyattinkara",
+   "lat": 8.39726,
+   "lon": 77.088129,
+   "osm_url": "https://www.openstreetmap.org/way/754168226"
+  },
+  {
+   "id": "way/762182998",
+   "city": "Thiruvananthapuram",
+   "category": "waste_burning",
+   "name": "plot",
+   "lat": 8.492042,
+   "lon": 76.924018,
+   "osm_url": "https://www.openstreetmap.org/way/762182998"
+  },
+  {
+   "id": "way/762831103",
+   "city": "Thiruvananthapuram",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 8.539863,
+   "lon": 76.907178,
+   "osm_url": "https://www.openstreetmap.org/way/762831103"
+  },
+  {
+   "id": "way/762831211",
+   "city": "Thiruvananthapuram",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 8.539568,
+   "lon": 76.907194,
+   "osm_url": "https://www.openstreetmap.org/way/762831211"
+  },
+  {
+   "id": "way/762831458",
+   "city": "Thiruvananthapuram",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 8.539598,
+   "lon": 76.908293,
+   "osm_url": "https://www.openstreetmap.org/way/762831458"
+  },
+  {
+   "id": "way/762835061",
+   "city": "Thiruvananthapuram",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 8.539011,
+   "lon": 76.909045,
+   "osm_url": "https://www.openstreetmap.org/way/762835061"
+  },
+  {
+   "id": "way/762835755",
+   "city": "Thiruvananthapuram",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 8.343725,
+   "lon": 77.038093,
+   "osm_url": "https://www.openstreetmap.org/way/762835755"
+  },
+  {
+   "id": "way/762836342",
+   "city": "Thiruvananthapuram",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 8.539113,
+   "lon": 76.909533,
+   "osm_url": "https://www.openstreetmap.org/way/762836342"
+  },
+  {
+   "id": "way/762841155",
+   "city": "Thiruvananthapuram",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 8.568218,
+   "lon": 77.024854,
+   "osm_url": "https://www.openstreetmap.org/way/762841155"
+  },
+  {
+   "id": "way/763017455",
+   "city": "Thiruvananthapuram",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 8.515418,
+   "lon": 76.936059,
+   "osm_url": "https://www.openstreetmap.org/way/763017455"
+  },
+  {
+   "id": "way/763017749",
+   "city": "Thiruvananthapuram",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 8.515219,
+   "lon": 76.936531,
+   "osm_url": "https://www.openstreetmap.org/way/763017749"
+  },
+  {
+   "id": "way/763018377",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 8.491606,
+   "lon": 77.124683,
+   "osm_url": "https://www.openstreetmap.org/way/763018377"
+  },
+  {
+   "id": "way/763019050",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 8.515706,
+   "lon": 76.938052,
+   "osm_url": "https://www.openstreetmap.org/way/763019050"
+  },
+  {
+   "id": "way/763027080",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 8.514945,
+   "lon": 76.935962,
+   "osm_url": "https://www.openstreetmap.org/way/763027080"
+  },
+  {
+   "id": "way/763034993",
+   "city": "Thiruvananthapuram",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 8.514257,
+   "lon": 76.931461,
+   "osm_url": "https://www.openstreetmap.org/way/763034993"
+  },
+  {
+   "id": "way/763035740",
+   "city": "Thiruvananthapuram",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 8.514203,
+   "lon": 76.9317,
+   "osm_url": "https://www.openstreetmap.org/way/763035740"
+  },
+  {
+   "id": "way/763036861",
+   "city": "Thiruvananthapuram",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 8.515767,
+   "lon": 76.930179,
+   "osm_url": "https://www.openstreetmap.org/way/763036861"
+  },
+  {
+   "id": "way/763040970",
+   "city": "Thiruvananthapuram",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 8.518328,
+   "lon": 76.93115,
+   "osm_url": "https://www.openstreetmap.org/way/763040970"
+  },
+  {
+   "id": "way/788132266",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Kaniyapuram Bus Depot",
+   "lat": 8.588036,
+   "lon": 76.859292,
+   "osm_url": "https://www.openstreetmap.org/way/788132266"
+  },
+  {
+   "id": "way/796922750",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 8.560945,
+   "lon": 76.953348,
+   "osm_url": "https://www.openstreetmap.org/way/796922750"
+  },
+  {
+   "id": "way/797391076",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Kallara Bus Station",
+   "lat": 8.752467,
+   "lon": 76.939693,
+   "osm_url": "https://www.openstreetmap.org/way/797391076"
+  },
+  {
+   "id": "way/797822798",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Mangalapuram",
+   "lat": 8.624044,
+   "lon": 76.84844,
+   "osm_url": "https://www.openstreetmap.org/way/797822798"
+  },
+  {
+   "id": "way/797839821",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 8.660844,
+   "lon": 76.786727,
+   "osm_url": "https://www.openstreetmap.org/way/797839821"
+  },
+  {
+   "id": "way/797858670",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "college bus shed",
+   "lat": 8.541647,
+   "lon": 76.903961,
+   "osm_url": "https://www.openstreetmap.org/way/797858670"
+  },
+  {
+   "id": "way/797860305",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "research scholors building",
+   "lat": 8.541687,
+   "lon": 76.903392,
+   "osm_url": "https://www.openstreetmap.org/way/797860305"
+  },
+  {
+   "id": "way/797861572",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "ISRO Bus Depot",
+   "lat": 8.521237,
+   "lon": 76.945385,
+   "osm_url": "https://www.openstreetmap.org/way/797861572"
+  },
+  {
+   "id": "way/797908276",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 8.548264,
+   "lon": 76.937592,
+   "osm_url": "https://www.openstreetmap.org/way/797908276"
+  },
+  {
+   "id": "way/797908482",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 8.742544,
+   "lon": 76.933466,
+   "osm_url": "https://www.openstreetmap.org/way/797908482"
+  },
+  {
+   "id": "way/797978243",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 8.570528,
+   "lon": 77.0452,
+   "osm_url": "https://www.openstreetmap.org/way/797978243"
+  },
+  {
+   "id": "way/798394208",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 8.501649,
+   "lon": 77.06916,
+   "osm_url": "https://www.openstreetmap.org/way/798394208"
+  },
+  {
+   "id": "way/798621325",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 8.569124,
+   "lon": 77.046436,
+   "osm_url": "https://www.openstreetmap.org/way/798621325"
+  },
+  {
+   "id": "way/799016645",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 8.534588,
+   "lon": 76.967934,
+   "osm_url": "https://www.openstreetmap.org/way/799016645"
+  },
+  {
+   "id": "way/799144647",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "kilimanoor private bus stand",
+   "lat": 8.770142,
+   "lon": 76.878672,
+   "osm_url": "https://www.openstreetmap.org/way/799144647"
+  },
+  {
+   "id": "way/799265860",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Raintree project site",
+   "lat": 8.493651,
+   "lon": 76.957218,
+   "osm_url": "https://www.openstreetmap.org/way/799265860"
+  },
+  {
+   "id": "way/799853322",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 8.531539,
+   "lon": 76.951314,
+   "osm_url": "https://www.openstreetmap.org/way/799853322"
+  },
+  {
+   "id": "way/800027213",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Peroorkada KSRTC Depot",
+   "lat": 8.534489,
+   "lon": 76.968254,
+   "osm_url": "https://www.openstreetmap.org/way/800027213"
+  },
+  {
+   "id": "way/802451964",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Spoton logistics pvvt",
+   "lat": 8.484882,
+   "lon": 76.929046,
+   "osm_url": "https://www.openstreetmap.org/way/802451964"
+  },
+  {
+   "id": "way/803214651",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "bus stop",
+   "lat": 8.529724,
+   "lon": 76.990079,
+   "osm_url": "https://www.openstreetmap.org/way/803214651"
+  },
+  {
+   "id": "way/804218055",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 8.579736,
+   "lon": 76.911009,
+   "osm_url": "https://www.openstreetmap.org/way/804218055"
+  },
+  {
+   "id": "way/805879046",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 8.570933,
+   "lon": 76.91976,
+   "osm_url": "https://www.openstreetmap.org/way/805879046"
+  },
+  {
+   "id": "way/812892287",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 8.580318,
+   "lon": 76.911576,
+   "osm_url": "https://www.openstreetmap.org/way/812892287"
+  },
+  {
+   "id": "way/812899328",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 8.581738,
+   "lon": 76.923392,
+   "osm_url": "https://www.openstreetmap.org/way/812899328"
+  },
+  {
+   "id": "way/816915409",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "vellanad ksrtc station",
+   "lat": 8.56299,
+   "lon": 77.05765,
+   "osm_url": "https://www.openstreetmap.org/way/816915409"
+  },
+  {
+   "id": "way/817203471",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 8.61232,
+   "lon": 77.022972,
+   "osm_url": "https://www.openstreetmap.org/way/817203471"
+  },
+  {
+   "id": "way/817620019",
+   "city": "Thiruvananthapuram",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 8.49974,
+   "lon": 77.091556,
+   "osm_url": "https://www.openstreetmap.org/way/817620019"
+  },
+  {
+   "id": "way/817765439",
+   "city": "Thiruvananthapuram",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 8.566606,
+   "lon": 77.101999,
+   "osm_url": "https://www.openstreetmap.org/way/817765439"
+  },
+  {
+   "id": "way/1051205941",
+   "city": "Thiruvananthapuram",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 8.609157,
+   "lon": 76.997271,
+   "osm_url": "https://www.openstreetmap.org/way/1051205941"
+  },
+  {
+   "id": "way/1105415046",
+   "city": "Thiruvananthapuram",
+   "category": "waste_burning",
+   "name": "Aerobic Bin and Material Recovery Facility",
+   "lat": 8.494401,
+   "lon": 76.964906,
+   "osm_url": "https://www.openstreetmap.org/way/1105415046"
+  },
+  {
+   "id": "way/1128299268",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 8.515885,
+   "lon": 76.899563,
+   "osm_url": "https://www.openstreetmap.org/way/1128299268"
+  },
+  {
+   "id": "way/1128411704",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Karimanal Pumping Station",
+   "lat": 8.52477,
+   "lon": 76.886431,
+   "osm_url": "https://www.openstreetmap.org/way/1128411704"
+  },
+  {
+   "id": "way/1128411716",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 8.528737,
+   "lon": 76.887428,
+   "osm_url": "https://www.openstreetmap.org/way/1128411716"
+  },
+  {
+   "id": "way/1128411731",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Aster Capital Multispeciality Hospital",
+   "lat": 8.520878,
+   "lon": 76.886577,
+   "osm_url": "https://www.openstreetmap.org/way/1128411731"
+  },
+  {
+   "id": "way/1130974686",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 8.529006,
+   "lon": 76.883579,
+   "osm_url": "https://www.openstreetmap.org/way/1130974686"
+  },
+  {
+   "id": "way/1130974691",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Rajiv Gandhi Centre for Biotechnology",
+   "lat": 8.525467,
+   "lon": 76.907171,
+   "osm_url": "https://www.openstreetmap.org/way/1130974691"
+  },
+  {
+   "id": "way/1133998363",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 8.538955,
+   "lon": 76.902178,
+   "osm_url": "https://www.openstreetmap.org/way/1133998363"
+  },
+  {
+   "id": "way/1133998366",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 8.534059,
+   "lon": 76.902604,
+   "osm_url": "https://www.openstreetmap.org/way/1133998366"
+  },
+  {
+   "id": "way/1133998374",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 8.527772,
+   "lon": 76.893017,
+   "osm_url": "https://www.openstreetmap.org/way/1133998374"
+  },
+  {
+   "id": "way/1133998383",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 8.531809,
+   "lon": 76.89294,
+   "osm_url": "https://www.openstreetmap.org/way/1133998383"
+  },
+  {
+   "id": "way/1189897638",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 8.493444,
+   "lon": 76.96815,
+   "osm_url": "https://www.openstreetmap.org/way/1189897638"
+  },
+  {
+   "id": "way/1256813537",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Sree Ramakrishna nursing hospital",
+   "lat": 8.543093,
+   "lon": 76.997872,
+   "osm_url": "https://www.openstreetmap.org/way/1256813537"
+  },
+  {
+   "id": "way/1344488981",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 8.525589,
+   "lon": 76.886491,
+   "osm_url": "https://www.openstreetmap.org/way/1344488981"
+  },
+  {
+   "id": "way/1346095858",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Neil Castle",
+   "lat": 8.52377,
+   "lon": 76.888493,
+   "osm_url": "https://www.openstreetmap.org/way/1346095858"
+  },
+  {
+   "id": "way/1346095859",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 8.523492,
+   "lon": 76.890252,
+   "osm_url": "https://www.openstreetmap.org/way/1346095859"
+  },
+  {
+   "id": "way/1346096339",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 8.521702,
+   "lon": 76.889909,
+   "osm_url": "https://www.openstreetmap.org/way/1346096339"
+  },
+  {
+   "id": "way/1417994206",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 8.495736,
+   "lon": 76.920699,
+   "osm_url": "https://www.openstreetmap.org/way/1417994206"
+  },
+  {
+   "id": "way/1418098217",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 8.569078,
+   "lon": 76.853949,
+   "osm_url": "https://www.openstreetmap.org/way/1418098217"
+  },
+  {
+   "id": "way/1418098218",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 8.567378,
+   "lon": 76.849717,
+   "osm_url": "https://www.openstreetmap.org/way/1418098218"
+  },
+  {
+   "id": "way/1418098219",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 8.566354,
+   "lon": 76.851857,
+   "osm_url": "https://www.openstreetmap.org/way/1418098219"
+  },
+  {
+   "id": "way/1418098220",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 8.565071,
+   "lon": 76.85308,
+   "osm_url": "https://www.openstreetmap.org/way/1418098220"
+  },
+  {
+   "id": "way/1418114218",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 8.598509,
+   "lon": 76.852431,
+   "osm_url": "https://www.openstreetmap.org/way/1418114218"
+  },
+  {
+   "id": "way/1426667778",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Varkala Post Office",
+   "lat": 8.736681,
+   "lon": 76.724796,
+   "osm_url": "https://www.openstreetmap.org/way/1426667778"
+  },
+  {
+   "id": "way/1427122821",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Punnamoodu Fish Market",
+   "lat": 8.747618,
+   "lon": 76.715884,
+   "osm_url": "https://www.openstreetmap.org/way/1427122821"
+  },
+  {
+   "id": "way/1427312496",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 8.762915,
+   "lon": 76.703691,
+   "osm_url": "https://www.openstreetmap.org/way/1427312496"
+  },
+  {
+   "id": "way/1435111889",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 8.73162,
+   "lon": 76.718119,
+   "osm_url": "https://www.openstreetmap.org/way/1435111889"
+  },
+  {
+   "id": "way/1435149535",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 8.732062,
+   "lon": 76.716806,
+   "osm_url": "https://www.openstreetmap.org/way/1435149535"
+  },
+  {
+   "id": "way/1458438157",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 8.511207,
+   "lon": 77.002505,
+   "osm_url": "https://www.openstreetmap.org/way/1458438157"
+  },
+  {
+   "id": "way/1464558319",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 8.520627,
+   "lon": 76.885327,
+   "osm_url": "https://www.openstreetmap.org/way/1464558319"
+  },
+  {
+   "id": "way/1464570476",
+   "city": "Thiruvananthapuram",
+   "category": "waste_burning",
+   "name": "Illegal Waste Dump",
+   "lat": 8.524877,
+   "lon": 76.887003,
+   "osm_url": "https://www.openstreetmap.org/way/1464570476"
+  },
+  {
+   "id": "way/1537183350",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 8.520883,
+   "lon": 76.886428,
+   "osm_url": "https://www.openstreetmap.org/way/1537183350"
+  },
+  {
+   "id": "way/1539521994",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 8.527968,
+   "lon": 76.885695,
+   "osm_url": "https://www.openstreetmap.org/way/1539521994"
+  },
+  {
+   "id": "way/1539745831",
+   "city": "Thiruvananthapuram",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 8.52236,
+   "lon": 76.886529,
+   "osm_url": "https://www.openstreetmap.org/way/1539745831"
   }
  ]
 }

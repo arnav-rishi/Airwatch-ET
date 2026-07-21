@@ -31,6 +31,22 @@ def fake_stations():
     ]
 
 
+@pytest.fixture(autouse=True)
+def stub_firms(monkeypatch):
+    """
+    Keep the satellite layer out of every test in this module.
+
+    Applied automatically because it guards correctness, not convenience: once
+    a real FIRMS_MAP_KEY is present in the environment, _enrich_city_with_candidates
+    makes a live HTTPS call per hotspot. That made the suite depend on ambient
+    config and on NASA's uptime, and it broke the concurrency timing test
+    outright by adding seconds of real network latency inside the measured window.
+    """
+    async def no_fires(lat, lon, half_deg=0.25):
+        return []
+    monkeypatch.setattr(intel, "fetch_fires_near", no_fires)
+
+
 @pytest.fixture
 def stub_chain(monkeypatch, fake_stations):
     """Stub the network + LLM boundaries, leaving the correlation logic real."""

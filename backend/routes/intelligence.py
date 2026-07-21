@@ -422,6 +422,16 @@ async def get_auto_enforcement():
         _normalise_source_ids(result, top5)
         result["registry_backed"] = any(c.get("candidate_sources") for c in top5)
         result["registry_meta"] = registry_meta()
+
+        # Report the satellite layer's state explicitly. "Enabled but zero
+        # detections" and "not configured" look identical in the output
+        # otherwise, and they mean very different things: the first is a real
+        # finding (nothing is burning near these hotspots — expected outside
+        # the Oct-Jan burning season), the second is a missing capability.
+        result["satellite"] = {
+            "enabled": firms_enabled(),
+            "total_detections": sum(c.get("satellite_fire_count", 0) for c in top5),
+        }
         result["attributed_sources"] = attributed_sources
         result["signal_at"] = signal_at.isoformat(timespec="seconds")
         result["response_time_seconds"] = round(
