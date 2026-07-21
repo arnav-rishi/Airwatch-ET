@@ -58,7 +58,7 @@ function EvidenceBlock({ source }) {
       <div className="space-y-1">
         {[
           ['Proximity', c.proximity],
-          ['Upwind alignment', c.upwind],
+          ['Plume transport', c.atmospheric_transport],
           ['Category match', c.category_match],
           ['Dispatchability', c.identifiability],
           ['Hotspot severity', c.severity],
@@ -72,6 +72,25 @@ function EvidenceBlock({ source }) {
           </div>
         ))}
       </div>
+
+      {/* Gaussian plume physics behind the transport score — the crosswind offset
+          and stability class are what a domain reviewer would actually interrogate. */}
+      {source.dispersion && (
+        <div className="text-[10px] text-slate-500 border-t border-[#1a1f2e] pt-2 space-y-0.5">
+          <div>
+            Plume: <span className="text-slate-400">{source.dispersion.downwind_km} km downwind</span>
+            {', '}
+            <span className="text-slate-400">
+              {Math.abs(source.dispersion.crosswind_km)} km off centreline
+            </span>
+            {' '}(spread ±{source.dispersion.plume_width_sigma_y_m} m)
+          </div>
+          <div>
+            Stability <span className="text-slate-400">class {source.dispersion.stability_class}</span>
+            {' — '}{source.dispersion.stability_description}
+          </div>
+        </div>
+      )}
 
       <div className="flex items-center gap-3 text-xs pt-0.5">
         <span className="text-slate-600 font-mono text-[10px]">{source.lat}, {source.lon}</span>

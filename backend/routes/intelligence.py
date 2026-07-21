@@ -12,6 +12,7 @@ from services.source_registry import (
 from services.firms import fetch_fires_near, firms_enabled
 from utils.aqi_calculator import aqi_category
 from utils.attribution_confidence import score_attribution_confidence
+from utils.dispersion import is_cloudy
 from utils.enforcement_scoring import score_sources
 from utils.forecast_baseline import compute_baseline_forecast, backtest_baseline
 from prompts import (
@@ -289,11 +290,16 @@ async def _enrich_city_with_candidates(city: dict) -> dict:
     # here left wind_direction null on exactly the hotspots that most need
     # explaining (the ones with no candidates to show).
     wind_direction = None
+    wind_speed = None
+    cloudy = False
     try:
         weather = await fetch_weather(city["lat"], city["lon"])
         wind_direction = weather.get("wind_direction")
+        wind_speed = weather.get("wind_speed_kmh")
+        cloudy = is_cloudy(weather.get("description"))
         city["wind_direction"] = wind_direction
-        city["wind_speed_kmh"] = weather.get("wind_speed_kmh")
+        city["wind_speed_kmh"] = wind_speed
+        city["weather_description"] = weather.get("description")
     except Exception:
         pass
 
@@ -301,12 +307,21 @@ async def _enrich_city_with_candidates(city: dict) -> dict:
         city["candidate_sources"] = []
         return city
 
+    # Atmospheric stability depends on solar heating, so the plume model needs to
+    # know whether the sun is up. Indian cities all sit in IST, and the station's
+    # own local time is what governs its boundary layer.
+    hour = datetime.now().hour
+    is_daytime = 7 <= hour < 18
+
     city["candidate_sources"] = score_sources(
         hotspot=city,
         sources=sources,
         wind_direction_deg=wind_direction,
         dominant_source=city.get("dominant_source"),
         limit=5,
+        wind_speed_kmh=wind_speed,
+        is_daytime=is_daytime,
+        cloudy=cloudy,
     )
     return city
 

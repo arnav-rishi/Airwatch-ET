@@ -139,7 +139,8 @@ def test_result_carries_auditable_components():
     ranked = score_sources(hotspot, [_source("plant", 0.0, -0.05)], wind_direction_deg=270)
     top = ranked[0]
     assert set(top["score_components"]) == {
-        "proximity", "upwind", "category_match", "identifiability", "severity",
+        "proximity", "atmospheric_transport", "category_match",
+        "identifiability", "severity",
     }
     assert 0 <= top["evidence_score"] <= 1
     assert top["distance_km"] > 0
