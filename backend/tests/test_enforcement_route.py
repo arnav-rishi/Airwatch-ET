@@ -128,6 +128,65 @@ def test_registry_provenance_is_surfaced(client, stub_chain):
     assert "caveat" in meta
 
 
+def test_bracketed_source_ids_are_reconciled(client, stub_chain):
+    """
+    The prompt lists candidates as "[way/123] Name" and the LLM copies the
+    brackets into source_id. A live run returned "[way/202301146]", which fails
+    exact-match lookup in the frontend so the evidence block silently vanishes.
+    """
+    from routes.intelligence import _normalise_source_ids
+
+    candidate = {"id": "way/202301146", "name": "ARAI",
+                 "dispatch_label": "Automotive Research Association of India"}
+    cities = [{"candidate_sources": [candidate]}]
+    result = {"priorities": [{"source_id": "[way/202301146]", "target_facility": "ARAI"}]}
+
+    _normalise_source_ids(result, cities)
+    assert result["priorities"][0]["source_id"] == "way/202301146"
+    assert result["priorities"][0]["source_matched"] is True
+
+
+def test_source_id_falls_back_to_name_match():
+    """If the id is unusable, match on the facility name before giving up."""
+    from routes.intelligence import _normalise_source_ids
+
+    candidate = {"id": "way/999", "name": "Jaya Shri Textiles",
+                 "dispatch_label": "Jaya Shri Textiles"}
+    cities = [{"candidate_sources": [candidate]}]
+    result = {"priorities": [{"source_id": "garbage",
+                              "target_facility": "Jaya Shri Textiles"}]}
+
+    _normalise_source_ids(result, cities)
+    assert result["priorities"][0]["source_id"] == "way/999"
+    assert result["priorities"][0]["source_matched"] is True
+
+
+def test_unmatched_facility_is_flagged_not_silently_passed():
+    """A facility the model invented must be marked, not presented as evidenced."""
+    from routes.intelligence import _normalise_source_ids
+
+    cities = [{"candidate_sources": [{"id": "way/1", "name": "Real Works",
+                                      "dispatch_label": "Real Works"}]}]
+    result = {"priorities": [{"source_id": "way/nonexistent",
+                              "target_facility": "Imaginary Factory"}]}
+
+    _normalise_source_ids(result, cities)
+    assert result["priorities"][0]["source_matched"] is False
+
+
+def test_hotspot_without_registry_still_reports_wind(client, stub_chain):
+    """
+    Returning early for uncovered cities left wind_direction null on exactly the
+    hotspots that most need explaining — the ones with no candidates to show.
+    """
+    body = client.get("/api/intel/enforcement/auto").json()
+    nowhere = next(h for h in body["hotspots"] if h["city"] == "Nowhere")
+    assert nowhere["candidate_sources"] == []
+    assert nowhere["in_registry"] is False
+    assert nowhere["wind_direction"] == 315
+    assert nowhere["satellite_fire_count"] == 0
+
+
 def test_attribution_fanout_runs_concurrently(client, monkeypatch, fake_stations):
     """
     The attribution stage fans out one LLM call per hotspot via asyncio.gather.

@@ -160,6 +160,69 @@ def test_named_facility_outranks_unnamed_when_otherwise_equal():
     assert ranked[1]["identifiable"] is False
 
 
+# ─── Sensitive receptors ──────────────────────────────────────────────────────
+# OSM names a bus terminal or car park at a hospital after that hospital, so it
+# enters the registry as a diesel_fleet/construction source and can rank first
+# on pure geometry. A live run did exactly that and produced a recommendation to
+# send inspectors to Park Circus - Chittaranjan Hospital.
+
+@pytest.mark.parametrize("name", [
+    "Park Circus - Chittaranjan Hospital",
+    "Mayo Hospital",
+    "Medical College Kalamassery Bus Terminal",
+    "KIMS Hospital (u/c)",
+    "Sapthagiri NPS University (u/c)",
+    "Central Medical Depot",
+    "St. Xavier's School",
+    "Kendriya Vidyalaya",
+    # Places of worship — a live run put "Kamakhya Mandir", a major Hindu
+    # temple, at rank 1 because the bus station outside it carries its name.
+    "Kamakhya Mandir",
+    "Gujarat State Road Transport Corporation | Bus Station | Gita Mandir",
+    "Jama Masjid",
+    "Kundrathur Temple MTC Terminus",
+    "Belur Math Bus stop",
+])
+def test_sensitive_receptors_are_excluded_entirely(name):
+    """These are receptors to protect, not premises to raid — never candidates."""
+    hotspot = {"lat": 0.0, "lon": 0.0, "aqi": 400}
+    # Placed as close and as perfectly upwind as possible, so only the exclusion
+    # itself can keep them out of the results.
+    src = _source(name, 0.0, -0.005, category="diesel_fleet")
+
+    assert score_sources(hotspot, [src], wind_direction_deg=270) == []
+
+
+@pytest.mark.parametrize("name", [
+    "Jaya Shri Textiles",
+    "Bharat Petroleum Depot",
+    "Schooner Engineering Works",     # contains "school" as a substring
+    "Collegiate Cement Ltd",          # contains "college" as a substring
+    # "Vihar" is a residential locality suffix across north India far more often
+    # than a Buddhist monastery. An earlier version of the filter matched it and
+    # removed these real bus depots — exactly the diesel_fleet targets wanted.
+    "Vasant Vihar Depot",
+    "Sukdev Vihar Depot",
+    "Mayur Vihar Phase - 3, Bus Stand",
+    "Salt Lake Bus Depot",
+])
+def test_ordinary_targets_are_not_over_filtered(name):
+    """The filter must not swallow legitimate enforcement targets."""
+    hotspot = {"lat": 0.0, "lon": 0.0, "aqi": 400}
+    ranked = score_sources(hotspot, [_source(name, 0.0, -0.02)], wind_direction_deg=270)
+    assert ranked, f"{name} was wrongly excluded"
+
+
+def test_sensitive_receptor_excluded_even_when_it_would_rank_first():
+    """The exclusion must beat geometry, not merely tie-break against it."""
+    hotspot = {"lat": 0.0, "lon": 0.0, "aqi": 400}
+    hospital = _source("City Hospital", 0.0, -0.005)     # very close, dead upwind
+    factory = _source("Distant Works", 0.0, -0.15)       # far, weakly aligned
+
+    ranked = score_sources(hotspot, [hospital, factory], wind_direction_deg=270)
+    assert [r["name"] for r in ranked] == ["Distant Works"]
+
+
 def test_compass_point_cardinals():
     assert compass_point(0) == "N"
     assert compass_point(90) == "E"
