@@ -175,6 +175,54 @@ def is_sensitive_receptor(source: dict) -> bool:
     return bool(_SENSITIVE_RECEPTOR_PATTERN.search(source.get("name") or ""))
 
 
+# Names denoting a facility where diesel vehicles are parked, fuelled or
+# maintained in numbers — as opposed to a kerbside stop they merely pause at.
+_SUBSTANTIAL_FLEET_PATTERN = re.compile(
+    r"\b(depot|terminal|terminus|garage|workshop|car\s*shed|yard|"
+    r"bus\s*station|coach\s*station|parking|transport\s*corporation|"
+    r"roadways|bus\s*port)\b",
+    re.IGNORECASE,
+)
+
+
+def is_minor_fleet_stop(source: dict) -> bool:
+    """
+    True for a roadside bus stop, which is not an enforceable diesel source.
+
+    OSM's `amenity=bus_station` spans everything from a state transport depot to
+    a numbered kerbside halt, so the registry fills with entries like "42A BUS
+    STAND" and "14 No Bus Stop". These outrank real facilities on proximity
+    alone — a bus stop sits in the middle of the city, right next to the
+    monitoring station — and they are useless as enforcement targets: there is
+    nothing to inspect at a pole with a timetable on it. Emissions enforcement
+    happens where vehicles are parked, fuelled and maintained.
+
+    Two signals decide it, because neither is sufficient alone:
+
+      * Geometry. A way or relation has area, so something is actually built
+        there; a bare node is usually just a point on a road.
+      * Name. Some genuine terminals are mapped as nodes ("CSTC Bus Terminal",
+        "Serampore Court Bus Terminus"), so a node naming itself a depot,
+        terminal or garage is kept.
+
+    Only applies to diesel_fleet — the other categories are area features by
+    nature, and satellite detections are points by definition.
+
+    The filter errs toward exclusion on purpose. "Bus Stand" in Indian usage
+    covers both a genuine terminal (Nabanna Bus Stand) and a kerbside halt
+    (45 BUS STAND), and treating it as substantial would readmit the latter. Of
+    ~1150 diesel_fleet entries about 730 survive, so losing a few real terminals
+    costs little, whereas putting "42A BUS STAND" at rank 1 of a dispatch sheet
+    discredits every other recommendation on it.
+    """
+    if source.get("category") != "diesel_fleet":
+        return False
+    osm_type = (source.get("id") or "").split("/")[0]
+    if osm_type in ("way", "relation"):
+        return False
+    return not _SUBSTANTIAL_FLEET_PATTERN.search(source.get("name") or "")
+
+
 _COMPASS_16 = [
     "N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE",
     "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW",
@@ -270,6 +318,11 @@ def score_sources(
         # A hospital or school is a receptor to protect, never an enforcement
         # target — excluded before any scoring so geometry can't promote one.
         if is_sensitive_receptor(src):
+            continue
+
+        # A kerbside bus stop is not an enforceable diesel source, and sits
+        # close enough to the station to outrank real depots on proximity.
+        if is_minor_fleet_stop(src):
             continue
 
         distance = haversine_km(hs_lat, hs_lon, src["lat"], src["lon"])

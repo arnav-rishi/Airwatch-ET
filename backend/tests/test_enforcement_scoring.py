@@ -223,6 +223,64 @@ def test_sensitive_receptor_excluded_even_when_it_would_rank_first():
     assert [r["name"] for r in ranked] == ["Distant Works"]
 
 
+# ─── Kerbside stops vs real fleet facilities ──────────────────────────────────
+# OSM's amenity=bus_station spans a state transport depot and a numbered kerbside
+# halt alike. Stops sit beside the monitoring station so they win on proximity,
+# and a live run put "42A BUS STAND" at rank 3 — there is nothing to inspect at a
+# pole with a timetable on it.
+
+@pytest.mark.parametrize("osm_id,name", [
+    ("node/1", "14 No Bus Stop"),
+    ("node/2", "45 BUS STAND"),
+    ("node/3", "42A BUS STAND"),
+    ("node/4", "Parnasree Bus Stand"),
+    ("node/5", "Unnamed diesel fleet site"),
+])
+def test_kerbside_stops_are_excluded(osm_id, name):
+    hotspot = {"lat": 0.0, "lon": 0.0, "aqi": 400}
+    src = _source(name, 0.0, -0.005, category="diesel_fleet")
+    src["id"] = osm_id
+    assert score_sources(hotspot, [src], wind_direction_deg=270) == []
+
+
+@pytest.mark.parametrize("osm_id,name", [
+    # Polygons have area — something is actually built there.
+    ("way/10", "Salt Lake Bus Depot"),
+    ("way/11", "Unnamed diesel fleet site"),
+    # Nodes that name themselves a real facility are kept despite being points.
+    ("node/12", "CSTC Bus Terminal"),
+    ("node/13", "Serampore Court Bus Terminus"),
+    ("node/14", "Howrah Bus Station"),
+    ("node/15", "Rahara bazar bus depot"),
+])
+def test_real_fleet_facilities_are_kept(osm_id, name):
+    hotspot = {"lat": 0.0, "lon": 0.0, "aqi": 400}
+    src = _source(name, 0.0, -0.02, category="diesel_fleet")
+    src["id"] = osm_id
+    assert score_sources(hotspot, [src], wind_direction_deg=270), f"{name} wrongly excluded"
+
+
+def test_stop_filter_only_applies_to_diesel_fleet():
+    """An unnamed industrial or construction node must not be caught by it."""
+    hotspot = {"lat": 0.0, "lon": 0.0, "aqi": 400}
+    for category in ("industry", "construction", "waste_burning"):
+        src = _source("Unnamed site", 0.0, -0.02, category=category)
+        src["id"] = "node/99"
+        assert score_sources(hotspot, [src], wind_direction_deg=270), category
+
+
+def test_real_depot_outranks_nothing_when_only_stops_are_nearby():
+    """With stops filtered out, a distant real depot should still surface."""
+    hotspot = {"lat": 0.0, "lon": 0.0, "aqi": 400}
+    stop = _source("42A BUS STAND", 0.0, -0.002, category="diesel_fleet")
+    stop["id"] = "node/1"
+    depot = _source("Salt Lake Bus Depot", 0.0, -0.10, category="diesel_fleet")
+    depot["id"] = "way/2"
+
+    ranked = score_sources(hotspot, [stop, depot], wind_direction_deg=270)
+    assert [r["name"] for r in ranked] == ["Salt Lake Bus Depot"]
+
+
 def test_compass_point_cardinals():
     assert compass_point(0) == "N"
     assert compass_point(90) == "E"

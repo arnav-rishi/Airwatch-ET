@@ -67,8 +67,19 @@ problem statement:
 | Waste burning | `landuse=landfill`, `amenity=waste_transfer_station`, `waste_disposal` |
 | Diesel fleet | `amenity=bus_station`, `landuse=depot`, `building=transportation` |
 
-Seeded once and committed, so a demo never depends on Overpass being up — and so a free
-shared community endpoint isn't hammered per request. These are honest proxies, not an
+**5,154 sources across all 43 cities** (2,215 industry · 1,182 diesel fleet · 1,175
+construction · 582 waste). Seeded once and committed, so a demo never depends on Overpass
+being up — and so a free shared community endpoint isn't hammered per request.
+
+Not every OSM entry is a usable enforcement target, and two filters run before scoring.
+`amenity=bus_station` spans a state transport depot and a numbered kerbside halt alike, so
+the registry fills with entries like "42A BUS STAND" — which beat real depots on proximity,
+since a bus stop sits right beside the monitoring station, yet offer nothing to inspect.
+Geometry and name together decide it: a way or relation has area so something is built there,
+and a node naming itself a depot, terminal or garage is kept even though it's a point. That
+leaves ~730 of ~1,150 fleet entries. The filter errs toward exclusion deliberately — "Bus
+Stand" in Indian usage covers both a genuine terminal and a kerbside halt, and putting
+"42A BUS STAND" at rank 1 would discredit every other recommendation on the sheet. These are honest proxies, not an
 official register; open waste burning is unmapped by nature (it's illegal and unregistered),
 so landfills and transfer stations stand in for it. That caveat ships inside the registry's
 own `_meta` block and is surfaced through the API rather than hidden. A production
