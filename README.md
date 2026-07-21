@@ -88,6 +88,23 @@ not a proven violation, and industrial flares and agricultural fires also regist
 Needs a free `FIRMS_MAP_KEY` (see `.env.example`). Purely additive: without one, enforcement
 falls back to the ground registry alone and still works.
 
+**1c. Who must never be a target.** OSM names transport infrastructure after whatever it
+serves, so a bus terminal outside a hospital or temple inherits that place's name. Two live
+runs surfaced this the hard way: the system recommended sending inspectors to *"Park Circus -
+Chittaranjan Hospital"*, and then to *"Kamakhya Mandir"* — one of the most significant Hindu
+temples in India. The underlying depots may well be real diesel sources, but an enforcement
+order *named after* a hospital, school or place of worship is indefensible in front of the
+authority meant to act on it, and in the religious case actively inflammatory. Hospitals and
+schools are also receptors to protect from poor air, not premises to raid.
+
+Such names are excluded from the candidate set entirely, before scoring, so geometry cannot
+promote one back. The filter is name-based rather than tag-based precisely because the OSM
+*tag* says `bus_station` while the *name* says temple — the tag is what admitted it, the name
+is what would reach a dispatch order. It is also deliberately tuned against over-matching:
+an earlier version caught `vihar` and removed several genuine bus depots, since across north
+India "Vihar" is a residential locality suffix (Vasant Vihar, Mayur Vihar) far more often
+than a Buddhist monastery. Both directions are covered by tests.
+
 **2. The correlation** (`backend/utils/enforcement_scoring.py` — deterministic, no LLM).
 For each hotspot, every registered source in that city is scored on:
 

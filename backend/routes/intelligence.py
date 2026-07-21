@@ -216,6 +216,45 @@ async def get_source_registry(city: str | None = None):
     }
 
 
+def _normalise_source_ids(result: dict, cities: list[dict]) -> None:
+    """
+    Reconcile each priority's source_id with the candidate it actually refers to.
+
+    The prompt lists candidates as "[way/12345] Name", and the LLM frequently
+    copies the surrounding brackets into source_id — "[way/12345]" — which then
+    fails an exact-match lookup in the frontend, so the evidence block silently
+    doesn't render. Strip the brackets, and if that still doesn't match, fall
+    back to matching on the facility name before giving up.
+
+    Mutates `result` in place, marking whether each priority resolved so the UI
+    can distinguish "matched" from "the model named something not on the list".
+    """
+    by_id = {}
+    by_label = {}
+    for c in cities:
+        for s in c.get("candidate_sources", []):
+            by_id[s["id"]] = s["id"]
+            for key in (s.get("dispatch_label"), s.get("name")):
+                if key:
+                    by_label[key.strip().lower()] = s["id"]
+
+    for p in result.get("priorities", []) or []:
+        raw = (p.get("source_id") or "").strip().strip("[]").strip()
+        if raw in by_id:
+            p["source_id"] = raw
+            p["source_matched"] = True
+            continue
+
+        label = (p.get("target_facility") or "").strip().lower()
+        if label in by_label:
+            p["source_id"] = by_label[label]
+            p["source_matched"] = True
+            continue
+
+        p["source_id"] = raw or None
+        p["source_matched"] = False
+
+
 async def _enrich_city_with_candidates(city: dict) -> dict:
     """
     Run the geospatial correlation for one hotspot: fetch its live wind, pull the
@@ -245,10 +284,10 @@ async def _enrich_city_with_candidates(city: dict) -> dict:
     except Exception:
         city["satellite_fire_count"] = 0
 
-    if not sources:
-        city["candidate_sources"] = []
-        return city
-
+    # Fetch wind regardless of registry coverage: a city with no mapped sources
+    # still reports its conditions to the Enforcement Agent, and returning early
+    # here left wind_direction null on exactly the hotspots that most need
+    # explaining (the ones with no candidates to show).
     wind_direction = None
     try:
         weather = await fetch_weather(city["lat"], city["lon"])
@@ -257,6 +296,10 @@ async def _enrich_city_with_candidates(city: dict) -> dict:
         city["wind_speed_kmh"] = weather.get("wind_speed_kmh")
     except Exception:
         pass
+
+    if not sources:
+        city["candidate_sources"] = []
+        return city
 
     city["candidate_sources"] = score_sources(
         hotspot=city,
@@ -370,10 +413,13 @@ async def get_auto_enforcement():
                 "dominant_source": c.get("dominant_source"),
                 "wind_direction": c.get("wind_direction"),
                 "wind_speed_kmh": c.get("wind_speed_kmh"),
+                "satellite_fire_count": c.get("satellite_fire_count", 0),
+                "in_registry": bool(c.get("candidate_sources")),
                 "candidate_sources": c.get("candidate_sources", []),
             }
             for c in top5
         ]
+        _normalise_source_ids(result, top5)
         result["registry_backed"] = any(c.get("candidate_sources") for c in top5)
         result["registry_meta"] = registry_meta()
         result["attributed_sources"] = attributed_sources

@@ -232,7 +232,9 @@ export default function EnforcementSidebar({ enforcement, loading }) {
                     <div className="text-slate-400 text-xs mb-1">Target facility</div>
                     <div className="text-white font-medium text-sm">{p.target_facility}</div>
                     <div className="text-xs text-amber-500/80 mt-1">
-                      Not matched to a registry entry — evidence not independently verifiable
+                      {p.source_matched === false
+                        ? 'This facility is not in the source registry — the model named it without correlated evidence, so treat it as unverified'
+                        : 'Not matched to a registry entry — evidence not independently verifiable'}
                     </div>
                   </div>
                 )}

@@ -26,6 +26,7 @@ which is what an inspector allocating a shift actually needs. It does not
 estimate emission mass or prove causation, and every returned candidate carries
 its component scores so a reviewer can see exactly why it ranked where it did.
 """
+import re
 from math import atan2, cos, degrees, radians, sin, sqrt
 
 EARTH_RADIUS_KM = 6371.0
@@ -126,6 +127,54 @@ def _severity_score(aqi: float) -> float:
     return max(0.0, min(1.0, aqi / 500.0))
 
 
+# Names that identify a protected institution or landmark rather than an emitter.
+#
+# OSM names transport infrastructure after whatever it serves, so a bus terminal
+# outside a hospital or temple carries that place's name into the registry as a
+# diesel_fleet source — and pure geometry can rank it first. Two live runs did
+# exactly this, recommending inspectors be sent to "Park Circus - Chittaranjan
+# Hospital" and then to "Kamakhya Mandir", one of the most significant Hindu
+# temples in India.
+#
+# The underlying bus depot may well be a genuine diesel source, but an
+# enforcement action *named after* a hospital, school or place of worship is
+# wrong on its face: indefensible in front of the authority meant to act on it,
+# and in the religious case actively inflammatory. Hospitals and schools are
+# also vulnerable receptors to protect from poor air, not premises to raid.
+#
+# Excluded from the candidate set entirely rather than ranked lower — geometry
+# must not be able to promote one back.
+_SENSITIVE_RECEPTOR_PATTERN = re.compile(
+    # Healthcare and education
+    r"\b(hospital|clinic|nursing\s+home|hospice|dispensary|medical\s+college|"
+    r"medical\s+depot|health\s+cent|school|college|university|vidyalaya|"
+    r"maternity|childre?n'?s?\s+home|orphanage|old\s+age\s+home|"
+    # Places of worship and pilgrimage.
+    #
+    # Deliberately NOT included: "vihar". Although it denotes a Buddhist
+    # monastery, in Indian urban naming it is overwhelmingly a residential
+    # locality suffix — Vasant Vihar, Mayur Vihar, Sukdev Vihar — and including
+    # it excluded several genuine bus depots, which are precisely the
+    # diesel_fleet targets this system exists to find. Actual monasteries are
+    # caught by "monastery", "math" or "stupa".
+    r"mandir|temple|masjid|mosque|church|cathedral|gurudwara|gurdwara|"
+    r"dargah|monastery|matha|math|ashram|shrine|basilica|synagogue|"
+    r"devasthan|devalaya|sahib|idgah|stupa)\b",
+    re.IGNORECASE,
+)
+
+
+def is_sensitive_receptor(source: dict) -> bool:
+    """
+    True when a source's name identifies a hospital, school or place of worship.
+
+    Name-based rather than tag-based because the problem is precisely that the
+    OSM *tag* says bus_station while the *name* says temple — the tag is what
+    put it in the registry, the name is what would end up on a dispatch order.
+    """
+    return bool(_SENSITIVE_RECEPTOR_PATTERN.search(source.get("name") or ""))
+
+
 _COMPASS_16 = [
     "N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE",
     "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW",
@@ -218,6 +267,11 @@ def score_sources(
 
     scored = []
     for src in sources:
+        # A hospital or school is a receptor to protect, never an enforcement
+        # target — excluded before any scoring so geometry can't promote one.
+        if is_sensitive_receptor(src):
+            continue
+
         distance = haversine_km(hs_lat, hs_lon, src["lat"], src["lon"])
         if distance > MAX_RELEVANT_KM:
             continue
