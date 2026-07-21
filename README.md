@@ -14,9 +14,11 @@ facility to inspect today, and why*.
 - **⚖️ Enforcement Intelligence & Prioritisation** *(primary focus)* — Correlates live
   pollution hotspots against a registry of 5,154 **registered emission sources** (industries,
   construction sites, waste sites, diesel fleet depots) with real coordinates, ranks them by a
-  deterministic evidence score — distance, **upwind alignment** against live wind direction,
-  and category match to the attributed dominant source — and issues dispatchable,
-  facility-level enforcement actions with supporting geospatial documentation.
+  deterministic evidence score — distance, **Gaussian plume dispersion** under live wind and
+  atmospheric stability, and category match to the attributed dominant source — and issues
+  dispatchable, facility-level enforcement actions with supporting geospatial documentation.
+  Narrows a 213-source search space to 5 for a Delhi hotspot (**42.6×**), in ~48 s from signal
+  to dispatch-ready.
   **[How it works ↓](#️-enforcement-intelligence--how-the-correlation-works)**
 - **🗺️ Live AQI Map** — Interactive map of India showing real-time air quality from CPCB
   monitoring stations (via WAQI), colour-coded by severity on the Indian CPCB scale.
@@ -39,9 +41,10 @@ facility to inspect today, and why*.
 | Backend | FastAPI (Python 3.11), httpx, tenacity |
 | AI | Azure OpenAI `gpt-5-nano` (reasoning model), async client |
 | AQI data | WAQI (live CPCB feeds) → static fallback dataset |
-| Geospatial | OpenStreetMap / Overpass API (emission source registry) |
+| Geospatial | OpenStreetMap / Overpass API (emission source registry), grid spatial index |
 | Satellite | NASA FIRMS (VIIRS 375 m active-fire detection) |
-| Weather | OpenWeatherMap (incl. wind direction, which drives upwind scoring) |
+| Dispersion | Gaussian plume, Briggs urban σ curves, Pasquill-Gifford stability |
+| Weather | OpenWeatherMap (wind speed + direction drive the plume model) |
 
 **Resilience.** Per-city AQI fallback — one bad reading downgrades that city's freshness
 rather than dropping it off the map — plus a 10-minute station cache warmed at startup,
@@ -152,25 +155,60 @@ recommendation on the sheet.
 
 ### 4. The correlation
 
-`backend/utils/enforcement_scoring.py` — deterministic, no LLM. For each hotspot, every
-surviving source in that city is scored on:
+`backend/utils/enforcement_scoring.py` — deterministic, no LLM. Sources are found by a
+**spatial query, not a city-name lookup**: pollution doesn't respect municipal boundaries, and
+a station in east Delhi has Noida and Ghaziabad industry well inside its 25 km radius. The NCR
+is one airshed, so the query follows the air rather than the paperwork. Each surviving source
+is then scored on:
 
 | Component | Weight | Why |
 |---|---|---|
 | Proximity | 0.35 | Linear falloff to zero at 25 km |
-| **Upwind alignment** | 0.28 | A source *downwind* of the station cannot be causing the reading |
+| **Atmospheric transport** | 0.28 | Gaussian plume — can this source physically reach the station today? |
 | Category match | 0.18 | Corroboration from the upstream Attribution Agent |
 | Dispatchability | 0.12 | ~half of OSM sites are unnamed; a named facility can be served notice |
 | Hotspot severity | 0.07 | Only discriminates when ranking across cities |
 
-The upwind test is the strongest single discriminator and came free: OpenWeatherMap's
-`wind.deg` (the direction wind blows *from*) was already being fetched and discarded. Sources
-more than ~102° off the wind axis are **excluded outright**, not ranked low — they are
-eliminated on physical grounds, and padding a shortlist with them would overstate how much
-evidence exists.
+Sources the wind is carrying *away* from the station are **excluded outright**, not ranked
+low — they are eliminated on physical grounds, and padding a shortlist with them would
+overstate how much evidence exists.
 
 Unnamed sites still have exact coordinates, so they get a navigable positional label
 (*"Unregistered industry site 2.1 km NW of Kolkata centre"*) instead of a useless one.
+
+#### Atmospheric dispersion modelling
+
+The transport score was originally `cos(bearing − wind_direction)`. That says whether a source
+is upwind, but cannot distinguish a facility 500 m upwind from one 20 km upwind, and treats
+crosswind offset and wind speed as if they were irrelevant. Dispersion has a standard
+closed-form solution, so `backend/utils/dispersion.py` uses it:
+
+```
+C(x, y) = Q / (π · u · σy · σz) · exp(−y² / 2σy²)
+```
+
+with **Briggs urban σ curves** selected by **Pasquill-Gifford stability class**, derived from
+wind speed and day/night insolation. Urban curves are the right family — every receptor here
+is a city monitoring station, where surface roughness and the heat-island effect produce far
+more mixing than rural curves assume.
+
+This changes rankings in ways the cosine could not express. Under a **calm clear night
+(class F inversion)** a source 13.3 km from the Delhi station ranks second, because stable air
+holds the plume together over that distance. Under **windy daytime mixing (class D)** the same
+source drops out of the shortlist entirely. That is the difference between *"is it upwind"* and
+*"can it actually reach here under today's conditions"*.
+
+> **Scope, stated honestly.** Emission rate is unknown — the registry records that a facility
+> exists, not what it emits, and there is no public per-facility inventory — so every source is
+> modelled at unit emission rate. The output is a **relative susceptibility**: "given equal
+> emissions, how much more would this source affect this station than that one". It is a
+> targeting aid, not a concentration estimate. It is also a *screening* model: flat terrain,
+> steady uniform wind, ground-level release, no plume rise, deposition or building downwash.
+> AERMOD or CALPUFF would model all of those and need stack parameters, hourly meteorology and
+> terrain grids this system does not have.
+
+Every recommendation carries its stability class, downwind and crosswind distances, and plume
+width, so a domain reviewer can interrogate the physics rather than one opaque number.
 
 ### 5. The narration
 
@@ -205,6 +243,59 @@ and a link to the facility on OpenStreetMap — so the evidence is checkable in 
 in the API. `GET /api/intel/sources` exposes the registry directly. The endpoint also reports
 `response_time_seconds`, the measured signal-to-dispatch latency the evaluation criteria ask
 to see demonstrated (typically 30–60 s against live data).
+
+---
+
+### 7. Quantified impact
+
+Business impact is measured from the system's own data, not asserted.
+`backend/utils/impact_metrics.py` attaches figures to every enforcement run, so the numbers a
+deck quotes are computed live from the run a reviewer is looking at.
+
+Measured against the committed registry:
+
+| Hotspot | Eligible sources in 25 km | Shortlisted | Narrowing | Random hit rate |
+|---|---|---|---|---|
+| Delhi | 213 | 5 | **42.6×** | 2.3% |
+| Kolkata | 157 | 5 | **31.4×** | 3.2% |
+| Pune | 148 | 5 | **29.6×** | 3.4% |
+| *A live 5-hotspot run* | *557* | *25* | ***22.3×*** | *4.5%* |
+
+Both sides of that ratio come from the same population — sources that survive the scorer's own
+exclusions and lie within the same operational radius. Comparing a ranked shortlist against
+the raw unfiltered registry would inflate the figure by counting hospitals and bus stops no
+sensible process would visit.
+
+**What is deliberately not claimed**, because a domain expert would puncture each in one
+question and it would cast doubt on the figures that are real:
+
+- **No pollution reduction in μg/m³** — needs per-facility emission rates and a counterfactual
+  for whether an inspection changes behaviour. Neither exists.
+- **No money saved** — inspector salaries, travel costs and penalty recovery rates vary by
+  state and aren't public.
+- **No compliance improvement** — needs longitudinal data from a real deployment.
+
+The single external input, how inspectors are tasked today, cites the CAG's 2024 NCAP audit
+finding (only 31% of cities with monitoring data had any actionable response protocol) rather
+than inventing a baseline.
+
+---
+
+## 📈 Scalability
+
+Full detail in **[SCALABILITY.md](SCALABILITY.md)**, including what still constrains scale and
+the path to a national rollout.
+
+The correlation engine scales: sources are bucketed into a ~27 km grid at load time, so a query
+touches only the 3×3 block of cells around its centre regardless of registry size. Going from
+5,000 to 1,000,000 sources — **200× more data** — increases the scanned set only **6×**, because
+the extra sources land in cells the query never opens. Reproduce with
+`backend/scripts/benchmark_spatial.py`.
+
+Everything around it is prototype-grade and SCALABILITY.md says so: per-process in-memory
+caches and rate limiter that break behind multiple workers, a file-backed registry, a static
+43-city station list, LLM latency dominating the 30–60 s end-to-end time, and no persistence of
+recommendations or outcomes.
 
 ---
 
@@ -297,7 +388,7 @@ npm run dev                     # http://localhost:5173
 ### Verify
 ```bash
 cd backend
-pytest tests/ -q                # 106 unit tests, no network or API keys required
+pytest tests/ -q                # 150 unit tests, no network or API keys required
 python test_endpoints.py        # HTTP integration suite, needs a running server + real keys
 ```
 
@@ -349,13 +440,17 @@ airwatch/
 │   ├── utils/
 │   │   ├── aqi_calculator.py          CPCB breakpoints + EPA→CPCB inversion
 │   │   ├── enforcement_scoring.py     Deterministic hotspot↔source correlation
+│   │   ├── dispersion.py              Gaussian plume + Pasquill-Gifford stability
+│   │   ├── impact_metrics.py          Search-space narrowing, computed from the registry
 │   │   ├── forecast_baseline.py       Statistical forecast + persistence backtest
 │   │   └── attribution_confidence.py  Divergence-from-baseline scoring
-│   ├── scripts/fetch_emission_sources.py   Overpass seeder (mirrors, resume)
+│   ├── scripts/
+│   │   ├── fetch_emission_sources.py  Overpass seeder (mirrors, resume)
+│   │   └── benchmark_spatial.py       Reproduces the SCALABILITY.md figures
 │   ├── data/
 │   │   ├── cities_fallback.json       43 curated cities
 │   │   └── emission_sources.json      5,154 registered emission sources
-│   └── tests/                         106 unit + integration tests
+│   └── tests/                         150 unit + integration tests
 └── frontend/src/
     ├── App.jsx                        Tabs: Map / Enforcement / Advisory
     └── components/

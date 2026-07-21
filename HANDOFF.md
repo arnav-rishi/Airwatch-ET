@@ -9,20 +9,26 @@ prioritisation, forecasting, and a multilingual citizen health advisory chatbot.
 
 ## 1. Current Status
 
-**Working end-to-end.** All 6 backend endpoints pass an HTTP integration suite (14/14).
-Frontend map, city detail, enforcement, and advisory chatbot are all functional.
+**Working end-to-end**, verified against live WAQI, OpenWeatherMap, Azure OpenAI and NASA
+FIRMS. 150 unit/integration tests pass with no keys or network required.
 
 | Area | Status |
 |------|--------|
-| Live AQI map (Leaflet, 43 curated cities via WAQI, per-city fallback) | ✅ Working |
-| City detail panel (feed + weather + 24h history, real-vs-synthetic disclosed) | ✅ Working |
-| Source attribution (LLM, CPCB-anchored, with deterministic confidence score) | ✅ Working |
-| Enforcement priorities (multi-agent: Attribution feeds Enforcement) | ✅ Working |
+| **Enforcement: registry correlation (5,154 sources, 43 cities)** | ✅ Working — the primary focus |
+| **Enforcement: Gaussian plume dispersion (Pasquill-Gifford)** | ✅ Working |
+| **Enforcement: geospatial map + auditable evidence** | ✅ Working |
+| **Enforcement: quantified impact (search-space narrowing)** | ✅ Working, computed live |
+| Satellite fire detection (NASA FIRMS / VIIRS) | ✅ Working — 0 detections in monsoon; see README |
+| Spatial grid index (cross-city airshed queries) | ✅ Working |
+| Live AQI map (Leaflet, 43 curated cities via WAQI, per-city fallback) | ✅ Working — now on the CPCB scale |
+| City detail panel (feed + weather + 24h history) | ✅ Working — 24h history is always synthetic, see §Known gaps |
+| Source attribution (LLM, CPCB-anchored, deterministic confidence score) | ✅ Working |
+| 24h forecast (hybrid + RMSE vs persistence + skill score) | ✅ Working |
 | Citizen advisory chatbot (multilingual) | ✅ Working |
-| 24h forecast (hybrid: statistical baseline + LLM narrative, backtested MAE) | ✅ Working, wired into the city panel |
-| Rate limiting on `/api/intel/*` | ✅ Working (in-memory, per-process) |
+| Rate limiting on `/api/intel/*` | ✅ Working (in-memory, per-process — see SCALABILITY.md) |
 | CI (`.github/workflows/ci.yml`) | ✅ Runs pytest + frontend build on every push |
-| Deployment (Vercel + backend host) | ⚠️ Config ready; `deployment` branch is stale — see §6 |
+| Deployment (Vercel) | ⚠️ Tracks `master`; the enforcement work is on a feature branch — **merge before demoing** |
+| Architecture diagram / deck / demo video | ⚠️ Required deliverables — see §Deliverables |
 
 ---
 
@@ -37,27 +43,39 @@ airwatch/
 │   │   ├── aqi.py           /api/aqi/live, /api/aqi/city/{name}
 │   │   └── intelligence.py  /api/intel/{attribution,enforcement,forecast,advisory}
 │   ├── services/
-│   │   ├── waqi.py          Primary AQI source (per-city named feeds + per-city fallback)
-│   │   ├── openaq.py        Backup AQI source + 24h history (tags source: real vs synthetic)
-│   │   ├── openweather.py   Weather context for LLM prompts
-│   │   ├── llm.py           Azure OpenAI wrapper (call_llm, call_llm_json)
-│   │   ├── cache.py         10-min in-memory station cache
+│   │   ├── waqi.py          Primary AQI source (EPA->CPCB conversion, per-city fallback)
+│   │   ├── openaq.py        Backup AQI + 24h history (NON-FUNCTIONAL - see Known gaps)
+│   │   ├── openweather.py   Weather; wind speed + direction drive the plume model
+│   │   ├── firms.py         NASA FIRMS satellite active-fire detection
+│   │   ├── source_registry.py  Emission source registry + spatial grid index
+│   │   ├── llm.py           Azure OpenAI wrapper (sync + async clients)
+│   │   ├── cache.py         10-min in-memory station + attribution caches
 │   │   └── rate_limit.py    In-memory sliding-window limiter for /api/intel/*
 │   ├── utils/
-│   │   ├── aqi_calculator.py         CPCB AQI breakpoints + categories
-│   │   ├── forecast_baseline.py      Deterministic stat forecast + backtest (no LLM)
+│   │   ├── aqi_calculator.py         CPCB breakpoints + EPA->CPCB inversion
+│   │   ├── enforcement_scoring.py    Deterministic hotspot<->source correlation
+│   │   ├── dispersion.py             Gaussian plume + Pasquill-Gifford stability
+│   │   ├── impact_metrics.py         Search-space narrowing from the registry
+│   │   ├── forecast_baseline.py      Stat forecast + persistence backtest (no LLM)
 │   │   └── attribution_confidence.py Divergence-from-baseline confidence scoring
 │   ├── prompts.py           All LLM system/user prompt builders + CPCB citation table
-│   ├── data/cities_fallback.json Static fallback data (43 cities)
+│   ├── scripts/
+│   │   ├── fetch_emission_sources.py Overpass seeder (mirrors, resume)
+│   │   └── benchmark_spatial.py      Reproduces SCALABILITY.md figures
+│   ├── data/
+│   │   ├── cities_fallback.json      Static fallback data (43 cities)
+│   │   └── emission_sources.json     5,154 registered emission sources
 │   ├── test_endpoints.py    HTTP integration suite (run against live server)
-│   └── tests/               Unit tests (pytest) + conftest.py env bootstrap
+│   └── tests/               150 unit + integration tests, no keys needed
 └── frontend/                React + Vite + Tailwind v4
     └── src/
         ├── App.jsx          Tabs: Map / Enforcement / Advisory
         ├── hooks/useAQI.js  Polls /api/aqi/live
         ├── services/api.js  Axios API client
-        └── components/       MapView, CityPanel, EnforcementSidebar,
-                              AdvisoryGenerator, ForecastChart, ErrorBoundary
+        ├── constants/enforcement.js  MAX_RELEVANT_KM mirror of the backend
+        └── components/      MapView, CityPanel, EnforcementMap,
+                             EnforcementSidebar, AdvisoryGenerator,
+                             ForecastChart, ErrorBoundary
 ```
 
 **Data flow (map stations):** A curated list of major Indian cities
@@ -223,3 +241,34 @@ Copy `backend/.env.example` to `backend/.env` and fill in:
 6. **Presentation / demo script** for the hackathon submission.
 
 See `PS5_AirQuality_Implementation_Plan.md` (repo root) for the original full plan.
+
+---
+
+## Known gaps
+
+Recorded here so they are not rediscovered under time pressure. Full detail in the README.
+
+- **OpenAQ tier is non-functional.** `services/openaq.py` points at `api.openaq.io/v2`, a host
+  that no longer resolves (OpenAQ retired v2; v3 needs a key). The AQI fallback is therefore
+  **WAQI -> static dataset**, not three tiers, and the 24h history in the city panel is always
+  the synthetic diurnal estimate. The UI does disclose this ("Modelled estimate"), but the
+  underlying integration has never worked.
+- **City-level, not ward-level.** The problem statement asks for ward / 1 km grid resolution.
+- **No multi-city comparative dashboard**, and **no population vulnerability layer** — though
+  the sensitive-receptor filter already identifies hospitals and schools in the registry.
+- **Scale limits** are catalogued in [SCALABILITY.md](SCALABILITY.md): per-process caches and
+  rate limiter, file-backed registry, static station list, no outcome persistence.
+
+---
+
+## Deliverables
+
+| Required | Status |
+|---|---|
+| Working prototype | ✅ |
+| Architecture diagram | See `docs/` |
+| Presentation deck | See `docs/` |
+| Demo video | Script in `docs/` — recording still to be done |
+
+**Before demoing:** the enforcement work lives on `feature/enforcement-intelligence`. Vercel
+builds from `master`. Merge first, or the live URL serves none of it.
