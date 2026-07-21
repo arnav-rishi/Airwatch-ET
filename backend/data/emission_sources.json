@@ -5,14 +5,14 @@
   "caveat": "OSM proxies for registered emitters, not an official register. Open waste burning is unmapped by nature, so landfills and waste transfer stations stand in for it. A production deployment would use CPCB consent-to-operate and state PCB registers instead.",
   "bbox_half_deg": 0.25,
   "max_per_category_per_city": 60,
-  "total_sources": 1951,
+  "total_sources": 2728,
   "by_category": {
-   "diesel_fleet": 480,
-   "industry": 709,
-   "waste_burning": 312,
-   "construction": 450
+   "diesel_fleet": 699,
+   "industry": 949,
+   "waste_burning": 390,
+   "construction": 690
   },
-  "cities_covered": 14,
+  "cities_covered": 18,
   "failed_cities": []
  },
  "sources": [
@@ -17574,6 +17574,6999 @@
    "lat": 19.175352,
    "lon": 73.038786,
    "osm_url": "https://www.openstreetmap.org/way/1391181631"
+  },
+  {
+   "id": "node/446805877",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Chikkamaranahalli",
+   "lat": 13.036222,
+   "lon": 77.566348,
+   "osm_url": "https://www.openstreetmap.org/node/446805877"
+  },
+  {
+   "id": "node/459464848",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Yokogowa Blue Star",
+   "lat": 12.849034,
+   "lon": 77.663135,
+   "osm_url": "https://www.openstreetmap.org/node/459464848"
+  },
+  {
+   "id": "node/459489322",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Flextronics",
+   "lat": 12.840958,
+   "lon": 77.66365,
+   "osm_url": "https://www.openstreetmap.org/node/459489322"
+  },
+  {
+   "id": "node/471760581",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Uttarahalli Bus Station",
+   "lat": 12.905273,
+   "lon": 77.543288,
+   "osm_url": "https://www.openstreetmap.org/node/471760581"
+  },
+  {
+   "id": "node/521144263",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Jalahalli Village",
+   "lat": 13.04523,
+   "lon": 77.547996,
+   "osm_url": "https://www.openstreetmap.org/node/521144263"
+  },
+  {
+   "id": "node/598947927",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Jagadish Kara Condiments",
+   "lat": 13.039386,
+   "lon": 77.553722,
+   "osm_url": "https://www.openstreetmap.org/node/598947927"
+  },
+  {
+   "id": "node/598963087",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Indian Bureau of Mines",
+   "lat": 13.026532,
+   "lon": 77.534265,
+   "osm_url": "https://www.openstreetmap.org/node/598963087"
+  },
+  {
+   "id": "node/598963093",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Gokaldas",
+   "lat": 13.028172,
+   "lon": 77.535321,
+   "osm_url": "https://www.openstreetmap.org/node/598963093"
+  },
+  {
+   "id": "node/954610622",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Srinagar Bus Station",
+   "lat": 12.944438,
+   "lon": 77.554664,
+   "osm_url": "https://www.openstreetmap.org/node/954610622"
+  },
+  {
+   "id": "node/1160646223",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Mahiti Infotech",
+   "lat": 13.037683,
+   "lon": 77.612851,
+   "osm_url": "https://www.openstreetmap.org/node/1160646223"
+  },
+  {
+   "id": "node/1428116573",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Mangammanapalya",
+   "lat": 12.907083,
+   "lon": 77.635161,
+   "osm_url": "https://www.openstreetmap.org/node/1428116573"
+  },
+  {
+   "id": "node/1473053490",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "BMTC",
+   "lat": 13.036732,
+   "lon": 77.523703,
+   "osm_url": "https://www.openstreetmap.org/node/1473053490"
+  },
+  {
+   "id": "node/1529386309",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Kuvempunagar 2nd Stage",
+   "lat": 13.073049,
+   "lon": 77.541338,
+   "osm_url": "https://www.openstreetmap.org/node/1529386309"
+  },
+  {
+   "id": "node/1789736226",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Mysore Road Bus Station",
+   "lat": 12.953409,
+   "lon": 77.543571,
+   "osm_url": "https://www.openstreetmap.org/node/1789736226"
+  },
+  {
+   "id": "node/1794171016",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Peenya 2nd Stage",
+   "lat": 13.010859,
+   "lon": 77.506929,
+   "osm_url": "https://www.openstreetmap.org/node/1794171016"
+  },
+  {
+   "id": "node/1809771508",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "SRS Bus Station",
+   "lat": 12.980379,
+   "lon": 77.57602,
+   "osm_url": "https://www.openstreetmap.org/node/1809771508"
+  },
+  {
+   "id": "node/1809771510",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "VRL Bus Station",
+   "lat": 12.980325,
+   "lon": 77.575473,
+   "osm_url": "https://www.openstreetmap.org/node/1809771510"
+  },
+  {
+   "id": "node/2123629154",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Chikkalasandra Bus Stop",
+   "lat": 12.915167,
+   "lon": 77.552159,
+   "osm_url": "https://www.openstreetmap.org/node/2123629154"
+  },
+  {
+   "id": "node/2126404931",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "AGS Layout Bus Stand",
+   "lat": 12.91238,
+   "lon": 77.537175,
+   "osm_url": "https://www.openstreetmap.org/node/2126404931"
+  },
+  {
+   "id": "node/2281199651",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Arekere MICO Layout Bus Station",
+   "lat": 12.88945,
+   "lon": 77.594037,
+   "osm_url": "https://www.openstreetmap.org/node/2281199651"
+  },
+  {
+   "id": "node/2394086882",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Malleswaram 18th Cross",
+   "lat": 13.009851,
+   "lon": 77.569177,
+   "osm_url": "https://www.openstreetmap.org/node/2394086882"
+  },
+  {
+   "id": "node/2397431941",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Wipro EC Bus Stand",
+   "lat": 12.838921,
+   "lon": 77.659722,
+   "osm_url": "https://www.openstreetmap.org/node/2397431941"
+  },
+  {
+   "id": "node/3300149440",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "HSR Layout",
+   "lat": 12.912736,
+   "lon": 77.638005,
+   "osm_url": "https://www.openstreetmap.org/node/3300149440"
+  },
+  {
+   "id": "node/3334324984",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Attibele",
+   "lat": 12.777898,
+   "lon": 77.771193,
+   "osm_url": "https://www.openstreetmap.org/node/3334324984"
+  },
+  {
+   "id": "node/3451690400",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 12.992801,
+   "lon": 77.663217,
+   "osm_url": "https://www.openstreetmap.org/node/3451690400"
+  },
+  {
+   "id": "node/3696421498",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 13.01758,
+   "lon": 77.563543,
+   "osm_url": "https://www.openstreetmap.org/node/3696421498"
+  },
+  {
+   "id": "node/4062942991",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 12.944495,
+   "lon": 77.629741,
+   "osm_url": "https://www.openstreetmap.org/node/4062942991"
+  },
+  {
+   "id": "node/4127160593",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 12.955444,
+   "lon": 77.654633,
+   "osm_url": "https://www.openstreetmap.org/node/4127160593"
+  },
+  {
+   "id": "node/4130929491",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Old Gudahalli",
+   "lat": 12.960995,
+   "lon": 77.550894,
+   "osm_url": "https://www.openstreetmap.org/node/4130929491"
+  },
+  {
+   "id": "node/4144220194",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 12.957463,
+   "lon": 77.655552,
+   "osm_url": "https://www.openstreetmap.org/node/4144220194"
+  },
+  {
+   "id": "node/4144224189",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 12.95755,
+   "lon": 77.655158,
+   "osm_url": "https://www.openstreetmap.org/node/4144224189"
+  },
+  {
+   "id": "node/4144224392",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 12.976721,
+   "lon": 77.600228,
+   "osm_url": "https://www.openstreetmap.org/node/4144224392"
+  },
+  {
+   "id": "node/4197719562",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 12.91891,
+   "lon": 77.595877,
+   "osm_url": "https://www.openstreetmap.org/node/4197719562"
+  },
+  {
+   "id": "node/4242256789",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Bus Station Puttanahalli",
+   "lat": 13.11105,
+   "lon": 77.579749,
+   "osm_url": "https://www.openstreetmap.org/node/4242256789"
+  },
+  {
+   "id": "node/4286285301",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "B.M. Engineering Works",
+   "lat": 12.976994,
+   "lon": 77.631921,
+   "osm_url": "https://www.openstreetmap.org/node/4286285301"
+  },
+  {
+   "id": "node/4286285466",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Vijaya fabricators",
+   "lat": 12.976973,
+   "lon": 77.631976,
+   "osm_url": "https://www.openstreetmap.org/node/4286285466"
+  },
+  {
+   "id": "node/4286285467",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Vijay wood works",
+   "lat": 12.976948,
+   "lon": 77.631906,
+   "osm_url": "https://www.openstreetmap.org/node/4286285467"
+  },
+  {
+   "id": "node/4304261189",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Avana Electrosystems Pvt. Relay unit",
+   "lat": 13.032267,
+   "lon": 77.524752,
+   "osm_url": "https://www.openstreetmap.org/node/4304261189"
+  },
+  {
+   "id": "node/4417325592",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Munekolala bus stand",
+   "lat": 12.948695,
+   "lon": 77.708076,
+   "osm_url": "https://www.openstreetmap.org/node/4417325592"
+  },
+  {
+   "id": "node/4487661900",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Ravago Shah Polymers Pvt Ltd",
+   "lat": 13.041873,
+   "lon": 77.530489,
+   "osm_url": "https://www.openstreetmap.org/node/4487661900"
+  },
+  {
+   "id": "node/4487661901",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Dadu Bedding House",
+   "lat": 13.039153,
+   "lon": 77.531026,
+   "osm_url": "https://www.openstreetmap.org/node/4487661901"
+  },
+  {
+   "id": "node/4487661902",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Veerabadra Accurators",
+   "lat": 13.038839,
+   "lon": 77.530867,
+   "osm_url": "https://www.openstreetmap.org/node/4487661902"
+  },
+  {
+   "id": "node/4487673990",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Rab Engineering Works",
+   "lat": 13.03503,
+   "lon": 77.526373,
+   "osm_url": "https://www.openstreetmap.org/node/4487673990"
+  },
+  {
+   "id": "node/4487673991",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Saisankara Enterprise",
+   "lat": 13.035179,
+   "lon": 77.526321,
+   "osm_url": "https://www.openstreetmap.org/node/4487673991"
+  },
+  {
+   "id": "node/4487673992",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "AS Engineering",
+   "lat": 13.035077,
+   "lon": 77.526271,
+   "osm_url": "https://www.openstreetmap.org/node/4487673992"
+  },
+  {
+   "id": "node/4487711589",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Shree Ragavendra Enterprise",
+   "lat": 13.034966,
+   "lon": 77.526556,
+   "osm_url": "https://www.openstreetmap.org/node/4487711589"
+  },
+  {
+   "id": "node/4487711591",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Nandhi Woods",
+   "lat": 13.034844,
+   "lon": 77.526601,
+   "osm_url": "https://www.openstreetmap.org/node/4487711591"
+  },
+  {
+   "id": "node/4487711592",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Choudhary Steels",
+   "lat": 13.034789,
+   "lon": 77.526562,
+   "osm_url": "https://www.openstreetmap.org/node/4487711592"
+  },
+  {
+   "id": "node/4487711593",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Sharp Tool Enterprise",
+   "lat": 13.034747,
+   "lon": 77.526552,
+   "osm_url": "https://www.openstreetmap.org/node/4487711593"
+  },
+  {
+   "id": "node/4487711594",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "MRK Steels",
+   "lat": 13.034682,
+   "lon": 77.526541,
+   "osm_url": "https://www.openstreetmap.org/node/4487711594"
+  },
+  {
+   "id": "node/4487711595",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Dhanushree Industries",
+   "lat": 13.034603,
+   "lon": 77.526639,
+   "osm_url": "https://www.openstreetmap.org/node/4487711595"
+  },
+  {
+   "id": "node/4487711596",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Excel Auto Engineering",
+   "lat": 13.034487,
+   "lon": 77.526745,
+   "osm_url": "https://www.openstreetmap.org/node/4487711596"
+  },
+  {
+   "id": "node/4487711597",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Maruthi Engg Works",
+   "lat": 13.034664,
+   "lon": 77.526678,
+   "osm_url": "https://www.openstreetmap.org/node/4487711597"
+  },
+  {
+   "id": "node/4487711598",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Sun Tools Engineers",
+   "lat": 13.034664,
+   "lon": 77.526713,
+   "osm_url": "https://www.openstreetmap.org/node/4487711598"
+  },
+  {
+   "id": "node/4487711599",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "PNK Metals",
+   "lat": 13.034663,
+   "lon": 77.526753,
+   "osm_url": "https://www.openstreetmap.org/node/4487711599"
+  },
+  {
+   "id": "node/4487711600",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Vinayaka Metals",
+   "lat": 13.034643,
+   "lon": 77.526843,
+   "osm_url": "https://www.openstreetmap.org/node/4487711600"
+  },
+  {
+   "id": "node/4487905189",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Integra Textile Factory",
+   "lat": 13.002619,
+   "lon": 77.568272,
+   "osm_url": "https://www.openstreetmap.org/node/4487905189"
+  },
+  {
+   "id": "node/4490110730",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Priya Industries",
+   "lat": 13.031409,
+   "lon": 77.52734,
+   "osm_url": "https://www.openstreetmap.org/node/4490110730"
+  },
+  {
+   "id": "node/4490110731",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Apex Engineering",
+   "lat": 13.031347,
+   "lon": 77.527306,
+   "osm_url": "https://www.openstreetmap.org/node/4490110731"
+  },
+  {
+   "id": "node/4490110732",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "ASR Engineering Equipments",
+   "lat": 13.033947,
+   "lon": 77.527408,
+   "osm_url": "https://www.openstreetmap.org/node/4490110732"
+  },
+  {
+   "id": "node/4490110733",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Spring Air Bedding Company (INDIA) ltd",
+   "lat": 13.034059,
+   "lon": 77.52727,
+   "osm_url": "https://www.openstreetmap.org/node/4490110733"
+  },
+  {
+   "id": "node/4490110734",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Gaviranga Engineering Works",
+   "lat": 13.033895,
+   "lon": 77.527234,
+   "osm_url": "https://www.openstreetmap.org/node/4490110734"
+  },
+  {
+   "id": "node/4490110735",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Sri Hari Engineering",
+   "lat": 13.033897,
+   "lon": 77.527092,
+   "osm_url": "https://www.openstreetmap.org/node/4490110735"
+  },
+  {
+   "id": "node/4490118184",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Prime. Steel",
+   "lat": 13.033894,
+   "lon": 77.526938,
+   "osm_url": "https://www.openstreetmap.org/node/4490118184"
+  },
+  {
+   "id": "node/4490118185",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Bhagyalakshmi Industrial Corp",
+   "lat": 13.034022,
+   "lon": 77.526886,
+   "osm_url": "https://www.openstreetmap.org/node/4490118185"
+  },
+  {
+   "id": "node/4490118186",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Triveni Technosys",
+   "lat": 13.033949,
+   "lon": 77.526876,
+   "osm_url": "https://www.openstreetmap.org/node/4490118186"
+  },
+  {
+   "id": "node/4490118187",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Sai Maruthi Precision Works",
+   "lat": 13.033881,
+   "lon": 77.526854,
+   "osm_url": "https://www.openstreetmap.org/node/4490118187"
+  },
+  {
+   "id": "node/4490118188",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "AG Engineering",
+   "lat": 13.033834,
+   "lon": 77.526856,
+   "osm_url": "https://www.openstreetmap.org/node/4490118188"
+  },
+  {
+   "id": "node/4490128717",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Sri Shivshakti Enterprise",
+   "lat": 13.033784,
+   "lon": 77.526853,
+   "osm_url": "https://www.openstreetmap.org/node/4490128717"
+  },
+  {
+   "id": "node/4490128718",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Maruthi Steels",
+   "lat": 13.0338,
+   "lon": 77.526932,
+   "osm_url": "https://www.openstreetmap.org/node/4490128718"
+  },
+  {
+   "id": "node/4490128720",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Geekay Tarpaulins & Polymers Pvt Ltd",
+   "lat": 13.033818,
+   "lon": 77.527093,
+   "osm_url": "https://www.openstreetmap.org/node/4490128720"
+  },
+  {
+   "id": "node/4490128721",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Bright Services",
+   "lat": 13.033715,
+   "lon": 77.526982,
+   "osm_url": "https://www.openstreetmap.org/node/4490128721"
+  },
+  {
+   "id": "node/4490128722",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Krishna Badaram Industries",
+   "lat": 13.033754,
+   "lon": 77.52709,
+   "osm_url": "https://www.openstreetmap.org/node/4490128722"
+  },
+  {
+   "id": "node/4490128723",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Preci fit",
+   "lat": 13.033753,
+   "lon": 77.527142,
+   "osm_url": "https://www.openstreetmap.org/node/4490128723"
+  },
+  {
+   "id": "node/4490148575",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Basavi Shree Fasteners",
+   "lat": 13.033814,
+   "lon": 77.527168,
+   "osm_url": "https://www.openstreetmap.org/node/4490148575"
+  },
+  {
+   "id": "node/4490148576",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Shri Manjunatha Engineering",
+   "lat": 13.033814,
+   "lon": 77.527227,
+   "osm_url": "https://www.openstreetmap.org/node/4490148576"
+  },
+  {
+   "id": "node/4490148577",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "ASD Industries",
+   "lat": 13.0337,
+   "lon": 77.527204,
+   "osm_url": "https://www.openstreetmap.org/node/4490148577"
+  },
+  {
+   "id": "node/4490148578",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "SP Engineering Works",
+   "lat": 13.033738,
+   "lon": 77.527284,
+   "osm_url": "https://www.openstreetmap.org/node/4490148578"
+  },
+  {
+   "id": "node/4490148579",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Precision Engg Works",
+   "lat": 13.033807,
+   "lon": 77.527322,
+   "osm_url": "https://www.openstreetmap.org/node/4490148579"
+  },
+  {
+   "id": "node/4490148580",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Linsa Industries",
+   "lat": 13.033777,
+   "lon": 77.527428,
+   "osm_url": "https://www.openstreetmap.org/node/4490148580"
+  },
+  {
+   "id": "node/4490148581",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Sharp Engineering",
+   "lat": 13.033692,
+   "lon": 77.527412,
+   "osm_url": "https://www.openstreetmap.org/node/4490148581"
+  },
+  {
+   "id": "node/4490148582",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "SL Technologies",
+   "lat": 13.033725,
+   "lon": 77.527344,
+   "osm_url": "https://www.openstreetmap.org/node/4490148582"
+  },
+  {
+   "id": "node/4490148583",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Slv Engineering Technologies",
+   "lat": 13.033617,
+   "lon": 77.527112,
+   "osm_url": "https://www.openstreetmap.org/node/4490148583"
+  },
+  {
+   "id": "node/4490148584",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "SMS Technologies",
+   "lat": 13.033626,
+   "lon": 77.527164,
+   "osm_url": "https://www.openstreetmap.org/node/4490148584"
+  },
+  {
+   "id": "node/4490148585",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Vishnu Enterprises",
+   "lat": 13.033634,
+   "lon": 77.52729,
+   "osm_url": "https://www.openstreetmap.org/node/4490148585"
+  },
+  {
+   "id": "node/4490193896",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "MR Automats",
+   "lat": 13.03331,
+   "lon": 77.527463,
+   "osm_url": "https://www.openstreetmap.org/node/4490193896"
+  },
+  {
+   "id": "node/4490193897",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Belathu Industries",
+   "lat": 13.033607,
+   "lon": 77.52733,
+   "osm_url": "https://www.openstreetmap.org/node/4490193897"
+  },
+  {
+   "id": "node/4490193898",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "RS Sparktech",
+   "lat": 13.033462,
+   "lon": 77.527227,
+   "osm_url": "https://www.openstreetmap.org/node/4490193898"
+  },
+  {
+   "id": "node/4490193899",
+   "city": "Bengaluru",
+   "category": "industry",
+   "name": "Om Shuthi Enterprises",
+   "lat": 13.033246,
+   "lon": 77.527135,
+   "osm_url": "https://www.openstreetmap.org/node/4490193899"
+  },
+  {
+   "id": "node/5279552026",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Electronic City Wipro Main Gate",
+   "lat": 12.835998,
+   "lon": 77.657169,
+   "osm_url": "https://www.openstreetmap.org/node/5279552026"
+  },
+  {
+   "id": "node/5342644776",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 12.965222,
+   "lon": 77.534599,
+   "osm_url": "https://www.openstreetmap.org/node/5342644776"
+  },
+  {
+   "id": "node/5342646021",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Trash cans",
+   "lat": 12.965105,
+   "lon": 77.534513,
+   "osm_url": "https://www.openstreetmap.org/node/5342646021"
+  },
+  {
+   "id": "node/5661149221",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 12.970627,
+   "lon": 77.638867,
+   "osm_url": "https://www.openstreetmap.org/node/5661149221"
+  },
+  {
+   "id": "node/5993281836",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Sarjapura Bus Stand",
+   "lat": 12.861384,
+   "lon": 77.785574,
+   "osm_url": "https://www.openstreetmap.org/node/5993281836"
+  },
+  {
+   "id": "node/6422270649",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "BBMP",
+   "lat": 12.968791,
+   "lon": 77.648267,
+   "osm_url": "https://www.openstreetmap.org/node/6422270649"
+  },
+  {
+   "id": "node/9175932899",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 12.963997,
+   "lon": 77.611251,
+   "osm_url": "https://www.openstreetmap.org/node/9175932899"
+  },
+  {
+   "id": "node/9942510003",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "KSRTC Pickup Point",
+   "lat": 13.022047,
+   "lon": 77.5514,
+   "osm_url": "https://www.openstreetmap.org/node/9942510003"
+  },
+  {
+   "id": "node/9951289033",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 12.949218,
+   "lon": 77.611442,
+   "osm_url": "https://www.openstreetmap.org/node/9951289033"
+  },
+  {
+   "id": "node/9951289034",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 12.949392,
+   "lon": 77.609474,
+   "osm_url": "https://www.openstreetmap.org/node/9951289034"
+  },
+  {
+   "id": "node/10731130898",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 13.072895,
+   "lon": 77.597909,
+   "osm_url": "https://www.openstreetmap.org/node/10731130898"
+  },
+  {
+   "id": "node/10731130899",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 13.072894,
+   "lon": 77.597944,
+   "osm_url": "https://www.openstreetmap.org/node/10731130899"
+  },
+  {
+   "id": "node/10731130900",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 13.072894,
+   "lon": 77.597875,
+   "osm_url": "https://www.openstreetmap.org/node/10731130900"
+  },
+  {
+   "id": "node/10731130901",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 13.072896,
+   "lon": 77.59784,
+   "osm_url": "https://www.openstreetmap.org/node/10731130901"
+  },
+  {
+   "id": "node/11754905032",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Om Sai Pristine",
+   "lat": 13.11795,
+   "lon": 77.410011,
+   "osm_url": "https://www.openstreetmap.org/node/11754905032"
+  },
+  {
+   "id": "node/12076711792",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Hosapalya Bus Stop",
+   "lat": 12.89728,
+   "lon": 77.645485,
+   "osm_url": "https://www.openstreetmap.org/node/12076711792"
+  },
+  {
+   "id": "node/12438127182",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 12.973705,
+   "lon": 77.536241,
+   "osm_url": "https://www.openstreetmap.org/node/12438127182"
+  },
+  {
+   "id": "node/12438146816",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 12.974813,
+   "lon": 77.536531,
+   "osm_url": "https://www.openstreetmap.org/node/12438146816"
+  },
+  {
+   "id": "node/12669431847",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 12.979805,
+   "lon": 77.595502,
+   "osm_url": "https://www.openstreetmap.org/node/12669431847"
+  },
+  {
+   "id": "node/13003760615",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 12.937835,
+   "lon": 77.751358,
+   "osm_url": "https://www.openstreetmap.org/node/13003760615"
+  },
+  {
+   "id": "node/13061753072",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 13.097932,
+   "lon": 77.589626,
+   "osm_url": "https://www.openstreetmap.org/node/13061753072"
+  },
+  {
+   "id": "node/13774820750",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Sri Manjunatha Swamy Traders – E Waste Buyer in Bangalore",
+   "lat": 12.958093,
+   "lon": 77.555361,
+   "osm_url": "https://www.openstreetmap.org/node/13774820750"
+  },
+  {
+   "id": "way/31231545",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Domlur Bus Station",
+   "lat": 12.961802,
+   "lon": 77.63873,
+   "osm_url": "https://www.openstreetmap.org/way/31231545"
+  },
+  {
+   "id": "way/31235664",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 12.978324,
+   "lon": 77.568388,
+   "osm_url": "https://www.openstreetmap.org/way/31235664"
+  },
+  {
+   "id": "way/33300477",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 12.975803,
+   "lon": 77.720416,
+   "osm_url": "https://www.openstreetmap.org/way/33300477"
+  },
+  {
+   "id": "way/33301193",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Tata Intellion (u/c)",
+   "lat": 12.977574,
+   "lon": 77.708712,
+   "osm_url": "https://www.openstreetmap.org/way/33301193"
+  },
+  {
+   "id": "way/36885141",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "KR Market Bus Terminus",
+   "lat": 12.964073,
+   "lon": 77.577792,
+   "osm_url": "https://www.openstreetmap.org/way/36885141"
+  },
+  {
+   "id": "way/37339217",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Kalasipalyam Bus Stand",
+   "lat": 12.960397,
+   "lon": 77.577151,
+   "osm_url": "https://www.openstreetmap.org/way/37339217"
+  },
+  {
+   "id": "way/37814674",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 13.05987,
+   "lon": 77.757555,
+   "osm_url": "https://www.openstreetmap.org/way/37814674"
+  },
+  {
+   "id": "way/37947093",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "UG Complex",
+   "lat": 13.015436,
+   "lon": 77.56698,
+   "osm_url": "https://www.openstreetmap.org/way/37947093"
+  },
+  {
+   "id": "way/41748510",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Brookfield Mall",
+   "lat": 12.966135,
+   "lon": 77.717887,
+   "osm_url": "https://www.openstreetmap.org/way/41748510"
+  },
+  {
+   "id": "way/45441469",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Bagmane Sierra Business District (u/c)",
+   "lat": 13.089649,
+   "lon": 77.591409,
+   "osm_url": "https://www.openstreetmap.org/way/45441469"
+  },
+  {
+   "id": "way/51275370",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "SBR Builders (u/c)",
+   "lat": 12.889351,
+   "lon": 77.442707,
+   "osm_url": "https://www.openstreetmap.org/way/51275370"
+  },
+  {
+   "id": "way/54148031",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Hampinagara Bus Station",
+   "lat": 12.958979,
+   "lon": 77.535479,
+   "osm_url": "https://www.openstreetmap.org/way/54148031"
+  },
+  {
+   "id": "way/60046909",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Terminal 1",
+   "lat": 13.200486,
+   "lon": 77.710981,
+   "osm_url": "https://www.openstreetmap.org/way/60046909"
+  },
+  {
+   "id": "way/82432698",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Yelahanka New Town",
+   "lat": 13.095718,
+   "lon": 77.579091,
+   "osm_url": "https://www.openstreetmap.org/way/82432698"
+  },
+  {
+   "id": "way/82494613",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Brigade Eternia (u/c)",
+   "lat": 13.094521,
+   "lon": 77.592264,
+   "osm_url": "https://www.openstreetmap.org/way/82494613"
+  },
+  {
+   "id": "way/121064783",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Gopalan (u/c)",
+   "lat": 13.038508,
+   "lon": 77.74546,
+   "osm_url": "https://www.openstreetmap.org/way/121064783"
+  },
+  {
+   "id": "way/122415848",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Koramangala TTMC",
+   "lat": 12.940967,
+   "lon": 77.625052,
+   "osm_url": "https://www.openstreetmap.org/way/122415848"
+  },
+  {
+   "id": "way/124386157",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 12.941971,
+   "lon": 77.773634,
+   "osm_url": "https://www.openstreetmap.org/way/124386157"
+  },
+  {
+   "id": "way/124388486",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Tru Aquapolis (u/c)",
+   "lat": 12.946469,
+   "lon": 77.748282,
+   "osm_url": "https://www.openstreetmap.org/way/124388486"
+  },
+  {
+   "id": "way/125203387",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 12.940942,
+   "lon": 77.625081,
+   "osm_url": "https://www.openstreetmap.org/way/125203387"
+  },
+  {
+   "id": "way/130105819",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 12.957939,
+   "lon": 77.701427,
+   "osm_url": "https://www.openstreetmap.org/way/130105819"
+  },
+  {
+   "id": "way/130127245",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Mahindra Blossom (u/c)",
+   "lat": 12.986601,
+   "lon": 77.752139,
+   "osm_url": "https://www.openstreetmap.org/way/130127245"
+  },
+  {
+   "id": "way/130127246",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Kadugodi Bus Station",
+   "lat": 12.995701,
+   "lon": 77.75851,
+   "osm_url": "https://www.openstreetmap.org/way/130127246"
+  },
+  {
+   "id": "way/130127247",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Kadugodi Bus Station",
+   "lat": 12.995699,
+   "lon": 77.75852,
+   "osm_url": "https://www.openstreetmap.org/way/130127247"
+  },
+  {
+   "id": "way/131219780",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Jeevan Bhima Nagar Bus Depot",
+   "lat": 12.965759,
+   "lon": 77.658083,
+   "osm_url": "https://www.openstreetmap.org/way/131219780"
+  },
+  {
+   "id": "way/133117228",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Sapthagiri NPS University (u/c)",
+   "lat": 13.068286,
+   "lon": 77.504147,
+   "osm_url": "https://www.openstreetmap.org/way/133117228"
+  },
+  {
+   "id": "way/133125904",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Godrej (u/c)",
+   "lat": 13.113725,
+   "lon": 77.607204,
+   "osm_url": "https://www.openstreetmap.org/way/133125904"
+  },
+  {
+   "id": "way/133268361",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 12.930476,
+   "lon": 77.574544,
+   "osm_url": "https://www.openstreetmap.org/way/133268361"
+  },
+  {
+   "id": "way/133631824",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "ELV Ivory Terraces",
+   "lat": 12.969152,
+   "lon": 77.747015,
+   "osm_url": "https://www.openstreetmap.org/way/133631824"
+  },
+  {
+   "id": "way/135168022",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Godrej Parkshire (u/c)",
+   "lat": 13.04664,
+   "lon": 77.783291,
+   "osm_url": "https://www.openstreetmap.org/way/135168022"
+  },
+  {
+   "id": "way/135169264",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Mandur Landfill",
+   "lat": 13.081914,
+   "lon": 77.728724,
+   "osm_url": "https://www.openstreetmap.org/way/135169264"
+  },
+  {
+   "id": "way/135243810",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Ankuraa (u/c)",
+   "lat": 13.06246,
+   "lon": 77.743892,
+   "osm_url": "https://www.openstreetmap.org/way/135243810"
+  },
+  {
+   "id": "way/135262256",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 12.959165,
+   "lon": 77.647605,
+   "osm_url": "https://www.openstreetmap.org/way/135262256"
+  },
+  {
+   "id": "way/135266039",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Mantri Cornerstone (u/c)",
+   "lat": 12.983581,
+   "lon": 77.646806,
+   "osm_url": "https://www.openstreetmap.org/way/135266039"
+  },
+  {
+   "id": "way/137930290",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Vijayanagar Bus Stand",
+   "lat": 12.965467,
+   "lon": 77.534673,
+   "osm_url": "https://www.openstreetmap.org/way/137930290"
+  },
+  {
+   "id": "way/138382191",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 12.98341,
+   "lon": 77.603088,
+   "osm_url": "https://www.openstreetmap.org/way/138382191"
+  },
+  {
+   "id": "way/141375009",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Sharada Colony Bus Depot",
+   "lat": 12.988425,
+   "lon": 77.533666,
+   "osm_url": "https://www.openstreetmap.org/way/141375009"
+  },
+  {
+   "id": "way/141815163",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 12.931571,
+   "lon": 77.542899,
+   "osm_url": "https://www.openstreetmap.org/way/141815163"
+  },
+  {
+   "id": "way/145079332",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 12.989104,
+   "lon": 77.746776,
+   "osm_url": "https://www.openstreetmap.org/way/145079332"
+  },
+  {
+   "id": "way/149420813",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Yeshwantpur Bus Station",
+   "lat": 13.018111,
+   "lon": 77.556485,
+   "osm_url": "https://www.openstreetmap.org/way/149420813"
+  },
+  {
+   "id": "way/150593036",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 12.985868,
+   "lon": 77.753753,
+   "osm_url": "https://www.openstreetmap.org/way/150593036"
+  },
+  {
+   "id": "way/155008972",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 12.974742,
+   "lon": 77.709696,
+   "osm_url": "https://www.openstreetmap.org/way/155008972"
+  },
+  {
+   "id": "way/159129869",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 13.044595,
+   "lon": 77.614299,
+   "osm_url": "https://www.openstreetmap.org/way/159129869"
+  },
+  {
+   "id": "way/162258166",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Atal Bihari Vajpayee Bus Stand",
+   "lat": 12.917327,
+   "lon": 77.589157,
+   "osm_url": "https://www.openstreetmap.org/way/162258166"
+  },
+  {
+   "id": "way/162332398",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Banashankari TTMC",
+   "lat": 12.917765,
+   "lon": 77.572995,
+   "osm_url": "https://www.openstreetmap.org/way/162332398"
+  },
+  {
+   "id": "way/166560423",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 12.96187,
+   "lon": 77.638653,
+   "osm_url": "https://www.openstreetmap.org/way/166560423"
+  },
+  {
+   "id": "way/166612466",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Purva Blubelle (u/c)",
+   "lat": 12.974698,
+   "lon": 77.55496,
+   "osm_url": "https://www.openstreetmap.org/way/166612466"
+  },
+  {
+   "id": "way/173154283",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 12.91752,
+   "lon": 77.57295,
+   "osm_url": "https://www.openstreetmap.org/way/173154283"
+  },
+  {
+   "id": "way/175248408",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "CapitaLand Data Centre",
+   "lat": 12.984551,
+   "lon": 77.734211,
+   "osm_url": "https://www.openstreetmap.org/way/175248408"
+  },
+  {
+   "id": "way/179321519",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Embassy East Business Park (u/c)",
+   "lat": 12.991537,
+   "lon": 77.738459,
+   "osm_url": "https://www.openstreetmap.org/way/179321519"
+  },
+  {
+   "id": "way/179321521",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Brigade (u/c)",
+   "lat": 12.98937,
+   "lon": 77.737457,
+   "osm_url": "https://www.openstreetmap.org/way/179321521"
+  },
+  {
+   "id": "way/182038133",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "ITPB Phase 2 (u/c)",
+   "lat": 12.985902,
+   "lon": 77.7385,
+   "osm_url": "https://www.openstreetmap.org/way/182038133"
+  },
+  {
+   "id": "way/187767496",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Block 14 and 15 (u/c)",
+   "lat": 13.085813,
+   "lon": 77.642881,
+   "osm_url": "https://www.openstreetmap.org/way/187767496"
+  },
+  {
+   "id": "way/188314969",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Sattva Endeavor (u/c)",
+   "lat": 12.851513,
+   "lon": 77.675664,
+   "osm_url": "https://www.openstreetmap.org/way/188314969"
+  },
+  {
+   "id": "way/192886212",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Nelamangala BMTC Bus Stand",
+   "lat": 13.097774,
+   "lon": 77.394133,
+   "osm_url": "https://www.openstreetmap.org/way/192886212"
+  },
+  {
+   "id": "way/201630090",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Sai Srinivasa Encalave - A Block",
+   "lat": 12.850565,
+   "lon": 77.646697,
+   "osm_url": "https://www.openstreetmap.org/way/201630090"
+  },
+  {
+   "id": "way/208748260",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Shivajinagar Bus Station",
+   "lat": 12.983209,
+   "lon": 77.603076,
+   "osm_url": "https://www.openstreetmap.org/way/208748260"
+  },
+  {
+   "id": "way/208827404",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Godrej Hudson (u/c)",
+   "lat": 12.966343,
+   "lon": 77.586554,
+   "osm_url": "https://www.openstreetmap.org/way/208827404"
+  },
+  {
+   "id": "way/218907557",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "IDEB Grand Mall (u/c)",
+   "lat": 12.977597,
+   "lon": 77.694827,
+   "osm_url": "https://www.openstreetmap.org/way/218907557"
+  },
+  {
+   "id": "way/219000803",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "KIMS Hospital (u/c)",
+   "lat": 12.979782,
+   "lon": 77.693547,
+   "osm_url": "https://www.openstreetmap.org/way/219000803"
+  },
+  {
+   "id": "way/219618393",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Ozone WF48",
+   "lat": 12.994712,
+   "lon": 77.69451,
+   "osm_url": "https://www.openstreetmap.org/way/219618393"
+  },
+  {
+   "id": "way/224639757",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Shivaji Nagar Police Quarters",
+   "lat": 12.988425,
+   "lon": 77.600537,
+   "osm_url": "https://www.openstreetmap.org/way/224639757"
+  },
+  {
+   "id": "way/228471880",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Skylark Ithaca Apartments (u/c)",
+   "lat": 13.010374,
+   "lon": 77.733367,
+   "osm_url": "https://www.openstreetmap.org/way/228471880"
+  },
+  {
+   "id": "way/231334326",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Shikaripalya",
+   "lat": 12.83598,
+   "lon": 77.657182,
+   "osm_url": "https://www.openstreetmap.org/way/231334326"
+  },
+  {
+   "id": "way/232772519",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "DNA Ariston Apartments",
+   "lat": 12.967775,
+   "lon": 77.740741,
+   "osm_url": "https://www.openstreetmap.org/way/232772519"
+  },
+  {
+   "id": "way/237195118",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Hosur Main Bus Stand",
+   "lat": 12.735158,
+   "lon": 77.827399,
+   "osm_url": "https://www.openstreetmap.org/way/237195118"
+  },
+  {
+   "id": "way/239832511",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Kempegowda Bus Station",
+   "lat": 12.978153,
+   "lon": 77.572425,
+   "osm_url": "https://www.openstreetmap.org/way/239832511"
+  },
+  {
+   "id": "way/243896056",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Kuvempunagara Bus Station",
+   "lat": 12.915689,
+   "lon": 77.616245,
+   "osm_url": "https://www.openstreetmap.org/way/243896056"
+  },
+  {
+   "id": "way/259879354",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "ISRO Layout Bus Stand",
+   "lat": 12.89948,
+   "lon": 77.558449,
+   "osm_url": "https://www.openstreetmap.org/way/259879354"
+  },
+  {
+   "id": "way/263923495",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Pashmina Brookwoods Apartments (u/c)",
+   "lat": 13.075662,
+   "lon": 77.723221,
+   "osm_url": "https://www.openstreetmap.org/way/263923495"
+  },
+  {
+   "id": "way/278603899",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Vista Temple Tree (u/c)",
+   "lat": 13.06863,
+   "lon": 77.585936,
+   "osm_url": "https://www.openstreetmap.org/way/278603899"
+  },
+  {
+   "id": "way/285786390",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Mandur Landfill",
+   "lat": 13.08441,
+   "lon": 77.72592,
+   "osm_url": "https://www.openstreetmap.org/way/285786390"
+  },
+  {
+   "id": "way/285786393",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 13.081057,
+   "lon": 77.72063,
+   "osm_url": "https://www.openstreetmap.org/way/285786393"
+  },
+  {
+   "id": "way/285786403",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Mavallipura BBMP Landfill",
+   "lat": 13.118944,
+   "lon": 77.541401,
+   "osm_url": "https://www.openstreetmap.org/way/285786403"
+  },
+  {
+   "id": "way/285786409",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Cheemasandra BBMP Landfill",
+   "lat": 13.058423,
+   "lon": 77.734392,
+   "osm_url": "https://www.openstreetmap.org/way/285786409"
+  },
+  {
+   "id": "way/287327441",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Karnataka Compost Development Centre - KCDC",
+   "lat": 12.895583,
+   "lon": 77.649157,
+   "osm_url": "https://www.openstreetmap.org/way/287327441"
+  },
+  {
+   "id": "way/287724333",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Choudeshwari Bus Stand",
+   "lat": 13.03283,
+   "lon": 77.554012,
+   "osm_url": "https://www.openstreetmap.org/way/287724333"
+  },
+  {
+   "id": "way/313927946",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 12.966508,
+   "lon": 77.637055,
+   "osm_url": "https://www.openstreetmap.org/way/313927946"
+  },
+  {
+   "id": "way/314075857",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Malleswaram 18th Cross",
+   "lat": 13.008848,
+   "lon": 77.568836,
+   "osm_url": "https://www.openstreetmap.org/way/314075857"
+  },
+  {
+   "id": "way/322488099",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "KSRTC Bus Terminal 3",
+   "lat": 12.975059,
+   "lon": 77.571691,
+   "osm_url": "https://www.openstreetmap.org/way/322488099"
+  },
+  {
+   "id": "way/323047913",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "BEML Scrapyard",
+   "lat": 12.977227,
+   "lon": 77.656785,
+   "osm_url": "https://www.openstreetmap.org/way/323047913"
+  },
+  {
+   "id": "way/323113360",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Chikkamaranahalli",
+   "lat": 13.036319,
+   "lon": 77.566404,
+   "osm_url": "https://www.openstreetmap.org/way/323113360"
+  },
+  {
+   "id": "way/323458352",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 12.94418,
+   "lon": 77.601375,
+   "osm_url": "https://www.openstreetmap.org/way/323458352"
+  },
+  {
+   "id": "way/323658583",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 12.988207,
+   "lon": 77.594777,
+   "osm_url": "https://www.openstreetmap.org/way/323658583"
+  },
+  {
+   "id": "way/326201186",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Viveknagar Bus Station",
+   "lat": 12.954345,
+   "lon": 77.622696,
+   "osm_url": "https://www.openstreetmap.org/way/326201186"
+  },
+  {
+   "id": "way/326551177",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Basaveshwara Bus Station",
+   "lat": 13.044906,
+   "lon": 77.525668,
+   "osm_url": "https://www.openstreetmap.org/way/326551177"
+  },
+  {
+   "id": "way/327524842",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 13.198002,
+   "lon": 77.654712,
+   "osm_url": "https://www.openstreetmap.org/way/327524842"
+  },
+  {
+   "id": "way/328436444",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Raheja Vivarea (u/c)",
+   "lat": 12.925935,
+   "lon": 77.631097,
+   "osm_url": "https://www.openstreetmap.org/way/328436444"
+  },
+  {
+   "id": "way/330038933",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 12.980035,
+   "lon": 77.636808,
+   "osm_url": "https://www.openstreetmap.org/way/330038933"
+  },
+  {
+   "id": "way/330038935",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "KVR Homes Pvt Ltd",
+   "lat": 12.979674,
+   "lon": 77.636493,
+   "osm_url": "https://www.openstreetmap.org/way/330038935"
+  },
+  {
+   "id": "way/330315688",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 12.980668,
+   "lon": 77.636775,
+   "osm_url": "https://www.openstreetmap.org/way/330315688"
+  },
+  {
+   "id": "way/331337710",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 12.979129,
+   "lon": 77.634677,
+   "osm_url": "https://www.openstreetmap.org/way/331337710"
+  },
+  {
+   "id": "way/331337712",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 12.979032,
+   "lon": 77.634836,
+   "osm_url": "https://www.openstreetmap.org/way/331337712"
+  },
+  {
+   "id": "way/331338658",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 12.978406,
+   "lon": 77.636002,
+   "osm_url": "https://www.openstreetmap.org/way/331338658"
+  },
+  {
+   "id": "way/331350939",
+   "city": "Bengaluru",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 12.980896,
+   "lon": 77.634298,
+   "osm_url": "https://www.openstreetmap.org/way/331350939"
+  },
+  {
+   "id": "way/342673830",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Basavanagar Bus Stand",
+   "lat": 12.966891,
+   "lon": 77.682646,
+   "osm_url": "https://www.openstreetmap.org/way/342673830"
+  },
+  {
+   "id": "way/344936993",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 12.848223,
+   "lon": 77.582663,
+   "osm_url": "https://www.openstreetmap.org/way/344936993"
+  },
+  {
+   "id": "way/348114212",
+   "city": "Bengaluru",
+   "category": "diesel_fleet",
+   "name": "Hesaghatta Bus Terminal",
+   "lat": 13.137631,
+   "lon": 77.479423,
+   "osm_url": "https://www.openstreetmap.org/way/348114212"
+  },
+  {
+   "id": "way/373812697",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 12.94594,
+   "lon": 77.659512,
+   "osm_url": "https://www.openstreetmap.org/way/373812697"
+  },
+  {
+   "id": "way/412929395",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Bingipura Quarry Pit Landfill",
+   "lat": 12.835546,
+   "lon": 77.627032,
+   "osm_url": "https://www.openstreetmap.org/way/412929395"
+  },
+  {
+   "id": "way/412929446",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 12.853484,
+   "lon": 77.645253,
+   "osm_url": "https://www.openstreetmap.org/way/412929446"
+  },
+  {
+   "id": "way/412940000",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Lakshmipura Quarry Pit Landfill",
+   "lat": 12.825054,
+   "lon": 77.590094,
+   "osm_url": "https://www.openstreetmap.org/way/412940000"
+  },
+  {
+   "id": "way/553065502",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 12.961842,
+   "lon": 77.66109,
+   "osm_url": "https://www.openstreetmap.org/way/553065502"
+  },
+  {
+   "id": "way/805155362",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 12.966994,
+   "lon": 77.710952,
+   "osm_url": "https://www.openstreetmap.org/way/805155362"
+  },
+  {
+   "id": "way/1119802854",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Bagalur Landfill",
+   "lat": 13.154277,
+   "lon": 77.668818,
+   "osm_url": "https://www.openstreetmap.org/way/1119802854"
+  },
+  {
+   "id": "way/1119802855",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Mitaganahalli Landfill",
+   "lat": 13.106732,
+   "lon": 77.646485,
+   "osm_url": "https://www.openstreetmap.org/way/1119802855"
+  },
+  {
+   "id": "way/1119802856",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Bellahalli Landfill",
+   "lat": 13.102748,
+   "lon": 77.646451,
+   "osm_url": "https://www.openstreetmap.org/way/1119802856"
+  },
+  {
+   "id": "way/1219569943",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 12.91759,
+   "lon": 77.494435,
+   "osm_url": "https://www.openstreetmap.org/way/1219569943"
+  },
+  {
+   "id": "way/1272011977",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 13.142559,
+   "lon": 77.632879,
+   "osm_url": "https://www.openstreetmap.org/way/1272011977"
+  },
+  {
+   "id": "way/1286560384",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 12.891683,
+   "lon": 77.604221,
+   "osm_url": "https://www.openstreetmap.org/way/1286560384"
+  },
+  {
+   "id": "way/1327871160",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 13.145318,
+   "lon": 77.636402,
+   "osm_url": "https://www.openstreetmap.org/way/1327871160"
+  },
+  {
+   "id": "way/1333647471",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 13.137136,
+   "lon": 77.63061,
+   "osm_url": "https://www.openstreetmap.org/way/1333647471"
+  },
+  {
+   "id": "way/1333647472",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 13.136033,
+   "lon": 77.630445,
+   "osm_url": "https://www.openstreetmap.org/way/1333647472"
+  },
+  {
+   "id": "way/1341457440",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 13.104981,
+   "lon": 77.645858,
+   "osm_url": "https://www.openstreetmap.org/way/1341457440"
+  },
+  {
+   "id": "way/1341457441",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 13.101947,
+   "lon": 77.648102,
+   "osm_url": "https://www.openstreetmap.org/way/1341457441"
+  },
+  {
+   "id": "way/1341457586",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 13.111275,
+   "lon": 77.651448,
+   "osm_url": "https://www.openstreetmap.org/way/1341457586"
+  },
+  {
+   "id": "way/1354135994",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Leaf Compost",
+   "lat": 12.994326,
+   "lon": 77.608579,
+   "osm_url": "https://www.openstreetmap.org/way/1354135994"
+  },
+  {
+   "id": "way/1490327534",
+   "city": "Bengaluru",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 12.88132,
+   "lon": 77.679062,
+   "osm_url": "https://www.openstreetmap.org/way/1490327534"
+  },
+  {
+   "id": "node/324858173",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "Tarnaka Bus Stop",
+   "lat": 17.426317,
+   "lon": 78.531326,
+   "osm_url": "https://www.openstreetmap.org/node/324858173"
+  },
+  {
+   "id": "node/626897410",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "Afzalgunj",
+   "lat": 17.373007,
+   "lon": 78.476656,
+   "osm_url": "https://www.openstreetmap.org/node/626897410"
+  },
+  {
+   "id": "node/668646041",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "KPHB 3rd Phase Bus Stop",
+   "lat": 17.487951,
+   "lon": 78.395392,
+   "osm_url": "https://www.openstreetmap.org/node/668646041"
+  },
+  {
+   "id": "node/1254190626",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "TGSRTC Bus Station , Medchal",
+   "lat": 17.634199,
+   "lon": 78.485753,
+   "osm_url": "https://www.openstreetmap.org/node/1254190626"
+  },
+  {
+   "id": "node/1447172211",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "Bus Stop",
+   "lat": 17.39868,
+   "lon": 78.481781,
+   "osm_url": "https://www.openstreetmap.org/node/1447172211"
+  },
+  {
+   "id": "node/1674225760",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "Banjara Hills Rd12",
+   "lat": 17.414529,
+   "lon": 78.424731,
+   "osm_url": "https://www.openstreetmap.org/node/1674225760"
+  },
+  {
+   "id": "node/1985561804",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "GPR Quarters",
+   "lat": 17.440024,
+   "lon": 78.355767,
+   "osm_url": "https://www.openstreetmap.org/node/1985561804"
+  },
+  {
+   "id": "node/1987954929",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "KPHB",
+   "lat": 17.49396,
+   "lon": 78.400841,
+   "osm_url": "https://www.openstreetmap.org/node/1987954929"
+  },
+  {
+   "id": "node/2214136534",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "Secunderabad",
+   "lat": 17.435954,
+   "lon": 78.50005,
+   "osm_url": "https://www.openstreetmap.org/node/2214136534"
+  },
+  {
+   "id": "node/2447314493",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "TGSRTC Bus Station , Kacheguda",
+   "lat": 17.390295,
+   "lon": 78.499034,
+   "osm_url": "https://www.openstreetmap.org/node/2447314493"
+  },
+  {
+   "id": "node/2461496897",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "Golconda Fort",
+   "lat": 17.385011,
+   "lon": 78.403384,
+   "osm_url": "https://www.openstreetmap.org/node/2461496897"
+  },
+  {
+   "id": "node/2461524533",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "TGSRTC Bus Station , Midhani",
+   "lat": 17.340029,
+   "lon": 78.503388,
+   "osm_url": "https://www.openstreetmap.org/node/2461524533"
+  },
+  {
+   "id": "node/2465621481",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "TGSRTC Bus Station , Patancheru",
+   "lat": 17.528742,
+   "lon": 78.264136,
+   "osm_url": "https://www.openstreetmap.org/node/2465621481"
+  },
+  {
+   "id": "node/2578026375",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "TSRTC BUS BHAVAN",
+   "lat": 17.406679,
+   "lon": 78.498622,
+   "osm_url": "https://www.openstreetmap.org/node/2578026375"
+  },
+  {
+   "id": "node/2708775931",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "bus stop",
+   "lat": 17.497287,
+   "lon": 78.381492,
+   "osm_url": "https://www.openstreetmap.org/node/2708775931"
+  },
+  {
+   "id": "node/2715274184",
+   "city": "Hyderabad",
+   "category": "waste_burning",
+   "name": "sulab international",
+   "lat": 17.409753,
+   "lon": 78.488037,
+   "osm_url": "https://www.openstreetmap.org/node/2715274184"
+  },
+  {
+   "id": "node/3250029208",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "Uppal",
+   "lat": 17.40174,
+   "lon": 78.568726,
+   "osm_url": "https://www.openstreetmap.org/node/3250029208"
+  },
+  {
+   "id": "node/3272863814",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "Sanath Nagar Bus Depot",
+   "lat": 17.45498,
+   "lon": 78.447872,
+   "osm_url": "https://www.openstreetmap.org/node/3272863814"
+  },
+  {
+   "id": "node/3991742176",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "Bus stop",
+   "lat": 17.417168,
+   "lon": 78.481773,
+   "osm_url": "https://www.openstreetmap.org/node/3991742176"
+  },
+  {
+   "id": "node/4009272076",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 17.494876,
+   "lon": 78.400251,
+   "osm_url": "https://www.openstreetmap.org/node/4009272076"
+  },
+  {
+   "id": "node/4229215991",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "mahedipatnam",
+   "lat": 17.395515,
+   "lon": 78.432049,
+   "osm_url": "https://www.openstreetmap.org/node/4229215991"
+  },
+  {
+   "id": "node/4407581196",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "Nandi Nagar bus stand",
+   "lat": 17.42008,
+   "lon": 78.430837,
+   "osm_url": "https://www.openstreetmap.org/node/4407581196"
+  },
+  {
+   "id": "node/4417123991",
+   "city": "Hyderabad",
+   "category": "waste_burning",
+   "name": "dump yard",
+   "lat": 17.409819,
+   "lon": 78.488013,
+   "osm_url": "https://www.openstreetmap.org/node/4417123991"
+  },
+  {
+   "id": "node/4418619607",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "TGSRTC  Bus Station , Koti",
+   "lat": 17.384431,
+   "lon": 78.484429,
+   "osm_url": "https://www.openstreetmap.org/node/4418619607"
+  },
+  {
+   "id": "node/4487344997",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Harinam Wires",
+   "lat": 17.439081,
+   "lon": 78.559399,
+   "osm_url": "https://www.openstreetmap.org/node/4487344997"
+  },
+  {
+   "id": "node/4487370607",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Sterlite Tech Ltd",
+   "lat": 17.439232,
+   "lon": 78.559762,
+   "osm_url": "https://www.openstreetmap.org/node/4487370607"
+  },
+  {
+   "id": "node/4487397820",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Swammy Son Agency",
+   "lat": 17.438239,
+   "lon": 78.56117,
+   "osm_url": "https://www.openstreetmap.org/node/4487397820"
+  },
+  {
+   "id": "node/4487397821",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "DE Dietrich",
+   "lat": 17.437548,
+   "lon": 78.561525,
+   "osm_url": "https://www.openstreetmap.org/node/4487397821"
+  },
+  {
+   "id": "node/4487397822",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Naya Bharat Ventures",
+   "lat": 17.443901,
+   "lon": 78.562707,
+   "osm_url": "https://www.openstreetmap.org/node/4487397822"
+  },
+  {
+   "id": "node/4487499201",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Tata Steel",
+   "lat": 17.443975,
+   "lon": 78.564653,
+   "osm_url": "https://www.openstreetmap.org/node/4487499201"
+  },
+  {
+   "id": "node/4487499202",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Bridgestone India Pvt Ltd",
+   "lat": 17.443714,
+   "lon": 78.564891,
+   "osm_url": "https://www.openstreetmap.org/node/4487499202"
+  },
+  {
+   "id": "node/4487518438",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Sri Tirupati Timber Depot",
+   "lat": 17.444004,
+   "lon": 78.565203,
+   "osm_url": "https://www.openstreetmap.org/node/4487518438"
+  },
+  {
+   "id": "node/4487518439",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Umiya Wood Industry",
+   "lat": 17.444235,
+   "lon": 78.565048,
+   "osm_url": "https://www.openstreetmap.org/node/4487518439"
+  },
+  {
+   "id": "node/4487518440",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Bhagat Wood Industry",
+   "lat": 17.444191,
+   "lon": 78.565229,
+   "osm_url": "https://www.openstreetmap.org/node/4487518440"
+  },
+  {
+   "id": "node/4487518441",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "NavNirman Formwork Systems Pvt Ltd",
+   "lat": 17.444149,
+   "lon": 78.56477,
+   "osm_url": "https://www.openstreetmap.org/node/4487518441"
+  },
+  {
+   "id": "node/4487525761",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Sharadha Wood Industries",
+   "lat": 17.444277,
+   "lon": 78.564889,
+   "osm_url": "https://www.openstreetmap.org/node/4487525761"
+  },
+  {
+   "id": "node/4487546590",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Seesha Sai Chemicals",
+   "lat": 17.453939,
+   "lon": 78.579986,
+   "osm_url": "https://www.openstreetmap.org/node/4487546590"
+  },
+  {
+   "id": "node/4487548771",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Raptakos,Brett & Co. Ltd",
+   "lat": 17.43808,
+   "lon": 78.559127,
+   "osm_url": "https://www.openstreetmap.org/node/4487548771"
+  },
+  {
+   "id": "node/4487548772",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Sriram Settings",
+   "lat": 17.437642,
+   "lon": 78.559309,
+   "osm_url": "https://www.openstreetmap.org/node/4487548772"
+  },
+  {
+   "id": "node/4487548773",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Hindustan Cables Ltd",
+   "lat": 17.456368,
+   "lon": 78.57904,
+   "osm_url": "https://www.openstreetmap.org/node/4487548773"
+  },
+  {
+   "id": "node/4487599015",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Sarvodaya Solvents Pvt Ltd",
+   "lat": 17.461464,
+   "lon": 78.584256,
+   "osm_url": "https://www.openstreetmap.org/node/4487599015"
+  },
+  {
+   "id": "node/4487599016",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Nitish Telecom",
+   "lat": 17.460886,
+   "lon": 78.584261,
+   "osm_url": "https://www.openstreetmap.org/node/4487599016"
+  },
+  {
+   "id": "node/4487599017",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "CloudGen Systems",
+   "lat": 17.461973,
+   "lon": 78.584224,
+   "osm_url": "https://www.openstreetmap.org/node/4487599017"
+  },
+  {
+   "id": "node/4487599018",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Laxmi Industries",
+   "lat": 17.462472,
+   "lon": 78.584277,
+   "osm_url": "https://www.openstreetmap.org/node/4487599018"
+  },
+  {
+   "id": "node/4487599019",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Nova PowerTech",
+   "lat": 17.460599,
+   "lon": 78.584792,
+   "osm_url": "https://www.openstreetmap.org/node/4487599019"
+  },
+  {
+   "id": "node/4487599020",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Avis Press",
+   "lat": 17.461401,
+   "lon": 78.584755,
+   "osm_url": "https://www.openstreetmap.org/node/4487599020"
+  },
+  {
+   "id": "node/4487599021",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Hyquip",
+   "lat": 17.460625,
+   "lon": 78.585115,
+   "osm_url": "https://www.openstreetmap.org/node/4487599021"
+  },
+  {
+   "id": "node/4487599022",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "SS Grovures Pvt Ltd",
+   "lat": 17.461341,
+   "lon": 78.585276,
+   "osm_url": "https://www.openstreetmap.org/node/4487599022"
+  },
+  {
+   "id": "node/4487599023",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "BullRock",
+   "lat": 17.461257,
+   "lon": 78.585928,
+   "osm_url": "https://www.openstreetmap.org/node/4487599023"
+  },
+  {
+   "id": "node/4487604630",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Gauthami Pipes Pvt Ltd",
+   "lat": 17.457698,
+   "lon": 78.588368,
+   "osm_url": "https://www.openstreetmap.org/node/4487604630"
+  },
+  {
+   "id": "node/4487619865",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "BST Steel Pvt Ltd",
+   "lat": 17.458016,
+   "lon": 78.586017,
+   "osm_url": "https://www.openstreetmap.org/node/4487619865"
+  },
+  {
+   "id": "node/4487619866",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Sri Bajrang Ispat",
+   "lat": 17.456169,
+   "lon": 78.586006,
+   "osm_url": "https://www.openstreetmap.org/node/4487619866"
+  },
+  {
+   "id": "node/4490223866",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Elmot Alternators",
+   "lat": 17.42536,
+   "lon": 78.54817,
+   "osm_url": "https://www.openstreetmap.org/node/4490223866"
+  },
+  {
+   "id": "node/4490223867",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Bhagyanagar India Pvt Ltd",
+   "lat": 17.424857,
+   "lon": 78.548426,
+   "osm_url": "https://www.openstreetmap.org/node/4490223867"
+  },
+  {
+   "id": "node/4490263300",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Stallion Tyres",
+   "lat": 17.424469,
+   "lon": 78.547951,
+   "osm_url": "https://www.openstreetmap.org/node/4490263300"
+  },
+  {
+   "id": "node/4548858148",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "finemicro filters",
+   "lat": 17.354947,
+   "lon": 78.444023,
+   "osm_url": "https://www.openstreetmap.org/node/4548858148"
+  },
+  {
+   "id": "node/4575200604",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "T.S.R.T.C District Bus",
+   "lat": 17.344846,
+   "lon": 78.55364,
+   "osm_url": "https://www.openstreetmap.org/node/4575200604"
+  },
+  {
+   "id": "node/4867334021",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "Emlibun",
+   "lat": 17.332495,
+   "lon": 78.530328,
+   "osm_url": "https://www.openstreetmap.org/node/4867334021"
+  },
+  {
+   "id": "node/4873113023",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "A.P.R.T.C BUS STOP",
+   "lat": 17.344657,
+   "lon": 78.553918,
+   "osm_url": "https://www.openstreetmap.org/node/4873113023"
+  },
+  {
+   "id": "node/5072094278",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "VEM Technologies",
+   "lat": 17.248314,
+   "lon": 78.473225,
+   "osm_url": "https://www.openstreetmap.org/node/5072094278"
+  },
+  {
+   "id": "node/6273534634",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Rice Mill",
+   "lat": 17.26926,
+   "lon": 78.539569,
+   "osm_url": "https://www.openstreetmap.org/node/6273534634"
+  },
+  {
+   "id": "node/6375006568",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "rajeevgandhi nagar",
+   "lat": 17.35975,
+   "lon": 78.557816,
+   "osm_url": "https://www.openstreetmap.org/node/6375006568"
+  },
+  {
+   "id": "node/6375056793",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "rajeevgandhi nagar",
+   "lat": 17.360036,
+   "lon": 78.557555,
+   "osm_url": "https://www.openstreetmap.org/node/6375056793"
+  },
+  {
+   "id": "node/6641730788",
+   "city": "Hyderabad",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 17.421642,
+   "lon": 78.564041,
+   "osm_url": "https://www.openstreetmap.org/node/6641730788"
+  },
+  {
+   "id": "node/6641730789",
+   "city": "Hyderabad",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 17.421635,
+   "lon": 78.564047,
+   "osm_url": "https://www.openstreetmap.org/node/6641730789"
+  },
+  {
+   "id": "node/6641730790",
+   "city": "Hyderabad",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 17.421626,
+   "lon": 78.564051,
+   "osm_url": "https://www.openstreetmap.org/node/6641730790"
+  },
+  {
+   "id": "node/6641730791",
+   "city": "Hyderabad",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 17.421617,
+   "lon": 78.564056,
+   "osm_url": "https://www.openstreetmap.org/node/6641730791"
+  },
+  {
+   "id": "node/6685486347",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "TGSRTC Bus Station , Rathifile ( Secundrabad )",
+   "lat": 17.434677,
+   "lon": 78.504757,
+   "osm_url": "https://www.openstreetmap.org/node/6685486347"
+  },
+  {
+   "id": "node/6898477086",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "TGSRTC Bus Station , Dilshuknagar",
+   "lat": 17.368953,
+   "lon": 78.52506,
+   "osm_url": "https://www.openstreetmap.org/node/6898477086"
+  },
+  {
+   "id": "node/7244134446",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Fresh Meat",
+   "lat": 17.329578,
+   "lon": 78.580152,
+   "osm_url": "https://www.openstreetmap.org/node/7244134446"
+  },
+  {
+   "id": "node/7244134467",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "fresh mutton shop",
+   "lat": 17.330127,
+   "lon": 78.575768,
+   "osm_url": "https://www.openstreetmap.org/node/7244134467"
+  },
+  {
+   "id": "node/7244238196",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 17.404345,
+   "lon": 78.504177,
+   "osm_url": "https://www.openstreetmap.org/node/7244238196"
+  },
+  {
+   "id": "node/8110793768",
+   "city": "Hyderabad",
+   "category": "waste_burning",
+   "name": "GHMC",
+   "lat": 17.373693,
+   "lon": 78.459663,
+   "osm_url": "https://www.openstreetmap.org/node/8110793768"
+  },
+  {
+   "id": "node/8140738134",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "Sai Nagar Bus Stop",
+   "lat": 17.530815,
+   "lon": 78.388749,
+   "osm_url": "https://www.openstreetmap.org/node/8140738134"
+  },
+  {
+   "id": "node/8386267420",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 17.532273,
+   "lon": 78.439753,
+   "osm_url": "https://www.openstreetmap.org/node/8386267420"
+  },
+  {
+   "id": "node/8386267421",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 17.531823,
+   "lon": 78.440029,
+   "osm_url": "https://www.openstreetmap.org/node/8386267421"
+  },
+  {
+   "id": "node/8389224216",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Elmot Alternators Private Limited",
+   "lat": 17.443216,
+   "lon": 78.560961,
+   "osm_url": "https://www.openstreetmap.org/node/8389224216"
+  },
+  {
+   "id": "node/8389264117",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Voith Turbo Private Limited Plant-2",
+   "lat": 17.443616,
+   "lon": 78.561891,
+   "osm_url": "https://www.openstreetmap.org/node/8389264117"
+  },
+  {
+   "id": "node/8389264118",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Voith Turbo Private Limited",
+   "lat": 17.441991,
+   "lon": 78.560357,
+   "osm_url": "https://www.openstreetmap.org/node/8389264118"
+  },
+  {
+   "id": "node/8389412037",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Laser Shaving India Private Limited",
+   "lat": 17.482784,
+   "lon": 78.44689,
+   "osm_url": "https://www.openstreetmap.org/node/8389412037"
+  },
+  {
+   "id": "node/9460577182",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Aaloka Pig Farms",
+   "lat": 17.576972,
+   "lon": 78.392327,
+   "osm_url": "https://www.openstreetmap.org/node/9460577182"
+  },
+  {
+   "id": "node/9627168424",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Nirmal farms",
+   "lat": 17.388452,
+   "lon": 78.520054,
+   "osm_url": "https://www.openstreetmap.org/node/9627168424"
+  },
+  {
+   "id": "node/9768712033",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Veeramani  biscuit factory",
+   "lat": 17.274819,
+   "lon": 78.592886,
+   "osm_url": "https://www.openstreetmap.org/node/9768712033"
+  },
+  {
+   "id": "node/9885004011",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "chequebook company",
+   "lat": 17.515373,
+   "lon": 78.462734,
+   "osm_url": "https://www.openstreetmap.org/node/9885004011"
+  },
+  {
+   "id": "node/9918495800",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "Auto Stand",
+   "lat": 17.511529,
+   "lon": 78.424826,
+   "osm_url": "https://www.openstreetmap.org/node/9918495800"
+  },
+  {
+   "id": "node/10809865644",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 17.374071,
+   "lon": 78.566326,
+   "osm_url": "https://www.openstreetmap.org/node/10809865644"
+  },
+  {
+   "id": "node/10817244975",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 17.363949,
+   "lon": 78.522174,
+   "osm_url": "https://www.openstreetmap.org/node/10817244975"
+  },
+  {
+   "id": "node/10818098915",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 17.405335,
+   "lon": 78.546181,
+   "osm_url": "https://www.openstreetmap.org/node/10818098915"
+  },
+  {
+   "id": "node/10819200065",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 17.375947,
+   "lon": 78.532464,
+   "osm_url": "https://www.openstreetmap.org/node/10819200065"
+  },
+  {
+   "id": "node/10821098280",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 17.353754,
+   "lon": 78.559423,
+   "osm_url": "https://www.openstreetmap.org/node/10821098280"
+  },
+  {
+   "id": "node/10992457289",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "TGSRTC Bus Station , Ibrahimpatnam",
+   "lat": 17.191737,
+   "lon": 78.647465,
+   "osm_url": "https://www.openstreetmap.org/node/10992457289"
+  },
+  {
+   "id": "node/10992457298",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "TSRTC BUS DEPOT , IBRAHIMPATNAM",
+   "lat": 17.186849,
+   "lon": 78.648746,
+   "osm_url": "https://www.openstreetmap.org/node/10992457298"
+  },
+  {
+   "id": "node/10992500527",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "TSRTC Bus Stand , Falaknuma",
+   "lat": 17.329741,
+   "lon": 78.470299,
+   "osm_url": "https://www.openstreetmap.org/node/10992500527"
+  },
+  {
+   "id": "node/10992500529",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "TSRTC BUS DEPOT , MEHADIPATANM",
+   "lat": 17.392257,
+   "lon": 78.44059,
+   "osm_url": "https://www.openstreetmap.org/node/10992500529"
+  },
+  {
+   "id": "node/10992500530",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "Mehdipatnam  Bus Stop",
+   "lat": 17.392158,
+   "lon": 78.441849,
+   "osm_url": "https://www.openstreetmap.org/node/10992500530"
+  },
+  {
+   "id": "node/10992500542",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "TSRTC WORKSHOP , RTC X ROADS",
+   "lat": 17.406325,
+   "lon": 78.50012,
+   "osm_url": "https://www.openstreetmap.org/node/10992500542"
+  },
+  {
+   "id": "node/10992500544",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 17.407765,
+   "lon": 78.50185,
+   "osm_url": "https://www.openstreetmap.org/node/10992500544"
+  },
+  {
+   "id": "node/10992500546",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 17.434038,
+   "lon": 78.506033,
+   "osm_url": "https://www.openstreetmap.org/node/10992500546"
+  },
+  {
+   "id": "node/10992500550",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "TSRTC Bus Station , Prashant Nagar",
+   "lat": 17.473504,
+   "lon": 78.426743,
+   "osm_url": "https://www.openstreetmap.org/node/10992500550"
+  },
+  {
+   "id": "node/10992500569",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "VIDYANAGAR BUS STOP",
+   "lat": 17.404321,
+   "lon": 78.510287,
+   "osm_url": "https://www.openstreetmap.org/node/10992500569"
+  },
+  {
+   "id": "node/10992500570",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "VIDYANAGAR BUS STOP",
+   "lat": 17.404326,
+   "lon": 78.510476,
+   "osm_url": "https://www.openstreetmap.org/node/10992500570"
+  },
+  {
+   "id": "node/10992518090",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "Tarnaka Bus Stop",
+   "lat": 17.42578,
+   "lon": 78.532932,
+   "osm_url": "https://www.openstreetmap.org/node/10992518090"
+  },
+  {
+   "id": "node/10992518092",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "Kushaiguda Bus Stop",
+   "lat": 17.468956,
+   "lon": 78.565445,
+   "osm_url": "https://www.openstreetmap.org/node/10992518092"
+  },
+  {
+   "id": "node/10992518093",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "L.B Nagar Bus Stop",
+   "lat": 17.342188,
+   "lon": 78.557663,
+   "osm_url": "https://www.openstreetmap.org/node/10992518093"
+  },
+  {
+   "id": "node/10992518094",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "TSRTC BUS STAND , N.G.O\"S COLONY",
+   "lat": 17.324908,
+   "lon": 78.566462,
+   "osm_url": "https://www.openstreetmap.org/node/10992518094"
+  },
+  {
+   "id": "node/10992584213",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "TSRTC BUS DEPOT, MIYAPUR 1",
+   "lat": 17.513361,
+   "lon": 78.359976,
+   "osm_url": "https://www.openstreetmap.org/node/10992584213"
+  },
+  {
+   "id": "node/10992584226",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "TGSRTC Bus Building Unit Depot",
+   "lat": 17.510389,
+   "lon": 78.360808,
+   "osm_url": "https://www.openstreetmap.org/node/10992584226"
+  },
+  {
+   "id": "node/10992584230",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "APSRTC BUS DEPOT PARKING AREA , RAMACHANDRAPURAM",
+   "lat": 17.516823,
+   "lon": 78.289059,
+   "osm_url": "https://www.openstreetmap.org/node/10992584230"
+  },
+  {
+   "id": "node/11489738638",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Foctorys",
+   "lat": 17.445724,
+   "lon": 78.605719,
+   "osm_url": "https://www.openstreetmap.org/node/11489738638"
+  },
+  {
+   "id": "node/11489738639",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Industies area",
+   "lat": 17.453844,
+   "lon": 78.60893,
+   "osm_url": "https://www.openstreetmap.org/node/11489738639"
+  },
+  {
+   "id": "node/11489738640",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Steel foctory",
+   "lat": 17.453878,
+   "lon": 78.595353,
+   "osm_url": "https://www.openstreetmap.org/node/11489738640"
+  },
+  {
+   "id": "node/11489738654",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Factory",
+   "lat": 17.45609,
+   "lon": 78.596777,
+   "osm_url": "https://www.openstreetmap.org/node/11489738654"
+  },
+  {
+   "id": "node/11489955283",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Steel foctory",
+   "lat": 17.464649,
+   "lon": 78.602901,
+   "osm_url": "https://www.openstreetmap.org/node/11489955283"
+  },
+  {
+   "id": "node/11489955294",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Industiral area",
+   "lat": 17.473224,
+   "lon": 78.60422,
+   "osm_url": "https://www.openstreetmap.org/node/11489955294"
+  },
+  {
+   "id": "node/11489955466",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 17.530286,
+   "lon": 78.524666,
+   "osm_url": "https://www.openstreetmap.org/node/11489955466"
+  },
+  {
+   "id": "node/11489987505",
+   "city": "Hyderabad",
+   "category": "industry",
+   "name": "manufacturing unit",
+   "lat": 17.550552,
+   "lon": 78.324184,
+   "osm_url": "https://www.openstreetmap.org/node/11489987505"
+  },
+  {
+   "id": "node/11736385868",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "Jntu Bus Station",
+   "lat": 17.495777,
+   "lon": 78.394867,
+   "osm_url": "https://www.openstreetmap.org/node/11736385868"
+  },
+  {
+   "id": "node/12618677048",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "New Mallampet Bus Stop",
+   "lat": 17.559351,
+   "lon": 78.364628,
+   "osm_url": "https://www.openstreetmap.org/node/12618677048"
+  },
+  {
+   "id": "node/12852316674",
+   "city": "Hyderabad",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 17.414185,
+   "lon": 78.479909,
+   "osm_url": "https://www.openstreetmap.org/node/12852316674"
+  },
+  {
+   "id": "node/12922431631",
+   "city": "Hyderabad",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 17.403976,
+   "lon": 78.369627,
+   "osm_url": "https://www.openstreetmap.org/node/12922431631"
+  },
+  {
+   "id": "node/13707490024",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "TGSRTC Jublee Bus Station , Hyderabaf",
+   "lat": 17.447775,
+   "lon": 78.49825,
+   "osm_url": "https://www.openstreetmap.org/node/13707490024"
+  },
+  {
+   "id": "node/13707490025",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "TGSRTC JBS Bus Station",
+   "lat": 17.447749,
+   "lon": 78.497755,
+   "osm_url": "https://www.openstreetmap.org/node/13707490025"
+  },
+  {
+   "id": "node/13707490026",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "JBS",
+   "lat": 17.447612,
+   "lon": 78.498632,
+   "osm_url": "https://www.openstreetmap.org/node/13707490026"
+  },
+  {
+   "id": "node/13713200430",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "TGSRTC Bus Station, ECIL",
+   "lat": 17.472488,
+   "lon": 78.570112,
+   "osm_url": "https://www.openstreetmap.org/node/13713200430"
+  },
+  {
+   "id": "node/13713865950",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "TGSRTC Bus Station , Maheshwaram",
+   "lat": 17.135846,
+   "lon": 78.435379,
+   "osm_url": "https://www.openstreetmap.org/node/13713865950"
+  },
+  {
+   "id": "way/107277811",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "CBIT bus stop",
+   "lat": 17.393733,
+   "lon": 78.320177,
+   "osm_url": "https://www.openstreetmap.org/way/107277811"
+  },
+  {
+   "id": "way/115108010",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "Kondapur Bus Depot",
+   "lat": 17.465385,
+   "lon": 78.364109,
+   "osm_url": "https://www.openstreetmap.org/way/115108010"
+  },
+  {
+   "id": "way/140402388",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.428279,
+   "lon": 78.49623,
+   "osm_url": "https://www.openstreetmap.org/way/140402388"
+  },
+  {
+   "id": "way/148490233",
+   "city": "Hyderabad",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 17.350379,
+   "lon": 78.582201,
+   "osm_url": "https://www.openstreetmap.org/way/148490233"
+  },
+  {
+   "id": "way/180371047",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.475731,
+   "lon": 78.420601,
+   "osm_url": "https://www.openstreetmap.org/way/180371047"
+  },
+  {
+   "id": "way/230591446",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.388615,
+   "lon": 78.556215,
+   "osm_url": "https://www.openstreetmap.org/way/230591446"
+  },
+  {
+   "id": "way/238188556",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "Charminar Bus Station",
+   "lat": 17.35914,
+   "lon": 78.473848,
+   "osm_url": "https://www.openstreetmap.org/way/238188556"
+  },
+  {
+   "id": "way/253458326",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.393652,
+   "lon": 78.403982,
+   "osm_url": "https://www.openstreetmap.org/way/253458326"
+  },
+  {
+   "id": "way/265414562",
+   "city": "Hyderabad",
+   "category": "waste_burning",
+   "name": "GHMC Garbage",
+   "lat": 17.413944,
+   "lon": 78.47969,
+   "osm_url": "https://www.openstreetmap.org/way/265414562"
+  },
+  {
+   "id": "way/281798552",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.404726,
+   "lon": 78.477435,
+   "osm_url": "https://www.openstreetmap.org/way/281798552"
+  },
+  {
+   "id": "way/339556151",
+   "city": "Hyderabad",
+   "category": "diesel_fleet",
+   "name": "Khairatabad",
+   "lat": 17.413221,
+   "lon": 78.460853,
+   "osm_url": "https://www.openstreetmap.org/way/339556151"
+  },
+  {
+   "id": "way/340950663",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.476536,
+   "lon": 78.288336,
+   "osm_url": "https://www.openstreetmap.org/way/340950663"
+  },
+  {
+   "id": "way/341155252",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.481183,
+   "lon": 78.282943,
+   "osm_url": "https://www.openstreetmap.org/way/341155252"
+  },
+  {
+   "id": "way/342244997",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.426262,
+   "lon": 78.334871,
+   "osm_url": "https://www.openstreetmap.org/way/342244997"
+  },
+  {
+   "id": "way/342258431",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.439859,
+   "lon": 78.347617,
+   "osm_url": "https://www.openstreetmap.org/way/342258431"
+  },
+  {
+   "id": "way/342670428",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.420711,
+   "lon": 78.348433,
+   "osm_url": "https://www.openstreetmap.org/way/342670428"
+  },
+  {
+   "id": "way/356172095",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.489379,
+   "lon": 78.330083,
+   "osm_url": "https://www.openstreetmap.org/way/356172095"
+  },
+  {
+   "id": "way/374409701",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.509585,
+   "lon": 78.338625,
+   "osm_url": "https://www.openstreetmap.org/way/374409701"
+  },
+  {
+   "id": "way/388028310",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.484165,
+   "lon": 78.307394,
+   "osm_url": "https://www.openstreetmap.org/way/388028310"
+  },
+  {
+   "id": "way/393928558",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.451763,
+   "lon": 78.362911,
+   "osm_url": "https://www.openstreetmap.org/way/393928558"
+  },
+  {
+   "id": "way/469288793",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.486743,
+   "lon": 78.400407,
+   "osm_url": "https://www.openstreetmap.org/way/469288793"
+  },
+  {
+   "id": "way/493683876",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.489602,
+   "lon": 78.326761,
+   "osm_url": "https://www.openstreetmap.org/way/493683876"
+  },
+  {
+   "id": "way/574430531",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.323248,
+   "lon": 78.683047,
+   "osm_url": "https://www.openstreetmap.org/way/574430531"
+  },
+  {
+   "id": "way/626346956",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.429647,
+   "lon": 78.36308,
+   "osm_url": "https://www.openstreetmap.org/way/626346956"
+  },
+  {
+   "id": "way/632255363",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.44812,
+   "lon": 78.387945,
+   "osm_url": "https://www.openstreetmap.org/way/632255363"
+  },
+  {
+   "id": "way/699741688",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.423317,
+   "lon": 78.56746,
+   "osm_url": "https://www.openstreetmap.org/way/699741688"
+  },
+  {
+   "id": "way/699741700",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.423275,
+   "lon": 78.566938,
+   "osm_url": "https://www.openstreetmap.org/way/699741700"
+  },
+  {
+   "id": "way/701685898",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.422892,
+   "lon": 78.568158,
+   "osm_url": "https://www.openstreetmap.org/way/701685898"
+  },
+  {
+   "id": "way/702113176",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.421185,
+   "lon": 78.565042,
+   "osm_url": "https://www.openstreetmap.org/way/702113176"
+  },
+  {
+   "id": "way/702113177",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.421117,
+   "lon": 78.565121,
+   "osm_url": "https://www.openstreetmap.org/way/702113177"
+  },
+  {
+   "id": "way/706102394",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.413248,
+   "lon": 78.560141,
+   "osm_url": "https://www.openstreetmap.org/way/706102394"
+  },
+  {
+   "id": "way/717882945",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.44926,
+   "lon": 78.359311,
+   "osm_url": "https://www.openstreetmap.org/way/717882945"
+  },
+  {
+   "id": "way/740753572",
+   "city": "Hyderabad",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 17.394731,
+   "lon": 78.535123,
+   "osm_url": "https://www.openstreetmap.org/way/740753572"
+  },
+  {
+   "id": "way/753885134",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.449756,
+   "lon": 78.402176,
+   "osm_url": "https://www.openstreetmap.org/way/753885134"
+  },
+  {
+   "id": "way/753885135",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.449852,
+   "lon": 78.402186,
+   "osm_url": "https://www.openstreetmap.org/way/753885135"
+  },
+  {
+   "id": "way/753885136",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.449957,
+   "lon": 78.402195,
+   "osm_url": "https://www.openstreetmap.org/way/753885136"
+  },
+  {
+   "id": "way/753885137",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.450071,
+   "lon": 78.402205,
+   "osm_url": "https://www.openstreetmap.org/way/753885137"
+  },
+  {
+   "id": "way/753885138",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.449444,
+   "lon": 78.401882,
+   "osm_url": "https://www.openstreetmap.org/way/753885138"
+  },
+  {
+   "id": "way/753885139",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.449461,
+   "lon": 78.401727,
+   "osm_url": "https://www.openstreetmap.org/way/753885139"
+  },
+  {
+   "id": "way/753885141",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.450435,
+   "lon": 78.401827,
+   "osm_url": "https://www.openstreetmap.org/way/753885141"
+  },
+  {
+   "id": "way/753885142",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.450327,
+   "lon": 78.401817,
+   "osm_url": "https://www.openstreetmap.org/way/753885142"
+  },
+  {
+   "id": "way/753885144",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.450125,
+   "lon": 78.4003,
+   "osm_url": "https://www.openstreetmap.org/way/753885144"
+  },
+  {
+   "id": "way/753885145",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.450009,
+   "lon": 78.400281,
+   "osm_url": "https://www.openstreetmap.org/way/753885145"
+  },
+  {
+   "id": "way/753885146",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.450452,
+   "lon": 78.40079,
+   "osm_url": "https://www.openstreetmap.org/way/753885146"
+  },
+  {
+   "id": "way/753885147",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.450462,
+   "lon": 78.400676,
+   "osm_url": "https://www.openstreetmap.org/way/753885147"
+  },
+  {
+   "id": "way/753885148",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.450467,
+   "lon": 78.400567,
+   "osm_url": "https://www.openstreetmap.org/way/753885148"
+  },
+  {
+   "id": "way/753885149",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.450472,
+   "lon": 78.400452,
+   "osm_url": "https://www.openstreetmap.org/way/753885149"
+  },
+  {
+   "id": "way/753885150",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.450475,
+   "lon": 78.401432,
+   "osm_url": "https://www.openstreetmap.org/way/753885150"
+  },
+  {
+   "id": "way/753885151",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.450361,
+   "lon": 78.40142,
+   "osm_url": "https://www.openstreetmap.org/way/753885151"
+  },
+  {
+   "id": "way/753885152",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.45059,
+   "lon": 78.401439,
+   "osm_url": "https://www.openstreetmap.org/way/753885152"
+  },
+  {
+   "id": "way/753885153",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.449562,
+   "lon": 78.401734,
+   "osm_url": "https://www.openstreetmap.org/way/753885153"
+  },
+  {
+   "id": "way/753885154",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.449897,
+   "lon": 78.401775,
+   "osm_url": "https://www.openstreetmap.org/way/753885154"
+  },
+  {
+   "id": "way/753885155",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.450005,
+   "lon": 78.401787,
+   "osm_url": "https://www.openstreetmap.org/way/753885155"
+  },
+  {
+   "id": "way/753885156",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.449545,
+   "lon": 78.401889,
+   "osm_url": "https://www.openstreetmap.org/way/753885156"
+  },
+  {
+   "id": "way/753885157",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.449759,
+   "lon": 78.401916,
+   "osm_url": "https://www.openstreetmap.org/way/753885157"
+  },
+  {
+   "id": "way/753885158",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.449649,
+   "lon": 78.401908,
+   "osm_url": "https://www.openstreetmap.org/way/753885158"
+  },
+  {
+   "id": "way/753885159",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.44998,
+   "lon": 78.401943,
+   "osm_url": "https://www.openstreetmap.org/way/753885159"
+  },
+  {
+   "id": "way/753885160",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.449873,
+   "lon": 78.401931,
+   "osm_url": "https://www.openstreetmap.org/way/753885160"
+  },
+  {
+   "id": "way/753885161",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.450093,
+   "lon": 78.401958,
+   "osm_url": "https://www.openstreetmap.org/way/753885161"
+  },
+  {
+   "id": "way/753885162",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.449582,
+   "lon": 78.401492,
+   "osm_url": "https://www.openstreetmap.org/way/753885162"
+  },
+  {
+   "id": "way/753885163",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.449692,
+   "lon": 78.401515,
+   "osm_url": "https://www.openstreetmap.org/way/753885163"
+  },
+  {
+   "id": "way/753885164",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.449802,
+   "lon": 78.401523,
+   "osm_url": "https://www.openstreetmap.org/way/753885164"
+  },
+  {
+   "id": "way/753885165",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.449916,
+   "lon": 78.401538,
+   "osm_url": "https://www.openstreetmap.org/way/753885165"
+  },
+  {
+   "id": "way/753885166",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.450023,
+   "lon": 78.40155,
+   "osm_url": "https://www.openstreetmap.org/way/753885166"
+  },
+  {
+   "id": "way/753885167",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.450136,
+   "lon": 78.401565,
+   "osm_url": "https://www.openstreetmap.org/way/753885167"
+  },
+  {
+   "id": "way/753885168",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.449595,
+   "lon": 78.401342,
+   "osm_url": "https://www.openstreetmap.org/way/753885168"
+  },
+  {
+   "id": "way/753885169",
+   "city": "Hyderabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 17.449706,
+   "lon": 78.40135,
+   "osm_url": "https://www.openstreetmap.org/way/753885169"
+  },
+  {
+   "id": "way/846897833",
+   "city": "Hyderabad",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 17.459764,
+   "lon": 78.373236,
+   "osm_url": "https://www.openstreetmap.org/way/846897833"
+  },
+  {
+   "id": "way/847483976",
+   "city": "Hyderabad",
+   "category": "waste_burning",
+   "name": "Pragathi Nagar Dumpyard",
+   "lat": 17.51298,
+   "lon": 78.39845,
+   "osm_url": "https://www.openstreetmap.org/way/847483976"
+  },
+  {
+   "id": "way/1163531482",
+   "city": "Hyderabad",
+   "category": "waste_burning",
+   "name": "Temporaray GHMC Burning Dump yard",
+   "lat": 17.390333,
+   "lon": 78.559921,
+   "osm_url": "https://www.openstreetmap.org/way/1163531482"
+  },
+  {
+   "id": "way/1172957625",
+   "city": "Hyderabad",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 17.390334,
+   "lon": 78.559927,
+   "osm_url": "https://www.openstreetmap.org/way/1172957625"
+  },
+  {
+   "id": "way/1200050906",
+   "city": "Hyderabad",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 17.464588,
+   "lon": 78.392104,
+   "osm_url": "https://www.openstreetmap.org/way/1200050906"
+  },
+  {
+   "id": "way/1452682736",
+   "city": "Hyderabad",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 17.348935,
+   "lon": 78.580868,
+   "osm_url": "https://www.openstreetmap.org/way/1452682736"
+  },
+  {
+   "id": "node/440310550",
+   "city": "Ahmedabad",
+   "category": "diesel_fleet",
+   "name": "Paldi Bus Stand",
+   "lat": 23.014073,
+   "lon": 72.564588,
+   "osm_url": "https://www.openstreetmap.org/node/440310550"
+  },
+  {
+   "id": "node/440612250",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "GIDC VatVa",
+   "lat": 22.975292,
+   "lon": 72.643021,
+   "osm_url": "https://www.openstreetmap.org/node/440612250"
+  },
+  {
+   "id": "node/1349429275",
+   "city": "Ahmedabad",
+   "category": "diesel_fleet",
+   "name": "D-cabin",
+   "lat": 23.102363,
+   "lon": 72.570265,
+   "osm_url": "https://www.openstreetmap.org/node/1349429275"
+  },
+  {
+   "id": "node/1349429278",
+   "city": "Ahmedabad",
+   "category": "diesel_fleet",
+   "name": "Vallabhpark",
+   "lat": 23.101524,
+   "lon": 72.576519,
+   "osm_url": "https://www.openstreetmap.org/node/1349429278"
+  },
+  {
+   "id": "node/3161575026",
+   "city": "Ahmedabad",
+   "category": "diesel_fleet",
+   "name": "Navrangpura",
+   "lat": 23.035588,
+   "lon": 72.564185,
+   "osm_url": "https://www.openstreetmap.org/node/3161575026"
+  },
+  {
+   "id": "node/3333487128",
+   "city": "Ahmedabad",
+   "category": "diesel_fleet",
+   "name": "Maninagar Bus stop",
+   "lat": 22.99746,
+   "lon": 72.625965,
+   "osm_url": "https://www.openstreetmap.org/node/3333487128"
+  },
+  {
+   "id": "node/3333942359",
+   "city": "Ahmedabad",
+   "category": "diesel_fleet",
+   "name": "Maninagar Railway Station",
+   "lat": 22.9987,
+   "lon": 72.610944,
+   "osm_url": "https://www.openstreetmap.org/node/3333942359"
+  },
+  {
+   "id": "node/3335600154",
+   "city": "Ahmedabad",
+   "category": "diesel_fleet",
+   "name": "Naroda Gam",
+   "lat": 23.077096,
+   "lon": 72.655807,
+   "osm_url": "https://www.openstreetmap.org/node/3335600154"
+  },
+  {
+   "id": "node/3336777167",
+   "city": "Ahmedabad",
+   "category": "diesel_fleet",
+   "name": "Ahmedabad",
+   "lat": 23.021873,
+   "lon": 72.59849,
+   "osm_url": "https://www.openstreetmap.org/node/3336777167"
+  },
+  {
+   "id": "node/3355794772",
+   "city": "Ahmedabad",
+   "category": "diesel_fleet",
+   "name": "Lal Darwaja AMTS Bus Stop",
+   "lat": 23.02419,
+   "lon": 72.578556,
+   "osm_url": "https://www.openstreetmap.org/node/3355794772"
+  },
+  {
+   "id": "node/4314219590",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Sintex Kalol",
+   "lat": 23.240069,
+   "lon": 72.507223,
+   "osm_url": "https://www.openstreetmap.org/node/4314219590"
+  },
+  {
+   "id": "node/4358546492",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Advatech engineers",
+   "lat": 22.971476,
+   "lon": 72.627681,
+   "osm_url": "https://www.openstreetmap.org/node/4358546492"
+  },
+  {
+   "id": "node/4358562089",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Intec Frp",
+   "lat": 22.973623,
+   "lon": 72.634618,
+   "osm_url": "https://www.openstreetmap.org/node/4358562089"
+  },
+  {
+   "id": "node/4358562489",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Jainik Doors",
+   "lat": 23.038317,
+   "lon": 72.569304,
+   "osm_url": "https://www.openstreetmap.org/node/4358562489"
+  },
+  {
+   "id": "node/4380156499",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Sintex",
+   "lat": 23.237245,
+   "lon": 72.509213,
+   "osm_url": "https://www.openstreetmap.org/node/4380156499"
+  },
+  {
+   "id": "node/4380157393",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Bharat vijay mill BVM",
+   "lat": 23.236427,
+   "lon": 72.510338,
+   "osm_url": "https://www.openstreetmap.org/node/4380157393"
+  },
+  {
+   "id": "node/4380537982",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Amba Food Factory",
+   "lat": 23.180312,
+   "lon": 72.57534,
+   "osm_url": "https://www.openstreetmap.org/node/4380537982"
+  },
+  {
+   "id": "node/4398393190",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Kathwada Gidc",
+   "lat": 23.034136,
+   "lon": 72.68375,
+   "osm_url": "https://www.openstreetmap.org/node/4398393190"
+  },
+  {
+   "id": "node/4398393289",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Varun engineering",
+   "lat": 22.974032,
+   "lon": 72.632448,
+   "osm_url": "https://www.openstreetmap.org/node/4398393289"
+  },
+  {
+   "id": "node/4398393389",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "esdee paints near",
+   "lat": 22.906436,
+   "lon": 72.436793,
+   "osm_url": "https://www.openstreetmap.org/node/4398393389"
+  },
+  {
+   "id": "node/4398393489",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Alicon Enginering",
+   "lat": 23.031662,
+   "lon": 72.684612,
+   "osm_url": "https://www.openstreetmap.org/node/4398393489"
+  },
+  {
+   "id": "node/4398393689",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "intec frp II unit",
+   "lat": 22.958241,
+   "lon": 72.630978,
+   "osm_url": "https://www.openstreetmap.org/node/4398393689"
+  },
+  {
+   "id": "node/4398393889",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Shri Raj meatal",
+   "lat": 22.903872,
+   "lon": 72.437483,
+   "osm_url": "https://www.openstreetmap.org/node/4398393889"
+  },
+  {
+   "id": "node/4412737895",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Him Suraj Electro Fiber Private Limited",
+   "lat": 23.041086,
+   "lon": 72.687431,
+   "osm_url": "https://www.openstreetmap.org/node/4412737895"
+  },
+  {
+   "id": "node/4422044190",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "shri avirat frp cooling tower",
+   "lat": 23.015763,
+   "lon": 72.635081,
+   "osm_url": "https://www.openstreetmap.org/node/4422044190"
+  },
+  {
+   "id": "node/4422045591",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Hitech cooling tower",
+   "lat": 22.97141,
+   "lon": 72.635344,
+   "osm_url": "https://www.openstreetmap.org/node/4422045591"
+  },
+  {
+   "id": "node/4422109529",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Ensave cooling tower",
+   "lat": 22.963601,
+   "lon": 72.588569,
+   "osm_url": "https://www.openstreetmap.org/node/4422109529"
+  },
+  {
+   "id": "node/4422110091",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Ensave cooling Tower",
+   "lat": 22.96319,
+   "lon": 72.5888,
+   "osm_url": "https://www.openstreetmap.org/node/4422110091"
+  },
+  {
+   "id": "node/4483635589",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Chiripal industries ,pirana",
+   "lat": 22.966175,
+   "lon": 72.557483,
+   "osm_url": "https://www.openstreetmap.org/node/4483635589"
+  },
+  {
+   "id": "node/4487915091",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Piplaj industrial Area",
+   "lat": 22.958156,
+   "lon": 72.557924,
+   "osm_url": "https://www.openstreetmap.org/node/4487915091"
+  },
+  {
+   "id": "node/4523122790",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "oswal",
+   "lat": 23.259778,
+   "lon": 72.473107,
+   "osm_url": "https://www.openstreetmap.org/node/4523122790"
+  },
+  {
+   "id": "node/4623087089",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Mamta extrusion Vatva",
+   "lat": 22.969178,
+   "lon": 72.632367,
+   "osm_url": "https://www.openstreetmap.org/node/4623087089"
+  },
+  {
+   "id": "node/4722635658",
+   "city": "Ahmedabad",
+   "category": "diesel_fleet",
+   "name": "Dehgam Bus Station",
+   "lat": 23.171016,
+   "lon": 72.82055,
+   "osm_url": "https://www.openstreetmap.org/node/4722635658"
+  },
+  {
+   "id": "node/5327483058",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "AmulFed Dairy",
+   "lat": 23.096331,
+   "lon": 72.621781,
+   "osm_url": "https://www.openstreetmap.org/node/5327483058"
+  },
+  {
+   "id": "node/5540117738",
+   "city": "Ahmedabad",
+   "category": "diesel_fleet",
+   "name": "Kankaria Telephone exchange",
+   "lat": 23.002425,
+   "lon": 72.592835,
+   "osm_url": "https://www.openstreetmap.org/node/5540117738"
+  },
+  {
+   "id": "node/5711622445",
+   "city": "Ahmedabad",
+   "category": "diesel_fleet",
+   "name": "Ghuma BRTS terminal",
+   "lat": 23.030936,
+   "lon": 72.448328,
+   "osm_url": "https://www.openstreetmap.org/node/5711622445"
+  },
+  {
+   "id": "node/5711634722",
+   "city": "Ahmedabad",
+   "category": "diesel_fleet",
+   "name": "AMTS Ghuma Bus terminal",
+   "lat": 23.030556,
+   "lon": 72.450188,
+   "osm_url": "https://www.openstreetmap.org/node/5711634722"
+  },
+  {
+   "id": "node/5792057425",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Circuit Systems, PCB Power",
+   "lat": 23.245869,
+   "lon": 72.628799,
+   "osm_url": "https://www.openstreetmap.org/node/5792057425"
+  },
+  {
+   "id": "node/6068260985",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Rekson Rediator",
+   "lat": 22.987638,
+   "lon": 72.498667,
+   "osm_url": "https://www.openstreetmap.org/node/6068260985"
+  },
+  {
+   "id": "node/6445035685",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Reliance resin industries",
+   "lat": 22.962835,
+   "lon": 72.598594,
+   "osm_url": "https://www.openstreetmap.org/node/6445035685"
+  },
+  {
+   "id": "node/6989006753",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Gita Mediquip PVT. LTD.",
+   "lat": 22.977826,
+   "lon": 72.589444,
+   "osm_url": "https://www.openstreetmap.org/node/6989006753"
+  },
+  {
+   "id": "node/6991875791",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Ambica Machine Tools",
+   "lat": 23.029015,
+   "lon": 72.692384,
+   "osm_url": "https://www.openstreetmap.org/node/6991875791"
+  },
+  {
+   "id": "node/7020233387",
+   "city": "Ahmedabad",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 23.043036,
+   "lon": 72.589532,
+   "osm_url": "https://www.openstreetmap.org/node/7020233387"
+  },
+  {
+   "id": "node/7137335288",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Mena Packing Industries",
+   "lat": 23.227216,
+   "lon": 72.508304,
+   "osm_url": "https://www.openstreetmap.org/node/7137335288"
+  },
+  {
+   "id": "node/8153542476",
+   "city": "Ahmedabad",
+   "category": "diesel_fleet",
+   "name": "Bopal gam",
+   "lat": 23.034011,
+   "lon": 72.464107,
+   "osm_url": "https://www.openstreetmap.org/node/8153542476"
+  },
+  {
+   "id": "node/8153545458",
+   "city": "Ahmedabad",
+   "category": "diesel_fleet",
+   "name": "Sterling City",
+   "lat": 23.032322,
+   "lon": 72.469152,
+   "osm_url": "https://www.openstreetmap.org/node/8153545458"
+  },
+  {
+   "id": "node/9107519621",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Adarja Enterprise",
+   "lat": 23.250018,
+   "lon": 72.510326,
+   "osm_url": "https://www.openstreetmap.org/node/9107519621"
+  },
+  {
+   "id": "node/9632871825",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Shreeji Engineers",
+   "lat": 22.999787,
+   "lon": 72.636881,
+   "osm_url": "https://www.openstreetmap.org/node/9632871825"
+  },
+  {
+   "id": "node/10181647117",
+   "city": "Ahmedabad",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 22.965917,
+   "lon": 72.591867,
+   "osm_url": "https://www.openstreetmap.org/node/10181647117"
+  },
+  {
+   "id": "node/10269357720",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Exomet Enterprise",
+   "lat": 22.977524,
+   "lon": 72.634227,
+   "osm_url": "https://www.openstreetmap.org/node/10269357720"
+  },
+  {
+   "id": "node/10889625664",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "JM Zhongkai Chemical Equipment LLP",
+   "lat": 22.961231,
+   "lon": 72.638271,
+   "osm_url": "https://www.openstreetmap.org/node/10889625664"
+  },
+  {
+   "id": "node/12367266814",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Anar rub tech pvt. ltd.",
+   "lat": 23.032279,
+   "lon": 72.621821,
+   "osm_url": "https://www.openstreetmap.org/node/12367266814"
+  },
+  {
+   "id": "node/12367373596",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Anar anilox roller",
+   "lat": 23.026587,
+   "lon": 72.624686,
+   "osm_url": "https://www.openstreetmap.org/node/12367373596"
+  },
+  {
+   "id": "way/29327399",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.823313,
+   "lon": 72.60051,
+   "osm_url": "https://www.openstreetmap.org/way/29327399"
+  },
+  {
+   "id": "way/29492754",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "AMGEN",
+   "lat": 23.071342,
+   "lon": 72.593305,
+   "osm_url": "https://www.openstreetmap.org/way/29492754"
+  },
+  {
+   "id": "way/37231778",
+   "city": "Ahmedabad",
+   "category": "diesel_fleet",
+   "name": "Gita Mandir Bus Station",
+   "lat": 23.015485,
+   "lon": 72.591852,
+   "osm_url": "https://www.openstreetmap.org/way/37231778"
+  },
+  {
+   "id": "way/62412206",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.2276,
+   "lon": 72.509519,
+   "osm_url": "https://www.openstreetmap.org/way/62412206"
+  },
+  {
+   "id": "way/85203981",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Petrotech India",
+   "lat": 23.254929,
+   "lon": 72.633434,
+   "osm_url": "https://www.openstreetmap.org/way/85203981"
+  },
+  {
+   "id": "way/116801086",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "ICD Khodiyar depot",
+   "lat": 23.165291,
+   "lon": 72.549319,
+   "osm_url": "https://www.openstreetmap.org/way/116801086"
+  },
+  {
+   "id": "way/137989387",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.973054,
+   "lon": 72.55941,
+   "osm_url": "https://www.openstreetmap.org/way/137989387"
+  },
+  {
+   "id": "way/141200054",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.09958,
+   "lon": 72.567567,
+   "osm_url": "https://www.openstreetmap.org/way/141200054"
+  },
+  {
+   "id": "way/196518645",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.25774,
+   "lon": 72.475452,
+   "osm_url": "https://www.openstreetmap.org/way/196518645"
+  },
+  {
+   "id": "way/196518646",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.237363,
+   "lon": 72.510776,
+   "osm_url": "https://www.openstreetmap.org/way/196518646"
+  },
+  {
+   "id": "way/196518647",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.011761,
+   "lon": 72.340093,
+   "osm_url": "https://www.openstreetmap.org/way/196518647"
+  },
+  {
+   "id": "way/196518649",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.268073,
+   "lon": 72.461995,
+   "osm_url": "https://www.openstreetmap.org/way/196518649"
+  },
+  {
+   "id": "way/196518653",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.256702,
+   "lon": 72.344989,
+   "osm_url": "https://www.openstreetmap.org/way/196518653"
+  },
+  {
+   "id": "way/197365170",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.82303,
+   "lon": 72.588018,
+   "osm_url": "https://www.openstreetmap.org/way/197365170"
+  },
+  {
+   "id": "way/197365173",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.835627,
+   "lon": 72.60779,
+   "osm_url": "https://www.openstreetmap.org/way/197365173"
+  },
+  {
+   "id": "way/197365176",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.793952,
+   "lon": 72.604673,
+   "osm_url": "https://www.openstreetmap.org/way/197365176"
+  },
+  {
+   "id": "way/244328439",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Kathwada GIDC",
+   "lat": 23.034383,
+   "lon": 72.682301,
+   "osm_url": "https://www.openstreetmap.org/way/244328439"
+  },
+  {
+   "id": "way/244328441",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.021755,
+   "lon": 72.679364,
+   "osm_url": "https://www.openstreetmap.org/way/244328441"
+  },
+  {
+   "id": "way/314450134",
+   "city": "Ahmedabad",
+   "category": "diesel_fleet",
+   "name": "Gujarat State Road Transport Corporation | Bus Station | Gita Mandir",
+   "lat": 23.014104,
+   "lon": 72.59246,
+   "osm_url": "https://www.openstreetmap.org/way/314450134"
+  },
+  {
+   "id": "way/318501827",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "New Cotton Mills",
+   "lat": 23.007954,
+   "lon": 72.617452,
+   "osm_url": "https://www.openstreetmap.org/way/318501827"
+  },
+  {
+   "id": "way/321003774",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 23.023576,
+   "lon": 72.644303,
+   "osm_url": "https://www.openstreetmap.org/way/321003774"
+  },
+  {
+   "id": "way/321003775",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Odhav industrial estate",
+   "lat": 23.025572,
+   "lon": 72.654252,
+   "osm_url": "https://www.openstreetmap.org/way/321003775"
+  },
+  {
+   "id": "way/321003776",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.971524,
+   "lon": 72.640809,
+   "osm_url": "https://www.openstreetmap.org/way/321003776"
+  },
+  {
+   "id": "way/321003777",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Vatva GIDC",
+   "lat": 22.96915,
+   "lon": 72.632366,
+   "osm_url": "https://www.openstreetmap.org/way/321003777"
+  },
+  {
+   "id": "way/321003778",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 22.974421,
+   "lon": 72.644012,
+   "osm_url": "https://www.openstreetmap.org/way/321003778"
+  },
+  {
+   "id": "way/321003779",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Vatva Gidc",
+   "lat": 22.956294,
+   "lon": 72.636574,
+   "osm_url": "https://www.openstreetmap.org/way/321003779"
+  },
+  {
+   "id": "way/321003780",
+   "city": "Ahmedabad",
+   "category": "industry",
+   "name": "Odhav industrial estate",
+   "lat": 23.018453,
+   "lon": 72.657296,
+   "osm_url": "https://www.openstreetmap.org/way/321003780"
+  },
+  {
+   "id": "way/321136517",
+   "city": "Ahmedabad",
+   "category": "waste_burning",
+   "name": "Municipal Landfill",
+   "lat": 22.979877,
+   "lon": 72.567156,
+   "osm_url": "https://www.openstreetmap.org/way/321136517"
+  },
+  {
+   "id": "way/323895527",
+   "city": "Ahmedabad",
+   "category": "diesel_fleet",
+   "name": "Nava vadej bus stop",
+   "lat": 23.055084,
+   "lon": 72.571099,
+   "osm_url": "https://www.openstreetmap.org/way/323895527"
+  },
+  {
+   "id": "way/326072459",
+   "city": "Ahmedabad",
+   "category": "diesel_fleet",
+   "name": "Gandhinagar Bus Stop",
+   "lat": 23.216783,
+   "lon": 72.642163,
+   "osm_url": "https://www.openstreetmap.org/way/326072459"
+  },
+  {
+   "id": "way/328553143",
+   "city": "Ahmedabad",
+   "category": "diesel_fleet",
+   "name": "Helmet Cross Roads Bus Station",
+   "lat": 23.044418,
+   "lon": 72.542295,
+   "osm_url": "https://www.openstreetmap.org/way/328553143"
+  },
+  {
+   "id": "way/328733432",
+   "city": "Ahmedabad",
+   "category": "diesel_fleet",
+   "name": "Vasna Bus Station",
+   "lat": 23.002228,
+   "lon": 72.547635,
+   "osm_url": "https://www.openstreetmap.org/way/328733432"
+  },
+  {
+   "id": "way/328753119",
+   "city": "Ahmedabad",
+   "category": "diesel_fleet",
+   "name": "Lal Darwaja AMTS Bus Stop",
+   "lat": 23.024573,
+   "lon": 72.578428,
+   "osm_url": "https://www.openstreetmap.org/way/328753119"
+  },
+  {
+   "id": "way/338754923",
+   "city": "Ahmedabad",
+   "category": "diesel_fleet",
+   "name": "Gandhinagar Bus Stop",
+   "lat": 23.216585,
+   "lon": 72.642339,
+   "osm_url": "https://www.openstreetmap.org/way/338754923"
+  },
+  {
+   "id": "way/338770073",
+   "city": "Ahmedabad",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 23.235009,
+   "lon": 72.630257,
+   "osm_url": "https://www.openstreetmap.org/way/338770073"
+  },
+  {
+   "id": "way/338770074",
+   "city": "Ahmedabad",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 23.234827,
+   "lon": 72.630262,
+   "osm_url": "https://www.openstreetmap.org/way/338770074"
+  },
+  {
+   "id": "way/338817474",
+   "city": "Ahmedabad",
+   "category": "waste_burning",
+   "name": "Fly Ash Pond",
+   "lat": 23.272028,
+   "lon": 72.680534,
+   "osm_url": "https://www.openstreetmap.org/way/338817474"
+  },
+  {
+   "id": "way/338817475",
+   "city": "Ahmedabad",
+   "category": "waste_burning",
+   "name": "Fly Ash Pond",
+   "lat": 23.274619,
+   "lon": 72.686566,
+   "osm_url": "https://www.openstreetmap.org/way/338817475"
+  },
+  {
+   "id": "way/365045282",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.024576,
+   "lon": 72.464419,
+   "osm_url": "https://www.openstreetmap.org/way/365045282"
+  },
+  {
+   "id": "way/366427475",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.029535,
+   "lon": 72.469935,
+   "osm_url": "https://www.openstreetmap.org/way/366427475"
+  },
+  {
+   "id": "way/366427476",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.030375,
+   "lon": 72.47083,
+   "osm_url": "https://www.openstreetmap.org/way/366427476"
+  },
+  {
+   "id": "way/366427481",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.029387,
+   "lon": 72.470341,
+   "osm_url": "https://www.openstreetmap.org/way/366427481"
+  },
+  {
+   "id": "way/366427486",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.031094,
+   "lon": 72.470622,
+   "osm_url": "https://www.openstreetmap.org/way/366427486"
+  },
+  {
+   "id": "way/366427506",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.030252,
+   "lon": 72.469439,
+   "osm_url": "https://www.openstreetmap.org/way/366427506"
+  },
+  {
+   "id": "way/366616729",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.027733,
+   "lon": 72.506651,
+   "osm_url": "https://www.openstreetmap.org/way/366616729"
+  },
+  {
+   "id": "way/366641337",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.032351,
+   "lon": 72.482309,
+   "osm_url": "https://www.openstreetmap.org/way/366641337"
+  },
+  {
+   "id": "way/366778781",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.033648,
+   "lon": 72.485725,
+   "osm_url": "https://www.openstreetmap.org/way/366778781"
+  },
+  {
+   "id": "way/366778875",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.027778,
+   "lon": 72.483912,
+   "osm_url": "https://www.openstreetmap.org/way/366778875"
+  },
+  {
+   "id": "way/366795961",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.034143,
+   "lon": 72.500872,
+   "osm_url": "https://www.openstreetmap.org/way/366795961"
+  },
+  {
+   "id": "way/366796015",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.032572,
+   "lon": 72.495828,
+   "osm_url": "https://www.openstreetmap.org/way/366796015"
+  },
+  {
+   "id": "way/366810897",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.0534,
+   "lon": 72.484807,
+   "osm_url": "https://www.openstreetmap.org/way/366810897"
+  },
+  {
+   "id": "way/366818548",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.055994,
+   "lon": 72.486041,
+   "osm_url": "https://www.openstreetmap.org/way/366818548"
+  },
+  {
+   "id": "way/367233991",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Keshar Kadam",
+   "lat": 23.058106,
+   "lon": 72.504787,
+   "osm_url": "https://www.openstreetmap.org/way/367233991"
+  },
+  {
+   "id": "way/367234010",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.058121,
+   "lon": 72.505001,
+   "osm_url": "https://www.openstreetmap.org/way/367234010"
+  },
+  {
+   "id": "way/367248560",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.030789,
+   "lon": 72.469708,
+   "osm_url": "https://www.openstreetmap.org/way/367248560"
+  },
+  {
+   "id": "way/367248734",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.030442,
+   "lon": 72.470248,
+   "osm_url": "https://www.openstreetmap.org/way/367248734"
+  },
+  {
+   "id": "way/367374517",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.029804,
+   "lon": 72.470575,
+   "osm_url": "https://www.openstreetmap.org/way/367374517"
+  },
+  {
+   "id": "way/367945536",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.081722,
+   "lon": 72.498215,
+   "osm_url": "https://www.openstreetmap.org/way/367945536"
+  },
+  {
+   "id": "way/367945621",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.084012,
+   "lon": 72.499416,
+   "osm_url": "https://www.openstreetmap.org/way/367945621"
+  },
+  {
+   "id": "way/367976377",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.025977,
+   "lon": 72.491323,
+   "osm_url": "https://www.openstreetmap.org/way/367976377"
+  },
+  {
+   "id": "way/378473414",
+   "city": "Ahmedabad",
+   "category": "diesel_fleet",
+   "name": "Parasnagar BRTS stand",
+   "lat": 23.055545,
+   "lon": 72.543231,
+   "osm_url": "https://www.openstreetmap.org/way/378473414"
+  },
+  {
+   "id": "way/378473566",
+   "city": "Ahmedabad",
+   "category": "diesel_fleet",
+   "name": "Sola cross road BRTS stand",
+   "lat": 23.052742,
+   "lon": 72.546803,
+   "osm_url": "https://www.openstreetmap.org/way/378473566"
+  },
+  {
+   "id": "way/424076403",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.064984,
+   "lon": 72.673803,
+   "osm_url": "https://www.openstreetmap.org/way/424076403"
+  },
+  {
+   "id": "way/451501638",
+   "city": "Ahmedabad",
+   "category": "diesel_fleet",
+   "name": "Ranip GSRTC",
+   "lat": 23.068384,
+   "lon": 72.57579,
+   "osm_url": "https://www.openstreetmap.org/way/451501638"
+  },
+  {
+   "id": "way/479478635",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.166119,
+   "lon": 72.813118,
+   "osm_url": "https://www.openstreetmap.org/way/479478635"
+  },
+  {
+   "id": "way/482144627",
+   "city": "Ahmedabad",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 23.156449,
+   "lon": 72.799877,
+   "osm_url": "https://www.openstreetmap.org/way/482144627"
+  },
+  {
+   "id": "way/486312529",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "bala",
+   "lat": 22.99878,
+   "lon": 72.559505,
+   "osm_url": "https://www.openstreetmap.org/way/486312529"
+  },
+  {
+   "id": "way/529975258",
+   "city": "Ahmedabad",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 23.03558,
+   "lon": 72.564171,
+   "osm_url": "https://www.openstreetmap.org/way/529975258"
+  },
+  {
+   "id": "way/529975265",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.036588,
+   "lon": 72.56376,
+   "osm_url": "https://www.openstreetmap.org/way/529975265"
+  },
+  {
+   "id": "way/551617841",
+   "city": "Ahmedabad",
+   "category": "diesel_fleet",
+   "name": "Shivranjani",
+   "lat": 23.024304,
+   "lon": 72.531295,
+   "osm_url": "https://www.openstreetmap.org/way/551617841"
+  },
+  {
+   "id": "way/844256928",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "High Speed Rail Terminal",
+   "lat": 23.073844,
+   "lon": 72.590683,
+   "osm_url": "https://www.openstreetmap.org/way/844256928"
+  },
+  {
+   "id": "way/923741704",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.165252,
+   "lon": 72.677735,
+   "osm_url": "https://www.openstreetmap.org/way/923741704"
+  },
+  {
+   "id": "way/972959138",
+   "city": "Ahmedabad",
+   "category": "diesel_fleet",
+   "name": "Iskcon Cross Road BRTS",
+   "lat": 23.027152,
+   "lon": 72.508523,
+   "osm_url": "https://www.openstreetmap.org/way/972959138"
+  },
+  {
+   "id": "way/972959139",
+   "city": "Ahmedabad",
+   "category": "diesel_fleet",
+   "name": "Ashok Vatika BRTS",
+   "lat": 23.027939,
+   "lon": 72.495702,
+   "osm_url": "https://www.openstreetmap.org/way/972959139"
+  },
+  {
+   "id": "way/972959140",
+   "city": "Ahmedabad",
+   "category": "diesel_fleet",
+   "name": "Jaintilal Park BRTS",
+   "lat": 23.028425,
+   "lon": 72.49101,
+   "osm_url": "https://www.openstreetmap.org/way/972959140"
+  },
+  {
+   "id": "way/972959141",
+   "city": "Ahmedabad",
+   "category": "diesel_fleet",
+   "name": "Swagat Bunglows BRTS",
+   "lat": 23.027883,
+   "lon": 72.485885,
+   "osm_url": "https://www.openstreetmap.org/way/972959141"
+  },
+  {
+   "id": "way/972959142",
+   "city": "Ahmedabad",
+   "category": "diesel_fleet",
+   "name": "Ambli Gam BRTS",
+   "lat": 23.026462,
+   "lon": 72.482193,
+   "osm_url": "https://www.openstreetmap.org/way/972959142"
+  },
+  {
+   "id": "way/972959143",
+   "city": "Ahmedabad",
+   "category": "diesel_fleet",
+   "name": "Bopal Appoach BRTS",
+   "lat": 23.025848,
+   "lon": 72.477914,
+   "osm_url": "https://www.openstreetmap.org/way/972959143"
+  },
+  {
+   "id": "way/1015046805",
+   "city": "Ahmedabad",
+   "category": "diesel_fleet",
+   "name": "Naroda Gam",
+   "lat": 23.077106,
+   "lon": 72.655787,
+   "osm_url": "https://www.openstreetmap.org/way/1015046805"
+  },
+  {
+   "id": "way/1107179894",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Sabarmati High Speed Rail Station",
+   "lat": 23.077161,
+   "lon": 72.587255,
+   "osm_url": "https://www.openstreetmap.org/way/1107179894"
+  },
+  {
+   "id": "way/1270582136",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.16121,
+   "lon": 72.684559,
+   "osm_url": "https://www.openstreetmap.org/way/1270582136"
+  },
+  {
+   "id": "way/1288054964",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.094557,
+   "lon": 72.595582,
+   "osm_url": "https://www.openstreetmap.org/way/1288054964"
+  },
+  {
+   "id": "way/1288731476",
+   "city": "Ahmedabad",
+   "category": "diesel_fleet",
+   "name": "Sabarmati Swimming Pool BRTS Stand",
+   "lat": 23.081519,
+   "lon": 72.593365,
+   "osm_url": "https://www.openstreetmap.org/way/1288731476"
+  },
+  {
+   "id": "way/1293074200",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.066821,
+   "lon": 72.563212,
+   "osm_url": "https://www.openstreetmap.org/way/1293074200"
+  },
+  {
+   "id": "way/1300687972",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.066093,
+   "lon": 72.572081,
+   "osm_url": "https://www.openstreetmap.org/way/1300687972"
+  },
+  {
+   "id": "way/1300687973",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.066092,
+   "lon": 72.57225,
+   "osm_url": "https://www.openstreetmap.org/way/1300687973"
+  },
+  {
+   "id": "way/1300687974",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.066102,
+   "lon": 72.572405,
+   "osm_url": "https://www.openstreetmap.org/way/1300687974"
+  },
+  {
+   "id": "way/1300687975",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.065912,
+   "lon": 72.572405,
+   "osm_url": "https://www.openstreetmap.org/way/1300687975"
+  },
+  {
+   "id": "way/1300687976",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.065904,
+   "lon": 72.572253,
+   "osm_url": "https://www.openstreetmap.org/way/1300687976"
+  },
+  {
+   "id": "way/1300687977",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.065907,
+   "lon": 72.572105,
+   "osm_url": "https://www.openstreetmap.org/way/1300687977"
+  },
+  {
+   "id": "way/1301533287",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.069414,
+   "lon": 72.55613,
+   "osm_url": "https://www.openstreetmap.org/way/1301533287"
+  },
+  {
+   "id": "way/1301533288",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.068274,
+   "lon": 72.556028,
+   "osm_url": "https://www.openstreetmap.org/way/1301533288"
+  },
+  {
+   "id": "way/1301533289",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.068833,
+   "lon": 72.557627,
+   "osm_url": "https://www.openstreetmap.org/way/1301533289"
+  },
+  {
+   "id": "way/1301690855",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.064541,
+   "lon": 72.545597,
+   "osm_url": "https://www.openstreetmap.org/way/1301690855"
+  },
+  {
+   "id": "way/1301690856",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.06435,
+   "lon": 72.546238,
+   "osm_url": "https://www.openstreetmap.org/way/1301690856"
+  },
+  {
+   "id": "way/1301690857",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.064286,
+   "lon": 72.545848,
+   "osm_url": "https://www.openstreetmap.org/way/1301690857"
+  },
+  {
+   "id": "way/1301690858",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.064616,
+   "lon": 72.545977,
+   "osm_url": "https://www.openstreetmap.org/way/1301690858"
+  },
+  {
+   "id": "way/1301690901",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.05913,
+   "lon": 72.538777,
+   "osm_url": "https://www.openstreetmap.org/way/1301690901"
+  },
+  {
+   "id": "way/1301707285",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.055494,
+   "lon": 72.548404,
+   "osm_url": "https://www.openstreetmap.org/way/1301707285"
+  },
+  {
+   "id": "way/1301707299",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.055738,
+   "lon": 72.548556,
+   "osm_url": "https://www.openstreetmap.org/way/1301707299"
+  },
+  {
+   "id": "way/1301707300",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.055464,
+   "lon": 72.548773,
+   "osm_url": "https://www.openstreetmap.org/way/1301707300"
+  },
+  {
+   "id": "way/1301707301",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.055362,
+   "lon": 72.549101,
+   "osm_url": "https://www.openstreetmap.org/way/1301707301"
+  },
+  {
+   "id": "way/1301707302",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.055013,
+   "lon": 72.549635,
+   "osm_url": "https://www.openstreetmap.org/way/1301707302"
+  },
+  {
+   "id": "way/1301707303",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.055402,
+   "lon": 72.549709,
+   "osm_url": "https://www.openstreetmap.org/way/1301707303"
+  },
+  {
+   "id": "way/1301707304",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.055801,
+   "lon": 72.549559,
+   "osm_url": "https://www.openstreetmap.org/way/1301707304"
+  },
+  {
+   "id": "way/1301964336",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.05103,
+   "lon": 72.550631,
+   "osm_url": "https://www.openstreetmap.org/way/1301964336"
+  },
+  {
+   "id": "way/1301964641",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.01393,
+   "lon": 72.57061,
+   "osm_url": "https://www.openstreetmap.org/way/1301964641"
+  },
+  {
+   "id": "way/1301964642",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.013739,
+   "lon": 72.570449,
+   "osm_url": "https://www.openstreetmap.org/way/1301964642"
+  },
+  {
+   "id": "way/1301975020",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.046491,
+   "lon": 72.547741,
+   "osm_url": "https://www.openstreetmap.org/way/1301975020"
+  },
+  {
+   "id": "way/1301990699",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.046097,
+   "lon": 72.55637,
+   "osm_url": "https://www.openstreetmap.org/way/1301990699"
+  },
+  {
+   "id": "way/1301990700",
+   "city": "Ahmedabad",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 23.046901,
+   "lon": 72.556566,
+   "osm_url": "https://www.openstreetmap.org/way/1301990700"
+  },
+  {
+   "id": "node/670335339",
+   "city": "Pune",
+   "category": "waste_burning",
+   "name": "Cars morgue",
+   "lat": 18.546792,
+   "lon": 73.826305,
+   "osm_url": "https://www.openstreetmap.org/node/670335339"
+  },
+  {
+   "id": "node/763513035",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "509",
+   "lat": 18.575184,
+   "lon": 73.899559,
+   "osm_url": "https://www.openstreetmap.org/node/763513035"
+  },
+  {
+   "id": "node/811249554",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Pune Railway Station Bus Depot",
+   "lat": 18.526529,
+   "lon": 73.877141,
+   "osm_url": "https://www.openstreetmap.org/node/811249554"
+  },
+  {
+   "id": "node/1304739481",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Sun City",
+   "lat": 18.474876,
+   "lon": 73.813655,
+   "osm_url": "https://www.openstreetmap.org/node/1304739481"
+  },
+  {
+   "id": "node/1429382717",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Chaphekar Chowk",
+   "lat": 18.630087,
+   "lon": 73.779897,
+   "osm_url": "https://www.openstreetmap.org/node/1429382717"
+  },
+  {
+   "id": "node/1645621321",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Manapa Bhavan",
+   "lat": 18.523025,
+   "lon": 73.853423,
+   "osm_url": "https://www.openstreetmap.org/node/1645621321"
+  },
+  {
+   "id": "node/1762191454",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "JK Hill Park Bus Stop",
+   "lat": 18.451306,
+   "lon": 73.811043,
+   "osm_url": "https://www.openstreetmap.org/node/1762191454"
+  },
+  {
+   "id": "node/1801285994",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "mahalaxmi bus stop",
+   "lat": 18.570792,
+   "lon": 73.879203,
+   "osm_url": "https://www.openstreetmap.org/node/1801285994"
+  },
+  {
+   "id": "node/2006306826",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Indira Vasahat",
+   "lat": 18.481568,
+   "lon": 73.900633,
+   "osm_url": "https://www.openstreetmap.org/node/2006306826"
+  },
+  {
+   "id": "node/2279178859",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Baker Gauges",
+   "lat": 18.564355,
+   "lon": 73.916189,
+   "osm_url": "https://www.openstreetmap.org/node/2279178859"
+  },
+  {
+   "id": "node/3238255124",
+   "city": "Pune",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 18.516484,
+   "lon": 73.853031,
+   "osm_url": "https://www.openstreetmap.org/node/3238255124"
+  },
+  {
+   "id": "node/3660262370",
+   "city": "Pune",
+   "category": "industry",
+   "name": "DRAN",
+   "lat": 18.44279,
+   "lon": 73.820582,
+   "osm_url": "https://www.openstreetmap.org/node/3660262370"
+  },
+  {
+   "id": "node/3685917263",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Kakade Laser",
+   "lat": 18.444083,
+   "lon": 73.821085,
+   "osm_url": "https://www.openstreetmap.org/node/3685917263"
+  },
+  {
+   "id": "node/3715373723",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Shree Mahalakshmi Steel",
+   "lat": 18.444072,
+   "lon": 73.822031,
+   "osm_url": "https://www.openstreetmap.org/node/3715373723"
+  },
+  {
+   "id": "node/4721561023",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Shewalewadi Bus Depot",
+   "lat": 18.495486,
+   "lon": 73.971356,
+   "osm_url": "https://www.openstreetmap.org/node/4721561023"
+  },
+  {
+   "id": "node/4723474185",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Shogni Technoarts Pvt",
+   "lat": 18.32876,
+   "lon": 73.851811,
+   "osm_url": "https://www.openstreetmap.org/node/4723474185"
+  },
+  {
+   "id": "node/5149351032",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Chakan",
+   "lat": 18.756648,
+   "lon": 73.858668,
+   "osm_url": "https://www.openstreetmap.org/node/5149351032"
+  },
+  {
+   "id": "node/5149351035",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Chakan",
+   "lat": 18.756603,
+   "lon": 73.858948,
+   "osm_url": "https://www.openstreetmap.org/node/5149351035"
+  },
+  {
+   "id": "node/5149351036",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Talegaon Phata S.T. Stand",
+   "lat": 18.755574,
+   "lon": 73.859125,
+   "osm_url": "https://www.openstreetmap.org/node/5149351036"
+  },
+  {
+   "id": "node/6501779293",
+   "city": "Pune",
+   "category": "industry",
+   "name": "SI Interpack Unit 3",
+   "lat": 18.583097,
+   "lon": 73.73169,
+   "osm_url": "https://www.openstreetmap.org/node/6501779293"
+  },
+  {
+   "id": "node/6501779294",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Familaa Frozen Foods",
+   "lat": 18.583679,
+   "lon": 73.731704,
+   "osm_url": "https://www.openstreetmap.org/node/6501779294"
+  },
+  {
+   "id": "node/6501779295",
+   "city": "Pune",
+   "category": "industry",
+   "name": "RMC Ready Mix Concrete Supplier",
+   "lat": 18.584226,
+   "lon": 73.730829,
+   "osm_url": "https://www.openstreetmap.org/node/6501779295"
+  },
+  {
+   "id": "node/7596799204",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "New Wakadewadi MSRTC Bus Stand",
+   "lat": 18.543415,
+   "lon": 73.852399,
+   "osm_url": "https://www.openstreetmap.org/node/7596799204"
+  },
+  {
+   "id": "node/7610080761",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Nigdi",
+   "lat": 18.659813,
+   "lon": 73.777282,
+   "osm_url": "https://www.openstreetmap.org/node/7610080761"
+  },
+  {
+   "id": "node/7615324875",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "PMPML Bus Parking",
+   "lat": 18.533851,
+   "lon": 73.860269,
+   "osm_url": "https://www.openstreetmap.org/node/7615324875"
+  },
+  {
+   "id": "node/7683563092",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Kesnand Phata",
+   "lat": 18.580714,
+   "lon": 73.987587,
+   "osm_url": "https://www.openstreetmap.org/node/7683563092"
+  },
+  {
+   "id": "node/7683563093",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Kesnand Phata",
+   "lat": 18.580704,
+   "lon": 73.98773,
+   "osm_url": "https://www.openstreetmap.org/node/7683563093"
+  },
+  {
+   "id": "node/7683783250",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Saswad Pmpml Bus Stand",
+   "lat": 18.345023,
+   "lon": 74.031349,
+   "osm_url": "https://www.openstreetmap.org/node/7683783250"
+  },
+  {
+   "id": "node/9032645325",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Alandi Factory",
+   "lat": 18.662845,
+   "lon": 73.926757,
+   "osm_url": "https://www.openstreetmap.org/node/9032645325"
+  },
+  {
+   "id": "node/9121982220",
+   "city": "Pune",
+   "category": "industry",
+   "name": "KG Industries",
+   "lat": 18.622902,
+   "lon": 73.834607,
+   "osm_url": "https://www.openstreetmap.org/node/9121982220"
+  },
+  {
+   "id": "node/9152005063",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Kendriya Vidyalaya Lohgaon",
+   "lat": 18.577826,
+   "lon": 73.903067,
+   "osm_url": "https://www.openstreetmap.org/node/9152005063"
+  },
+  {
+   "id": "node/9152005064",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Kendriya Vidyalaya Lohgaon",
+   "lat": 18.577848,
+   "lon": 73.902988,
+   "osm_url": "https://www.openstreetmap.org/node/9152005064"
+  },
+  {
+   "id": "node/10115879727",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "DSK Vishwa Bus Stand;DSK Vishwa Bus Stop",
+   "lat": 18.443267,
+   "lon": 73.799002,
+   "osm_url": "https://www.openstreetmap.org/node/10115879727"
+  },
+  {
+   "id": "node/10235274254",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 18.589533,
+   "lon": 73.831789,
+   "osm_url": "https://www.openstreetmap.org/node/10235274254"
+  },
+  {
+   "id": "node/10235274256",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Atlas Copco",
+   "lat": 18.596463,
+   "lon": 73.828836,
+   "osm_url": "https://www.openstreetmap.org/node/10235274256"
+  },
+  {
+   "id": "node/10716107751",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Diehl Metal India",
+   "lat": 18.595917,
+   "lon": 73.725686,
+   "osm_url": "https://www.openstreetmap.org/node/10716107751"
+  },
+  {
+   "id": "node/10725756392",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Forbes Marshall Pvt. Ltd.",
+   "lat": 18.601322,
+   "lon": 73.825766,
+   "osm_url": "https://www.openstreetmap.org/node/10725756392"
+  },
+  {
+   "id": "node/11061123768",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Amphenol",
+   "lat": 18.617572,
+   "lon": 73.841406,
+   "osm_url": "https://www.openstreetmap.org/node/11061123768"
+  },
+  {
+   "id": "node/11178769738",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 18.3991,
+   "lon": 73.768542,
+   "osm_url": "https://www.openstreetmap.org/node/11178769738"
+  },
+  {
+   "id": "node/11458645750",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Eden Garden By Shirke",
+   "lat": 18.623513,
+   "lon": 73.740317,
+   "osm_url": "https://www.openstreetmap.org/node/11458645750"
+  },
+  {
+   "id": "node/11909576683",
+   "city": "Pune",
+   "category": "industry",
+   "name": "S. S. P. Enterprises",
+   "lat": 18.497499,
+   "lon": 73.918528,
+   "osm_url": "https://www.openstreetmap.org/node/11909576683"
+  },
+  {
+   "id": "node/11942749935",
+   "city": "Pune",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 18.499569,
+   "lon": 73.848748,
+   "osm_url": "https://www.openstreetmap.org/node/11942749935"
+  },
+  {
+   "id": "node/12383880038",
+   "city": "Pune",
+   "category": "industry",
+   "name": "yerwada hot mix plant",
+   "lat": 18.550534,
+   "lon": 73.879738,
+   "osm_url": "https://www.openstreetmap.org/node/12383880038"
+  },
+  {
+   "id": "node/13040957000",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Shree Heat Exchangers",
+   "lat": 18.451037,
+   "lon": 73.797747,
+   "osm_url": "https://www.openstreetmap.org/node/13040957000"
+  },
+  {
+   "id": "node/13144484737",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Sandhu Roadlines (Workshop 1)",
+   "lat": 18.72853,
+   "lon": 73.859772,
+   "osm_url": "https://www.openstreetmap.org/node/13144484737"
+  },
+  {
+   "id": "node/13144484738",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Sandhu Roadlines (Workshop 2)",
+   "lat": 18.729344,
+   "lon": 73.990483,
+   "osm_url": "https://www.openstreetmap.org/node/13144484738"
+  },
+  {
+   "id": "node/13144484739",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Sandhu Roadlines (Workshop 3)",
+   "lat": 18.721917,
+   "lon": 73.988164,
+   "osm_url": "https://www.openstreetmap.org/node/13144484739"
+  },
+  {
+   "id": "node/13249329559",
+   "city": "Pune",
+   "category": "industry",
+   "name": "CosmicByte",
+   "lat": 18.475956,
+   "lon": 73.967263,
+   "osm_url": "https://www.openstreetmap.org/node/13249329559"
+  },
+  {
+   "id": "node/13418759548",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Mhalunge Gaon (Bajirao Padale Chowk)",
+   "lat": 18.564616,
+   "lon": 73.735792,
+   "osm_url": "https://www.openstreetmap.org/node/13418759548"
+  },
+  {
+   "id": "node/13418914514",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Mhalunge Gaon (Bajirao Padale Chowk)",
+   "lat": 18.564614,
+   "lon": 73.735363,
+   "osm_url": "https://www.openstreetmap.org/node/13418914514"
+  },
+  {
+   "id": "node/13556672520",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Late Rajiv Gandhi Udyan BRT",
+   "lat": 18.453457,
+   "lon": 73.858424,
+   "osm_url": "https://www.openstreetmap.org/node/13556672520"
+  },
+  {
+   "id": "node/13597448018",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 18.57492,
+   "lon": 73.766376,
+   "osm_url": "https://www.openstreetmap.org/node/13597448018"
+  },
+  {
+   "id": "node/13605940270",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 18.522656,
+   "lon": 73.853502,
+   "osm_url": "https://www.openstreetmap.org/node/13605940270"
+  },
+  {
+   "id": "node/13619845454",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Company",
+   "lat": 18.69633,
+   "lon": 73.790631,
+   "osm_url": "https://www.openstreetmap.org/node/13619845454"
+  },
+  {
+   "id": "node/13620774433",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Chikli Bus Stop",
+   "lat": 18.683787,
+   "lon": 73.814199,
+   "osm_url": "https://www.openstreetmap.org/node/13620774433"
+  },
+  {
+   "id": "node/13639895694",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Pampml Bus Stand",
+   "lat": 18.766219,
+   "lon": 73.774913,
+   "osm_url": "https://www.openstreetmap.org/node/13639895694"
+  },
+  {
+   "id": "node/13644303337",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Cafvd Depot",
+   "lat": 18.574359,
+   "lon": 73.858437,
+   "osm_url": "https://www.openstreetmap.org/node/13644303337"
+  },
+  {
+   "id": "node/13879580719",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Hadpsar Gadi Tal",
+   "lat": 18.500419,
+   "lon": 73.939268,
+   "osm_url": "https://www.openstreetmap.org/node/13879580719"
+  },
+  {
+   "id": "way/53348816",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Sandvik Asia",
+   "lat": 18.592869,
+   "lon": 73.829268,
+   "osm_url": "https://www.openstreetmap.org/way/53348816"
+  },
+  {
+   "id": "way/53348822",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 18.595151,
+   "lon": 73.828253,
+   "osm_url": "https://www.openstreetmap.org/way/53348822"
+  },
+  {
+   "id": "way/53348875",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Alfa Laval",
+   "lat": 18.597192,
+   "lon": 73.827388,
+   "osm_url": "https://www.openstreetmap.org/way/53348875"
+  },
+  {
+   "id": "way/53348897",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Forbes Marshall",
+   "lat": 18.599189,
+   "lon": 73.826531,
+   "osm_url": "https://www.openstreetmap.org/way/53348897"
+  },
+  {
+   "id": "way/61383590",
+   "city": "Pune",
+   "category": "industry",
+   "name": "CDSS",
+   "lat": 18.503069,
+   "lon": 73.827957,
+   "osm_url": "https://www.openstreetmap.org/way/61383590"
+  },
+  {
+   "id": "way/97699163",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Tata Motors Limited",
+   "lat": 18.652282,
+   "lon": 73.818128,
+   "osm_url": "https://www.openstreetmap.org/way/97699163"
+  },
+  {
+   "id": "way/106496263",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 18.524256,
+   "lon": 73.913563,
+   "osm_url": "https://www.openstreetmap.org/way/106496263"
+  },
+  {
+   "id": "way/106496515",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Hadapsar Industrial Estate",
+   "lat": 18.509932,
+   "lon": 73.915448,
+   "osm_url": "https://www.openstreetmap.org/way/106496515"
+  },
+  {
+   "id": "way/106620876",
+   "city": "Pune",
+   "category": "industry",
+   "name": "MIDC Bhosari",
+   "lat": 18.62893,
+   "lon": 73.831435,
+   "osm_url": "https://www.openstreetmap.org/way/106620876"
+  },
+  {
+   "id": "way/106621249",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 18.655923,
+   "lon": 73.793547,
+   "osm_url": "https://www.openstreetmap.org/way/106621249"
+  },
+  {
+   "id": "way/118263727",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Pulgate",
+   "lat": 18.506064,
+   "lon": 73.882099,
+   "osm_url": "https://www.openstreetmap.org/way/118263727"
+  },
+  {
+   "id": "way/125482924",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Swargate ST Stand",
+   "lat": 18.499364,
+   "lon": 73.859266,
+   "osm_url": "https://www.openstreetmap.org/way/125482924"
+  },
+  {
+   "id": "way/125863154",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Sai Service Phugewadi",
+   "lat": 18.588882,
+   "lon": 73.830694,
+   "osm_url": "https://www.openstreetmap.org/way/125863154"
+  },
+  {
+   "id": "way/159480632",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Gandhi Bhavan Industrial Estate",
+   "lat": 18.496553,
+   "lon": 73.802745,
+   "osm_url": "https://www.openstreetmap.org/way/159480632"
+  },
+  {
+   "id": "way/190718828",
+   "city": "Pune",
+   "category": "industry",
+   "name": "MB",
+   "lat": 18.736025,
+   "lon": 73.83758,
+   "osm_url": "https://www.openstreetmap.org/way/190718828"
+  },
+  {
+   "id": "way/190718829",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Volkswagen India Private Limited",
+   "lat": 18.747833,
+   "lon": 73.819257,
+   "osm_url": "https://www.openstreetmap.org/way/190718829"
+  },
+  {
+   "id": "way/191050981",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Mahindra Vehicle Manufacturers Limited (MVML)",
+   "lat": 18.723649,
+   "lon": 73.803363,
+   "osm_url": "https://www.openstreetmap.org/way/191050981"
+  },
+  {
+   "id": "way/199261923",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Cummins India Ltd.",
+   "lat": 18.498066,
+   "lon": 73.806933,
+   "osm_url": "https://www.openstreetmap.org/way/199261923"
+  },
+  {
+   "id": "way/202301146",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Automotive Research Association of India (ARAI)",
+   "lat": 18.52331,
+   "lon": 73.814971,
+   "osm_url": "https://www.openstreetmap.org/way/202301146"
+  },
+  {
+   "id": "way/202924876",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 18.668918,
+   "lon": 73.921677,
+   "osm_url": "https://www.openstreetmap.org/way/202924876"
+  },
+  {
+   "id": "way/202924877",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 18.663535,
+   "lon": 74.087909,
+   "osm_url": "https://www.openstreetmap.org/way/202924877"
+  },
+  {
+   "id": "way/206485497",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 18.592198,
+   "lon": 73.725666,
+   "osm_url": "https://www.openstreetmap.org/way/206485497"
+  },
+  {
+   "id": "way/206488873",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 18.520361,
+   "lon": 73.674844,
+   "osm_url": "https://www.openstreetmap.org/way/206488873"
+  },
+  {
+   "id": "way/206488874",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 18.50988,
+   "lon": 73.698445,
+   "osm_url": "https://www.openstreetmap.org/way/206488874"
+  },
+  {
+   "id": "way/206488875",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 18.502685,
+   "lon": 73.673922,
+   "osm_url": "https://www.openstreetmap.org/way/206488875"
+  },
+  {
+   "id": "way/207832296",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Bharat Electronics Limited",
+   "lat": 18.527567,
+   "lon": 73.781177,
+   "osm_url": "https://www.openstreetmap.org/way/207832296"
+  },
+  {
+   "id": "way/209748924",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Vanaz",
+   "lat": 18.506428,
+   "lon": 73.805024,
+   "osm_url": "https://www.openstreetmap.org/way/209748924"
+  },
+  {
+   "id": "way/215535675",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 18.501585,
+   "lon": 73.823825,
+   "osm_url": "https://www.openstreetmap.org/way/215535675"
+  },
+  {
+   "id": "way/215535676",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 18.502162,
+   "lon": 73.818497,
+   "osm_url": "https://www.openstreetmap.org/way/215535676"
+  },
+  {
+   "id": "way/215535677",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 18.504304,
+   "lon": 73.82787,
+   "osm_url": "https://www.openstreetmap.org/way/215535677"
+  },
+  {
+   "id": "way/215586286",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Kirloskar Oil Engines",
+   "lat": 18.571458,
+   "lon": 73.840479,
+   "osm_url": "https://www.openstreetmap.org/way/215586286"
+  },
+  {
+   "id": "way/217431365",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.517544,
+   "lon": 73.843212,
+   "osm_url": "https://www.openstreetmap.org/way/217431365"
+  },
+  {
+   "id": "way/218691424",
+   "city": "Pune",
+   "category": "industry",
+   "name": "CTR",
+   "lat": 18.56231,
+   "lon": 73.920446,
+   "osm_url": "https://www.openstreetmap.org/way/218691424"
+  },
+  {
+   "id": "way/218834879",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Sudarshan Chemicals",
+   "lat": 18.531747,
+   "lon": 73.863257,
+   "osm_url": "https://www.openstreetmap.org/way/218834879"
+  },
+  {
+   "id": "way/221176477",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 18.718509,
+   "lon": 73.641228,
+   "osm_url": "https://www.openstreetmap.org/way/221176477"
+  },
+  {
+   "id": "way/223277853",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 18.348417,
+   "lon": 73.822069,
+   "osm_url": "https://www.openstreetmap.org/way/223277853"
+  },
+  {
+   "id": "way/223277854",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 18.348258,
+   "lon": 73.828806,
+   "osm_url": "https://www.openstreetmap.org/way/223277854"
+  },
+  {
+   "id": "way/223582787",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Mather and Platt Pumps Ltd",
+   "lat": 18.645958,
+   "lon": 73.785418,
+   "osm_url": "https://www.openstreetmap.org/way/223582787"
+  },
+  {
+   "id": "way/237621725",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 18.642565,
+   "lon": 73.836753,
+   "osm_url": "https://www.openstreetmap.org/way/237621725"
+  },
+  {
+   "id": "way/238693210",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 18.340087,
+   "lon": 73.837372,
+   "osm_url": "https://www.openstreetmap.org/way/238693210"
+  },
+  {
+   "id": "way/238695380",
+   "city": "Pune",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 18.346591,
+   "lon": 73.825561,
+   "osm_url": "https://www.openstreetmap.org/way/238695380"
+  },
+  {
+   "id": "way/242682734",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Pimpri-Chinchwad Bus Stand",
+   "lat": 18.615092,
+   "lon": 73.815925,
+   "osm_url": "https://www.openstreetmap.org/way/242682734"
+  },
+  {
+   "id": "way/249174603",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.521112,
+   "lon": 73.836023,
+   "osm_url": "https://www.openstreetmap.org/way/249174603"
+  },
+  {
+   "id": "way/264404139",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Katraj-Sarpodyan Bus Depot",
+   "lat": 18.455254,
+   "lon": 73.859242,
+   "osm_url": "https://www.openstreetmap.org/way/264404139"
+  },
+  {
+   "id": "way/280765137",
+   "city": "Pune",
+   "category": "waste_burning",
+   "name": "Koregaon Park Garbage Transfer Center",
+   "lat": 18.539511,
+   "lon": 73.900216,
+   "osm_url": "https://www.openstreetmap.org/way/280765137"
+  },
+  {
+   "id": "way/281883247",
+   "city": "Pune",
+   "category": "waste_burning",
+   "name": "Aundh Kachra Hastantaran Kendra",
+   "lat": 18.562593,
+   "lon": 73.816089,
+   "osm_url": "https://www.openstreetmap.org/way/281883247"
+  },
+  {
+   "id": "way/352313352",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Kondhwa Bus Stop",
+   "lat": 18.473068,
+   "lon": 73.889048,
+   "osm_url": "https://www.openstreetmap.org/way/352313352"
+  },
+  {
+   "id": "way/359477932",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.617721,
+   "lon": 73.748285,
+   "osm_url": "https://www.openstreetmap.org/way/359477932"
+  },
+  {
+   "id": "way/359496863",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.583327,
+   "lon": 73.696314,
+   "osm_url": "https://www.openstreetmap.org/way/359496863"
+  },
+  {
+   "id": "way/359510405",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.584748,
+   "lon": 73.697722,
+   "osm_url": "https://www.openstreetmap.org/way/359510405"
+  },
+  {
+   "id": "way/359552000",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.599796,
+   "lon": 73.749146,
+   "osm_url": "https://www.openstreetmap.org/way/359552000"
+  },
+  {
+   "id": "way/359567482",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.564436,
+   "lon": 73.77953,
+   "osm_url": "https://www.openstreetmap.org/way/359567482"
+  },
+  {
+   "id": "way/359575801",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "PK Stop",
+   "lat": 18.631575,
+   "lon": 73.77181,
+   "osm_url": "https://www.openstreetmap.org/way/359575801"
+  },
+  {
+   "id": "way/359699149",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.562981,
+   "lon": 73.783251,
+   "osm_url": "https://www.openstreetmap.org/way/359699149"
+  },
+  {
+   "id": "way/359699209",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.5671,
+   "lon": 73.782685,
+   "osm_url": "https://www.openstreetmap.org/way/359699209"
+  },
+  {
+   "id": "way/359699216",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.567535,
+   "lon": 73.782689,
+   "osm_url": "https://www.openstreetmap.org/way/359699216"
+  },
+  {
+   "id": "way/359715146",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.572298,
+   "lon": 73.781163,
+   "osm_url": "https://www.openstreetmap.org/way/359715146"
+  },
+  {
+   "id": "way/359715157",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.560695,
+   "lon": 73.786571,
+   "osm_url": "https://www.openstreetmap.org/way/359715157"
+  },
+  {
+   "id": "way/359728457",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.556133,
+   "lon": 73.799531,
+   "osm_url": "https://www.openstreetmap.org/way/359728457"
+  },
+  {
+   "id": "way/359743156",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Thopate Lawns",
+   "lat": 18.60221,
+   "lon": 73.790159,
+   "osm_url": "https://www.openstreetmap.org/way/359743156"
+  },
+  {
+   "id": "way/359747813",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Ratnadeep",
+   "lat": 18.558258,
+   "lon": 73.795727,
+   "osm_url": "https://www.openstreetmap.org/way/359747813"
+  },
+  {
+   "id": "way/359814400",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "rajani miss",
+   "lat": 18.537934,
+   "lon": 73.863038,
+   "osm_url": "https://www.openstreetmap.org/way/359814400"
+  },
+  {
+   "id": "way/360225128",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "PMPML Marketyard Depot",
+   "lat": 18.483609,
+   "lon": 73.870828,
+   "osm_url": "https://www.openstreetmap.org/way/360225128"
+  },
+  {
+   "id": "way/360275604",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Chinchwad Bus Station",
+   "lat": 18.627923,
+   "lon": 73.782377,
+   "osm_url": "https://www.openstreetmap.org/way/360275604"
+  },
+  {
+   "id": "way/364910980",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.595892,
+   "lon": 73.762856,
+   "osm_url": "https://www.openstreetmap.org/way/364910980"
+  },
+  {
+   "id": "way/365064939",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.553593,
+   "lon": 73.799996,
+   "osm_url": "https://www.openstreetmap.org/way/365064939"
+  },
+  {
+   "id": "way/395901738",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Sutarwadi Bus Terminus",
+   "lat": 18.54165,
+   "lon": 73.779095,
+   "osm_url": "https://www.openstreetmap.org/way/395901738"
+  },
+  {
+   "id": "way/477473046",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Bhekrainagar Depot",
+   "lat": 18.484417,
+   "lon": 73.953035,
+   "osm_url": "https://www.openstreetmap.org/way/477473046"
+  },
+  {
+   "id": "way/480597336",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Alandi Darshan",
+   "lat": 18.674461,
+   "lon": 73.897246,
+   "osm_url": "https://www.openstreetmap.org/way/480597336"
+  },
+  {
+   "id": "way/481953177",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Mukai Chowk, Kiwale Terminal",
+   "lat": 18.660385,
+   "lon": 73.731568,
+   "osm_url": "https://www.openstreetmap.org/way/481953177"
+  },
+  {
+   "id": "way/544582061",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Blueridge Lofts (Under",
+   "lat": 18.581749,
+   "lon": 73.735366,
+   "osm_url": "https://www.openstreetmap.org/way/544582061"
+  },
+  {
+   "id": "way/553571664",
+   "city": "Pune",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 18.465848,
+   "lon": 73.888817,
+   "osm_url": "https://www.openstreetmap.org/way/553571664"
+  },
+  {
+   "id": "way/591321854",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.499972,
+   "lon": 73.868938,
+   "osm_url": "https://www.openstreetmap.org/way/591321854"
+  },
+  {
+   "id": "way/612231767",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.492288,
+   "lon": 73.822542,
+   "osm_url": "https://www.openstreetmap.org/way/612231767"
+  },
+  {
+   "id": "way/612231768",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.4925,
+   "lon": 73.824387,
+   "osm_url": "https://www.openstreetmap.org/way/612231768"
+  },
+  {
+   "id": "way/612231769",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.491773,
+   "lon": 73.823542,
+   "osm_url": "https://www.openstreetmap.org/way/612231769"
+  },
+  {
+   "id": "way/653988393",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.580854,
+   "lon": 73.760616,
+   "osm_url": "https://www.openstreetmap.org/way/653988393"
+  },
+  {
+   "id": "way/660489216",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.502952,
+   "lon": 73.817825,
+   "osm_url": "https://www.openstreetmap.org/way/660489216"
+  },
+  {
+   "id": "way/709201554",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Solitare Business Hub",
+   "lat": 18.566388,
+   "lon": 73.7768,
+   "osm_url": "https://www.openstreetmap.org/way/709201554"
+  },
+  {
+   "id": "way/740885998",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "MSRTC Bus Station",
+   "lat": 18.351331,
+   "lon": 74.029353,
+   "osm_url": "https://www.openstreetmap.org/way/740885998"
+  },
+  {
+   "id": "way/747206241",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Chakan",
+   "lat": 18.754582,
+   "lon": 73.860151,
+   "osm_url": "https://www.openstreetmap.org/way/747206241"
+  },
+  {
+   "id": "way/814138922",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "VRL Logistics Akurdi",
+   "lat": 18.649414,
+   "lon": 73.765106,
+   "osm_url": "https://www.openstreetmap.org/way/814138922"
+  },
+  {
+   "id": "way/814294566",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Dehu Gaon",
+   "lat": 18.720831,
+   "lon": 73.766072,
+   "osm_url": "https://www.openstreetmap.org/way/814294566"
+  },
+  {
+   "id": "way/814689950",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.591349,
+   "lon": 73.761304,
+   "osm_url": "https://www.openstreetmap.org/way/814689950"
+  },
+  {
+   "id": "way/814703524",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Rudra Bus Parking Nigdi",
+   "lat": 18.656507,
+   "lon": 73.780805,
+   "osm_url": "https://www.openstreetmap.org/way/814703524"
+  },
+  {
+   "id": "way/815070255",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Talegaon Dabhade ST Stand",
+   "lat": 18.734686,
+   "lon": 73.671279,
+   "osm_url": "https://www.openstreetmap.org/way/815070255"
+  },
+  {
+   "id": "way/815335441",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Sangamwadi BRT Stop",
+   "lat": 18.537438,
+   "lon": 73.863277,
+   "osm_url": "https://www.openstreetmap.org/way/815335441"
+  },
+  {
+   "id": "way/815335442",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Sangamwadi BRT Stop",
+   "lat": 18.536602,
+   "lon": 73.86243,
+   "osm_url": "https://www.openstreetmap.org/way/815335442"
+  },
+  {
+   "id": "way/815335445",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Sangamwadi Private Bus Stand 1",
+   "lat": 18.535342,
+   "lon": 73.860728,
+   "osm_url": "https://www.openstreetmap.org/way/815335445"
+  },
+  {
+   "id": "way/815335446",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Sangamwadi Private Bus Stand 2",
+   "lat": 18.537125,
+   "lon": 73.863612,
+   "osm_url": "https://www.openstreetmap.org/way/815335446"
+  },
+  {
+   "id": "way/815378126",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "PMPML Bus Parking",
+   "lat": 18.53382,
+   "lon": 73.860442,
+   "osm_url": "https://www.openstreetmap.org/way/815378126"
+  },
+  {
+   "id": "way/815931848",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Kothrud Depot",
+   "lat": 18.50652,
+   "lon": 73.795247,
+   "osm_url": "https://www.openstreetmap.org/way/815931848"
+  },
+  {
+   "id": "way/817467530",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "New Wakadewadi MSRTC Bus Stand",
+   "lat": 18.542973,
+   "lon": 73.852627,
+   "osm_url": "https://www.openstreetmap.org/way/817467530"
+  },
+  {
+   "id": "way/817474247",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Swargate MSRTC Bus Stand",
+   "lat": 18.499955,
+   "lon": 73.859007,
+   "osm_url": "https://www.openstreetmap.org/way/817474247"
+  },
+  {
+   "id": "way/817474249",
+   "city": "Pune",
+   "category": "diesel_fleet",
+   "name": "Swargate MSRTC Bus Stand-2",
+   "lat": 18.499513,
+   "lon": 73.859714,
+   "osm_url": "https://www.openstreetmap.org/way/817474249"
+  },
+  {
+   "id": "way/821306759",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.509846,
+   "lon": 73.740544,
+   "osm_url": "https://www.openstreetmap.org/way/821306759"
+  },
+  {
+   "id": "way/1012660880",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.550202,
+   "lon": 73.937595,
+   "osm_url": "https://www.openstreetmap.org/way/1012660880"
+  },
+  {
+   "id": "way/1021357337",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Everglades",
+   "lat": 18.507543,
+   "lon": 73.735314,
+   "osm_url": "https://www.openstreetmap.org/way/1021357337"
+  },
+  {
+   "id": "way/1046823478",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.753101,
+   "lon": 73.847356,
+   "osm_url": "https://www.openstreetmap.org/way/1046823478"
+  },
+  {
+   "id": "way/1084221350",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.613102,
+   "lon": 73.768635,
+   "osm_url": "https://www.openstreetmap.org/way/1084221350"
+  },
+  {
+   "id": "way/1086362753",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.592833,
+   "lon": 73.771077,
+   "osm_url": "https://www.openstreetmap.org/way/1086362753"
+  },
+  {
+   "id": "way/1086362754",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.592841,
+   "lon": 73.771632,
+   "osm_url": "https://www.openstreetmap.org/way/1086362754"
+  },
+  {
+   "id": "way/1090445111",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Athens",
+   "lat": 18.59833,
+   "lon": 73.770551,
+   "osm_url": "https://www.openstreetmap.org/way/1090445111"
+  },
+  {
+   "id": "way/1090774349",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.594878,
+   "lon": 73.76761,
+   "osm_url": "https://www.openstreetmap.org/way/1090774349"
+  },
+  {
+   "id": "way/1093358562",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.587953,
+   "lon": 73.782151,
+   "osm_url": "https://www.openstreetmap.org/way/1093358562"
+  },
+  {
+   "id": "way/1098231521",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.555786,
+   "lon": 73.797994,
+   "osm_url": "https://www.openstreetmap.org/way/1098231521"
+  },
+  {
+   "id": "way/1101404071",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.509957,
+   "lon": 73.777812,
+   "osm_url": "https://www.openstreetmap.org/way/1101404071"
+  },
+  {
+   "id": "way/1101760071",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.550728,
+   "lon": 73.948677,
+   "osm_url": "https://www.openstreetmap.org/way/1101760071"
+  },
+  {
+   "id": "way/1103142503",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Lohia Jain F1 IT Park",
+   "lat": 18.510827,
+   "lon": 73.773165,
+   "osm_url": "https://www.openstreetmap.org/way/1103142503"
+  },
+  {
+   "id": "way/1104633977",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.510926,
+   "lon": 73.740083,
+   "osm_url": "https://www.openstreetmap.org/way/1104633977"
+  },
+  {
+   "id": "way/1107282096",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.600379,
+   "lon": 73.766354,
+   "osm_url": "https://www.openstreetmap.org/way/1107282096"
+  },
+  {
+   "id": "way/1116953211",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Metro Construction",
+   "lat": 18.545628,
+   "lon": 73.821504,
+   "osm_url": "https://www.openstreetmap.org/way/1116953211"
+  },
+  {
+   "id": "way/1116953212",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Metro Construction",
+   "lat": 18.544508,
+   "lon": 73.82379,
+   "osm_url": "https://www.openstreetmap.org/way/1116953212"
+  },
+  {
+   "id": "way/1116953213",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Metro Construction",
+   "lat": 18.543163,
+   "lon": 73.825598,
+   "osm_url": "https://www.openstreetmap.org/way/1116953213"
+  },
+  {
+   "id": "way/1116953214",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Metro Construction",
+   "lat": 18.54088,
+   "lon": 73.830625,
+   "osm_url": "https://www.openstreetmap.org/way/1116953214"
+  },
+  {
+   "id": "way/1116953215",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Metro Construction",
+   "lat": 18.536408,
+   "lon": 73.836854,
+   "osm_url": "https://www.openstreetmap.org/way/1116953215"
+  },
+  {
+   "id": "way/1119769619",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Sneh",
+   "lat": 18.512113,
+   "lon": 73.815355,
+   "osm_url": "https://www.openstreetmap.org/way/1119769619"
+  },
+  {
+   "id": "way/1137760876",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.591605,
+   "lon": 73.770244,
+   "osm_url": "https://www.openstreetmap.org/way/1137760876"
+  },
+  {
+   "id": "way/1137760877",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.591591,
+   "lon": 73.770617,
+   "osm_url": "https://www.openstreetmap.org/way/1137760877"
+  },
+  {
+   "id": "way/1137760878",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Serenity",
+   "lat": 18.591606,
+   "lon": 73.769931,
+   "osm_url": "https://www.openstreetmap.org/way/1137760878"
+  },
+  {
+   "id": "way/1137760879",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.591624,
+   "lon": 73.769862,
+   "osm_url": "https://www.openstreetmap.org/way/1137760879"
+  },
+  {
+   "id": "way/1143808514",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.597211,
+   "lon": 73.776641,
+   "osm_url": "https://www.openstreetmap.org/way/1143808514"
+  },
+  {
+   "id": "way/1144568986",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.605555,
+   "lon": 73.770662,
+   "osm_url": "https://www.openstreetmap.org/way/1144568986"
+  },
+  {
+   "id": "way/1152690164",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.590147,
+   "lon": 73.692831,
+   "osm_url": "https://www.openstreetmap.org/way/1152690164"
+  },
+  {
+   "id": "way/1153399407",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.597749,
+   "lon": 73.766141,
+   "osm_url": "https://www.openstreetmap.org/way/1153399407"
+  },
+  {
+   "id": "way/1154417060",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.575215,
+   "lon": 73.902327,
+   "osm_url": "https://www.openstreetmap.org/way/1154417060"
+  },
+  {
+   "id": "way/1163361779",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.482988,
+   "lon": 73.841673,
+   "osm_url": "https://www.openstreetmap.org/way/1163361779"
+  },
+  {
+   "id": "way/1184139875",
+   "city": "Pune",
+   "category": "construction",
+   "name": "Blue Ridge Tower 15,16 & 17",
+   "lat": 18.576742,
+   "lon": 73.741974,
+   "osm_url": "https://www.openstreetmap.org/way/1184139875"
   }
  ]
 }

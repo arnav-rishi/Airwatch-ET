@@ -192,7 +192,15 @@ Hard rules:
   alignment, and the attributed dominant source. That is the evidentiary basis - do not
   substitute generic reasoning about the city.
 - If a candidate is upwind of the hotspot, say so explicitly; it is the strongest single
-  piece of evidence that this facility can physically be contributing to the reading."""
+  piece of evidence that this facility can physically be contributing to the reading.
+- Candidates marked SATELLITE THERMAL DETECTION are active fires observed from orbit
+  (NASA FIRMS/VIIRS), not registered facilities. Open waste burning is illegal and
+  therefore absent from any ground register, so satellite observation is the only way it
+  appears at all — treat a high-confidence detection upwind of the hotspot as strong
+  evidence. But word the action as "verify and interdict active burning at these
+  coordinates", never as an inspection of a registered premises: a thermal anomaly is a
+  lead to be confirmed on the ground, not a proven violation, and industrial flares and
+  agricultural fires also register."""
 
 
 def enforcement_user(req) -> str:
@@ -223,12 +231,19 @@ def enforcement_user(req) -> str:
                     wind_note = f"partially upwind (alignment {align})"
                 else:
                     wind_note = f"crosswind (alignment {align})"
+                origin = ""
+                if s.get("source_type") == "satellite":
+                    origin = (
+                        f" | SATELLITE THERMAL DETECTION, observed {s.get('observed_at', 'recently')} UTC, "
+                        f"detection confidence {s.get('detection_confidence')}, "
+                        f"fire radiative power {s.get('frp_mw')} MW"
+                    )
                 lines.append(
                     f"    - [{s['id']}] {s.get('dispatch_label') or s['name']} | "
                     f"category: {s['category']} | "
                     f"{s['distance_km']} km {s.get('compass_from_hotspot', '')} of station | "
                     f"{wind_note} | evidence score {s['evidence_score']} | "
-                    f"coords {s['lat']},{s['lon']}"
+                    f"coords {s['lat']},{s['lon']}{origin}"
                 )
             header += "\n  Ranked registered emission sources near this hotspot:\n" + "\n".join(lines)
         else:

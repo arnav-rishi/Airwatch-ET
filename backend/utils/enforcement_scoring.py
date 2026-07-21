@@ -148,6 +148,13 @@ def dispatch_label(source: dict, distance_km: float, bearing: float) -> str:
     that travel alongside it, is genuinely actionable. Named sites keep their
     real name.
     """
+    # A satellite detection has no register entry by nature — it's located
+    # purely by observation, so describe it that way.
+    if source.get("source_type") == "satellite":
+        return (
+            f"Satellite-detected fire {distance_km:.1f} km "
+            f"{compass_point(bearing)} of {source.get('city', 'city')} centre"
+        )
     if is_identifiable(source):
         return source["name"]
     kind = source.get("category", "emission").replace("_", " ")
@@ -241,6 +248,13 @@ def score_sources(
             + _W_IDENTIFIABILITY * identifiability
             + _W_SEVERITY * severity
         )
+
+        # Satellite fire detections carry their own observation confidence.
+        # A low-confidence thermal anomaly is a weaker lead than a high-confidence
+        # one, and unlike a mapped facility it may not be a real fire at all — so
+        # the score is scaled by it rather than treating every detection alike.
+        if src.get("source_type") == "satellite":
+            total *= 0.5 + 0.5 * src.get("detection_confidence", 0.5)
 
         scored.append({
             **src,

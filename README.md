@@ -74,6 +74,20 @@ so landfills and transfer stations stand in for it. That caveat ships inside the
 own `_meta` block and is surfaced through the API rather than hidden. A production
 deployment would swap in CPCB consent-to-operate and state PCB registers.
 
+**1b. Satellite fire detection.** Open waste and biomass burning is the one major emitter
+that *cannot* appear in any ground register — it's illegal and unregistered by definition,
+so OSM has no entry for it. NASA FIRMS (VIIRS, 375 m) fills that gap: active-fire detections
+are fetched live per hotspot (`backend/services/firms.py`) and ranked in the same candidate
+list as ground facilities, weighted by the satellite's own detection confidence so a marginal
+thermal anomaly counts for less than a strong one. They're drawn dashed on the map and
+labelled *"Satellite-detected fire 3.2 km NW of Delhi centre"*, and the LLM is instructed to
+word these as *"verify and interdict active burning at these coordinates"* rather than as an
+inspection of a registered premises — a thermal anomaly is a lead to confirm on the ground,
+not a proven violation, and industrial flares and agricultural fires also register.
+
+Needs a free `FIRMS_MAP_KEY` (see `.env.example`). Purely additive: without one, enforcement
+falls back to the ground registry alone and still works.
+
 **2. The correlation** (`backend/utils/enforcement_scoring.py` — deterministic, no LLM).
 For each hotspot, every registered source in that city is scored on:
 
