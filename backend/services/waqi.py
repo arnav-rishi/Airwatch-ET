@@ -4,7 +4,7 @@ import os
 import json
 from pathlib import Path
 from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
-from utils.aqi_calculator import pm25_to_aqi, aqi_category, circle_radius
+from utils.aqi_calculator import pm25_to_aqi, epa_aqi_to_pm25, aqi_category, circle_radius
 
 WAQI_BASE = "https://api.waqi.info"
 FALLBACK_PATH = Path(__file__).parent.parent / "data" / "cities_fallback.json"
@@ -101,7 +101,16 @@ async def _fetch_city_live(client: httpx.AsyncClient, city: dict) -> dict:
         if not isinstance(raw_aqi, int):
             return _fallback_station(city)
 
-        pm25 = d.get("iaqi", {}).get("pm25", {}).get("v")
+        # WAQI's `aqi` and `iaqi.pm25.v` are both US EPA AQI *index* values, not
+        # μg/m³ concentrations. Recover the concentration, then re-express it on
+        # India's CPCB scale — otherwise live cities would sit on the EPA scale
+        # while fallback cities (cities_fallback.json) sit on CPCB, and the two
+        # would be silently mixed in every comparison downstream, most damagingly
+        # the enforcement hotspot ranking in routes/intelligence.py.
+        pm25_index = d.get("iaqi", {}).get("pm25", {}).get("v")
+        pm25 = epa_aqi_to_pm25(pm25_index) if pm25_index is not None else None
+        cpcb_aqi = pm25_to_aqi(pm25) if pm25 is not None else pm25_to_aqi(epa_aqi_to_pm25(raw_aqi))
+
         # Prefer the station's own coordinates so the pin sits on the real station.
         geo = d.get("city", {}).get("geo") or [city["lat"], city["lon"]]
         lat, lon = float(geo[0]), float(geo[1])
@@ -113,20 +122,24 @@ async def _fetch_city_live(client: httpx.AsyncClient, city: dict) -> dict:
         if not _in_india(lat, lon):
             return _fallback_station(city)
 
-        cat = aqi_category(raw_aqi)
+        cat = aqi_category(cpcb_aqi)
         return {
             "city": city["city"],
             "state": city["state"],
             "lat": lat,
             "lon": lon,
-            "aqi": raw_aqi,
+            "aqi": cpcb_aqi,
             "pm25": pm25,
+            # The original US EPA index WAQI served, kept alongside the converted
+            # CPCB value so the conversion stays auditable rather than opaque.
+            "aqi_epa_raw": raw_aqi,
+            "aqi_scale": "CPCB",
             "primary_pollutant": d.get("dominentpol", "pm25").upper(),
             "station_raw": d.get("city", {}).get("name", city["city"]),
             "updated_at": d.get("time", {}).get("s", ""),
             "source": "waqi_live",
             **cat,
-            "radius": circle_radius(raw_aqi),
+            "radius": circle_radius(cpcb_aqi),
         }
     except Exception:
         return _fallback_station(city)
@@ -185,13 +198,23 @@ async def fetch_city_feed(city_name: str) -> dict:
         d = data["data"]
         iaqi = d.get("iaqi", {})
 
-        pm25_raw = iaqi.get("pm25", {}).get("v")
-        pm10_raw = iaqi.get("pm10", {}).get("v")
-        no2_raw  = iaqi.get("no2",  {}).get("v")
-        o3_raw   = iaqi.get("o3",   {}).get("v")
-        co_raw   = iaqi.get("co",   {}).get("v")
+        # Every iaqi.*.v here is a US EPA AQI sub-index, NOT a μg/m³ concentration.
+        # PM2.5 we can invert exactly (epa_aqi_to_pm25), so it's reported as a real
+        # concentration. PM10/NO2/O3/CO each need their own EPA breakpoint table to
+        # invert; rather than fabricate a conversion, they stay as sub-indices and
+        # are named *_index so the frontend can label them honestly instead of
+        # printing an index value under a "μg/m³" heading.
+        pm25_index = iaqi.get("pm25", {}).get("v")
+        pm10_index = iaqi.get("pm10", {}).get("v")
+        no2_index  = iaqi.get("no2",  {}).get("v")
+        o3_index   = iaqi.get("o3",   {}).get("v")
+        co_index   = iaqi.get("co",   {}).get("v")
 
-        cpcb_aqi = pm25_to_aqi(pm25_raw) if pm25_raw else d.get("aqi", 0)
+        pm25 = epa_aqi_to_pm25(pm25_index) if pm25_index is not None else None
+        cpcb_aqi = (
+            pm25_to_aqi(pm25) if pm25 is not None
+            else pm25_to_aqi(epa_aqi_to_pm25(d.get("aqi", 0)))
+        )
 
         forecast_daily = d.get("forecast", {}).get("daily", {})
         pm25_forecast = forecast_daily.get("pm25", [])
@@ -199,11 +222,12 @@ async def fetch_city_feed(city_name: str) -> dict:
         return {
             "city": city_name,
             "aqi": cpcb_aqi,
-            "pm25": pm25_raw,
-            "pm10": pm10_raw,
-            "no2": no2_raw,
-            "o3": o3_raw,
-            "co": co_raw,
+            "aqi_scale": "CPCB",
+            "pm25": pm25,
+            "pm10_index": pm10_index,
+            "no2_index": no2_index,
+            "o3_index": o3_index,
+            "co_index": co_index,
             "dominant_pollutant": d.get("dominentpol", "pm25").upper(),
             "updated_at": d.get("time", {}).get("s", ""),
             "pm25_forecast": pm25_forecast,
