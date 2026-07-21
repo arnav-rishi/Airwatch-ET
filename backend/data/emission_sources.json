@@ -5,47 +5,15 @@
   "caveat": "OSM proxies for registered emitters, not an official register. Open waste burning is unmapped by nature, so landfills and waste transfer stations stand in for it. A production deployment would use CPCB consent-to-operate and state PCB registers instead.",
   "bbox_half_deg": 0.25,
   "max_per_category_per_city": 60,
-  "total_sources": 1471,
+  "total_sources": 1951,
   "by_category": {
-   "diesel_fleet": 360,
-   "industry": 589,
-   "waste_burning": 192,
-   "construction": 330
+   "diesel_fleet": 480,
+   "industry": 709,
+   "waste_burning": 312,
+   "construction": 450
   },
-  "cities_covered": 12,
-  "failed_cities": [
-   "Delhi",
-   "Mumbai",
-   "Bengaluru",
-   "Hyderabad",
-   "Ahmedabad",
-   "Pune",
-   "Jaipur",
-   "Lucknow",
-   "Bhopal",
-   "Varanasi",
-   "Guwahati",
-   "Coimbatore",
-   "Chandigarh",
-   "Amritsar",
-   "Muzaffarpur",
-   "Ghaziabad",
-   "Faridabad",
-   "Agra",
-   "Nashik",
-   "Vadodara",
-   "Rajkot",
-   "Kota",
-   "Raipur",
-   "Ranchi",
-   "Dehradun",
-   "Jammu",
-   "Thiruvananthapuram",
-   "Madurai",
-   "Vijayawada",
-   "Mysuru",
-   "Gwalior"
-  ]
+  "cities_covered": 14,
+  "failed_cities": []
  },
  "sources": [
   {
@@ -13286,6 +13254,4326 @@
    "lat": 23.11302,
    "lon": 80.218279,
    "osm_url": "https://www.openstreetmap.org/relation/17087389"
+  },
+  {
+   "id": "node/457278181",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Ghaziabad Bus Stand",
+   "lat": 28.669227,
+   "lon": 77.415798,
+   "osm_url": "https://www.openstreetmap.org/node/457278181"
+  },
+  {
+   "id": "node/496457107",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 28.610867,
+   "lon": 77.251608,
+   "osm_url": "https://www.openstreetmap.org/node/496457107"
+  },
+  {
+   "id": "node/496730218",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Pyare Lal Ashok Leyland",
+   "lat": 28.778671,
+   "lon": 77.142852,
+   "osm_url": "https://www.openstreetmap.org/node/496730218"
+  },
+  {
+   "id": "node/943749501",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Mori Gate Bus Terminal",
+   "lat": 28.668361,
+   "lon": 77.225176,
+   "osm_url": "https://www.openstreetmap.org/node/943749501"
+  },
+  {
+   "id": "node/1374470982",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Hari Nagar Bus Depot",
+   "lat": 28.623912,
+   "lon": 77.101681,
+   "osm_url": "https://www.openstreetmap.org/node/1374470982"
+  },
+  {
+   "id": "node/1480729645",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Princess Park",
+   "lat": 28.5878,
+   "lon": 77.066631,
+   "osm_url": "https://www.openstreetmap.org/node/1480729645"
+  },
+  {
+   "id": "node/1665799172",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Safdarjung Terminal",
+   "lat": 28.579664,
+   "lon": 77.213486,
+   "osm_url": "https://www.openstreetmap.org/node/1665799172"
+  },
+  {
+   "id": "node/1669092717",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Pusa Institute",
+   "lat": 28.640496,
+   "lon": 77.174176,
+   "osm_url": "https://www.openstreetmap.org/node/1669092717"
+  },
+  {
+   "id": "node/1848140182",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "DTC Bus Depot, Dichaon Kalan",
+   "lat": 28.629331,
+   "lon": 76.997946,
+   "osm_url": "https://www.openstreetmap.org/node/1848140182"
+  },
+  {
+   "id": "node/2036039194",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Aya Nagar Bus Terminal",
+   "lat": 28.476828,
+   "lon": 77.130491,
+   "osm_url": "https://www.openstreetmap.org/node/2036039194"
+  },
+  {
+   "id": "node/4405678392",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Okhla",
+   "lat": 28.56526,
+   "lon": 77.287923,
+   "osm_url": "https://www.openstreetmap.org/node/4405678392"
+  },
+  {
+   "id": "node/4533766389",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 28.595434,
+   "lon": 77.310029,
+   "osm_url": "https://www.openstreetmap.org/node/4533766389"
+  },
+  {
+   "id": "node/4574602992",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 28.644335,
+   "lon": 77.13861,
+   "osm_url": "https://www.openstreetmap.org/node/4574602992"
+  },
+  {
+   "id": "node/4700705789",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Bikaner Bus Depot",
+   "lat": 28.608697,
+   "lon": 77.230209,
+   "osm_url": "https://www.openstreetmap.org/node/4700705789"
+  },
+  {
+   "id": "node/4725833989",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Paharganj bus stand",
+   "lat": 28.644775,
+   "lon": 77.204337,
+   "osm_url": "https://www.openstreetmap.org/node/4725833989"
+  },
+  {
+   "id": "node/4917303822",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Majnu Ka Tila",
+   "lat": 28.696574,
+   "lon": 77.223632,
+   "osm_url": "https://www.openstreetmap.org/node/4917303822"
+  },
+  {
+   "id": "node/5170946821",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "kardampuri",
+   "lat": 28.680212,
+   "lon": 77.27448,
+   "osm_url": "https://www.openstreetmap.org/node/5170946821"
+  },
+  {
+   "id": "node/5218661930",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Potala Ground",
+   "lat": 28.704847,
+   "lon": 77.229326,
+   "osm_url": "https://www.openstreetmap.org/node/5218661930"
+  },
+  {
+   "id": "node/5232390466",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.622408,
+   "lon": 77.235466,
+   "osm_url": "https://www.openstreetmap.org/node/5232390466"
+  },
+  {
+   "id": "node/5245901426",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Bus Station",
+   "lat": 28.591207,
+   "lon": 77.296209,
+   "osm_url": "https://www.openstreetmap.org/node/5245901426"
+  },
+  {
+   "id": "node/5455135855",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.564566,
+   "lon": 77.250299,
+   "osm_url": "https://www.openstreetmap.org/node/5455135855"
+  },
+  {
+   "id": "node/5483331197",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.519823,
+   "lon": 77.215934,
+   "osm_url": "https://www.openstreetmap.org/node/5483331197"
+  },
+  {
+   "id": "node/5483331221",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.519015,
+   "lon": 77.210681,
+   "osm_url": "https://www.openstreetmap.org/node/5483331221"
+  },
+  {
+   "id": "node/5483331965",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.539712,
+   "lon": 77.234402,
+   "osm_url": "https://www.openstreetmap.org/node/5483331965"
+  },
+  {
+   "id": "node/5561734254",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.570256,
+   "lon": 77.168025,
+   "osm_url": "https://www.openstreetmap.org/node/5561734254"
+  },
+  {
+   "id": "node/5561734264",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.514886,
+   "lon": 77.22932,
+   "osm_url": "https://www.openstreetmap.org/node/5561734264"
+  },
+  {
+   "id": "node/5586450404",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.531879,
+   "lon": 77.20408,
+   "osm_url": "https://www.openstreetmap.org/node/5586450404"
+  },
+  {
+   "id": "node/5598792571",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.538602,
+   "lon": 77.198422,
+   "osm_url": "https://www.openstreetmap.org/node/5598792571"
+  },
+  {
+   "id": "node/5606766736",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.509611,
+   "lon": 77.179508,
+   "osm_url": "https://www.openstreetmap.org/node/5606766736"
+  },
+  {
+   "id": "node/5608721585",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Badarpur Border",
+   "lat": 28.494114,
+   "lon": 77.302263,
+   "osm_url": "https://www.openstreetmap.org/node/5608721585"
+  },
+  {
+   "id": "node/5630006581",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.528029,
+   "lon": 77.209852,
+   "osm_url": "https://www.openstreetmap.org/node/5630006581"
+  },
+  {
+   "id": "node/5690505425",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Western Court Bus Terminus",
+   "lat": 28.62333,
+   "lon": 77.218417,
+   "osm_url": "https://www.openstreetmap.org/node/5690505425"
+  },
+  {
+   "id": "node/5778513821",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.52558,
+   "lon": 77.263882,
+   "osm_url": "https://www.openstreetmap.org/node/5778513821"
+  },
+  {
+   "id": "node/5799043065",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.521057,
+   "lon": 77.212869,
+   "osm_url": "https://www.openstreetmap.org/node/5799043065"
+  },
+  {
+   "id": "node/5799044044",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.522652,
+   "lon": 77.214071,
+   "osm_url": "https://www.openstreetmap.org/node/5799044044"
+  },
+  {
+   "id": "node/5804017980",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.524198,
+   "lon": 77.207108,
+   "osm_url": "https://www.openstreetmap.org/node/5804017980"
+  },
+  {
+   "id": "node/5818160996",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.616501,
+   "lon": 77.08002,
+   "osm_url": "https://www.openstreetmap.org/node/5818160996"
+  },
+  {
+   "id": "node/5884780985",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.57188,
+   "lon": 77.172341,
+   "osm_url": "https://www.openstreetmap.org/node/5884780985"
+  },
+  {
+   "id": "node/5950266473",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.56572,
+   "lon": 77.160937,
+   "osm_url": "https://www.openstreetmap.org/node/5950266473"
+  },
+  {
+   "id": "node/5950267739",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.567637,
+   "lon": 77.16077,
+   "osm_url": "https://www.openstreetmap.org/node/5950267739"
+  },
+  {
+   "id": "node/5950267741",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.547066,
+   "lon": 77.229067,
+   "osm_url": "https://www.openstreetmap.org/node/5950267741"
+  },
+  {
+   "id": "node/5964264470",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.522024,
+   "lon": 77.222565,
+   "osm_url": "https://www.openstreetmap.org/node/5964264470"
+  },
+  {
+   "id": "node/5964272315",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.57327,
+   "lon": 77.24587,
+   "osm_url": "https://www.openstreetmap.org/node/5964272315"
+  },
+  {
+   "id": "node/5964272415",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.575102,
+   "lon": 77.243268,
+   "osm_url": "https://www.openstreetmap.org/node/5964272415"
+  },
+  {
+   "id": "node/6112993593",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.550391,
+   "lon": 77.252461,
+   "osm_url": "https://www.openstreetmap.org/node/6112993593"
+  },
+  {
+   "id": "node/6112995940",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.564642,
+   "lon": 77.250337,
+   "osm_url": "https://www.openstreetmap.org/node/6112995940"
+  },
+  {
+   "id": "node/6227942119",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.568064,
+   "lon": 77.249967,
+   "osm_url": "https://www.openstreetmap.org/node/6227942119"
+  },
+  {
+   "id": "node/6261565904",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.536725,
+   "lon": 77.197449,
+   "osm_url": "https://www.openstreetmap.org/node/6261565904"
+  },
+  {
+   "id": "node/6265508688",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.52356,
+   "lon": 77.229492,
+   "osm_url": "https://www.openstreetmap.org/node/6265508688"
+  },
+  {
+   "id": "node/6274319095",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.512241,
+   "lon": 77.249115,
+   "osm_url": "https://www.openstreetmap.org/node/6274319095"
+  },
+  {
+   "id": "node/6466155021",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.540022,
+   "lon": 77.186521,
+   "osm_url": "https://www.openstreetmap.org/node/6466155021"
+  },
+  {
+   "id": "node/6468953783",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 28.414949,
+   "lon": 77.053421,
+   "osm_url": "https://www.openstreetmap.org/node/6468953783"
+  },
+  {
+   "id": "node/6475031493",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.565571,
+   "lon": 77.270348,
+   "osm_url": "https://www.openstreetmap.org/node/6475031493"
+  },
+  {
+   "id": "node/6475194140",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.548557,
+   "lon": 77.304489,
+   "osm_url": "https://www.openstreetmap.org/node/6475194140"
+  },
+  {
+   "id": "node/6490310051",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.516465,
+   "lon": 77.223323,
+   "osm_url": "https://www.openstreetmap.org/node/6490310051"
+  },
+  {
+   "id": "node/6490310052",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.523139,
+   "lon": 77.235049,
+   "osm_url": "https://www.openstreetmap.org/node/6490310052"
+  },
+  {
+   "id": "node/6507350886",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.663698,
+   "lon": 77.182966,
+   "osm_url": "https://www.openstreetmap.org/node/6507350886"
+  },
+  {
+   "id": "node/6587421898",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Himgiri Textiles",
+   "lat": 28.464352,
+   "lon": 77.307352,
+   "osm_url": "https://www.openstreetmap.org/node/6587421898"
+  },
+  {
+   "id": "node/6720753129",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.515193,
+   "lon": 77.20537,
+   "osm_url": "https://www.openstreetmap.org/node/6720753129"
+  },
+  {
+   "id": "node/6750512444",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.540814,
+   "lon": 77.242348,
+   "osm_url": "https://www.openstreetmap.org/node/6750512444"
+  },
+  {
+   "id": "node/6831721786",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Chirag Dilli Metro Station Gate no.2",
+   "lat": 28.54198,
+   "lon": 77.230046,
+   "osm_url": "https://www.openstreetmap.org/node/6831721786"
+  },
+  {
+   "id": "node/6833896542",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.522222,
+   "lon": 77.16837,
+   "osm_url": "https://www.openstreetmap.org/node/6833896542"
+  },
+  {
+   "id": "node/6834036200",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.522936,
+   "lon": 77.18064,
+   "osm_url": "https://www.openstreetmap.org/node/6834036200"
+  },
+  {
+   "id": "node/6835548385",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "SPM MEDICARE PVT. LTD.",
+   "lat": 28.536903,
+   "lon": 77.410846,
+   "osm_url": "https://www.openstreetmap.org/node/6835548385"
+  },
+  {
+   "id": "node/6862917578",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.565024,
+   "lon": 77.163268,
+   "osm_url": "https://www.openstreetmap.org/node/6862917578"
+  },
+  {
+   "id": "node/6961335190",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.533041,
+   "lon": 77.152124,
+   "osm_url": "https://www.openstreetmap.org/node/6961335190"
+  },
+  {
+   "id": "node/7065830673",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.529007,
+   "lon": 77.159183,
+   "osm_url": "https://www.openstreetmap.org/node/7065830673"
+  },
+  {
+   "id": "node/7130898528",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.50077,
+   "lon": 77.301293,
+   "osm_url": "https://www.openstreetmap.org/node/7130898528"
+  },
+  {
+   "id": "node/7150717314",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.574415,
+   "lon": 77.168682,
+   "osm_url": "https://www.openstreetmap.org/node/7150717314"
+  },
+  {
+   "id": "node/7150717317",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.572648,
+   "lon": 77.169606,
+   "osm_url": "https://www.openstreetmap.org/node/7150717317"
+  },
+  {
+   "id": "node/8108128818",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.599326,
+   "lon": 77.293805,
+   "osm_url": "https://www.openstreetmap.org/node/8108128818"
+  },
+  {
+   "id": "node/9107546089",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.615328,
+   "lon": 77.31034,
+   "osm_url": "https://www.openstreetmap.org/node/9107546089"
+  },
+  {
+   "id": "node/9504493214",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.552661,
+   "lon": 77.23716,
+   "osm_url": "https://www.openstreetmap.org/node/9504493214"
+  },
+  {
+   "id": "node/9544997484",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Karol Bagh Terminal",
+   "lat": 28.648029,
+   "lon": 77.200844,
+   "osm_url": "https://www.openstreetmap.org/node/9544997484"
+  },
+  {
+   "id": "node/9562270615",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "MR Utility",
+   "lat": 28.536318,
+   "lon": 77.395232,
+   "osm_url": "https://www.openstreetmap.org/node/9562270615"
+  },
+  {
+   "id": "node/9785748182",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.620213,
+   "lon": 77.306622,
+   "osm_url": "https://www.openstreetmap.org/node/9785748182"
+  },
+  {
+   "id": "node/9785748190",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.607853,
+   "lon": 77.33637,
+   "osm_url": "https://www.openstreetmap.org/node/9785748190"
+  },
+  {
+   "id": "node/10049730551",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.54392,
+   "lon": 77.181824,
+   "osm_url": "https://www.openstreetmap.org/node/10049730551"
+  },
+  {
+   "id": "node/10228035994",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Gladico Motocorp",
+   "lat": 28.491811,
+   "lon": 77.303089,
+   "osm_url": "https://www.openstreetmap.org/node/10228035994"
+  },
+  {
+   "id": "node/10284613604",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "TECH MACH SHEET METAL COMPONENTS",
+   "lat": 28.367335,
+   "lon": 77.3019,
+   "osm_url": "https://www.openstreetmap.org/node/10284613604"
+  },
+  {
+   "id": "node/10699300841",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.730543,
+   "lon": 77.161452,
+   "osm_url": "https://www.openstreetmap.org/node/10699300841"
+  },
+  {
+   "id": "node/10727473862",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.730025,
+   "lon": 77.177506,
+   "osm_url": "https://www.openstreetmap.org/node/10727473862"
+  },
+  {
+   "id": "node/10733152092",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.728968,
+   "lon": 77.177544,
+   "osm_url": "https://www.openstreetmap.org/node/10733152092"
+  },
+  {
+   "id": "node/10765703451",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.730834,
+   "lon": 77.16577,
+   "osm_url": "https://www.openstreetmap.org/node/10765703451"
+  },
+  {
+   "id": "node/10766083898",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.733538,
+   "lon": 77.16262,
+   "osm_url": "https://www.openstreetmap.org/node/10766083898"
+  },
+  {
+   "id": "node/10778053839",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.599175,
+   "lon": 77.226156,
+   "osm_url": "https://www.openstreetmap.org/node/10778053839"
+  },
+  {
+   "id": "node/10894123806",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Akshardam Pillar 36 Bus Stand",
+   "lat": 28.615917,
+   "lon": 77.281605,
+   "osm_url": "https://www.openstreetmap.org/node/10894123806"
+  },
+  {
+   "id": "node/10913809845",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.743455,
+   "lon": 77.16827,
+   "osm_url": "https://www.openstreetmap.org/node/10913809845"
+  },
+  {
+   "id": "node/10939758192",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 28.752126,
+   "lon": 77.16185,
+   "osm_url": "https://www.openstreetmap.org/node/10939758192"
+  },
+  {
+   "id": "node/10939869323",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.732936,
+   "lon": 77.170222,
+   "osm_url": "https://www.openstreetmap.org/node/10939869323"
+  },
+  {
+   "id": "node/10989528395",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Hansraj and Sons",
+   "lat": 28.744376,
+   "lon": 77.153885,
+   "osm_url": "https://www.openstreetmap.org/node/10989528395"
+  },
+  {
+   "id": "node/11021593710",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Himalayan Engineering Services",
+   "lat": 28.747692,
+   "lon": 77.164574,
+   "osm_url": "https://www.openstreetmap.org/node/11021593710"
+  },
+  {
+   "id": "node/11264487320",
+   "city": "Delhi",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 28.560507,
+   "lon": 77.193757,
+   "osm_url": "https://www.openstreetmap.org/node/11264487320"
+  },
+  {
+   "id": "node/11693042557",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Bharat Industrial Corporation",
+   "lat": 28.657779,
+   "lon": 77.454504,
+   "osm_url": "https://www.openstreetmap.org/node/11693042557"
+  },
+  {
+   "id": "node/11697361830",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Shri Vaishno Nuts Factory Pvt Ltd",
+   "lat": 28.657292,
+   "lon": 77.456431,
+   "osm_url": "https://www.openstreetmap.org/node/11697361830"
+  },
+  {
+   "id": "node/11697434758",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Hindon Electricals",
+   "lat": 28.656702,
+   "lon": 77.455759,
+   "osm_url": "https://www.openstreetmap.org/node/11697434758"
+  },
+  {
+   "id": "node/11697458847",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "SURYA INDUSTRIES",
+   "lat": 28.658655,
+   "lon": 77.457268,
+   "osm_url": "https://www.openstreetmap.org/node/11697458847"
+  },
+  {
+   "id": "node/11697458885",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "G.N Surgicals",
+   "lat": 28.657238,
+   "lon": 77.456181,
+   "osm_url": "https://www.openstreetmap.org/node/11697458885"
+  },
+  {
+   "id": "node/11697459894",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "RC Industries",
+   "lat": 28.655637,
+   "lon": 77.453964,
+   "osm_url": "https://www.openstreetmap.org/node/11697459894"
+  },
+  {
+   "id": "node/11697462786",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Swadeshi Polytex",
+   "lat": 28.656792,
+   "lon": 77.456682,
+   "osm_url": "https://www.openstreetmap.org/node/11697462786"
+  },
+  {
+   "id": "node/11697496760",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Rail Inox Steel Pvt. Ltd.",
+   "lat": 28.657781,
+   "lon": 77.457133,
+   "osm_url": "https://www.openstreetmap.org/node/11697496760"
+  },
+  {
+   "id": "node/11697651133",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 28.735881,
+   "lon": 77.2899,
+   "osm_url": "https://www.openstreetmap.org/node/11697651133"
+  },
+  {
+   "id": "node/11698050895",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "ishant container line",
+   "lat": 28.504734,
+   "lon": 77.276613,
+   "osm_url": "https://www.openstreetmap.org/node/11698050895"
+  },
+  {
+   "id": "node/11765231237",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Karol Bagh Terminal",
+   "lat": 28.648275,
+   "lon": 77.200823,
+   "osm_url": "https://www.openstreetmap.org/node/11765231237"
+  },
+  {
+   "id": "node/12052765179",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.525514,
+   "lon": 77.237876,
+   "osm_url": "https://www.openstreetmap.org/node/12052765179"
+  },
+  {
+   "id": "node/12593961705",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Mayur Vihar Phase - 3, Bus Stand",
+   "lat": 28.614039,
+   "lon": 77.337383,
+   "osm_url": "https://www.openstreetmap.org/node/12593961705"
+  },
+  {
+   "id": "node/12698411271",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Cluster Bus Depot Dwarka Sector 22",
+   "lat": 28.554185,
+   "lon": 77.052908,
+   "osm_url": "https://www.openstreetmap.org/node/12698411271"
+  },
+  {
+   "id": "node/12713991931",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Servotron",
+   "lat": 28.623619,
+   "lon": 77.291036,
+   "osm_url": "https://www.openstreetmap.org/node/12713991931"
+  },
+  {
+   "id": "node/13146724911",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Shershah Cold Storage",
+   "lat": 28.71407,
+   "lon": 77.172068,
+   "osm_url": "https://www.openstreetmap.org/node/13146724911"
+  },
+  {
+   "id": "node/13269526176",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Harewali Bus Terminal",
+   "lat": 28.831081,
+   "lon": 77.007561,
+   "osm_url": "https://www.openstreetmap.org/node/13269526176"
+  },
+  {
+   "id": "node/13269544856",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Harewali Bus Terminal",
+   "lat": 28.83112,
+   "lon": 77.007463,
+   "osm_url": "https://www.openstreetmap.org/node/13269544856"
+  },
+  {
+   "id": "node/13413957328",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Aaradhya Enterpeises",
+   "lat": 28.619894,
+   "lon": 76.996541,
+   "osm_url": "https://www.openstreetmap.org/node/13413957328"
+  },
+  {
+   "id": "node/13903711879",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Pune Bag Factory",
+   "lat": 28.656577,
+   "lon": 77.202233,
+   "osm_url": "https://www.openstreetmap.org/node/13903711879"
+  },
+  {
+   "id": "way/24515754",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Gurugram Bus Stand",
+   "lat": 28.465249,
+   "lon": 77.032208,
+   "osm_url": "https://www.openstreetmap.org/way/24515754"
+  },
+  {
+   "id": "way/27035476",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 28.469874,
+   "lon": 77.053033,
+   "osm_url": "https://www.openstreetmap.org/way/27035476"
+  },
+  {
+   "id": "way/28208819",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Sector 5",
+   "lat": 28.588873,
+   "lon": 77.321676,
+   "osm_url": "https://www.openstreetmap.org/way/28208819"
+  },
+  {
+   "id": "way/28240487",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Sector 4",
+   "lat": 28.583527,
+   "lon": 77.32303,
+   "osm_url": "https://www.openstreetmap.org/way/28240487"
+  },
+  {
+   "id": "way/39266288",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 28.363723,
+   "lon": 77.319992,
+   "osm_url": "https://www.openstreetmap.org/way/39266288"
+  },
+  {
+   "id": "way/39347588",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 28.376577,
+   "lon": 77.299421,
+   "osm_url": "https://www.openstreetmap.org/way/39347588"
+  },
+  {
+   "id": "way/40943545",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Kashmere Gate ISBT",
+   "lat": 28.668689,
+   "lon": 77.230418,
+   "osm_url": "https://www.openstreetmap.org/way/40943545"
+  },
+  {
+   "id": "way/44350312",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 28.456014,
+   "lon": 77.006411,
+   "osm_url": "https://www.openstreetmap.org/way/44350312"
+  },
+  {
+   "id": "way/57358832",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Noida Special Economic Zone",
+   "lat": 28.541058,
+   "lon": 77.398932,
+   "osm_url": "https://www.openstreetmap.org/way/57358832"
+  },
+  {
+   "id": "way/58472851",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Uttam Nagar Terminal",
+   "lat": 28.625608,
+   "lon": 77.065571,
+   "osm_url": "https://www.openstreetmap.org/way/58472851"
+  },
+  {
+   "id": "way/59035953",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "DTC Bus Depot Sector 2",
+   "lat": 28.598719,
+   "lon": 77.06514,
+   "osm_url": "https://www.openstreetmap.org/way/59035953"
+  },
+  {
+   "id": "way/70534891",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "AMPM Fashions Private Limited",
+   "lat": 28.590378,
+   "lon": 77.332208,
+   "osm_url": "https://www.openstreetmap.org/way/70534891"
+  },
+  {
+   "id": "way/70534913",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Ansumiti Technosoft Pvt Ltd",
+   "lat": 28.580782,
+   "lon": 77.318855,
+   "osm_url": "https://www.openstreetmap.org/way/70534913"
+  },
+  {
+   "id": "way/70534966",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Sector 9",
+   "lat": 28.586858,
+   "lon": 77.327393,
+   "osm_url": "https://www.openstreetmap.org/way/70534966"
+  },
+  {
+   "id": "way/71221209",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Sector 11",
+   "lat": 28.598705,
+   "lon": 77.334628,
+   "osm_url": "https://www.openstreetmap.org/way/71221209"
+  },
+  {
+   "id": "way/71295897",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Sector 8",
+   "lat": 28.594459,
+   "lon": 77.3265,
+   "osm_url": "https://www.openstreetmap.org/way/71295897"
+  },
+  {
+   "id": "way/71297383",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Sector 7",
+   "lat": 28.595014,
+   "lon": 77.316575,
+   "osm_url": "https://www.openstreetmap.org/way/71297383"
+  },
+  {
+   "id": "way/71435176",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Sector 2",
+   "lat": 28.584957,
+   "lon": 77.315235,
+   "osm_url": "https://www.openstreetmap.org/way/71435176"
+  },
+  {
+   "id": "way/71444961",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Sector 1",
+   "lat": 28.590364,
+   "lon": 77.312391,
+   "osm_url": "https://www.openstreetmap.org/way/71444961"
+  },
+  {
+   "id": "way/71621507",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Sector 57",
+   "lat": 28.604974,
+   "lon": 77.353527,
+   "osm_url": "https://www.openstreetmap.org/way/71621507"
+  },
+  {
+   "id": "way/71644071",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Sector 60",
+   "lat": 28.60239,
+   "lon": 77.367038,
+   "osm_url": "https://www.openstreetmap.org/way/71644071"
+  },
+  {
+   "id": "way/71649651",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Sector 59",
+   "lat": 28.608084,
+   "lon": 77.367623,
+   "osm_url": "https://www.openstreetmap.org/way/71649651"
+  },
+  {
+   "id": "way/71651922",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Sector 58",
+   "lat": 28.605996,
+   "lon": 77.357964,
+   "osm_url": "https://www.openstreetmap.org/way/71651922"
+  },
+  {
+   "id": "way/71686902",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Sector 65",
+   "lat": 28.61181,
+   "lon": 77.385331,
+   "osm_url": "https://www.openstreetmap.org/way/71686902"
+  },
+  {
+   "id": "way/71834192",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Sector 67",
+   "lat": 28.605072,
+   "lon": 77.384888,
+   "osm_url": "https://www.openstreetmap.org/way/71834192"
+  },
+  {
+   "id": "way/71834194",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 28.622734,
+   "lon": 77.386755,
+   "osm_url": "https://www.openstreetmap.org/way/71834194"
+  },
+  {
+   "id": "way/71866019",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Sector 84A",
+   "lat": 28.532443,
+   "lon": 77.407575,
+   "osm_url": "https://www.openstreetmap.org/way/71866019"
+  },
+  {
+   "id": "way/71866024",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Sector 83",
+   "lat": 28.524607,
+   "lon": 77.398322,
+   "osm_url": "https://www.openstreetmap.org/way/71866024"
+  },
+  {
+   "id": "way/72004862",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 28.651107,
+   "lon": 77.329905,
+   "osm_url": "https://www.openstreetmap.org/way/72004862"
+  },
+  {
+   "id": "way/74168430",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 28.655448,
+   "lon": 77.335979,
+   "osm_url": "https://www.openstreetmap.org/way/74168430"
+  },
+  {
+   "id": "way/76700057",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 28.655094,
+   "lon": 77.326979,
+   "osm_url": "https://www.openstreetmap.org/way/76700057"
+  },
+  {
+   "id": "way/76849193",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 28.620755,
+   "lon": 77.300957,
+   "osm_url": "https://www.openstreetmap.org/way/76849193"
+  },
+  {
+   "id": "way/77001373",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "M.E.A. Stores",
+   "lat": 28.601084,
+   "lon": 77.301177,
+   "osm_url": "https://www.openstreetmap.org/way/77001373"
+  },
+  {
+   "id": "way/78175818",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Azadpur",
+   "lat": 28.707457,
+   "lon": 77.17789,
+   "osm_url": "https://www.openstreetmap.org/way/78175818"
+  },
+  {
+   "id": "way/78542610",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Rithala Power Plant",
+   "lat": 28.733074,
+   "lon": 77.101785,
+   "osm_url": "https://www.openstreetmap.org/way/78542610"
+  },
+  {
+   "id": "way/78563279",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Rohini II DTC Bus Depot",
+   "lat": 28.730283,
+   "lon": 77.122503,
+   "osm_url": "https://www.openstreetmap.org/way/78563279"
+  },
+  {
+   "id": "way/78799847",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Wastewater Treatment Plant",
+   "lat": 28.727949,
+   "lon": 77.185723,
+   "osm_url": "https://www.openstreetmap.org/way/78799847"
+  },
+  {
+   "id": "way/80431079",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Kashmere Gate",
+   "lat": 28.667625,
+   "lon": 77.22851,
+   "osm_url": "https://www.openstreetmap.org/way/80431079"
+  },
+  {
+   "id": "way/80439683",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Sarai Kale Khan ISBT",
+   "lat": 28.585075,
+   "lon": 77.259049,
+   "osm_url": "https://www.openstreetmap.org/way/80439683"
+  },
+  {
+   "id": "way/80511305",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Sewage Treatment Plant - Okhla",
+   "lat": 28.54713,
+   "lon": 77.283458,
+   "osm_url": "https://www.openstreetmap.org/way/80511305"
+  },
+  {
+   "id": "way/80511312",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Tughlakabad Inland Container Depot",
+   "lat": 28.509071,
+   "lon": 77.289038,
+   "osm_url": "https://www.openstreetmap.org/way/80511312"
+  },
+  {
+   "id": "way/80513393",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Shrinivaspuri Depot",
+   "lat": 28.561308,
+   "lon": 77.261169,
+   "osm_url": "https://www.openstreetmap.org/way/80513393"
+  },
+  {
+   "id": "way/81511974",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Pali Stone Crusher Zone II",
+   "lat": 28.389143,
+   "lon": 77.222546,
+   "osm_url": "https://www.openstreetmap.org/way/81511974"
+  },
+  {
+   "id": "way/130001856",
+   "city": "Delhi",
+   "category": "industry",
+   "name": "Sanden Vikas Ltd.",
+   "lat": 28.437262,
+   "lon": 77.30708,
+   "osm_url": "https://www.openstreetmap.org/way/130001856"
+  },
+  {
+   "id": "way/143683326",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Faridabad Bus Stand",
+   "lat": 28.38645,
+   "lon": 77.298989,
+   "osm_url": "https://www.openstreetmap.org/way/143683326"
+  },
+  {
+   "id": "way/151989787",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Guru Dronacharya",
+   "lat": 28.481992,
+   "lon": 77.102219,
+   "osm_url": "https://www.openstreetmap.org/way/151989787"
+  },
+  {
+   "id": "way/154161499",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Dwarka Bus Depot",
+   "lat": 28.576164,
+   "lon": 77.070228,
+   "osm_url": "https://www.openstreetmap.org/way/154161499"
+  },
+  {
+   "id": "way/154708924",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 28.512922,
+   "lon": 77.1864,
+   "osm_url": "https://www.openstreetmap.org/way/154708924"
+  },
+  {
+   "id": "way/155618055",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.668546,
+   "lon": 77.429309,
+   "osm_url": "https://www.openstreetmap.org/way/155618055"
+  },
+  {
+   "id": "way/164663928",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Safdarjung Airport Terminal",
+   "lat": 28.583468,
+   "lon": 77.211034,
+   "osm_url": "https://www.openstreetmap.org/way/164663928"
+  },
+  {
+   "id": "way/165709049",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Najafgarh Main Bus Stand",
+   "lat": 28.615153,
+   "lon": 76.977635,
+   "osm_url": "https://www.openstreetmap.org/way/165709049"
+  },
+  {
+   "id": "way/169413730",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Lajpat Nagar Metro Station",
+   "lat": 28.570544,
+   "lon": 77.236436,
+   "osm_url": "https://www.openstreetmap.org/way/169413730"
+  },
+  {
+   "id": "way/170062630",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 28.668587,
+   "lon": 77.230013,
+   "osm_url": "https://www.openstreetmap.org/way/170062630"
+  },
+  {
+   "id": "way/171496285",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 28.697106,
+   "lon": 77.111171,
+   "osm_url": "https://www.openstreetmap.org/way/171496285"
+  },
+  {
+   "id": "way/171527947",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 28.69295,
+   "lon": 77.081602,
+   "osm_url": "https://www.openstreetmap.org/way/171527947"
+  },
+  {
+   "id": "way/171640370",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 28.688337,
+   "lon": 77.09107,
+   "osm_url": "https://www.openstreetmap.org/way/171640370"
+  },
+  {
+   "id": "way/172396535",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.383923,
+   "lon": 77.327512,
+   "osm_url": "https://www.openstreetmap.org/way/172396535"
+  },
+  {
+   "id": "way/172586585",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.393909,
+   "lon": 77.29496,
+   "osm_url": "https://www.openstreetmap.org/way/172586585"
+  },
+  {
+   "id": "way/180141285",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Mohan Nagar Bus Depot",
+   "lat": 28.677235,
+   "lon": 77.381029,
+   "osm_url": "https://www.openstreetmap.org/way/180141285"
+  },
+  {
+   "id": "way/189447678",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Bharat Vandana Park",
+   "lat": 28.571184,
+   "lon": 77.059077,
+   "osm_url": "https://www.openstreetmap.org/way/189447678"
+  },
+  {
+   "id": "way/189587014",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 28.822059,
+   "lon": 77.102944,
+   "osm_url": "https://www.openstreetmap.org/way/189587014"
+  },
+  {
+   "id": "way/190246694",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 28.55556,
+   "lon": 77.085497,
+   "osm_url": "https://www.openstreetmap.org/way/190246694"
+  },
+  {
+   "id": "way/196483129",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Kaushambi Bus Stand",
+   "lat": 28.646471,
+   "lon": 77.318451,
+   "osm_url": "https://www.openstreetmap.org/way/196483129"
+  },
+  {
+   "id": "way/198264824",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Sector 35 Bus Terminus",
+   "lat": 28.577042,
+   "lon": 77.357157,
+   "osm_url": "https://www.openstreetmap.org/way/198264824"
+  },
+  {
+   "id": "way/221688404",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.557008,
+   "lon": 77.279208,
+   "osm_url": "https://www.openstreetmap.org/way/221688404"
+  },
+  {
+   "id": "way/258240182",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Sukdev Vihar Depot",
+   "lat": 28.55515,
+   "lon": 77.272697,
+   "osm_url": "https://www.openstreetmap.org/way/258240182"
+  },
+  {
+   "id": "way/258900789",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Hari Nagar DTC Depot",
+   "lat": 28.623638,
+   "lon": 77.100206,
+   "osm_url": "https://www.openstreetmap.org/way/258900789"
+  },
+  {
+   "id": "way/259169048",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.645287,
+   "lon": 77.190914,
+   "osm_url": "https://www.openstreetmap.org/way/259169048"
+  },
+  {
+   "id": "way/260463362",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 28.611352,
+   "lon": 77.076794,
+   "osm_url": "https://www.openstreetmap.org/way/260463362"
+  },
+  {
+   "id": "way/261659745",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Delhi Transport Corporation",
+   "lat": 28.682574,
+   "lon": 77.078195,
+   "osm_url": "https://www.openstreetmap.org/way/261659745"
+  },
+  {
+   "id": "way/263597734",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 28.66077,
+   "lon": 77.003344,
+   "osm_url": "https://www.openstreetmap.org/way/263597734"
+  },
+  {
+   "id": "way/264740469",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.700977,
+   "lon": 77.178238,
+   "osm_url": "https://www.openstreetmap.org/way/264740469"
+  },
+  {
+   "id": "way/266079007",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Kalkaji Bus Depot",
+   "lat": 28.538041,
+   "lon": 77.267843,
+   "osm_url": "https://www.openstreetmap.org/way/266079007"
+  },
+  {
+   "id": "way/267251483",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.460441,
+   "lon": 77.096844,
+   "osm_url": "https://www.openstreetmap.org/way/267251483"
+  },
+  {
+   "id": "way/274754967",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Vasant Vihar Depot",
+   "lat": 28.559064,
+   "lon": 77.169772,
+   "osm_url": "https://www.openstreetmap.org/way/274754967"
+  },
+  {
+   "id": "way/283749979",
+   "city": "Delhi",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 28.600972,
+   "lon": 77.32848,
+   "osm_url": "https://www.openstreetmap.org/way/283749979"
+  },
+  {
+   "id": "way/290111648",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.693888,
+   "lon": 77.221241,
+   "osm_url": "https://www.openstreetmap.org/way/290111648"
+  },
+  {
+   "id": "way/313544637",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Marriot Marquis",
+   "lat": 28.549664,
+   "lon": 77.121473,
+   "osm_url": "https://www.openstreetmap.org/way/313544637"
+  },
+  {
+   "id": "way/348187137",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.587755,
+   "lon": 77.168022,
+   "osm_url": "https://www.openstreetmap.org/way/348187137"
+  },
+  {
+   "id": "way/348191327",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.474293,
+   "lon": 77.094436,
+   "osm_url": "https://www.openstreetmap.org/way/348191327"
+  },
+  {
+   "id": "way/348271500",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.645884,
+   "lon": 77.189191,
+   "osm_url": "https://www.openstreetmap.org/way/348271500"
+  },
+  {
+   "id": "way/348459266",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Assam Bhawan",
+   "lat": 28.605382,
+   "lon": 77.187643,
+   "osm_url": "https://www.openstreetmap.org/way/348459266"
+  },
+  {
+   "id": "way/350042969",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.644493,
+   "lon": 77.200858,
+   "osm_url": "https://www.openstreetmap.org/way/350042969"
+  },
+  {
+   "id": "way/350043119",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.644393,
+   "lon": 77.200802,
+   "osm_url": "https://www.openstreetmap.org/way/350043119"
+  },
+  {
+   "id": "way/350765073",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.607,
+   "lon": 77.131024,
+   "osm_url": "https://www.openstreetmap.org/way/350765073"
+  },
+  {
+   "id": "way/350830711",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.683027,
+   "lon": 77.211474,
+   "osm_url": "https://www.openstreetmap.org/way/350830711"
+  },
+  {
+   "id": "way/350867009",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.554617,
+   "lon": 77.240377,
+   "osm_url": "https://www.openstreetmap.org/way/350867009"
+  },
+  {
+   "id": "way/351330252",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.552468,
+   "lon": 77.235468,
+   "osm_url": "https://www.openstreetmap.org/way/351330252"
+  },
+  {
+   "id": "way/351409758",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.643326,
+   "lon": 77.298151,
+   "osm_url": "https://www.openstreetmap.org/way/351409758"
+  },
+  {
+   "id": "way/351409977",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.643472,
+   "lon": 77.298822,
+   "osm_url": "https://www.openstreetmap.org/way/351409977"
+  },
+  {
+   "id": "way/351572577",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.552325,
+   "lon": 77.235146,
+   "osm_url": "https://www.openstreetmap.org/way/351572577"
+  },
+  {
+   "id": "way/351572681",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.548909,
+   "lon": 77.234032,
+   "osm_url": "https://www.openstreetmap.org/way/351572681"
+  },
+  {
+   "id": "way/351572695",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.548732,
+   "lon": 77.233189,
+   "osm_url": "https://www.openstreetmap.org/way/351572695"
+  },
+  {
+   "id": "way/351572730",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.548776,
+   "lon": 77.233122,
+   "osm_url": "https://www.openstreetmap.org/way/351572730"
+  },
+  {
+   "id": "way/351572783",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.549443,
+   "lon": 77.233227,
+   "osm_url": "https://www.openstreetmap.org/way/351572783"
+  },
+  {
+   "id": "way/351579882",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.548356,
+   "lon": 77.234268,
+   "osm_url": "https://www.openstreetmap.org/way/351579882"
+  },
+  {
+   "id": "way/351613369",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.554907,
+   "lon": 77.240476,
+   "osm_url": "https://www.openstreetmap.org/way/351613369"
+  },
+  {
+   "id": "way/351800403",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.564203,
+   "lon": 77.189267,
+   "osm_url": "https://www.openstreetmap.org/way/351800403"
+  },
+  {
+   "id": "way/352263497",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.547049,
+   "lon": 77.233751,
+   "osm_url": "https://www.openstreetmap.org/way/352263497"
+  },
+  {
+   "id": "way/352730302",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.56332,
+   "lon": 77.236155,
+   "osm_url": "https://www.openstreetmap.org/way/352730302"
+  },
+  {
+   "id": "way/353755233",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.476082,
+   "lon": 77.094394,
+   "osm_url": "https://www.openstreetmap.org/way/353755233"
+  },
+  {
+   "id": "way/355447549",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.618791,
+   "lon": 77.288245,
+   "osm_url": "https://www.openstreetmap.org/way/355447549"
+  },
+  {
+   "id": "way/370547062",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.594722,
+   "lon": 77.243133,
+   "osm_url": "https://www.openstreetmap.org/way/370547062"
+  },
+  {
+   "id": "way/454514591",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.597098,
+   "lon": 77.258783,
+   "osm_url": "https://www.openstreetmap.org/way/454514591"
+  },
+  {
+   "id": "way/463699079",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.652607,
+   "lon": 77.21176,
+   "osm_url": "https://www.openstreetmap.org/way/463699079"
+  },
+  {
+   "id": "way/623244988",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.608762,
+   "lon": 77.094511,
+   "osm_url": "https://www.openstreetmap.org/way/623244988"
+  },
+  {
+   "id": "way/662474418",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Tajpur Ecopark",
+   "lat": 28.497729,
+   "lon": 77.308259,
+   "osm_url": "https://www.openstreetmap.org/way/662474418"
+  },
+  {
+   "id": "way/665074549",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.71337,
+   "lon": 77.355773,
+   "osm_url": "https://www.openstreetmap.org/way/665074549"
+  },
+  {
+   "id": "way/665074562",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.714231,
+   "lon": 77.361752,
+   "osm_url": "https://www.openstreetmap.org/way/665074562"
+  },
+  {
+   "id": "way/667114985",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.566356,
+   "lon": 77.161378,
+   "osm_url": "https://www.openstreetmap.org/way/667114985"
+  },
+  {
+   "id": "way/844303352",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.405417,
+   "lon": 77.119257,
+   "osm_url": "https://www.openstreetmap.org/way/844303352"
+  },
+  {
+   "id": "way/904946861",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.633626,
+   "lon": 77.061639,
+   "osm_url": "https://www.openstreetmap.org/way/904946861"
+  },
+  {
+   "id": "way/945172655",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.572225,
+   "lon": 77.445859,
+   "osm_url": "https://www.openstreetmap.org/way/945172655"
+  },
+  {
+   "id": "way/945732841",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.586968,
+   "lon": 77.441521,
+   "osm_url": "https://www.openstreetmap.org/way/945732841"
+  },
+  {
+   "id": "way/945732842",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.587238,
+   "lon": 77.441378,
+   "osm_url": "https://www.openstreetmap.org/way/945732842"
+  },
+  {
+   "id": "way/945732843",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.587454,
+   "lon": 77.441186,
+   "osm_url": "https://www.openstreetmap.org/way/945732843"
+  },
+  {
+   "id": "way/945732844",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.587337,
+   "lon": 77.440903,
+   "osm_url": "https://www.openstreetmap.org/way/945732844"
+  },
+  {
+   "id": "way/945732845",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.587218,
+   "lon": 77.440692,
+   "osm_url": "https://www.openstreetmap.org/way/945732845"
+  },
+  {
+   "id": "way/945732846",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.586348,
+   "lon": 77.440439,
+   "osm_url": "https://www.openstreetmap.org/way/945732846"
+  },
+  {
+   "id": "way/945732847",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.586578,
+   "lon": 77.4402,
+   "osm_url": "https://www.openstreetmap.org/way/945732847"
+  },
+  {
+   "id": "way/945732848",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.586812,
+   "lon": 77.440047,
+   "osm_url": "https://www.openstreetmap.org/way/945732848"
+  },
+  {
+   "id": "way/945732849",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.586995,
+   "lon": 77.440297,
+   "osm_url": "https://www.openstreetmap.org/way/945732849"
+  },
+  {
+   "id": "way/945732850",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.587115,
+   "lon": 77.440509,
+   "osm_url": "https://www.openstreetmap.org/way/945732850"
+  },
+  {
+   "id": "way/945732851",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.585432,
+   "lon": 77.44105,
+   "osm_url": "https://www.openstreetmap.org/way/945732851"
+  },
+  {
+   "id": "way/945732852",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.585669,
+   "lon": 77.441543,
+   "osm_url": "https://www.openstreetmap.org/way/945732852"
+  },
+  {
+   "id": "way/945732853",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.58555,
+   "lon": 77.441332,
+   "osm_url": "https://www.openstreetmap.org/way/945732853"
+  },
+  {
+   "id": "way/945732854",
+   "city": "Delhi",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 28.585646,
+   "lon": 77.440859,
+   "osm_url": "https://www.openstreetmap.org/way/945732854"
+  },
+  {
+   "id": "node/700736540",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Bhaucha Dhakka / Ferry Wharf",
+   "lat": 18.95694,
+   "lon": 72.849529,
+   "osm_url": "https://www.openstreetmap.org/node/700736540"
+  },
+  {
+   "id": "node/814440777",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Gorai Bus Depot",
+   "lat": 19.232396,
+   "lon": 72.829636,
+   "osm_url": "https://www.openstreetmap.org/node/814440777"
+  },
+  {
+   "id": "node/969935158",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Borivali  RS (East)",
+   "lat": 19.229955,
+   "lon": 72.857632,
+   "osm_url": "https://www.openstreetmap.org/node/969935158"
+  },
+  {
+   "id": "node/1185579351",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Larsen & Toubro",
+   "lat": 19.128396,
+   "lon": 72.89372,
+   "osm_url": "https://www.openstreetmap.org/node/1185579351"
+  },
+  {
+   "id": "node/1348867392",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Marol Depot",
+   "lat": 19.117908,
+   "lon": 72.865721,
+   "osm_url": "https://www.openstreetmap.org/node/1348867392"
+  },
+  {
+   "id": "node/1360144586",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Manish Chambers",
+   "lat": 19.16266,
+   "lon": 72.851468,
+   "osm_url": "https://www.openstreetmap.org/node/1360144586"
+  },
+  {
+   "id": "node/1366008911",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Kurla East",
+   "lat": 19.064502,
+   "lon": 72.880323,
+   "osm_url": "https://www.openstreetmap.org/node/1366008911"
+  },
+  {
+   "id": "node/1366794662",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Trombay",
+   "lat": 19.033651,
+   "lon": 72.950364,
+   "osm_url": "https://www.openstreetmap.org/node/1366794662"
+  },
+  {
+   "id": "node/1392005679",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Bandra Terminus",
+   "lat": 19.062949,
+   "lon": 72.841537,
+   "osm_url": "https://www.openstreetmap.org/node/1392005679"
+  },
+  {
+   "id": "node/1412318543",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "SP Fabricators",
+   "lat": 19.120109,
+   "lon": 73.024727,
+   "osm_url": "https://www.openstreetmap.org/node/1412318543"
+  },
+  {
+   "id": "node/1640942358",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Wadala Depot",
+   "lat": 19.014778,
+   "lon": 72.852397,
+   "osm_url": "https://www.openstreetmap.org/node/1640942358"
+  },
+  {
+   "id": "node/1643351700",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Mulund Depot",
+   "lat": 19.175698,
+   "lon": 72.946488,
+   "osm_url": "https://www.openstreetmap.org/node/1643351700"
+  },
+  {
+   "id": "node/1644086506",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Ghatkopar Station (W)",
+   "lat": 19.08754,
+   "lon": 72.908163,
+   "osm_url": "https://www.openstreetmap.org/node/1644086506"
+  },
+  {
+   "id": "node/1648175825",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Samata Nagar",
+   "lat": 19.206861,
+   "lon": 72.869745,
+   "osm_url": "https://www.openstreetmap.org/node/1648175825"
+  },
+  {
+   "id": "node/1648195662",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Sahar Cargo Complex",
+   "lat": 19.097537,
+   "lon": 72.865288,
+   "osm_url": "https://www.openstreetmap.org/node/1648195662"
+  },
+  {
+   "id": "node/1650186261",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Kandivali (E)",
+   "lat": 19.201696,
+   "lon": 72.85373,
+   "osm_url": "https://www.openstreetmap.org/node/1650186261"
+  },
+  {
+   "id": "node/1651530905",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Mira-Bhayander Municipal Transport",
+   "lat": 19.281672,
+   "lon": 72.858015,
+   "osm_url": "https://www.openstreetmap.org/node/1651530905"
+  },
+  {
+   "id": "node/1651801044",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Majas Depot",
+   "lat": 19.138936,
+   "lon": 72.86476,
+   "osm_url": "https://www.openstreetmap.org/node/1651801044"
+  },
+  {
+   "id": "node/2294433428",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 18.999406,
+   "lon": 72.905688,
+   "osm_url": "https://www.openstreetmap.org/node/2294433428"
+  },
+  {
+   "id": "node/2319215780",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Chembur Colony Bus Depot",
+   "lat": 19.045259,
+   "lon": 72.893527,
+   "osm_url": "https://www.openstreetmap.org/node/2319215780"
+  },
+  {
+   "id": "node/2439495324",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Worli Village",
+   "lat": 19.016916,
+   "lon": 72.820083,
+   "osm_url": "https://www.openstreetmap.org/node/2439495324"
+  },
+  {
+   "id": "node/2440266920",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Chendani Koliwada (C.I.D.C.O)",
+   "lat": 19.187929,
+   "lon": 72.979748,
+   "osm_url": "https://www.openstreetmap.org/node/2440266920"
+  },
+  {
+   "id": "node/2629682524",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Churchgate",
+   "lat": 18.933108,
+   "lon": 72.828595,
+   "osm_url": "https://www.openstreetmap.org/node/2629682524"
+  },
+  {
+   "id": "node/3700829158",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Volkswagen Service",
+   "lat": 19.130332,
+   "lon": 72.854276,
+   "osm_url": "https://www.openstreetmap.org/node/3700829158"
+  },
+  {
+   "id": "node/3878491940",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Goregaon Bus Depot",
+   "lat": 19.154244,
+   "lon": 72.835773,
+   "osm_url": "https://www.openstreetmap.org/node/3878491940"
+  },
+  {
+   "id": "node/3878491941",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Oshiwara Bus Depot",
+   "lat": 19.153133,
+   "lon": 72.835898,
+   "osm_url": "https://www.openstreetmap.org/node/3878491941"
+  },
+  {
+   "id": "node/3878597746",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Kurla Depot",
+   "lat": 19.074566,
+   "lon": 72.876058,
+   "osm_url": "https://www.openstreetmap.org/node/3878597746"
+  },
+  {
+   "id": "node/3931917833",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Vaishali Nagar",
+   "lat": 19.187297,
+   "lon": 72.94553,
+   "osm_url": "https://www.openstreetmap.org/node/3931917833"
+  },
+  {
+   "id": "node/3951527111",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Santacruz Bus Depot",
+   "lat": 19.090568,
+   "lon": 72.838283,
+   "osm_url": "https://www.openstreetmap.org/node/3951527111"
+  },
+  {
+   "id": "node/4048551047",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Jadhavaji Mansion",
+   "lat": 18.917696,
+   "lon": 72.824918,
+   "osm_url": "https://www.openstreetmap.org/node/4048551047"
+  },
+  {
+   "id": "node/4382193894",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 19.231755,
+   "lon": 72.860258,
+   "osm_url": "https://www.openstreetmap.org/node/4382193894"
+  },
+  {
+   "id": "node/4583581092",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "BEST",
+   "lat": 18.899786,
+   "lon": 72.813697,
+   "osm_url": "https://www.openstreetmap.org/node/4583581092"
+  },
+  {
+   "id": "node/4583590689",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "BEST",
+   "lat": 18.913833,
+   "lon": 72.808542,
+   "osm_url": "https://www.openstreetmap.org/node/4583590689"
+  },
+  {
+   "id": "node/4583600393",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Dharavi Depot",
+   "lat": 19.051096,
+   "lon": 72.858191,
+   "osm_url": "https://www.openstreetmap.org/node/4583600393"
+  },
+  {
+   "id": "node/4585486002",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "MSRTC",
+   "lat": 18.873411,
+   "lon": 72.940619,
+   "osm_url": "https://www.openstreetmap.org/node/4585486002"
+  },
+  {
+   "id": "node/4585493594",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "NMMT",
+   "lat": 18.873967,
+   "lon": 72.947599,
+   "osm_url": "https://www.openstreetmap.org/node/4585493594"
+  },
+  {
+   "id": "node/4646460401",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "NMMT",
+   "lat": 18.956561,
+   "lon": 73.037183,
+   "osm_url": "https://www.openstreetmap.org/node/4646460401"
+  },
+  {
+   "id": "node/4647685694",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "TMT",
+   "lat": 19.191425,
+   "lon": 72.988302,
+   "osm_url": "https://www.openstreetmap.org/node/4647685694"
+  },
+  {
+   "id": "node/4648505096",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Nerul Sector 46/48 NMMT Bus Depot",
+   "lat": 19.007865,
+   "lon": 73.016347,
+   "osm_url": "https://www.openstreetmap.org/node/4648505096"
+  },
+  {
+   "id": "node/4709507292",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Rawaji Industrial Corporation",
+   "lat": 19.047822,
+   "lon": 72.860861,
+   "osm_url": "https://www.openstreetmap.org/node/4709507292"
+  },
+  {
+   "id": "node/4957157349",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Waste Transfer Station",
+   "lat": 19.005783,
+   "lon": 73.016901,
+   "osm_url": "https://www.openstreetmap.org/node/4957157349"
+  },
+  {
+   "id": "node/5174623523",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 18.953613,
+   "lon": 72.83704,
+   "osm_url": "https://www.openstreetmap.org/node/5174623523"
+  },
+  {
+   "id": "node/5174656421",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 18.953693,
+   "lon": 72.837063,
+   "osm_url": "https://www.openstreetmap.org/node/5174656421"
+  },
+  {
+   "id": "node/5839259787",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 19.158974,
+   "lon": 72.92872,
+   "osm_url": "https://www.openstreetmap.org/node/5839259787"
+  },
+  {
+   "id": "node/6020955334",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Andheri L1",
+   "lat": 19.120564,
+   "lon": 72.848843,
+   "osm_url": "https://www.openstreetmap.org/node/6020955334"
+  },
+  {
+   "id": "node/6021319006",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "C.B.D.Belapur Railway Station",
+   "lat": 19.020912,
+   "lon": 73.039889,
+   "osm_url": "https://www.openstreetmap.org/node/6021319006"
+  },
+  {
+   "id": "node/6795365189",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Avyay",
+   "lat": 19.133019,
+   "lon": 72.913662,
+   "osm_url": "https://www.openstreetmap.org/node/6795365189"
+  },
+  {
+   "id": "node/6795436993",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Avyay",
+   "lat": 19.11672,
+   "lon": 72.910119,
+   "osm_url": "https://www.openstreetmap.org/node/6795436993"
+  },
+  {
+   "id": "node/6801919194",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Scrap store (Raddi)",
+   "lat": 19.125428,
+   "lon": 72.919481,
+   "osm_url": "https://www.openstreetmap.org/node/6801919194"
+  },
+  {
+   "id": "node/6804290504",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "chicken wala",
+   "lat": 19.126758,
+   "lon": 72.918741,
+   "osm_url": "https://www.openstreetmap.org/node/6804290504"
+  },
+  {
+   "id": "node/6804290536",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "N K traders",
+   "lat": 19.12728,
+   "lon": 72.919213,
+   "osm_url": "https://www.openstreetmap.org/node/6804290536"
+  },
+  {
+   "id": "node/6805332988",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 19.11647,
+   "lon": 72.909745,
+   "osm_url": "https://www.openstreetmap.org/node/6805332988"
+  },
+  {
+   "id": "node/6805333188",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 19.115905,
+   "lon": 72.909011,
+   "osm_url": "https://www.openstreetmap.org/node/6805333188"
+  },
+  {
+   "id": "node/6805333288",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 19.116896,
+   "lon": 72.910047,
+   "osm_url": "https://www.openstreetmap.org/node/6805333288"
+  },
+  {
+   "id": "node/6805333290",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 19.115813,
+   "lon": 72.908845,
+   "osm_url": "https://www.openstreetmap.org/node/6805333290"
+  },
+  {
+   "id": "node/6805450187",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 19.115725,
+   "lon": 72.908682,
+   "osm_url": "https://www.openstreetmap.org/node/6805450187"
+  },
+  {
+   "id": "node/6805465886",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 19.115403,
+   "lon": 72.907789,
+   "osm_url": "https://www.openstreetmap.org/node/6805465886"
+  },
+  {
+   "id": "node/7728934351",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Vashi",
+   "lat": 19.068863,
+   "lon": 72.998352,
+   "osm_url": "https://www.openstreetmap.org/node/7728934351"
+  },
+  {
+   "id": "node/7728934353",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Vashi",
+   "lat": 19.068427,
+   "lon": 72.996259,
+   "osm_url": "https://www.openstreetmap.org/node/7728934353"
+  },
+  {
+   "id": "node/7731220339",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Nerul L.P",
+   "lat": 19.046407,
+   "lon": 73.025438,
+   "osm_url": "https://www.openstreetmap.org/node/7731220339"
+  },
+  {
+   "id": "node/7731220342",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Nerul L.P",
+   "lat": 19.047025,
+   "lon": 73.024174,
+   "osm_url": "https://www.openstreetmap.org/node/7731220342"
+  },
+  {
+   "id": "node/7959119994",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Zeron Exports",
+   "lat": 18.955615,
+   "lon": 72.825862,
+   "osm_url": "https://www.openstreetmap.org/node/7959119994"
+  },
+  {
+   "id": "node/8450022951",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 19.233549,
+   "lon": 72.965676,
+   "osm_url": "https://www.openstreetmap.org/node/8450022951"
+  },
+  {
+   "id": "node/9081826006",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "BMC",
+   "lat": 19.010096,
+   "lon": 72.829414,
+   "osm_url": "https://www.openstreetmap.org/node/9081826006"
+  },
+  {
+   "id": "node/9215039105",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "WASP Pump Factory",
+   "lat": 19.230451,
+   "lon": 72.974198,
+   "osm_url": "https://www.openstreetmap.org/node/9215039105"
+  },
+  {
+   "id": "node/9299968473",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "HYVA",
+   "lat": 19.103218,
+   "lon": 72.833583,
+   "osm_url": "https://www.openstreetmap.org/node/9299968473"
+  },
+  {
+   "id": "node/9300003140",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Public Hyva",
+   "lat": 19.151086,
+   "lon": 72.834487,
+   "osm_url": "https://www.openstreetmap.org/node/9300003140"
+  },
+  {
+   "id": "node/9812336620",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "IC colony",
+   "lat": 19.247667,
+   "lon": 72.847986,
+   "osm_url": "https://www.openstreetmap.org/node/9812336620"
+  },
+  {
+   "id": "node/10257874073",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Colaba Bus Depot",
+   "lat": 18.920963,
+   "lon": 72.830548,
+   "osm_url": "https://www.openstreetmap.org/node/10257874073"
+  },
+  {
+   "id": "node/10257911200",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Worli Depot",
+   "lat": 19.013515,
+   "lon": 72.820006,
+   "osm_url": "https://www.openstreetmap.org/node/10257911200"
+  },
+  {
+   "id": "node/10257915994",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Magathane Bus Depot",
+   "lat": 19.221361,
+   "lon": 72.866379,
+   "osm_url": "https://www.openstreetmap.org/node/10257915994"
+  },
+  {
+   "id": "node/10257947691",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Malad Depot",
+   "lat": 19.183696,
+   "lon": 72.835708,
+   "osm_url": "https://www.openstreetmap.org/node/10257947691"
+  },
+  {
+   "id": "node/10257959918",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Poisar Bus Depot",
+   "lat": 19.213723,
+   "lon": 72.850715,
+   "osm_url": "https://www.openstreetmap.org/node/10257959918"
+  },
+  {
+   "id": "node/10261220747",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Sangharsh Nagar",
+   "lat": 19.108489,
+   "lon": 72.901148,
+   "osm_url": "https://www.openstreetmap.org/node/10261220747"
+  },
+  {
+   "id": "node/10261228661",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Domestic Airport Terminal 1",
+   "lat": 19.093453,
+   "lon": 72.855769,
+   "osm_url": "https://www.openstreetmap.org/node/10261228661"
+  },
+  {
+   "id": "node/10267208087",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Vile Parle Station (E)",
+   "lat": 19.100728,
+   "lon": 72.844562,
+   "osm_url": "https://www.openstreetmap.org/node/10267208087"
+  },
+  {
+   "id": "node/10276589079",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Vikhroli Station (W)",
+   "lat": 19.110694,
+   "lon": 72.927689,
+   "osm_url": "https://www.openstreetmap.org/node/10276589079"
+  },
+  {
+   "id": "node/11384605415",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "The Parel Cotton Press Factory Private Limited (PCPF)",
+   "lat": 19.005169,
+   "lon": 72.836597,
+   "osm_url": "https://www.openstreetmap.org/node/11384605415"
+  },
+  {
+   "id": "node/11394786359",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "ANAM GARMENTS",
+   "lat": 19.075167,
+   "lon": 72.883029,
+   "osm_url": "https://www.openstreetmap.org/node/11394786359"
+  },
+  {
+   "id": "node/11395510875",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Vortex Baruffaldi Private Limited",
+   "lat": 19.199214,
+   "lon": 73.096198,
+   "osm_url": "https://www.openstreetmap.org/node/11395510875"
+  },
+  {
+   "id": "node/11698435145",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Chandivali industrial estate",
+   "lat": 19.113888,
+   "lon": 72.898801,
+   "osm_url": "https://www.openstreetmap.org/node/11698435145"
+  },
+  {
+   "id": "node/12551637261",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "old factory",
+   "lat": 19.229344,
+   "lon": 72.966415,
+   "osm_url": "https://www.openstreetmap.org/node/12551637261"
+  },
+  {
+   "id": "node/12875122160",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "T Ward Dry Waste Collection Centre",
+   "lat": 19.175853,
+   "lon": 72.961538,
+   "osm_url": "https://www.openstreetmap.org/node/12875122160"
+  },
+  {
+   "id": "node/12880330782",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "TMT Mulund Bus Station",
+   "lat": 19.173512,
+   "lon": 72.95772,
+   "osm_url": "https://www.openstreetmap.org/node/12880330782"
+  },
+  {
+   "id": "node/12972806178",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Vikhroli Depot",
+   "lat": 19.101758,
+   "lon": 72.919323,
+   "osm_url": "https://www.openstreetmap.org/node/12972806178"
+  },
+  {
+   "id": "node/12974237856",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Marathon Chowk Teen Hath Naka",
+   "lat": 19.187461,
+   "lon": 72.962439,
+   "osm_url": "https://www.openstreetmap.org/node/12974237856"
+  },
+  {
+   "id": "node/13619767825",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 19.300032,
+   "lon": 72.864249,
+   "osm_url": "https://www.openstreetmap.org/node/13619767825"
+  },
+  {
+   "id": "node/13716485313",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Mahanand Dairy",
+   "lat": 19.149994,
+   "lon": 72.856871,
+   "osm_url": "https://www.openstreetmap.org/node/13716485313"
+  },
+  {
+   "id": "node/13866637628",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 19.071884,
+   "lon": 72.999365,
+   "osm_url": "https://www.openstreetmap.org/node/13866637628"
+  },
+  {
+   "id": "way/27036772",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Juhu Chowpati Bus Station",
+   "lat": 19.09609,
+   "lon": 72.827547,
+   "osm_url": "https://www.openstreetmap.org/way/27036772"
+  },
+  {
+   "id": "way/35460864",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Turbhe Bus Depot",
+   "lat": 19.073868,
+   "lon": 73.01669,
+   "osm_url": "https://www.openstreetmap.org/way/35460864"
+  },
+  {
+   "id": "way/39092819",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 18.946776,
+   "lon": 72.795582,
+   "osm_url": "https://www.openstreetmap.org/way/39092819"
+  },
+  {
+   "id": "way/39115235",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.951839,
+   "lon": 72.794871,
+   "osm_url": "https://www.openstreetmap.org/way/39115235"
+  },
+  {
+   "id": "way/40734136",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "BMC",
+   "lat": 18.984706,
+   "lon": 72.826133,
+   "osm_url": "https://www.openstreetmap.org/way/40734136"
+  },
+  {
+   "id": "way/42441498",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 18.9868,
+   "lon": 72.814173,
+   "osm_url": "https://www.openstreetmap.org/way/42441498"
+  },
+  {
+   "id": "way/48790490",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "APMC Grain Market",
+   "lat": 19.083043,
+   "lon": 73.010342,
+   "osm_url": "https://www.openstreetmap.org/way/48790490"
+  },
+  {
+   "id": "way/48790492",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "APMC Spice Market",
+   "lat": 19.075831,
+   "lon": 73.007348,
+   "osm_url": "https://www.openstreetmap.org/way/48790492"
+  },
+  {
+   "id": "way/48790495",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "APMC Fruit & Vegetable Market",
+   "lat": 19.075457,
+   "lon": 73.011813,
+   "osm_url": "https://www.openstreetmap.org/way/48790495"
+  },
+  {
+   "id": "way/48792633",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 19.142698,
+   "lon": 73.013519,
+   "osm_url": "https://www.openstreetmap.org/way/48792633"
+  },
+  {
+   "id": "way/48798866",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "FCI",
+   "lat": 19.217004,
+   "lon": 72.858613,
+   "osm_url": "https://www.openstreetmap.org/way/48798866"
+  },
+  {
+   "id": "way/48863714",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Godrej Estate (West)",
+   "lat": 19.103507,
+   "lon": 72.923065,
+   "osm_url": "https://www.openstreetmap.org/way/48863714"
+  },
+  {
+   "id": "way/48864360",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Kurla EMU Carshed",
+   "lat": 19.074109,
+   "lon": 72.890167,
+   "osm_url": "https://www.openstreetmap.org/way/48864360"
+  },
+  {
+   "id": "way/48966380",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Bhabha Atomic Research Centre - BARC",
+   "lat": 19.021228,
+   "lon": 72.932671,
+   "osm_url": "https://www.openstreetmap.org/way/48966380"
+  },
+  {
+   "id": "way/48966395",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 18.9994,
+   "lon": 72.902097,
+   "osm_url": "https://www.openstreetmap.org/way/48966395"
+  },
+  {
+   "id": "way/49153029",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 18.915638,
+   "lon": 72.828077,
+   "osm_url": "https://www.openstreetmap.org/way/49153029"
+  },
+  {
+   "id": "way/49322087",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Mulund Container Yard",
+   "lat": 19.160346,
+   "lon": 72.95197,
+   "osm_url": "https://www.openstreetmap.org/way/49322087"
+  },
+  {
+   "id": "way/49499133",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Jawaharlal Nehru Port",
+   "lat": 18.944759,
+   "lon": 72.947092,
+   "osm_url": "https://www.openstreetmap.org/way/49499133"
+  },
+  {
+   "id": "way/49499140",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "JNPT",
+   "lat": 18.920032,
+   "lon": 72.968651,
+   "osm_url": "https://www.openstreetmap.org/way/49499140"
+  },
+  {
+   "id": "way/49501334",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 18.864703,
+   "lon": 72.929117,
+   "osm_url": "https://www.openstreetmap.org/way/49501334"
+  },
+  {
+   "id": "way/49501517",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Container Corporation of India  CONCOR",
+   "lat": 18.900977,
+   "lon": 72.999513,
+   "osm_url": "https://www.openstreetmap.org/way/49501517"
+  },
+  {
+   "id": "way/49591737",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "CEAT Tyre",
+   "lat": 19.156381,
+   "lon": 72.94518,
+   "osm_url": "https://www.openstreetmap.org/way/49591737"
+  },
+  {
+   "id": "way/49597309",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Mukund Steel",
+   "lat": 19.187047,
+   "lon": 73.001402,
+   "osm_url": "https://www.openstreetmap.org/way/49597309"
+  },
+  {
+   "id": "way/49678252",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Anik Bus Depot",
+   "lat": 19.044583,
+   "lon": 72.876914,
+   "osm_url": "https://www.openstreetmap.org/way/49678252"
+  },
+  {
+   "id": "way/49678854",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Wadala Truck Terminal",
+   "lat": 19.034482,
+   "lon": 72.876941,
+   "osm_url": "https://www.openstreetmap.org/way/49678854"
+  },
+  {
+   "id": "way/49682800",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Dharavi BEST Bus Depot",
+   "lat": 19.050396,
+   "lon": 72.858653,
+   "osm_url": "https://www.openstreetmap.org/way/49682800"
+  },
+  {
+   "id": "way/49684312",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Central Railway Workshop",
+   "lat": 19.028813,
+   "lon": 72.850054,
+   "osm_url": "https://www.openstreetmap.org/way/49684312"
+  },
+  {
+   "id": "way/49685672",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Central BEST Bus Depot",
+   "lat": 18.969455,
+   "lon": 72.824438,
+   "osm_url": "https://www.openstreetmap.org/way/49685672"
+  },
+  {
+   "id": "way/49685673",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Mumbai Central Bus Station",
+   "lat": 18.969326,
+   "lon": 72.822056,
+   "osm_url": "https://www.openstreetmap.org/way/49685673"
+  },
+  {
+   "id": "way/49686084",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Western Railway Carriage Repair Workshop",
+   "lat": 19.002924,
+   "lon": 72.833135,
+   "osm_url": "https://www.openstreetmap.org/way/49686084"
+  },
+  {
+   "id": "way/49686085",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Central Railway Loco Workshop - Parel",
+   "lat": 19.001657,
+   "lon": 72.835043,
+   "osm_url": "https://www.openstreetmap.org/way/49686085"
+  },
+  {
+   "id": "way/53350666",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Worli BEST Bus Depot",
+   "lat": 19.013546,
+   "lon": 72.819606,
+   "osm_url": "https://www.openstreetmap.org/way/53350666"
+  },
+  {
+   "id": "way/55796952",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 18.989266,
+   "lon": 72.845332,
+   "osm_url": "https://www.openstreetmap.org/way/55796952"
+  },
+  {
+   "id": "way/61569813",
+   "city": "Mumbai",
+   "category": "diesel_fleet",
+   "name": "Terminal 1",
+   "lat": 19.092806,
+   "lon": 72.854649,
+   "osm_url": "https://www.openstreetmap.org/way/61569813"
+  },
+  {
+   "id": "way/66941860",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 18.910132,
+   "lon": 73.020894,
+   "osm_url": "https://www.openstreetmap.org/way/66941860"
+  },
+  {
+   "id": "way/72545858",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 18.959167,
+   "lon": 72.834736,
+   "osm_url": "https://www.openstreetmap.org/way/72545858"
+  },
+  {
+   "id": "way/83276626",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Maharashtra Industrial Development Centre - MIDC Taloja",
+   "lat": 19.073479,
+   "lon": 73.123482,
+   "osm_url": "https://www.openstreetmap.org/way/83276626"
+  },
+  {
+   "id": "way/84844174",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Dindoshi BEST Bus Depot",
+   "lat": 19.17649,
+   "lon": 72.864721,
+   "osm_url": "https://www.openstreetmap.org/way/84844174"
+  },
+  {
+   "id": "way/84974954",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Oshiwara BEST Bus Depot",
+   "lat": 19.152857,
+   "lon": 72.836796,
+   "osm_url": "https://www.openstreetmap.org/way/84974954"
+  },
+  {
+   "id": "way/93059022",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 19.039569,
+   "lon": 73.109061,
+   "osm_url": "https://www.openstreetmap.org/way/93059022"
+  },
+  {
+   "id": "way/93059036",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Central Warehousing Corporation - Kalamboli",
+   "lat": 19.022779,
+   "lon": 73.110666,
+   "osm_url": "https://www.openstreetmap.org/way/93059036"
+  },
+  {
+   "id": "way/93059068",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Steel Market",
+   "lat": 19.030263,
+   "lon": 73.110295,
+   "osm_url": "https://www.openstreetmap.org/way/93059068"
+  },
+  {
+   "id": "way/102520789",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Aarey Central Dairy",
+   "lat": 19.154856,
+   "lon": 72.878137,
+   "osm_url": "https://www.openstreetmap.org/way/102520789"
+  },
+  {
+   "id": "way/102537882",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Grand Sarowar Premiere",
+   "lat": 19.173365,
+   "lon": 72.84573,
+   "osm_url": "https://www.openstreetmap.org/way/102537882"
+  },
+  {
+   "id": "way/107538142",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "NRB Bearings Limited",
+   "lat": 19.217003,
+   "lon": 72.962889,
+   "osm_url": "https://www.openstreetmap.org/way/107538142"
+  },
+  {
+   "id": "way/107538146",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Blue Star Limited",
+   "lat": 19.217248,
+   "lon": 72.963951,
+   "osm_url": "https://www.openstreetmap.org/way/107538146"
+  },
+  {
+   "id": "way/107540245",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Kothari Compound Godowns",
+   "lat": 19.234733,
+   "lon": 72.968284,
+   "osm_url": "https://www.openstreetmap.org/way/107540245"
+  },
+  {
+   "id": "way/111606921",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "CWC - Vashi",
+   "lat": 19.082592,
+   "lon": 73.014317,
+   "osm_url": "https://www.openstreetmap.org/way/111606921"
+  },
+  {
+   "id": "way/112793779",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Digvijay Mills",
+   "lat": 18.98946,
+   "lon": 72.83704,
+   "osm_url": "https://www.openstreetmap.org/way/112793779"
+  },
+  {
+   "id": "way/112793780",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Western India Spinning and Weaving Mills",
+   "lat": 18.989313,
+   "lon": 72.839422,
+   "osm_url": "https://www.openstreetmap.org/way/112793780"
+  },
+  {
+   "id": "way/112793783",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "Finlay Mills",
+   "lat": 18.993691,
+   "lon": 72.840763,
+   "osm_url": "https://www.openstreetmap.org/way/112793783"
+  },
+  {
+   "id": "way/112794197",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "India United Mills no.2-3",
+   "lat": 18.986702,
+   "lon": 72.839776,
+   "osm_url": "https://www.openstreetmap.org/way/112794197"
+  },
+  {
+   "id": "way/112794312",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "New City of Bombay Mills",
+   "lat": 18.984863,
+   "lon": 72.838376,
+   "osm_url": "https://www.openstreetmap.org/way/112794312"
+  },
+  {
+   "id": "way/112794723",
+   "city": "Mumbai",
+   "category": "industry",
+   "name": "India United Mills no.5",
+   "lat": 18.983387,
+   "lon": 72.837609,
+   "osm_url": "https://www.openstreetmap.org/way/112794723"
+  },
+  {
+   "id": "way/112796883",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Monte South",
+   "lat": 18.973837,
+   "lon": 72.830943,
+   "osm_url": "https://www.openstreetmap.org/way/112796883"
+  },
+  {
+   "id": "way/135732915",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 19.022483,
+   "lon": 72.838554,
+   "osm_url": "https://www.openstreetmap.org/way/135732915"
+  },
+  {
+   "id": "way/151205175",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Dreams Mall",
+   "lat": 19.146133,
+   "lon": 72.936804,
+   "osm_url": "https://www.openstreetmap.org/way/151205175"
+  },
+  {
+   "id": "way/151402659",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Atlantis",
+   "lat": 19.073281,
+   "lon": 72.831332,
+   "osm_url": "https://www.openstreetmap.org/way/151402659"
+  },
+  {
+   "id": "way/151402660",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 19.075239,
+   "lon": 72.831629,
+   "osm_url": "https://www.openstreetmap.org/way/151402660"
+  },
+  {
+   "id": "way/151581221",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 19.124207,
+   "lon": 72.926483,
+   "osm_url": "https://www.openstreetmap.org/way/151581221"
+  },
+  {
+   "id": "way/151861273",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Mulund Dumping Ground",
+   "lat": 19.167365,
+   "lon": 72.972936,
+   "osm_url": "https://www.openstreetmap.org/way/151861273"
+  },
+  {
+   "id": "way/151874490",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Thane Station East SATIS",
+   "lat": 19.184956,
+   "lon": 72.976524,
+   "osm_url": "https://www.openstreetmap.org/way/151874490"
+  },
+  {
+   "id": "way/196620993",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 19.135197,
+   "lon": 72.810797,
+   "osm_url": "https://www.openstreetmap.org/way/196620993"
+  },
+  {
+   "id": "way/198565160",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Land used by Metro Rail construction companies",
+   "lat": 19.131639,
+   "lon": 72.821785,
+   "osm_url": "https://www.openstreetmap.org/way/198565160"
+  },
+  {
+   "id": "way/198719578",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 19.200633,
+   "lon": 73.101973,
+   "osm_url": "https://www.openstreetmap.org/way/198719578"
+  },
+  {
+   "id": "way/202554202",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 19.148661,
+   "lon": 72.827025,
+   "osm_url": "https://www.openstreetmap.org/way/202554202"
+  },
+  {
+   "id": "way/202554203",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 19.14824,
+   "lon": 72.826627,
+   "osm_url": "https://www.openstreetmap.org/way/202554203"
+  },
+  {
+   "id": "way/202555834",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 19.13867,
+   "lon": 72.830304,
+   "osm_url": "https://www.openstreetmap.org/way/202555834"
+  },
+  {
+   "id": "way/202645365",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 19.149805,
+   "lon": 72.82564,
+   "osm_url": "https://www.openstreetmap.org/way/202645365"
+  },
+  {
+   "id": "way/204393286",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 19.136569,
+   "lon": 72.816483,
+   "osm_url": "https://www.openstreetmap.org/way/204393286"
+  },
+  {
+   "id": "way/206835969",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Bharat Altavistas",
+   "lat": 19.140738,
+   "lon": 72.826666,
+   "osm_url": "https://www.openstreetmap.org/way/206835969"
+  },
+  {
+   "id": "way/208366062",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 19.13199,
+   "lon": 72.826262,
+   "osm_url": "https://www.openstreetmap.org/way/208366062"
+  },
+  {
+   "id": "way/208366143",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 19.130419,
+   "lon": 72.825968,
+   "osm_url": "https://www.openstreetmap.org/way/208366143"
+  },
+  {
+   "id": "way/227896397",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 19.13262,
+   "lon": 72.836385,
+   "osm_url": "https://www.openstreetmap.org/way/227896397"
+  },
+  {
+   "id": "way/227909555",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 19.135589,
+   "lon": 72.833539,
+   "osm_url": "https://www.openstreetmap.org/way/227909555"
+  },
+  {
+   "id": "way/228345115",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 19.129691,
+   "lon": 72.818524,
+   "osm_url": "https://www.openstreetmap.org/way/228345115"
+  },
+  {
+   "id": "way/230784896",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 19.107291,
+   "lon": 72.826054,
+   "osm_url": "https://www.openstreetmap.org/way/230784896"
+  },
+  {
+   "id": "way/235983873",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Turbhe Landfill",
+   "lat": 19.080774,
+   "lon": 73.02288,
+   "osm_url": "https://www.openstreetmap.org/way/235983873"
+  },
+  {
+   "id": "way/235988234",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "PMAY CIDCO",
+   "lat": 19.075533,
+   "lon": 73.003895,
+   "osm_url": "https://www.openstreetmap.org/way/235988234"
+  },
+  {
+   "id": "way/236614968",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 19.015885,
+   "lon": 72.830695,
+   "osm_url": "https://www.openstreetmap.org/way/236614968"
+  },
+  {
+   "id": "way/244547922",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 19.132563,
+   "lon": 72.829896,
+   "osm_url": "https://www.openstreetmap.org/way/244547922"
+  },
+  {
+   "id": "way/247598799",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 19.111446,
+   "lon": 72.829216,
+   "osm_url": "https://www.openstreetmap.org/way/247598799"
+  },
+  {
+   "id": "way/247598923",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Elenora",
+   "lat": 19.114333,
+   "lon": 72.830281,
+   "osm_url": "https://www.openstreetmap.org/way/247598923"
+  },
+  {
+   "id": "way/249860496",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 19.146197,
+   "lon": 72.824644,
+   "osm_url": "https://www.openstreetmap.org/way/249860496"
+  },
+  {
+   "id": "way/255362177",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 19.059525,
+   "lon": 72.828589,
+   "osm_url": "https://www.openstreetmap.org/way/255362177"
+  },
+  {
+   "id": "way/255363707",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 19.053716,
+   "lon": 72.824102,
+   "osm_url": "https://www.openstreetmap.org/way/255363707"
+  },
+  {
+   "id": "way/255363753",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Harmony Sunkist",
+   "lat": 19.051574,
+   "lon": 72.825929,
+   "osm_url": "https://www.openstreetmap.org/way/255363753"
+  },
+  {
+   "id": "way/255363754",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Belvedere",
+   "lat": 19.051651,
+   "lon": 72.826086,
+   "osm_url": "https://www.openstreetmap.org/way/255363754"
+  },
+  {
+   "id": "way/255363974",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Magic Tower",
+   "lat": 19.055409,
+   "lon": 72.834532,
+   "osm_url": "https://www.openstreetmap.org/way/255363974"
+  },
+  {
+   "id": "way/255365471",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Zahra",
+   "lat": 19.056193,
+   "lon": 72.832225,
+   "osm_url": "https://www.openstreetmap.org/way/255365471"
+  },
+  {
+   "id": "way/255365492",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 19.056019,
+   "lon": 72.831258,
+   "osm_url": "https://www.openstreetmap.org/way/255365492"
+  },
+  {
+   "id": "way/255365570",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 19.058851,
+   "lon": 72.831289,
+   "osm_url": "https://www.openstreetmap.org/way/255365570"
+  },
+  {
+   "id": "way/255365585",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 19.0593,
+   "lon": 72.831491,
+   "osm_url": "https://www.openstreetmap.org/way/255365585"
+  },
+  {
+   "id": "way/255365589",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Bheroomal Mansion",
+   "lat": 19.058839,
+   "lon": 72.830469,
+   "osm_url": "https://www.openstreetmap.org/way/255365589"
+  },
+  {
+   "id": "way/255365870",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 19.063078,
+   "lon": 72.825767,
+   "osm_url": "https://www.openstreetmap.org/way/255365870"
+  },
+  {
+   "id": "way/255369795",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 19.062012,
+   "lon": 72.830581,
+   "osm_url": "https://www.openstreetmap.org/way/255369795"
+  },
+  {
+   "id": "way/255369893",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 19.059019,
+   "lon": 72.82531,
+   "osm_url": "https://www.openstreetmap.org/way/255369893"
+  },
+  {
+   "id": "way/255383437",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 19.105774,
+   "lon": 72.829228,
+   "osm_url": "https://www.openstreetmap.org/way/255383437"
+  },
+  {
+   "id": "way/255383448",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 19.10511,
+   "lon": 72.828684,
+   "osm_url": "https://www.openstreetmap.org/way/255383448"
+  },
+  {
+   "id": "way/255383453",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 19.107567,
+   "lon": 72.828424,
+   "osm_url": "https://www.openstreetmap.org/way/255383453"
+  },
+  {
+   "id": "way/255383476",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 19.111465,
+   "lon": 72.828903,
+   "osm_url": "https://www.openstreetmap.org/way/255383476"
+  },
+  {
+   "id": "way/255383494",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 19.108205,
+   "lon": 72.82804,
+   "osm_url": "https://www.openstreetmap.org/way/255383494"
+  },
+  {
+   "id": "way/255383508",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 19.10953,
+   "lon": 72.828821,
+   "osm_url": "https://www.openstreetmap.org/way/255383508"
+  },
+  {
+   "id": "way/255383596",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 19.1073,
+   "lon": 72.831012,
+   "osm_url": "https://www.openstreetmap.org/way/255383596"
+  },
+  {
+   "id": "way/255383627",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 19.107379,
+   "lon": 72.828395,
+   "osm_url": "https://www.openstreetmap.org/way/255383627"
+  },
+  {
+   "id": "way/255383739",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 19.108774,
+   "lon": 72.82758,
+   "osm_url": "https://www.openstreetmap.org/way/255383739"
+  },
+  {
+   "id": "way/255383744",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Meghdoot",
+   "lat": 19.105817,
+   "lon": 72.834052,
+   "osm_url": "https://www.openstreetmap.org/way/255383744"
+  },
+  {
+   "id": "way/255383883",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Amara",
+   "lat": 19.110419,
+   "lon": 72.828008,
+   "osm_url": "https://www.openstreetmap.org/way/255383883"
+  },
+  {
+   "id": "way/255384049",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Twenty",
+   "lat": 19.106893,
+   "lon": 72.82961,
+   "osm_url": "https://www.openstreetmap.org/way/255384049"
+  },
+  {
+   "id": "way/255387095",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 19.114386,
+   "lon": 72.82798,
+   "osm_url": "https://www.openstreetmap.org/way/255387095"
+  },
+  {
+   "id": "way/257073108",
+   "city": "Mumbai",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 19.105923,
+   "lon": 72.825721,
+   "osm_url": "https://www.openstreetmap.org/way/257073108"
+  },
+  {
+   "id": "way/257455759",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Gorai Landfill",
+   "lat": 19.236417,
+   "lon": 72.826638,
+   "osm_url": "https://www.openstreetmap.org/way/257455759"
+  },
+  {
+   "id": "way/257455760",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Kanjur Landfill",
+   "lat": 19.124154,
+   "lon": 72.951449,
+   "osm_url": "https://www.openstreetmap.org/way/257455760"
+  },
+  {
+   "id": "way/257480493",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Aadharwadi Dumping Ground",
+   "lat": 19.25032,
+   "lon": 73.119217,
+   "osm_url": "https://www.openstreetmap.org/way/257480493"
+  },
+  {
+   "id": "way/289511744",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Deonar Municipal Dumping Ground",
+   "lat": 19.066944,
+   "lon": 72.929444,
+   "osm_url": "https://www.openstreetmap.org/way/289511744"
+  },
+  {
+   "id": "way/314528563",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 19.066066,
+   "lon": 72.930807,
+   "osm_url": "https://www.openstreetmap.org/way/314528563"
+  },
+  {
+   "id": "way/395236229",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Diva Dumping Ground",
+   "lat": 19.177228,
+   "lon": 73.045899,
+   "osm_url": "https://www.openstreetmap.org/way/395236229"
+  },
+  {
+   "id": "way/395236230",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Diva Dumping Ground",
+   "lat": 19.176993,
+   "lon": 73.044032,
+   "osm_url": "https://www.openstreetmap.org/way/395236230"
+  },
+  {
+   "id": "way/395250720",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Uran Dumping Ground",
+   "lat": 18.8911,
+   "lon": 72.935711,
+   "osm_url": "https://www.openstreetmap.org/way/395250720"
+  },
+  {
+   "id": "way/533717900",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 19.14737,
+   "lon": 72.817031,
+   "osm_url": "https://www.openstreetmap.org/way/533717900"
+  },
+  {
+   "id": "way/627628781",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Dumping Ground",
+   "lat": 19.181212,
+   "lon": 72.953427,
+   "osm_url": "https://www.openstreetmap.org/way/627628781"
+  },
+  {
+   "id": "way/972067903",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 19.098627,
+   "lon": 73.112667,
+   "osm_url": "https://www.openstreetmap.org/way/972067903"
+  },
+  {
+   "id": "way/981951741",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "G South Waste Collection Centre",
+   "lat": 19.009188,
+   "lon": 72.830306,
+   "osm_url": "https://www.openstreetmap.org/way/981951741"
+  },
+  {
+   "id": "way/1061085342",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 19.016747,
+   "lon": 73.031627,
+   "osm_url": "https://www.openstreetmap.org/way/1061085342"
+  },
+  {
+   "id": "way/1069831666",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "NMMC Dumping Ground",
+   "lat": 19.096429,
+   "lon": 72.997178,
+   "osm_url": "https://www.openstreetmap.org/way/1069831666"
+  },
+  {
+   "id": "way/1152267879",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 19.039301,
+   "lon": 73.059432,
+   "osm_url": "https://www.openstreetmap.org/way/1152267879"
+  },
+  {
+   "id": "way/1218246459",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 19.244225,
+   "lon": 72.840238,
+   "osm_url": "https://www.openstreetmap.org/way/1218246459"
+  },
+  {
+   "id": "way/1219548700",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 19.291379,
+   "lon": 72.867587,
+   "osm_url": "https://www.openstreetmap.org/way/1219548700"
+  },
+  {
+   "id": "way/1219548703",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 19.292439,
+   "lon": 72.869883,
+   "osm_url": "https://www.openstreetmap.org/way/1219548703"
+  },
+  {
+   "id": "way/1219783779",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 19.298365,
+   "lon": 72.880807,
+   "osm_url": "https://www.openstreetmap.org/way/1219783779"
+  },
+  {
+   "id": "way/1219809352",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 19.292116,
+   "lon": 72.880727,
+   "osm_url": "https://www.openstreetmap.org/way/1219809352"
+  },
+  {
+   "id": "way/1219809360",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 19.290837,
+   "lon": 72.880994,
+   "osm_url": "https://www.openstreetmap.org/way/1219809360"
+  },
+  {
+   "id": "way/1219828709",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 19.291203,
+   "lon": 72.876415,
+   "osm_url": "https://www.openstreetmap.org/way/1219828709"
+  },
+  {
+   "id": "way/1219828717",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 19.291483,
+   "lon": 72.874645,
+   "osm_url": "https://www.openstreetmap.org/way/1219828717"
+  },
+  {
+   "id": "way/1220303531",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 19.290988,
+   "lon": 72.889502,
+   "osm_url": "https://www.openstreetmap.org/way/1220303531"
+  },
+  {
+   "id": "way/1220518290",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 19.288984,
+   "lon": 72.872694,
+   "osm_url": "https://www.openstreetmap.org/way/1220518290"
+  },
+  {
+   "id": "way/1220518309",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 19.286987,
+   "lon": 72.872545,
+   "osm_url": "https://www.openstreetmap.org/way/1220518309"
+  },
+  {
+   "id": "way/1220573519",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 19.302405,
+   "lon": 72.835769,
+   "osm_url": "https://www.openstreetmap.org/way/1220573519"
+  },
+  {
+   "id": "way/1221238815",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 19.288958,
+   "lon": 72.880223,
+   "osm_url": "https://www.openstreetmap.org/way/1221238815"
+  },
+  {
+   "id": "way/1222455312",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 19.286312,
+   "lon": 72.867878,
+   "osm_url": "https://www.openstreetmap.org/way/1222455312"
+  },
+  {
+   "id": "way/1222455338",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 19.289569,
+   "lon": 72.871588,
+   "osm_url": "https://www.openstreetmap.org/way/1222455338"
+  },
+  {
+   "id": "way/1223408709",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 19.266726,
+   "lon": 72.800506,
+   "osm_url": "https://www.openstreetmap.org/way/1223408709"
+  },
+  {
+   "id": "way/1223743102",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 19.287778,
+   "lon": 72.852754,
+   "osm_url": "https://www.openstreetmap.org/way/1223743102"
+  },
+  {
+   "id": "way/1258941019",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "MBMC Dumping Ground",
+   "lat": 19.287792,
+   "lon": 72.794323,
+   "osm_url": "https://www.openstreetmap.org/way/1258941019"
+  },
+  {
+   "id": "way/1386099085",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 18.971761,
+   "lon": 72.849595,
+   "osm_url": "https://www.openstreetmap.org/way/1386099085"
+  },
+  {
+   "id": "way/1386099086",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Dump",
+   "lat": 18.972644,
+   "lon": 72.85227,
+   "osm_url": "https://www.openstreetmap.org/way/1386099086"
+  },
+  {
+   "id": "way/1387674205",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Illegal Dump Site",
+   "lat": 19.179499,
+   "lon": 72.936194,
+   "osm_url": "https://www.openstreetmap.org/way/1387674205"
+  },
+  {
+   "id": "way/1389296086",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 19.304837,
+   "lon": 72.861238,
+   "osm_url": "https://www.openstreetmap.org/way/1389296086"
+  },
+  {
+   "id": "way/1390642250",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 19.307637,
+   "lon": 73.082465,
+   "osm_url": "https://www.openstreetmap.org/way/1390642250"
+  },
+  {
+   "id": "way/1390926976",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Illegal Dump Site",
+   "lat": 19.175833,
+   "lon": 72.961339,
+   "osm_url": "https://www.openstreetmap.org/way/1390926976"
+  },
+  {
+   "id": "way/1391181631",
+   "city": "Mumbai",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 19.175352,
+   "lon": 73.038786,
+   "osm_url": "https://www.openstreetmap.org/way/1391181631"
   }
  ]
 }
