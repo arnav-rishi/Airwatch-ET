@@ -88,6 +88,20 @@ not a proven violation, and industrial flares and agricultural fires also regist
 Needs a free `FIRMS_MAP_KEY` (see `.env.example`). Purely additive: without one, enforcement
 falls back to the ground registry alone and still works.
 
+*Seasonality, measured not assumed.* Verified live against the FIRMS API in late July: 138
+active-fire detections across India over 3 days, **none within 25 km of any of the 43 curated
+cities**. That is monsoon season doing what monsoon season does, not a broken integration —
+the pipeline was confirmed end to end by running the scorer against the real Tamil Nadu
+detections, which ranked, upwind-filtered and labelled correctly. The layer will carry real
+weight from October to January, when stubble and waste burning drive the northern air crisis.
+Because "enabled but found nothing" and "not configured" look identical in a response, the
+API reports `satellite: {enabled, total_detections}` and the UI states which it is.
+
+One API quirk worth knowing: `FIRMS_DAY_RANGE` accepts 1–10, but over a large bounding box
+the longer windows silently return an **empty body** rather than an error — 1 day gave 15
+detections, 3 gave 138, and 7 and 10 both gave nothing. That's a server-side transaction
+limit, so the default is 3 and it should not be raised.
+
 **1c. Who must never be a target.** OSM names transport infrastructure after whatever it
 serves, so a bus terminal outside a hospital or temple inherits that place's name. Two live
 runs surfaced this the hard way: the system recommended sending inspectors to *"Park Circus -

@@ -146,6 +146,19 @@ export default function EnforcementSidebar({ enforcement, loading }) {
               <span className="text-green-400 font-medium">{enforcement.response_time_seconds}s</span>
             </span>
           )}
+          {/* State the satellite layer explicitly — "active, found nothing" is a
+              real finding, not the same as "not configured". */}
+          {enforcement.satellite?.enabled && (
+            <span className="text-slate-500">
+              🛰 Satellite fire layer active —{' '}
+              {enforcement.satellite.total_detections > 0
+                ? <span className="text-red-400 font-medium">
+                    {enforcement.satellite.total_detections} active fire
+                    {enforcement.satellite.total_detections === 1 ? '' : 's'} near hotspots
+                  </span>
+                : 'no active fires within range of these hotspots'}
+            </span>
+          )}
         </div>
       </div>
 
