@@ -26,7 +26,15 @@ from pathlib import Path
 
 import httpx
 
-OVERPASS_URL = "https://overpass-api.de/api/interpreter"
+# Overpass mirrors, tried in order. The main overpass-api.de instance hands out
+# limited concurrent slots and throttles hard across a 43-city sweep — a full
+# run against it alone gets 429'd about two-thirds of the way through. Rotating
+# to a mirror on failure is what makes a complete sweep practical.
+OVERPASS_ENDPOINTS = [
+    "https://overpass-api.de/api/interpreter",
+    "https://overpass.kumi.systems/api/interpreter",
+    "https://overpass.osm.jp/api/interpreter",
+]
 DATA_DIR = Path(__file__).parent.parent / "data"
 CITIES_PATH = DATA_DIR / "cities_fallback.json"
 OUT_PATH = DATA_DIR / "emission_sources.json"
@@ -106,38 +114,43 @@ def _classify(tags: dict) -> str | None:
     return None
 
 
-def fetch_city(client: httpx.Client, city: dict, attempts: int = 4) -> list[dict]:
+def fetch_city(client: httpx.Client, city: dict, rounds: int = 2) -> list[dict]:
     """
-    One Overpass round trip for a city, retrying on the two failure modes the
-    public endpoint actually exhibits under sustained use: 429 (slot exhausted)
-    and 504 (query timed out server-side). Both are transient and clear after a
-    pause, so backing off is far better than dropping the city.
-    """
-    last_exc: Exception | None = None
-    for attempt in range(attempts):
-        try:
-            resp = client.post(
-                OVERPASS_URL,
-                data={"data": _build_query(city["lat"], city["lon"])},
-                timeout=180.0,
-            )
-            if resp.status_code in (429, 504):
-                raise httpx.HTTPStatusError(
-                    f"transient {resp.status_code}", request=resp.request, response=resp
-                )
-            resp.raise_for_status()
-            break
-        except Exception as exc:
-            last_exc = exc
-            if attempt == attempts - 1:
-                raise
-            backoff = 15 * (attempt + 1)
-            print(f"    retry {attempt + 1}/{attempts - 1} in {backoff}s ({exc.__class__.__name__})")
-            time.sleep(backoff)
-    else:  # pragma: no cover - loop always breaks or raises
-        raise last_exc  # type: ignore[misc]
+    One Overpass round trip for a city, rotating across mirrors on failure.
 
-    elements = resp.json().get("elements", [])
+    The public endpoints exhibit two transient failure modes under sustained
+    use: 429 (concurrent slot exhausted) and 504 (query timed out server-side).
+    Both clear after a pause, so each mirror is tried in turn before backing off
+    and going round again — moving to a different host is usually faster than
+    waiting out a throttle on the same one.
+    """
+    query = _build_query(city["lat"], city["lon"])
+    last_exc: Exception | None = None
+
+    for round_num in range(rounds):
+        for endpoint in OVERPASS_ENDPOINTS:
+            try:
+                resp = client.post(endpoint, data={"data": query}, timeout=180.0)
+                if resp.status_code in (429, 504):
+                    raise httpx.HTTPStatusError(
+                        f"transient {resp.status_code}", request=resp.request, response=resp
+                    )
+                resp.raise_for_status()
+                return _parse_elements(resp.json().get("elements", []), city)
+            except Exception as exc:
+                last_exc = exc
+                host = endpoint.split("/")[2]
+                print(f"    {host} failed ({exc.__class__.__name__}), trying next mirror")
+
+        if round_num < rounds - 1:
+            backoff = 30 * (round_num + 1)
+            print(f"    all mirrors failed, backing off {backoff}s")
+            time.sleep(backoff)
+
+    raise last_exc  # type: ignore[misc]
+
+
+def _parse_elements(elements: list[dict], city: dict) -> list[dict]:
 
     per_category: dict[str, int] = {}
     sources = []
@@ -168,41 +181,8 @@ def fetch_city(client: httpx.Client, city: dict, attempts: int = 4) -> list[dict
     return sources
 
 
-def main() -> int:
-    with open(CITIES_PATH, encoding="utf-8") as f:
-        cities = json.load(f)
-
-    # Resume: keep sources already fetched in a previous run and re-query only
-    # the cities still missing. Overpass is a shared free endpoint and a full
-    # 43-city sweep is enough to exhaust its rate limit, so re-fetching what we
-    # already have would be both wasteful and self-defeating.
-    all_sources: list[dict] = []
-    if OUT_PATH.exists():
-        with open(OUT_PATH, encoding="utf-8") as f:
-            all_sources = json.load(f).get("sources", [])
-    done = {s["city"] for s in all_sources}
-    if done:
-        print(f"Resuming: {len(done)} cities already have sources, {len(all_sources)} total\n")
-
-    failures: list[str] = []
-
-    with httpx.Client(headers={"User-Agent": "AirWatch-India/1.0 (hackathon project)"}) as client:
-        for i, city in enumerate(cities, 1):
-            if city["city"] in done:
-                print(f"[{i}/{len(cities)}] {city['city']:<20} skip (already fetched)")
-                continue
-            try:
-                found = fetch_city(client, city)
-                all_sources.extend(found)
-                print(f"[{i}/{len(cities)}] {city['city']:<20} {len(found):>4} sources")
-            except Exception as exc:
-                failures.append(city["city"])
-                print(f"[{i}/{len(cities)}] {city['city']:<20} FAILED: {exc}", file=sys.stderr)
-            # Be polite to a free shared endpoint. Overpass hands out limited
-            # concurrent slots; 2s was demonstrably too aggressive across a
-            # 43-city sweep and got us 429'd.
-            time.sleep(8)
-
+def _save(all_sources: list[dict], failures: list[str]) -> dict[str, int]:
+    """Write the registry to disk and return the per-category counts."""
     by_category: dict[str, int] = {}
     for s in all_sources:
         by_category[s["category"]] = by_category.get(s["category"], 0) + 1
@@ -229,6 +209,48 @@ def main() -> int:
 
     with open(OUT_PATH, "w", encoding="utf-8") as f:
         json.dump(payload, f, indent=1, ensure_ascii=False)
+    return by_category
+
+
+def main() -> int:
+    with open(CITIES_PATH, encoding="utf-8") as f:
+        cities = json.load(f)
+
+    # Resume: keep sources already fetched in a previous run and re-query only
+    # the cities still missing. Overpass is a shared free endpoint and a full
+    # 43-city sweep is enough to exhaust its rate limit, so re-fetching what we
+    # already have would be both wasteful and self-defeating.
+    all_sources: list[dict] = []
+    if OUT_PATH.exists():
+        with open(OUT_PATH, encoding="utf-8") as f:
+            all_sources = json.load(f).get("sources", [])
+    done = {s["city"] for s in all_sources}
+    if done:
+        print(f"Resuming: {len(done)} cities already have sources, {len(all_sources)} total\n")
+
+    failures: list[str] = []
+
+    with httpx.Client(headers={"User-Agent": "AirWatch-India/1.0 (hackathon project)"}) as client:
+        for i, city in enumerate(cities, 1):
+            if city["city"] in done:
+                print(f"[{i}/{len(cities)}] {city['city']:<20} skip (already fetched)")
+                continue
+            try:
+                found = fetch_city(client, city)
+                all_sources.extend(found)
+                # Write after every city. A sweep can take tens of minutes against
+                # throttled mirrors, and holding everything in memory until the end
+                # means an interruption throws away all of it — which is exactly
+                # what happened on the first run.
+                _save(all_sources, failures)
+                print(f"[{i}/{len(cities)}] {city['city']:<20} {len(found):>4} sources")
+            except Exception as exc:
+                failures.append(city["city"])
+                print(f"[{i}/{len(cities)}] {city['city']:<20} FAILED: {exc}", file=sys.stderr)
+            # Be polite to a free shared endpoint.
+            time.sleep(3)
+
+    by_category = _save(all_sources, failures)
 
     # Plain ASCII: this runs on Windows consoles under cp1252, where a stray
     # arrow glyph raises UnicodeEncodeError *after* the file is already written.

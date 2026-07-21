@@ -41,6 +41,13 @@ AI-powered pollution analysis and a multilingual citizen health advisory chatbot
 (one bad reading doesn't drop a city off the map), 10-minute station cache warmed at startup,
 retry-with-backoff on all external API calls, and rate limiting on the LLM-backed endpoints.
 
+**Concurrency:** all LLM calls go through the *async* Azure client (`services/llm.py`,
+`acall_llm` / `acall_llm_json`). This matters for enforcement: the attribution stage fans out
+one call per hotspot with `asyncio.gather`, and under the synchronous client those coroutines
+ran strictly back to back *and* blocked the event loop for the whole round trip — so the
+fan-out delivered neither parallelism nor concurrency, and froze every other request while it
+worked. A timing test (`tests/test_enforcement_route.py`) asserts the fan-out actually overlaps.
+
 ## ⚖️ Enforcement Intelligence — how the correlation works
 
 The problem statement asks for an agent that *"correlates pollution hotspot data with

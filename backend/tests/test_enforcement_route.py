@@ -47,7 +47,7 @@ def stub_chain(monkeypatch, fake_stations):
 
     captured = {}
 
-    def fake_llm_json(system, user, max_tokens=8000, **kwargs):
+    async def fake_llm_json(system, user, max_tokens=8000, **kwargs):
         # Discriminate on each system prompt's opening role line. Matching on
         # "source attribution" would misfire: ENFORCEMENT_SYSTEM describes the
         # Attribution Agent's output as part of explaining its own inputs.
@@ -66,7 +66,7 @@ def stub_chain(monkeypatch, fake_stations):
             ],
         }
 
-    monkeypatch.setattr(intel, "call_llm_json", fake_llm_json)
+    monkeypatch.setattr(intel, "acall_llm_json", fake_llm_json)
     return captured
 
 
@@ -126,6 +126,50 @@ def test_registry_provenance_is_surfaced(client, stub_chain):
     assert "OpenStreetMap" in meta.get("upstream", "")
     # The OSM-is-a-proxy caveat must travel with the data, not be hidden.
     assert "caveat" in meta
+
+
+def test_attribution_fanout_runs_concurrently(client, monkeypatch, fake_stations):
+    """
+    The attribution stage fans out one LLM call per hotspot via asyncio.gather.
+    With the *sync* Azure client those coroutines ran strictly back to back and
+    blocked the event loop throughout, so the fan-out bought nothing. With the
+    async client they overlap.
+
+    Five hotspots at 0.2s of simulated latency: concurrent is ~0.2s, serial is
+    ~1.0s. The 0.6s bound distinguishes them without being flaky.
+    """
+    import asyncio as _asyncio
+    import time
+
+    import services.cache
+
+    five = [
+        {**fake_stations[0], "city": f"City{i}", "lat": 22.5 + i * 0.01, "lon": 88.3}
+        for i in range(5)
+    ]
+    monkeypatch.setattr(services.cache, "get_cached_stations", lambda: five)
+    monkeypatch.setattr(services.cache, "get_cached_attribution", lambda city: None)
+
+    async def fake_weather(lat, lon):
+        return {"wind_direction": 315, "wind_speed_kmh": 12.0, "humidity_pct": 60,
+                "description": "haze", "temp_c": 28, "visibility_km": 3}
+    monkeypatch.setattr(intel, "fetch_weather", fake_weather)
+
+    async def slow_llm(system, user, max_tokens=8000, **kwargs):
+        await _asyncio.sleep(0.2)
+        if system.lstrip().startswith("You are an air quality analyst"):
+            return {"traffic": 20, "industrial": 45, "construction": 15,
+                    "biomass_burning": 10, "other": 10, "dominant_source": "Industry"}
+        return {"generated_at": "2026-07-21", "priorities": []}
+    monkeypatch.setattr(intel, "acall_llm_json", slow_llm)
+
+    started = time.perf_counter()
+    resp = client.get("/api/intel/enforcement/auto")
+    elapsed = time.perf_counter() - started
+
+    assert resp.status_code == 200
+    # 5 attribution calls + 1 enforcement call. Serial would be >= 1.2s.
+    assert elapsed < 0.6, f"attribution fan-out appears serial ({elapsed:.2f}s)"
 
 
 def test_sources_endpoint_exposes_registry(client):

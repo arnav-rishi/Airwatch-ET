@@ -2,7 +2,7 @@ import asyncio
 from datetime import datetime
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
-from services.llm import call_llm, call_llm_json
+from services.llm import acall_llm, acall_llm_json
 from services.openweather import fetch_weather, fetch_forecast
 from services.cache import get_cached_attribution, set_cached_attribution
 from services.source_registry import (
@@ -67,7 +67,7 @@ async def get_attribution(req: AttributionRequest):
     if cached:
         return cached
 
-    result = call_llm_json(
+    result = await acall_llm_json(
         system=ATTRIBUTION_SYSTEM,
         user=attribution_user(req),
         max_tokens=8000,
@@ -88,7 +88,7 @@ async def get_attribution(req: AttributionRequest):
 @router.post("/enforcement")
 async def get_enforcement(req: EnforcementRequest):
     """Returns today's top 3 enforcement priorities across the submitted cities."""
-    result = call_llm_json(
+    result = await acall_llm_json(
         system=ENFORCEMENT_SYSTEM,
         user=enforcement_user(req),
         max_tokens=8000,
@@ -109,7 +109,7 @@ async def get_forecast(req: ForecastRequest):
     baseline = compute_baseline_forecast(req.history_24h, req.current_aqi, req.weather_forecast)
     backtest = backtest_baseline(req.history_24h)
 
-    result = call_llm_json(
+    result = await acall_llm_json(
         system=FORECAST_SYSTEM,
         user=forecast_user(req, baseline),
         max_tokens=8000,
@@ -123,7 +123,7 @@ async def get_forecast(req: ForecastRequest):
 @router.post("/advisory")
 async def get_advisory(req: AdvisoryRequest):
     """Returns a citizen health advisory in the requested language."""
-    result = call_llm(
+    result = await acall_llm(
         system=ADVISORY_SYSTEM,
         user=advisory_user(req),
         max_tokens=8000,
@@ -210,7 +210,7 @@ async def _attribute_city(city: dict) -> str | None:
             wind_speed_kmh=weather.get("wind_speed_kmh", 0),
             humidity_pct=weather.get("humidity_pct", 50),
         )
-        result = call_llm_json(
+        result = await acall_llm_json(
             system=ATTRIBUTION_SYSTEM, user=attribution_user(attr_req), max_tokens=8000,
         )
         set_cached_attribution(city["city"], result)
@@ -267,7 +267,7 @@ async def get_auto_enforcement():
         top5 = list(await asyncio.gather(*[_enrich_city_with_candidates(c) for c in top5]))
 
         req = EnforcementRequest(top_cities=top5)
-        result = call_llm_json(
+        result = await acall_llm_json(
             system=ENFORCEMENT_SYSTEM,
             user=enforcement_user(req),
             max_tokens=8000,
