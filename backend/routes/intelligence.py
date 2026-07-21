@@ -1,5 +1,6 @@
 import asyncio
 from datetime import datetime
+from statistics import mean
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 from services.llm import acall_llm, acall_llm_json
@@ -112,15 +113,50 @@ async def get_enforcement(req: EnforcementRequest):
     return result
 
 
+def _forecast_divergence(llm_forecast, baseline: list[dict]) -> dict:
+    """
+    Mean and max absolute gap between the LLM's forecast and the statistical
+    baseline it was told to start from, matched hour by hour.
+
+    This is the honesty check on the accuracy numbers above: the backtest
+    measures the *baseline's* skill, and that only carries over to the forecast
+    actually shown to the user to the extent the LLM stayed close to it. A large
+    divergence means the delivered forecast is substantially the model's own
+    invention and the baseline's RMSE no longer describes it.
+    """
+    if not llm_forecast or not baseline:
+        return {"mean_abs": None, "max_abs": None, "matched_hours": 0}
+
+    by_hour = {b["hour"]: b["predicted_aqi"] for b in baseline}
+    deltas = [
+        abs(f["predicted_aqi"] - by_hour[f["hour"]])
+        for f in llm_forecast
+        if isinstance(f, dict)
+        and f.get("hour") in by_hour
+        and isinstance(f.get("predicted_aqi"), (int, float))
+    ]
+    if not deltas:
+        return {"mean_abs": None, "max_abs": None, "matched_hours": 0}
+    return {
+        "mean_abs": round(mean(deltas), 1),
+        "max_abs": round(max(deltas), 1),
+        "matched_hours": len(deltas),
+    }
+
+
 @router.post("/forecast")
 async def get_forecast(req: ForecastRequest):
     """
     Returns a hybrid 24hr AQI forecast: a deterministic statistical baseline
     (utils/forecast_baseline.py — always computed, free, independently testable)
     plus an LLM narrative that must reconcile with that baseline rather than
-    inventing numbers from a blank page. Also reports the baseline's own
-    backtested MAE against real held-out history, so the forecast carries an
-    actual accuracy number instead of an unverifiable claim.
+    inventing numbers from a blank page.
+
+    Accuracy is reported against persistence — "it will stay as it is now" —
+    which is the naive benchmark the evaluation criteria name and the one any
+    forecast must beat to have demonstrated skill. Both the statistical
+    baseline's RMSE and persistence's own RMSE are returned, so the comparison
+    can be checked rather than asserted.
     """
     baseline = compute_baseline_forecast(req.history_24h, req.current_aqi, req.weather_forecast)
     backtest = backtest_baseline(req.history_24h)
@@ -133,6 +169,20 @@ async def get_forecast(req: ForecastRequest):
     result["baseline_forecast"] = baseline
     result["baseline_backtest_mae"] = backtest["mae"]
     result["baseline_backtest_n"] = backtest["n"]
+    result["accuracy"] = {
+        "holdout_points": backtest["n"],
+        "baseline_rmse": backtest["rmse"],
+        "persistence_rmse": backtest["persistence_rmse"],
+        "persistence_mae": backtest["persistence_mae"],
+        "skill_vs_persistence": backtest["skill_vs_persistence"],
+    }
+
+    # How far the LLM moved off the baseline it was anchored to. The baseline's
+    # accuracy only transfers to the delivered forecast insofar as the two agree,
+    # so quoting the backtest without this would overstate what was verified.
+    result["llm_divergence_from_baseline"] = _forecast_divergence(
+        result.get("forecast"), baseline
+    )
     return result
 
 

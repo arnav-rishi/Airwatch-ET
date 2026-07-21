@@ -42,4 +42,61 @@ def test_backtest_reports_mae_on_sufficient_history():
 def test_backtest_returns_none_on_insufficient_history():
     history = _history(n=4, start=150, step=0)
     result = backtest_baseline(history, holdout=6)
-    assert result == {"mae": None, "n": 0}
+    assert result["mae"] is None
+    assert result["n"] == 0
+    assert result["persistence_rmse"] is None
+    assert result["skill_vs_persistence"] is None
+
+
+# ─── Skill against the persistence benchmark ──────────────────────────────────
+# "RMSE versus persistence baseline" is named directly in the evaluation
+# criteria. Persistence — "it will stay exactly as it is now" — is the naive
+# benchmark any forecast must beat to have demonstrated skill at all.
+
+def test_backtest_reports_both_rmse_figures():
+    result = backtest_baseline(_history(start=100, step=3), holdout=6)
+    assert result["rmse"] is not None
+    assert result["persistence_rmse"] is not None
+
+
+def test_trend_model_beats_persistence_on_a_trending_series():
+    """
+    A steadily rising series is exactly where persistence fails and a trend
+    model should win — skill must come out clearly positive.
+    """
+    result = backtest_baseline(_history(start=100, step=3), holdout=6)
+    assert result["rmse"] < result["persistence_rmse"]
+    assert result["skill_vs_persistence"] > 0.5
+
+
+def test_skill_is_negative_when_the_model_loses_to_persistence():
+    """
+    The number has to be able to say "worse than doing nothing", or it isn't a
+    real measurement. A series that rises then abruptly reverses punishes the
+    extrapolated trend while persistence stays close.
+    """
+    values = [100, 110, 120, 130, 140, 150, 160, 170, 180] + [180, 178, 176, 174, 172, 170]
+    history = [{"hour": f"{i}:00", "aqi": v, "pm25": 0} for i, v in enumerate(values)]
+
+    result = backtest_baseline(history, holdout=6)
+    assert result["rmse"] > result["persistence_rmse"]
+    assert result["skill_vs_persistence"] < 0
+
+
+def test_skill_is_none_when_persistence_is_already_perfect():
+    """
+    A perfectly flat series gives persistence zero error. There's nothing to
+    improve on, so a skill score would be meaningless — report None rather than
+    dividing by zero or implying an achievement.
+    """
+    result = backtest_baseline(_history(start=150, step=0), holdout=6)
+    assert result["persistence_rmse"] == 0.0
+    assert result["skill_vs_persistence"] is None
+
+
+def test_rmse_penalises_large_errors_more_than_mae():
+    """Sanity check that RMSE isn't accidentally computing MAE."""
+    values = [100] * 10 + [100, 100, 100, 100, 100, 300]
+    history = [{"hour": f"{i}:00", "aqi": v, "pm25": 0} for i, v in enumerate(values)]
+    result = backtest_baseline(history, holdout=6)
+    assert result["rmse"] > result["mae"]

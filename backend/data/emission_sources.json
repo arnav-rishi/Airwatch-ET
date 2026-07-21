@@ -5,14 +5,14 @@
   "caveat": "OSM proxies for registered emitters, not an official register. Open waste burning is unmapped by nature, so landfills and waste transfer stations stand in for it. A production deployment would use CPCB consent-to-operate and state PCB registers instead.",
   "bbox_half_deg": 0.25,
   "max_per_category_per_city": 60,
-  "total_sources": 2728,
+  "total_sources": 2814,
   "by_category": {
-   "diesel_fleet": 699,
-   "industry": 949,
-   "waste_burning": 390,
-   "construction": 690
+   "diesel_fleet": 713,
+   "industry": 1009,
+   "waste_burning": 393,
+   "construction": 699
   },
-  "cities_covered": 18,
+  "cities_covered": 19,
   "failed_cities": []
  },
  "sources": [
@@ -24567,6 +24567,780 @@
    "lat": 18.576742,
    "lon": 73.741974,
    "osm_url": "https://www.openstreetmap.org/way/1184139875"
+  },
+  {
+   "id": "node/1064270856",
+   "city": "Jaipur",
+   "category": "diesel_fleet",
+   "name": "Sindhi Camp",
+   "lat": 26.923847,
+   "lon": 75.800655,
+   "osm_url": "https://www.openstreetmap.org/node/1064270856"
+  },
+  {
+   "id": "node/5033548721",
+   "city": "Jaipur",
+   "category": "waste_burning",
+   "name": "no one",
+   "lat": 26.80106,
+   "lon": 75.794371,
+   "osm_url": "https://www.openstreetmap.org/node/5033548721"
+  },
+  {
+   "id": "node/5284145023",
+   "city": "Jaipur",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 26.917631,
+   "lon": 75.790294,
+   "osm_url": "https://www.openstreetmap.org/node/5284145023"
+  },
+  {
+   "id": "node/6133852985",
+   "city": "Jaipur",
+   "category": "diesel_fleet",
+   "name": "Sindhi Camp Bus Stand",
+   "lat": 26.923305,
+   "lon": 75.800635,
+   "osm_url": "https://www.openstreetmap.org/node/6133852985"
+  },
+  {
+   "id": "node/6976254817",
+   "city": "Jaipur",
+   "category": "diesel_fleet",
+   "name": "RSRTC/Roadways Bus Stand",
+   "lat": 26.8995,
+   "lon": 75.813204,
+   "osm_url": "https://www.openstreetmap.org/node/6976254817"
+  },
+  {
+   "id": "node/7043371112",
+   "city": "Jaipur",
+   "category": "diesel_fleet",
+   "name": "Chomu Pulia",
+   "lat": 26.941806,
+   "lon": 75.773422,
+   "osm_url": "https://www.openstreetmap.org/node/7043371112"
+  },
+  {
+   "id": "node/7079400604",
+   "city": "Jaipur",
+   "category": "diesel_fleet",
+   "name": "Volvo Stand",
+   "lat": 26.899835,
+   "lon": 75.812932,
+   "osm_url": "https://www.openstreetmap.org/node/7079400604"
+  },
+  {
+   "id": "node/8084157103",
+   "city": "Jaipur",
+   "category": "diesel_fleet",
+   "name": "22 Godam Public Bus Stop",
+   "lat": 26.902044,
+   "lon": 75.793017,
+   "osm_url": "https://www.openstreetmap.org/node/8084157103"
+  },
+  {
+   "id": "node/9249518832",
+   "city": "Jaipur",
+   "category": "diesel_fleet",
+   "name": "RSRTC Bus Depot",
+   "lat": 26.912892,
+   "lon": 75.79163,
+   "osm_url": "https://www.openstreetmap.org/node/9249518832"
+  },
+  {
+   "id": "node/10015635629",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Hero Motocorp. - Centre of Innovation and Technology",
+   "lat": 27.038518,
+   "lon": 75.898464,
+   "osm_url": "https://www.openstreetmap.org/node/10015635629"
+  },
+  {
+   "id": "way/237962886",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Ericsson Assembly line factory",
+   "lat": 27.032631,
+   "lon": 75.892885,
+   "osm_url": "https://www.openstreetmap.org/way/237962886"
+  },
+  {
+   "id": "way/263767619",
+   "city": "Jaipur",
+   "category": "diesel_fleet",
+   "name": "Unnamed diesel_fleet site",
+   "lat": 26.913006,
+   "lon": 75.791663,
+   "osm_url": "https://www.openstreetmap.org/way/263767619"
+  },
+  {
+   "id": "way/375244407",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Surajpole Anaj Mandi",
+   "lat": 26.915823,
+   "lon": 75.846181,
+   "osm_url": "https://www.openstreetmap.org/way/375244407"
+  },
+  {
+   "id": "way/375265436",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Metro Depot",
+   "lat": 26.878324,
+   "lon": 75.75271,
+   "osm_url": "https://www.openstreetmap.org/way/375265436"
+  },
+  {
+   "id": "way/375273518",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Sitapura Industrial Area",
+   "lat": 26.776284,
+   "lon": 75.835399,
+   "osm_url": "https://www.openstreetmap.org/way/375273518"
+  },
+  {
+   "id": "way/375273519",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 26.773675,
+   "lon": 75.851846,
+   "osm_url": "https://www.openstreetmap.org/way/375273519"
+  },
+  {
+   "id": "way/375890431",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 26.925833,
+   "lon": 75.776543,
+   "osm_url": "https://www.openstreetmap.org/way/375890431"
+  },
+  {
+   "id": "way/521141400",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Sudershanpura Industrial Area",
+   "lat": 26.897016,
+   "lon": 75.790906,
+   "osm_url": "https://www.openstreetmap.org/way/521141400"
+  },
+  {
+   "id": "way/562493425",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 26.816693,
+   "lon": 75.567623,
+   "osm_url": "https://www.openstreetmap.org/way/562493425"
+  },
+  {
+   "id": "way/562493426",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 26.809028,
+   "lon": 75.57869,
+   "osm_url": "https://www.openstreetmap.org/way/562493426"
+  },
+  {
+   "id": "way/562493427",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 26.8118,
+   "lon": 75.56268,
+   "osm_url": "https://www.openstreetmap.org/way/562493427"
+  },
+  {
+   "id": "way/570461406",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 26.950432,
+   "lon": 75.892584,
+   "osm_url": "https://www.openstreetmap.org/way/570461406"
+  },
+  {
+   "id": "way/630026168",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 26.94961,
+   "lon": 75.825067,
+   "osm_url": "https://www.openstreetmap.org/way/630026168"
+  },
+  {
+   "id": "way/754523347",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Saras Dairy Jaipur",
+   "lat": 26.864189,
+   "lon": 75.803155,
+   "osm_url": "https://www.openstreetmap.org/way/754523347"
+  },
+  {
+   "id": "way/754796571",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Jvvnl Vaishali Nagar",
+   "lat": 26.912014,
+   "lon": 75.744445,
+   "osm_url": "https://www.openstreetmap.org/way/754796571"
+  },
+  {
+   "id": "way/755118830",
+   "city": "Jaipur",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 26.891664,
+   "lon": 75.739814,
+   "osm_url": "https://www.openstreetmap.org/way/755118830"
+  },
+  {
+   "id": "way/755118834",
+   "city": "Jaipur",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 26.890869,
+   "lon": 75.736951,
+   "osm_url": "https://www.openstreetmap.org/way/755118834"
+  },
+  {
+   "id": "way/755118844",
+   "city": "Jaipur",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 26.898549,
+   "lon": 75.742229,
+   "osm_url": "https://www.openstreetmap.org/way/755118844"
+  },
+  {
+   "id": "way/755118846",
+   "city": "Jaipur",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 26.895931,
+   "lon": 75.733761,
+   "osm_url": "https://www.openstreetmap.org/way/755118846"
+  },
+  {
+   "id": "way/755258645",
+   "city": "Jaipur",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 26.938976,
+   "lon": 75.851887,
+   "osm_url": "https://www.openstreetmap.org/way/755258645"
+  },
+  {
+   "id": "way/758559556",
+   "city": "Jaipur",
+   "category": "waste_burning",
+   "name": "Unnamed waste_burning site",
+   "lat": 26.900157,
+   "lon": 75.739063,
+   "osm_url": "https://www.openstreetmap.org/way/758559556"
+  },
+  {
+   "id": "way/758640338",
+   "city": "Jaipur",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 26.900453,
+   "lon": 75.738586,
+   "osm_url": "https://www.openstreetmap.org/way/758640338"
+  },
+  {
+   "id": "way/758646748",
+   "city": "Jaipur",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 26.902261,
+   "lon": 75.738693,
+   "osm_url": "https://www.openstreetmap.org/way/758646748"
+  },
+  {
+   "id": "way/761802043",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 26.844414,
+   "lon": 75.951829,
+   "osm_url": "https://www.openstreetmap.org/way/761802043"
+  },
+  {
+   "id": "way/761802044",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 26.847983,
+   "lon": 75.954162,
+   "osm_url": "https://www.openstreetmap.org/way/761802044"
+  },
+  {
+   "id": "way/761802045",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 26.850708,
+   "lon": 75.952182,
+   "osm_url": "https://www.openstreetmap.org/way/761802045"
+  },
+  {
+   "id": "way/761802046",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 26.852455,
+   "lon": 75.952342,
+   "osm_url": "https://www.openstreetmap.org/way/761802046"
+  },
+  {
+   "id": "way/761802047",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 26.857228,
+   "lon": 75.953357,
+   "osm_url": "https://www.openstreetmap.org/way/761802047"
+  },
+  {
+   "id": "way/761802048",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 26.859685,
+   "lon": 75.951865,
+   "osm_url": "https://www.openstreetmap.org/way/761802048"
+  },
+  {
+   "id": "way/761802049",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 26.854279,
+   "lon": 75.957415,
+   "osm_url": "https://www.openstreetmap.org/way/761802049"
+  },
+  {
+   "id": "way/761802050",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 26.855144,
+   "lon": 75.959537,
+   "osm_url": "https://www.openstreetmap.org/way/761802050"
+  },
+  {
+   "id": "way/761802051",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 26.855891,
+   "lon": 75.961321,
+   "osm_url": "https://www.openstreetmap.org/way/761802051"
+  },
+  {
+   "id": "way/761802052",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 26.858311,
+   "lon": 75.96205,
+   "osm_url": "https://www.openstreetmap.org/way/761802052"
+  },
+  {
+   "id": "way/761802053",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 26.859605,
+   "lon": 75.960634,
+   "osm_url": "https://www.openstreetmap.org/way/761802053"
+  },
+  {
+   "id": "way/761802054",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 26.861242,
+   "lon": 75.959746,
+   "osm_url": "https://www.openstreetmap.org/way/761802054"
+  },
+  {
+   "id": "way/761802055",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 26.860928,
+   "lon": 75.958083,
+   "osm_url": "https://www.openstreetmap.org/way/761802055"
+  },
+  {
+   "id": "way/761802056",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 26.86205,
+   "lon": 75.955279,
+   "osm_url": "https://www.openstreetmap.org/way/761802056"
+  },
+  {
+   "id": "way/862954948",
+   "city": "Jaipur",
+   "category": "diesel_fleet",
+   "name": "Sanganer Bus Depot",
+   "lat": 26.796618,
+   "lon": 75.815108,
+   "osm_url": "https://www.openstreetmap.org/way/862954948"
+  },
+  {
+   "id": "way/863231885",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Rajdhani Krishi Upaj Mandi, Sikar Road",
+   "lat": 26.990111,
+   "lon": 75.768861,
+   "osm_url": "https://www.openstreetmap.org/way/863231885"
+  },
+  {
+   "id": "way/863276766",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "VRL LOGISTICS LTD JAIPUR VKIA",
+   "lat": 26.972104,
+   "lon": 75.778634,
+   "osm_url": "https://www.openstreetmap.org/way/863276766"
+  },
+  {
+   "id": "way/863276767",
+   "city": "Jaipur",
+   "category": "diesel_fleet",
+   "name": "JCTSL Vidhyadhar Nagar Bus Depot",
+   "lat": 26.962628,
+   "lon": 75.772351,
+   "osm_url": "https://www.openstreetmap.org/way/863276767"
+  },
+  {
+   "id": "way/863276770",
+   "city": "Jaipur",
+   "category": "diesel_fleet",
+   "name": "Vidhyadhar Nagar Bus Depot (RSRTC)",
+   "lat": 26.964346,
+   "lon": 75.772776,
+   "osm_url": "https://www.openstreetmap.org/way/863276770"
+  },
+  {
+   "id": "way/863276772",
+   "city": "Jaipur",
+   "category": "diesel_fleet",
+   "name": "Private Bus Parking",
+   "lat": 26.94019,
+   "lon": 75.779957,
+   "osm_url": "https://www.openstreetmap.org/way/863276772"
+  },
+  {
+   "id": "way/863276780",
+   "city": "Jaipur",
+   "category": "diesel_fleet",
+   "name": "DoodhMandi Bus Stand",
+   "lat": 26.936312,
+   "lon": 75.793357,
+   "osm_url": "https://www.openstreetmap.org/way/863276780"
+  },
+  {
+   "id": "way/864640000",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 26.768735,
+   "lon": 75.930972,
+   "osm_url": "https://www.openstreetmap.org/way/864640000"
+  },
+  {
+   "id": "way/865638260",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Malviya Nagar Power Grid",
+   "lat": 26.859331,
+   "lon": 75.809845,
+   "osm_url": "https://www.openstreetmap.org/way/865638260"
+  },
+  {
+   "id": "way/865735712",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unique Power Technologies",
+   "lat": 26.735868,
+   "lon": 75.886917,
+   "osm_url": "https://www.openstreetmap.org/way/865735712"
+  },
+  {
+   "id": "way/865735740",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Ahuja Corporation Private Limited",
+   "lat": 26.734026,
+   "lon": 75.888926,
+   "osm_url": "https://www.openstreetmap.org/way/865735740"
+  },
+  {
+   "id": "way/898273734",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 26.950027,
+   "lon": 75.758803,
+   "osm_url": "https://www.openstreetmap.org/way/898273734"
+  },
+  {
+   "id": "way/954811332",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Concor, Jaipur",
+   "lat": 26.930882,
+   "lon": 75.710087,
+   "osm_url": "https://www.openstreetmap.org/way/954811332"
+  },
+  {
+   "id": "way/955215278",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "REIL, Jaipur",
+   "lat": 26.92565,
+   "lon": 75.702875,
+   "osm_url": "https://www.openstreetmap.org/way/955215278"
+  },
+  {
+   "id": "way/955219562",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Tarun International Ltd.",
+   "lat": 26.928092,
+   "lon": 75.700959,
+   "osm_url": "https://www.openstreetmap.org/way/955219562"
+  },
+  {
+   "id": "way/1008772903",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 26.799697,
+   "lon": 75.579543,
+   "osm_url": "https://www.openstreetmap.org/way/1008772903"
+  },
+  {
+   "id": "way/1008772908",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 26.908394,
+   "lon": 75.632182,
+   "osm_url": "https://www.openstreetmap.org/way/1008772908"
+  },
+  {
+   "id": "way/1008772909",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 26.906237,
+   "lon": 75.631937,
+   "osm_url": "https://www.openstreetmap.org/way/1008772909"
+  },
+  {
+   "id": "way/1008772910",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 26.913618,
+   "lon": 75.640858,
+   "osm_url": "https://www.openstreetmap.org/way/1008772910"
+  },
+  {
+   "id": "way/1008772911",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 26.921606,
+   "lon": 75.655275,
+   "osm_url": "https://www.openstreetmap.org/way/1008772911"
+  },
+  {
+   "id": "way/1008772921",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 26.808028,
+   "lon": 75.54623,
+   "osm_url": "https://www.openstreetmap.org/way/1008772921"
+  },
+  {
+   "id": "way/1008772932",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 26.812825,
+   "lon": 75.668169,
+   "osm_url": "https://www.openstreetmap.org/way/1008772932"
+  },
+  {
+   "id": "way/1008772933",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 26.809096,
+   "lon": 75.666693,
+   "osm_url": "https://www.openstreetmap.org/way/1008772933"
+  },
+  {
+   "id": "way/1008772934",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 26.809243,
+   "lon": 75.63735,
+   "osm_url": "https://www.openstreetmap.org/way/1008772934"
+  },
+  {
+   "id": "way/1008772935",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 26.811159,
+   "lon": 75.607411,
+   "osm_url": "https://www.openstreetmap.org/way/1008772935"
+  },
+  {
+   "id": "way/1008774159",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 26.865042,
+   "lon": 75.728969,
+   "osm_url": "https://www.openstreetmap.org/way/1008774159"
+  },
+  {
+   "id": "way/1073933472",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 27.010268,
+   "lon": 75.797875,
+   "osm_url": "https://www.openstreetmap.org/way/1073933472"
+  },
+  {
+   "id": "way/1073933473",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 27.019879,
+   "lon": 75.805696,
+   "osm_url": "https://www.openstreetmap.org/way/1073933473"
+  },
+  {
+   "id": "way/1073933474",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 27.005824,
+   "lon": 75.788928,
+   "osm_url": "https://www.openstreetmap.org/way/1073933474"
+  },
+  {
+   "id": "way/1073933475",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 27.00076,
+   "lon": 75.786312,
+   "osm_url": "https://www.openstreetmap.org/way/1073933475"
+  },
+  {
+   "id": "way/1073933476",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 26.994357,
+   "lon": 75.781028,
+   "osm_url": "https://www.openstreetmap.org/way/1073933476"
+  },
+  {
+   "id": "way/1073933480",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 26.999415,
+   "lon": 75.791994,
+   "osm_url": "https://www.openstreetmap.org/way/1073933480"
+  },
+  {
+   "id": "way/1073933481",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 26.991649,
+   "lon": 75.793288,
+   "osm_url": "https://www.openstreetmap.org/way/1073933481"
+  },
+  {
+   "id": "way/1073933482",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 26.978753,
+   "lon": 75.782718,
+   "osm_url": "https://www.openstreetmap.org/way/1073933482"
+  },
+  {
+   "id": "way/1073933483",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 26.989586,
+   "lon": 75.778465,
+   "osm_url": "https://www.openstreetmap.org/way/1073933483"
+  },
+  {
+   "id": "way/1073933484",
+   "city": "Jaipur",
+   "category": "industry",
+   "name": "Unnamed industry site",
+   "lat": 26.999415,
+   "lon": 75.779985,
+   "osm_url": "https://www.openstreetmap.org/way/1073933484"
+  },
+  {
+   "id": "way/1180503222",
+   "city": "Jaipur",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 26.907256,
+   "lon": 75.817228,
+   "osm_url": "https://www.openstreetmap.org/way/1180503222"
+  },
+  {
+   "id": "way/1277789993",
+   "city": "Jaipur",
+   "category": "construction",
+   "name": "Chomp Cricket Stadium",
+   "lat": 27.11083,
+   "lon": 75.836055,
+   "osm_url": "https://www.openstreetmap.org/way/1277789993"
+  },
+  {
+   "id": "way/1284133560",
+   "city": "Jaipur",
+   "category": "construction",
+   "name": "Unnamed construction site",
+   "lat": 26.887619,
+   "lon": 75.802389,
+   "osm_url": "https://www.openstreetmap.org/way/1284133560"
   }
  ]
 }
