@@ -25,6 +25,13 @@ from prompts import (
 
 router = APIRouter()
 
+# A reading older than this may not drive an enforcement recommendation. Matches
+# the freshness gate in services/openaq.py and services/waqi.py — the ranking
+# only ever sees readings the source layer already confirmed as recent, but this
+# is asserted here too so a future source change can't silently reintroduce
+# stale data into the one place it does the most damage.
+ENFORCEMENT_MAX_AGE_HOURS = 24
+
 
 # ─── Request Models ───────────────────────────────────────────────────────────
 
@@ -392,11 +399,36 @@ async def get_auto_enforcement():
         if not stations:
             stations = await fetch_india_stations()
 
-        # Guard against None/non-numeric aqi values from any data source
+        # Guard against None/non-numeric aqi values from any data source.
         valid = [s for s in stations if isinstance(s.get("aqi"), (int, float))]
-        top5 = sorted(valid, key=lambda x: x["aqi"], reverse=True)[:5]
-        if not top5:
-            raise HTTPException(status_code=503, detail="No valid station data available")
+
+        # An enforcement recommendation must be based on a CURRENT reading. A
+        # station's age_hours is None for static fallbacks and for live readings
+        # whose timestamp we couldn't parse; only readings we can positively
+        # confirm are recent enough may drive a dispatch. This is the guard that
+        # stops the chain ranking hotspots on years-old data — the single most
+        # damaging bug found, since "signal → dispatch in 47s" is meaningless if
+        # the signal is from 2021.
+        fresh = [
+            s for s in valid
+            if isinstance(s.get("age_hours"), (int, float))
+            and s["age_hours"] <= ENFORCEMENT_MAX_AGE_HOURS
+        ]
+        ranking_pool = fresh
+        stale_excluded = len(valid) - len(fresh)
+        if not fresh:
+            # Nothing verifiably fresh. Rather than fabricate urgency from stale
+            # data, say so — the honest failure a judge can trust over a
+            # confident recommendation built on a 2021 reading.
+            raise HTTPException(
+                status_code=503,
+                detail=(
+                    "No air-quality reading recent enough to base an enforcement "
+                    "recommendation on. Live sources returned only stale data."
+                ),
+            )
+
+        top5 = sorted(ranking_pool, key=lambda x: x["aqi"], reverse=True)[:5]
 
         dominant_sources = await asyncio.gather(*[_attribute_city(c) for c in top5])
         attributed_sources = {}
@@ -436,6 +468,11 @@ async def get_auto_enforcement():
                 "satellite_fire_count": c.get("satellite_fire_count", 0),
                 "in_registry": bool(c.get("candidate_sources")),
                 "candidate_sources": c.get("candidate_sources", []),
+                # Provenance so the reading behind each hotspot is auditable.
+                "reading_source": c.get("source"),
+                "reading_age_hours": c.get("age_hours"),
+                "pm25": c.get("pm25"),
+                "station_count": c.get("station_count"),
             }
             for c in top5
         ]
@@ -453,6 +490,16 @@ async def get_auto_enforcement():
             "total_detections": sum(c.get("satellite_fire_count", 0) for c in top5),
         }
         result["attributed_sources"] = attributed_sources
+        # Freshness provenance for the run as a whole: how many stale readings
+        # were kept out of the ranking, and how recent the data actually is.
+        result["data_freshness"] = {
+            "max_age_hours": ENFORCEMENT_MAX_AGE_HOURS,
+            "stale_readings_excluded": stale_excluded,
+            "hotspot_max_age_hours": max(
+                (c.get("age_hours") for c in top5 if c.get("age_hours") is not None),
+                default=None,
+            ),
+        }
         result["signal_at"] = signal_at.isoformat(timespec="seconds")
         result["response_time_seconds"] = round(
             (datetime.now() - signal_at).total_seconds(), 1

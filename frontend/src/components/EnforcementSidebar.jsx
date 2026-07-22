@@ -105,20 +105,22 @@ function EvidenceBlock({ source }) {
   )
 }
 
-export default function EnforcementSidebar({ enforcement, loading }) {
+export default function EnforcementSidebar({ enforcement, loading, stations = [] }) {
   const [activeCity, setActiveCity] = useState(null)
   const [selectedSourceId, setSelectedSourceId] = useState(null)
 
   const hotspots = enforcement?.hotspots || []
   const priorities = enforcement?.priorities || []
 
-  // Default to the top-ranked priority's city so the map opens on the action
-  // the agent actually recommends, not an arbitrary first entry.
+  // Open on the national overview: the page is "today's priorities" across
+  // several cities, so showing one city's map first hides the fact that there
+  // are others. Clicking any hotspot (or a priority card) drills in.
   useEffect(() => {
     if (!priorities.length) return
-    setActiveCity(prev => prev ?? priorities[0].city)
     setSelectedSourceId(prev => prev ?? priorities[0].source_id ?? null)
   }, [priorities])
+
+  const isOverview = activeCity === null
 
   if (loading) return (
     <div className="text-center py-20 text-slate-500">
@@ -178,39 +180,70 @@ export default function EnforcementSidebar({ enforcement, loading }) {
                 : 'no active fires within range of these hotspots'}
             </span>
           )}
+          {enforcement.data_freshness?.hotspot_max_age_hours != null && (
+            <span className="text-slate-500">
+              📡 Live data —{' '}
+              <span className="text-green-400 font-medium">
+                readings ≤ {enforcement.data_freshness.hotspot_max_age_hours}h old
+              </span>
+              {enforcement.data_freshness.stale_readings_excluded > 0 &&
+                `, ${enforcement.data_freshness.stale_readings_excluded} stale reading${
+                  enforcement.data_freshness.stale_readings_excluded === 1 ? '' : 's'
+                } excluded`}
+            </span>
+          )}
         </div>
       </div>
 
-      {/* Geospatial documentation for the selected hotspot. */}
-      {activeHotspot && (
+      {/* Geospatial documentation: national overview, or one hotspot's evidence. */}
+      {hotspots.length > 0 && (
         <div className="space-y-3">
-          {hotspots.length > 1 && (
-            <div className="flex flex-wrap gap-1.5">
-              {hotspots.map(h => (
-                <button
-                  key={h.city}
-                  onClick={() => { setActiveCity(h.city); setSelectedSourceId(null) }}
-                  className={`px-3 py-1 rounded-lg text-xs font-medium transition-colors
-                    ${h.city === activeHotspot.city
-                      ? 'bg-blue-600 text-white'
-                      : 'bg-[#1a1f2e] text-slate-400 hover:bg-[#2d3348]'}`}
-                >
-                  {h.city} · {h.aqi}
-                  <span className="ml-1 text-[10px] opacity-70">
-                    ({h.candidate_sources?.length || 0})
-                  </span>
-                </button>
-              ))}
-            </div>
-          )}
+          <div className="flex flex-wrap gap-1.5">
+            <button
+              onClick={() => { setActiveCity(null); setSelectedSourceId(null) }}
+              className={`px-3 py-1 rounded-lg text-xs font-medium transition-colors
+                ${isOverview
+                  ? 'bg-blue-600 text-white'
+                  : 'bg-[#1a1f2e] text-slate-400 hover:bg-[#2d3348]'}`}
+            >
+              All {hotspots.length} hotspots
+            </button>
+            {hotspots.map(h => (
+              <button
+                key={h.city}
+                onClick={() => { setActiveCity(h.city); setSelectedSourceId(null) }}
+                className={`px-3 py-1 rounded-lg text-xs font-medium transition-colors
+                  ${!isOverview && h.city === activeHotspot?.city
+                    ? 'bg-blue-600 text-white'
+                    : 'bg-[#1a1f2e] text-slate-400 hover:bg-[#2d3348]'}`}
+              >
+                {h.city} · {h.aqi}
+                <span className="ml-1 text-[10px] opacity-70">
+                  ({h.candidate_sources?.length || 0})
+                </span>
+              </button>
+            ))}
+          </div>
 
           <EnforcementMap
             hotspot={activeHotspot}
             selectedSourceId={selectedSourceId}
             onSelectSource={setSelectedSourceId}
+            overview={isOverview}
+            allHotspots={hotspots}
+            contextStations={stations}
+            onSelectCity={(city) => { setActiveCity(city); setSelectedSourceId(null) }}
           />
 
-          {activeHotspot.dominant_source && (
+          {isOverview && (
+            <p className="text-xs text-slate-500">
+              {hotspots.length} hotspots ranked by AQI, each correlated against the emission
+              source registry. Click a hotspot — or a priority below — to see the sources
+              behind it.
+            </p>
+          )}
+
+          {!isOverview && activeHotspot?.dominant_source && (
             <p className="text-xs text-slate-500">
               Attribution Agent blamed <span className="text-slate-300">{activeHotspot.dominant_source}</span> for
               {' '}{activeHotspot.city}
@@ -232,7 +265,7 @@ export default function EnforcementSidebar({ enforcement, loading }) {
             key={p.rank}
             onClick={() => { setActiveCity(p.city); setSelectedSourceId(p.source_id ?? null) }}
             className={`bg-[#1a1f2e] rounded-xl p-5 border space-y-3 cursor-pointer transition-colors
-              ${p.city === activeHotspot?.city && p.source_id === selectedSourceId
+              ${!isOverview && p.city === activeHotspot?.city && p.source_id === selectedSourceId
                 ? 'border-blue-500' : 'border-[#2d3348] hover:border-[#3d4568]'}`}
           >
             <div className="flex items-center gap-3">

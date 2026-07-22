@@ -113,7 +113,11 @@ export default function App() {
         )}
         {activeTab === 'enforcement' && (
           <div className="flex-1 overflow-y-auto p-6">
-            <EnforcementSidebar enforcement={enforcement} loading={enforcementLoading} />
+            <EnforcementSidebar
+              enforcement={enforcement}
+              loading={enforcementLoading}
+              stations={stations}
+            />
           </div>
         )}
         {activeTab === 'advisory' && (
