@@ -110,7 +110,12 @@ export default function MapView({ stations, onCityClick, selectedCity }) {
                 AQI: {station.aqi} — {station.label}<br />
                 PM2.5: {station.pm25 ? `${station.pm25} μg/m³` : 'See city detail'}<br />
                 <span className="text-gray-400 text-xs">
-                  Source: {station.source === 'waqi_live' ? 'CPCB via WAQI' : station.source}
+                  {station.source === 'openaq_live' ? 'Live · CPCB via OpenAQ'
+                    : station.source === 'waqi_live' ? 'Live · CPCB via WAQI'
+                    : 'Last-known (no live reading)'}
+                  {typeof station.age_hours === 'number' &&
+                    ` · ${station.age_hours < 1
+                      ? '<1h' : `${Math.round(station.age_hours)}h`} ago`}
                 </span>
               </div>
             </Tooltip>

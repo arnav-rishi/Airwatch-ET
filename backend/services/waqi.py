@@ -2,12 +2,37 @@ import asyncio
 import httpx
 import os
 import json
+from datetime import datetime, timezone
 from pathlib import Path
 from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
 from utils.aqi_calculator import pm25_to_aqi, epa_aqi_to_pm25, aqi_category, circle_radius
 
 WAQI_BASE = "https://api.waqi.info"
 FALLBACK_PATH = Path(__file__).parent.parent / "data" / "cities_fallback.json"
+
+# WAQI has no staleness signal in `aqi`, and its named feeds were observed
+# serving readings years old. Anything past this is treated as not-live.
+WAQI_MAX_AGE_HOURS = 24
+
+
+def _reading_age_hours(time_block: dict) -> float | None:
+    """
+    Age in hours of a WAQI reading from its `time` block, or None if unknown.
+
+    WAQI gives an ISO timestamp in `time.iso` (with offset) and a plainer
+    `time.s`. Prefer the ISO form; an unparseable or missing timestamp returns
+    None, which the caller treats as "can't verify" rather than "stale".
+    """
+    stamp = time_block.get("iso") or time_block.get("s")
+    if not stamp:
+        return None
+    try:
+        observed = datetime.fromisoformat(stamp.replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    if observed.tzinfo is None:
+        observed = observed.replace(tzinfo=timezone.utc)
+    return round((datetime.now(timezone.utc) - observed).total_seconds() / 3600, 1)
 
 # India bounding box: SW corner (8.07, 68.20) → NE corner (37.08, 97.40)
 INDIA_BOUNDS = "8.07,68.20,37.08,97.40"
@@ -72,6 +97,7 @@ def _fallback_station(city: dict) -> dict:
         "station_raw": city["city"],
         "updated_at": city.get("updated_at", ""),
         "source": "fallback",
+        "age_hours": None,
         **cat,
         "radius": circle_radius(city["aqi"]),
     }
@@ -99,6 +125,15 @@ async def _fetch_city_live(client: httpx.AsyncClient, city: dict) -> dict:
         raw_aqi = d.get("aqi")
         # WAQI reports "-" when a station has no current reading — use fallback.
         if not isinstance(raw_aqi, int):
+            return _fallback_station(city)
+
+        # WAQI serves whatever a station last reported, however old, with no
+        # staleness signal in `aqi` itself. Audited, its named feeds returned
+        # readings up to *years* old (Pune 1,710 days, Jodhpur 2,440). A reading
+        # that stale is not current air quality and must never drive a hotspot
+        # ranking, so reject it here and fall back rather than present it as live.
+        age_hours = _reading_age_hours(d.get("time", {}))
+        if age_hours is not None and age_hours > WAQI_MAX_AGE_HOURS:
             return _fallback_station(city)
 
         # WAQI's `aqi` and `iaqi.pm25.v` are both US EPA AQI *index* values, not
@@ -138,6 +173,7 @@ async def _fetch_city_live(client: httpx.AsyncClient, city: dict) -> dict:
             "station_raw": d.get("city", {}).get("name", city["city"]),
             "updated_at": d.get("time", {}).get("s", ""),
             "source": "waqi_live",
+            "age_hours": age_hours,
             **cat,
             "radius": circle_radius(cpcb_aqi),
         }
@@ -147,34 +183,57 @@ async def _fetch_city_live(client: httpx.AsyncClient, city: dict) -> dict:
 
 async def fetch_india_stations() -> list[dict]:
     """
-    Fetch live AQI for a curated list of major Indian cities from WAQI (named feeds,
-    in parallel). Every curated city is always returned — one whose live feed fails
-    falls back to its own last-known static reading (source="fallback") rather than
-    being dropped, so the map always shows the full curated set.
+    Live AQI for the curated cities, from the freshest available source per city.
 
-    If constructing the HTTP client itself fails (rare), falls back to OpenAQ, then
-    the full static dataset, so the app is never blank.
+    Source priority is now OpenAQ → WAQI → static fallback, a reversal from the
+    original WAQI-first design. The reason is data freshness, audited directly:
+    OpenAQ v3 carries per-reading timestamps and had 1,300+ India readings under
+    24h old, while WAQI's named feeds served readings up to *years* old with no
+    staleness signal — and those readings were driving the enforcement hotspot
+    ranking. See services/openaq.py for the full audit.
+
+    Every curated city is still always returned. A city with no fresh reading
+    from either live source falls back to its static last-known value, tagged
+    source="fallback" and age_hours=None, so the map stays complete and the
+    frontend can show which cities are genuinely live.
     """
     cities = _curated_cities()
+
+    # Primary: OpenAQ, keyed by city name.
+    openaq_by_city: dict[str, dict] = {}
     try:
-        async with httpx.AsyncClient(timeout=12.0) as client:
-            results = await asyncio.gather(
-                *[_fetch_city_live(client, c) for c in cities],
-                return_exceptions=True,
-            )
-        stations = [r for r in results if isinstance(r, dict)]
-        if stations:
-            return stations
+        from services.openaq import fetch_live_aqi
+        for s in await fetch_live_aqi():
+            openaq_by_city[s["city"]] = s
+    except Exception:
+        pass
+
+    # Secondary: WAQI, but only for cities OpenAQ didn't already cover, and only
+    # when its reading passes the same staleness gate (_fetch_city_live rejects
+    # stale feeds to a fallback station, so a waqi_live result here is fresh).
+    missing = [c for c in cities if c["city"] not in openaq_by_city]
+    waqi_by_city: dict[str, dict] = {}
+    if missing:
         try:
-            from services.openaq import fetch_live_aqi
-            live = await fetch_live_aqi()
-            if live:
-                return live
+            async with httpx.AsyncClient(timeout=12.0) as client:
+                results = await asyncio.gather(
+                    *[_fetch_city_live(client, c) for c in missing],
+                    return_exceptions=True,
+                )
+            for r in results:
+                if isinstance(r, dict) and r.get("source") == "waqi_live":
+                    waqi_by_city[r["city"]] = r
         except Exception:
             pass
-        return _load_fallback()
-    except Exception:
-        return _load_fallback()
+
+    # Assemble in curated order: OpenAQ, else fresh WAQI, else static fallback.
+    fallback_by_city = {c["city"]: _fallback_station(c) for c in cities}
+    return [
+        openaq_by_city.get(c["city"])
+        or waqi_by_city.get(c["city"])
+        or fallback_by_city[c["city"]]
+        for c in cities
+    ]
 
 
 async def fetch_city_feed(city_name: str) -> dict:

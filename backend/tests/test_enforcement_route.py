@@ -22,13 +22,34 @@ def client():
 
 @pytest.fixture
 def fake_stations():
-    """Two hotspots: Kolkata (in the seeded registry) and a city that isn't."""
+    """
+    Two hotspots: Kolkata (in the seeded registry) and a city that isn't.
+
+    age_hours is set to 1.0 because the enforcement chain now excludes readings
+    it can't confirm are recent — a station with no age would be treated as
+    unverifiable and kept out of the ranking, which is exactly the stale-data
+    guard being tested elsewhere.
+    """
     return [
         {"city": "Kolkata", "state": "West Bengal", "lat": 22.5726, "lon": 88.3639,
-         "aqi": 340, "pm25": 180.0, "label": "Very Poor", "source": "waqi_live"},
+         "aqi": 340, "pm25": 180.0, "label": "Very Poor", "source": "openaq_live",
+         "age_hours": 1.0},
         {"city": "Nowhere", "state": "Test", "lat": 20.0, "lon": 80.0,
-         "aqi": 320, "pm25": 170.0, "label": "Very Poor", "source": "fallback"},
+         "aqi": 320, "pm25": 170.0, "label": "Very Poor", "source": "openaq_live",
+         "age_hours": 2.0},
     ]
+
+
+@pytest.fixture(autouse=True)
+def reset_rate_limiter():
+    """
+    The /api/intel/* rate limiter is per-process in-memory state, so its window
+    carries across tests on the shared TestClient IP — enough requests in one
+    run and a later test gets a spurious 429. Clear it before each test.
+    """
+    import services.rate_limit
+    services.rate_limit._hits.clear()
+    yield
 
 
 @pytest.fixture(autouse=True)
@@ -134,6 +155,51 @@ def test_response_time_is_measured(client, stub_chain):
     assert "response_time_seconds" in body
     assert isinstance(body["response_time_seconds"], (int, float))
     assert "signal_at" in body
+
+
+def test_stale_readings_are_excluded_from_the_ranking(client, monkeypatch, stub_chain):
+    """
+    The single most damaging bug this guards: WAQI served readings years old,
+    and they were driving the hotspot ranking. A stale station — however high its
+    AQI — must never reach the enforcement chain.
+    """
+    import services.cache
+
+    stations = [
+        # Highest AQI, but a year old: must be excluded despite topping the sort.
+        {"city": "StaleTown", "state": "X", "lat": 21.0, "lon": 79.0,
+         "aqi": 480, "pm25": 300.0, "label": "Severe", "source": "waqi_live",
+         "age_hours": 8760.0},
+        # Fresh and genuinely in the registry.
+        {"city": "Kolkata", "state": "West Bengal", "lat": 22.5726, "lon": 88.3639,
+         "aqi": 340, "pm25": 180.0, "label": "Very Poor", "source": "openaq_live",
+         "age_hours": 1.5},
+    ]
+    monkeypatch.setattr(services.cache, "get_cached_stations", lambda: stations)
+
+    body = client.get("/api/intel/enforcement/auto").json()
+    cities = {h["city"] for h in body["hotspots"]}
+    assert "StaleTown" not in cities, "a year-old reading reached the ranking"
+    assert "Kolkata" in cities
+    assert body["data_freshness"]["stale_readings_excluded"] >= 1
+    assert body["data_freshness"]["hotspot_max_age_hours"] <= 24
+
+
+def test_all_stale_yields_honest_503_not_a_fabricated_recommendation(client, monkeypatch, stub_chain):
+    """With nothing fresh, the endpoint must decline rather than rank stale data."""
+    import services.cache
+
+    stations = [
+        {"city": "OldA", "state": "X", "lat": 21.0, "lon": 79.0, "aqi": 400,
+         "label": "Severe", "source": "waqi_live", "age_hours": 5000.0},
+        {"city": "OldB", "state": "Y", "lat": 22.0, "lon": 80.0, "aqi": 300,
+         "label": "Very Poor", "source": "fallback", "age_hours": None},
+    ]
+    monkeypatch.setattr(services.cache, "get_cached_stations", lambda: stations)
+
+    resp = client.get("/api/intel/enforcement/auto")
+    assert resp.status_code == 503
+    assert "recent" in resp.json()["detail"].lower()
 
 
 def test_registry_provenance_is_surfaced(client, stub_chain):
