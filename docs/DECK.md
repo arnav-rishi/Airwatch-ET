@@ -77,14 +77,14 @@ sources and must select by exact ID, citing the evidence it was handed.
 
 ## The source registry
 
-**5,154 registered emission sources · 43 cities · real coordinates**
+**7,900+ registered emission sources · 82 cities · real coordinates**
 
 | Category | Count | OSM proxy |
 |---|---|---|
-| Industry | 2,215 | `landuse=industrial`, `man_made=works` |
-| Diesel fleet | 1,182 | `amenity=bus_station`, `landuse=depot` |
-| Construction | 1,175 | `landuse=construction` |
-| Waste | 582 | `landfill`, `waste_transfer_station` |
+| Industry | 3,948 | `landuse=industrial`, `man_made=works` |
+| Diesel fleet | 1,607 | `amenity=bus_station`, `landuse=depot` |
+| Construction | 1,597 | `landuse=construction` |
+| Waste | 757 | `landfill`, `waste_transfer_station` |
 
 Seeded once from OpenStreetMap via Overpass and committed — a demo never depends
 on a third-party endpoint being up.
@@ -173,12 +173,33 @@ discredit the ones that are real.
 
 | | |
 |---|---|
-| **150 tests** | No API keys, no network required |
+| **162 tests** | No API keys, no network required |
+| **Stale data** | WAQI served readings up to **4 years old** as "live". We caught it, switched to timestamped OpenAQ v3, and now refuse to rank a hotspot on a reading we can't confirm is recent |
 | **AQI scale bug** | WAQI serves *US EPA index*, not μg/m³ — mid-range readings were inflated **4×**, corrupting the hotspot ranking that feeds everything |
 | **Forecast skill** | RMSE vs **persistence baseline** — and it reports *failure*: −642% skill when a trend reverses |
-| **Concurrency** | `asyncio.gather` over a *sync* client ran serially and froze the event loop. A timing test now asserts overlap |
 
 > A metric that can only flatter isn't a measurement.
+
+---
+
+## The bug that mattered most: stale data
+
+We checked one city — Bhilai showed AQI 8; the live value was ~75 — then audited all 84.
+
+| Data age | Cities |
+|---|---|
+| < 6 hours (genuinely live) | **4** |
+| days to **years** old | the other 80 |
+
+Pune's feed was serving a reading **1,710 days old** — from 2021. Those readings were driving
+the hotspot ranking, so *"dispatch in 47 s"* was responding to a signal four years stale.
+
+**Fix:** OpenAQ v3 (timestamped, 1,300+ India readings < 24 h) as primary; WAQI staleness-gated
+as fallback; the ranking excludes any reading it can't confirm is recent, and returns an honest
+**503** rather than fabricate urgency. City AQI is the **median** of its stations, not the max.
+
+> Honest consequence: fresh monsoon data tops out at ~85, not the 400s the stale feeds implied.
+> Real beats dramatic.
 
 ---
 

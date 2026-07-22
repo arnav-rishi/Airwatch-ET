@@ -25,7 +25,7 @@ facility to inspect today, and why*.
 ## ✨ Features
 
 - **⚖️ Enforcement Intelligence & Prioritisation** *(primary focus)* — Correlates live
-  pollution hotspots against a registry of 5,154 **registered emission sources** (industries,
+  pollution hotspots against a registry of 7,900+ **registered emission sources** (industries,
   construction sites, waste sites, diesel fleet depots) with real coordinates, ranks them by a
   deterministic evidence score — distance, **Gaussian plume dispersion** under live wind and
   atmospheric stability, and category match to the attributed dominant source — and issues
@@ -33,8 +33,9 @@ facility to inspect today, and why*.
   Narrows a 213-source search space to 5 for a Delhi hotspot (**42.6×**), in ~48 s from signal
   to dispatch-ready.
   **[How it works ↓](#️-enforcement-intelligence--how-the-correlation-works)**
-- **🗺️ Live AQI Map** — Interactive map of India showing real-time air quality from CPCB
-  monitoring stations (via WAQI), colour-coded by severity on the Indian CPCB scale.
+- **🗺️ Live AQI Map** — Interactive map of India (84 cities, 27 states) showing real-time air
+  quality from timestamped CPCB stations (OpenAQ v3), colour-coded on the Indian CPCB scale,
+  each marker showing its reading's age and source.
 - **📊 City Deep-Dive** — Click any city for a pollutant breakdown, live weather, a 24-hour
   AQI trend, and a hybrid 24h forecast scored against a persistence benchmark.
 - **🔬 AI Source Attribution** — Estimates what's polluting each city (traffic, industry,
@@ -53,11 +54,25 @@ facility to inspect today, and why*.
 | Frontend | React, Vite, Tailwind CSS v4, Leaflet.js (+ marker clustering) |
 | Backend | FastAPI (Python 3.11), httpx, tenacity |
 | AI | Azure OpenAI `gpt-5-nano` (reasoning model), async client |
-| AQI data | WAQI (live CPCB feeds) → static fallback dataset |
+| AQI data | OpenAQ v3 (live CPCB, timestamped) → WAQI → static fallback |
 | Geospatial | OpenStreetMap / Overpass API (emission source registry), grid spatial index |
 | Satellite | NASA FIRMS (VIIRS 375 m active-fire detection) |
 | Dispersion | Gaussian plume, Briggs urban σ curves, Pasquill-Gifford stability |
 | Weather | OpenWeatherMap (wind speed + direction drive the plume model) |
+
+**Data freshness — an enforcement order is only as good as the reading behind it.** We use
+**OpenAQ v3** as the primary AQI source specifically because every reading carries a UTC
+timestamp, so staleness is *detectable*. This matters more than it sounds: WAQI's named city
+feeds — the original primary — serve whatever a station last reported, however old, with no
+staleness signal. Audited across 84 cities, only 4 had a reading under 6 hours old; the rest
+ranged from days to **years** (Pune's feed was serving a reading 1,710 days old). Those
+readings were driving the enforcement hotspot ranking, so *"signal → dispatch in 47 s"* was
+measuring response time to a signal from 2021. Now readings older than 24 h are excluded from
+the ranking at three layers (source, fallback, and the ranking itself), the endpoint returns
+an honest **503** when nothing is fresh rather than fabricating urgency, and every hotspot
+carries its reading's age and provenance. A city's AQI is the **median** of its stations, not
+the max, so one faulty low-cost sensor can't hijack the ranking; readings above 500 μg/m³ are
+rejected as stuck sensors. See **[Data freshness](#-data-freshness--the-most-important-fix)**.
 
 **Resilience.** Per-city AQI fallback — one bad reading downgrades that city's freshness
 rather than dropping it off the map — plus a 10-minute station cache warmed at startup,
@@ -90,12 +105,13 @@ across the four emitter types named in the problem statement:
 
 | Category | OSM proxy | Count |
 |---|---|---|
-| Industry | `landuse=industrial`, `man_made=works` | 2,215 |
-| Diesel fleet | `amenity=bus_station`, `landuse=depot`, `building=transportation` | 1,182 |
-| Construction | `landuse=construction`, `building=construction` | 1,175 |
-| Waste burning | `landuse=landfill`, `amenity=waste_transfer_station`, `waste_disposal` | 582 |
+| Industry | `landuse=industrial`, `man_made=works` | 3,948 |
+| Diesel fleet | `amenity=bus_station`, `landuse=depot`, `building=transportation` | 1,607 |
+| Construction | `landuse=construction`, `building=construction` | 1,597 |
+| Waste burning | `landuse=landfill`, `amenity=waste_transfer_station`, `waste_disposal` | 757 |
 
-**5,154 sources across all 43 cities.** Seeded once and committed, so a demo never depends on
+**7,900+ sources across 82 cities** (3,948 industry · 1,607 diesel fleet · 1,597 construction ·
+757 waste). Seeded once and committed, so a demo never depends on
 Overpass being up — and so a free shared community endpoint isn't hammered per request.
 
 These are honest proxies, not an official register. Open waste burning is unmapped by nature
@@ -162,7 +178,7 @@ systematically advantaged — a bus stop sits in the middle of the city right be
 monitoring station, so it beats a real depot on the outskirts on proximity — while offering
 nothing to inspect. Geometry and name together decide it: a way or relation has area, so
 something is actually built there; and a node naming itself a depot, terminal or garage is
-kept even though it's a point. That leaves 743 of 1,182 fleet entries. The filter errs toward
+kept even though it's a point. That leaves 993 of 1,607 fleet entries. The filter errs toward
 exclusion deliberately, because putting "42A BUS STAND" at rank 1 would discredit every other
 recommendation on the sheet.
 
@@ -355,19 +371,64 @@ next stage's evidence, not an independent guess.
 
 ---
 
+## 📡 Data freshness — the most important fix
+
+An enforcement recommendation is only as good as the reading it's based on, and this is where
+the original design was quietly broken.
+
+WAQI's named city feeds — the first primary source — return whatever a station *last* reported,
+however old, with no staleness signal in the field the app read. We only found this by checking
+one city (Bhilai showed AQI 8; the live value was ~75) and then auditing all 84:
+
+| Data age | Cities |
+|---|---|
+| < 6 hours (genuinely live) | **4** |
+| days to **years** old | the other 80 |
+
+Pune's feed was serving a reading **1,710 days old** — from 2021. Jodhpur's was 2,440. And
+those readings were driving the enforcement hotspot ranking, which means *"signal → dispatch-
+ready in 47 s"* was measuring response time to a signal four years stale.
+
+**The fix, in three layers:**
+
+1. **OpenAQ v3 is now the primary source.** Every reading carries a UTC timestamp (WAQI's don't,
+   in the payload we read), it has far better Indian coverage — 2,059 readings in the India
+   bounding box, 1,303 under 24 h old vs WAQI's 4 — and it returns real PM2.5 concentrations in
+   μg/m³, removing the EPA→CPCB inversion and its whole class of scale bugs.
+2. **WAQI is now the fallback**, and its timestamp is parsed and enforced — a feed older than
+   24 h is rejected to a static station rather than presented as live.
+3. **The enforcement ranking excludes any station without a confirmed recent reading**, and the
+   endpoint returns an honest **503** when nothing is fresh rather than fabricating urgency from
+   old data. The response carries `data_freshness` (max age, stale count) and each hotspot its
+   reading age and source.
+
+**Two data-quality guards** on top: a city's AQI is the **median** of its stations, not the max
+(the registry mixes reference monitors with low-cost sensors, and max would hand a city to one
+faulty unit — the worst is still reported as `pm25_max`); and a reading above 500 μg/m³ is
+rejected as a stuck sensor (Aurangabad surfaced at a flat 520 from a single monitor in monsoon,
+which would have topped the national ranking on its own).
+
+> **Honest consequence.** With genuinely fresh, monsoon-season data the top AQI is currently
+> ~85 (Satisfactory), not the 400s the stale feeds implied. The demo is less dramatic and
+> completely real — and *"we refuse to issue an enforcement order on a reading we can't confirm
+> is recent"* is the kind of rigour that should carry more weight than a big number a reviewer
+> can puncture. Off-season, the true severe readings return.
+
+---
+
 ## ⚠️ Known gaps
 
 Stated here rather than discovered later:
 
-- **OpenAQ tier is non-functional.** `services/openaq.py` points at `api.openaq.io/v2`, a host
-  that no longer resolves (OpenAQ retired v2; v3 needs an API key). The AQI fallback is
-  therefore **WAQI → static dataset**, not three tiers. In practice the 24h history shown in
-  the city panel is always the synthetic diurnal estimate — which the UI does disclose
-  ("Modelled estimate — no live station history available").
 - **City-level, not ward-level.** The problem statement asks for ward / 1 km grid resolution;
-  this operates on 43 city monitoring points.
+  this operates on 84 city monitoring points (some served by many stations — Gurugram had 56).
 - **No multi-city comparative dashboard** and **no population vulnerability layer**, though the
   sensitive-receptor filter already identifies hospitals and schools in the registry.
+- **Monsoon-season demo shows low AQI.** With genuinely fresh data the top reading is currently
+  ~85 (Satisfactory), not the 400s the *stale* feeds implied. That's the freshness fix working,
+  not a defect — off-season it shows the true severe readings. See below.
+- **Two cities unseeded** (Ambala, Rajahmundry) — Overpass failed for them during the sweep.
+  They render on the map but are flagged AQI-only in enforcement rather than breaking. Re-runnable.
 
 ---
 
@@ -401,7 +462,7 @@ npm run dev                     # http://localhost:5173
 ### Verify
 ```bash
 cd backend
-pytest tests/ -q                # 150 unit tests, no network or API keys required
+pytest tests/ -q                # 162 unit tests, no network or API keys required
 python test_endpoints.py        # HTTP integration suite, needs a running server + real keys
 ```
 
@@ -442,8 +503,8 @@ airwatch/
 │   │   ├── aqi.py                     /api/aqi/*
 │   │   └── intelligence.py            /api/intel/* — the enforcement chain lives here
 │   ├── services/
-│   │   ├── waqi.py                    Live AQI (EPA→CPCB conversion, per-city fallback)
-│   │   ├── openaq.py                  Backup AQI + 24h history (see Known gaps)
+│   │   ├── openaq.py                  PRIMARY AQI source (v3, timestamped, μg/m³)
+│   │   ├── waqi.py                    Fallback AQI (EPA→CPCB, staleness-gated)
 │   │   ├── openweather.py             Weather + wind direction
 │   │   ├── firms.py                   NASA FIRMS satellite fire detection
 │   │   ├── source_registry.py         Emission source registry access layer
@@ -461,9 +522,9 @@ airwatch/
 │   │   ├── fetch_emission_sources.py  Overpass seeder (mirrors, resume)
 │   │   └── benchmark_spatial.py       Reproduces the SCALABILITY.md figures
 │   ├── data/
-│   │   ├── cities_fallback.json       43 curated cities
-│   │   └── emission_sources.json      5,154 registered emission sources
-│   └── tests/                         150 unit + integration tests
+│   │   ├── cities_fallback.json       84 curated cities, 27 states
+│   │   └── emission_sources.json      7,900+ registered emission sources
+│   └── tests/                         162 unit + integration tests
 └── frontend/src/
     ├── App.jsx                        Tabs: Map / Enforcement / Advisory
     └── components/

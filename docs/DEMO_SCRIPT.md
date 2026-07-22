@@ -9,7 +9,7 @@ on screen before 0:45.
 
 - [ ] **Merge the PR.** Vercel builds from `master`. Unmerged, the live URL has
       none of this.
-- [ ] Verify all four keys live: `WAQI_TOKEN`, `OPENWEATHER_API_KEY`,
+- [ ] Verify keys live: `OPENAQ_API_KEY`, `WAQI_TOKEN`, `OPENWEATHER_API_KEY`,
       `AZURE_OPENAI_*`, `FIRMS_MAP_KEY`
 - [ ] **Pre-warm the Enforcement tab once.** First load runs 6 LLM calls (~48 s).
       The attribution cache holds 10 minutes — record inside that window and the
@@ -20,9 +20,12 @@ on screen before 0:45.
 - [ ] Browser at 1920×1080, zoom 100%, bookmarks bar hidden
 - [ ] Close the terminal unless a shot calls for it
 
-> **Seasonality — decide your framing.** It is monsoon. National AQI is low and
-> FIRMS shows zero fires near cities. Do not hide this; name it once at 2:05 and
-> move on. A judge who spots it unmentioned assumes the feature is broken.
+> **Seasonality + freshness — decide your framing.** It is monsoon: national AQI is
+> genuinely low and FIRMS shows zero fires near cities. This is REAL current data —
+> the top reading is ~85, not the 400s stale feeds used to imply. Name it once and
+> make it a strength: "we refuse to rank a hotspot on a reading we can't confirm is
+> recent." A judge who spots the low numbers unmentioned assumes something's broken;
+> framed, it's rigour. Do not fake a fire or a high reading.
 
 ---
 
@@ -46,7 +49,7 @@ on screen before 0:45.
 **Screen:** National AQI map, live. Slow zoom toward north India.
 
 **VO:**
-> This is live CPCB data across 43 cities. Every dashboard in this space stops
+> This is live CPCB data across 84 cities. Every dashboard in this space stops
 > here — it tells you *where* the air is bad.
 >
 > But an inspector doesn't need to know Delhi is polluted. They need to know
@@ -54,7 +57,7 @@ on screen before 0:45.
 > to visit first, this morning.
 
 **Shot:** Hover one high-AQI marker so the tooltip shows the CPCB reading and
-`Source: CPCB via WAQI`.
+`Live · CPCB via OpenAQ` with the reading's age.
 
 ---
 
@@ -64,7 +67,7 @@ on screen before 0:45.
 
 **VO:**
 > This is the enforcement agent. For each hotspot it correlates the reading
-> against a registry of five thousand one hundred and fifty-four registered
+> against a registry of nearly eight thousand registered
 > emission sources — industries, construction sites, waste sites, diesel depots —
 > each with real coordinates.
 >
@@ -137,11 +140,11 @@ on screen before 0:45.
 >
 > Signal to dispatch-ready: under fifty seconds.
 >
-> Everything deterministic is tested — a hundred and fifty tests, no API keys, no
+> Everything deterministic is tested — a hundred and sixty-two tests, no API keys, no
 > network. Including the one that matters most: the forecast is scored against a
 > persistence baseline, and it reports failure when it loses.
 
-**Shot:** `150 passed` on screen. Hold two seconds.
+**Shot:** `162 passed` on screen. Hold two seconds.
 
 ---
 

@@ -12,7 +12,8 @@ Where data comes from, what the platform does with it, who consumes the result.
 ```mermaid
 flowchart TB
     subgraph EXT["External data"]
-        WAQI["WAQI<br/><i>live CPCB station feeds</i>"]
+        OAQ["OpenAQ v3<br/><i>PRIMARY · timestamped CPCB</i>"]
+        WAQI["WAQI<br/><i>fallback · staleness-gated</i>"]
         OWM["OpenWeatherMap<br/><i>wind speed + direction</i>"]
         FIRMS["NASA FIRMS<br/><i>VIIRS 375m active fire</i>"]
         OSM["OpenStreetMap / Overpass<br/><i>emission source registry</i>"]
@@ -20,8 +21,8 @@ flowchart TB
     end
 
     subgraph SEED["Seeded once, committed"]
-        REG[("emission_sources.json<br/>5,154 sources · 43 cities")]
-        CITIES[("cities_fallback.json<br/>43 curated cities")]
+        REG[("emission_sources.json<br/>7,900+ sources · 82 cities")]
+        CITIES[("cities_fallback.json<br/>84 curated cities")]
     end
 
     subgraph API["Backend — FastAPI"]
@@ -39,6 +40,7 @@ flowchart TB
     CITIZEN(["Citizens"])
 
     OSM -.->|"offline seed<br/>scripts/fetch_emission_sources.py"| REG
+    OAQ --> AQI
     WAQI --> AQI
     OWM --> INTEL
     FIRMS --> INTEL
@@ -56,7 +58,7 @@ flowchart TB
     classDef seed fill:#3f2d1e,stroke:#f97316,color:#e2e8f0
     classDef api fill:#1e3f2f,stroke:#10b981,color:#e2e8f0
     classDef ui fill:#3a1e3f,stroke:#a855f7,color:#e2e8f0
-    class WAQI,OWM,FIRMS,OSM,AZ ext
+    class OAQ,WAQI,OWM,FIRMS,OSM,AZ ext
     class REG,CITIES seed
     class AQI,INTEL api
     class MAP,ENF,ADV ui
@@ -85,7 +87,7 @@ sequenceDiagram
     Note over R: signal_at timestamp starts
 
     R->>W: live stations (cached 10 min)
-    W-->>R: 43 cities, CPCB scale
+    W-->>R: 84 cities, CPCB scale, timestamped
     Note over R: rank hotspots, take top 5
 
     par Stage 1 — attribution, concurrent
@@ -161,7 +163,7 @@ flowchart LR
 
 `utils/` has no dependency on `services/` except `impact_metrics`, which needs the
 registry to compute a denominator. That keeps the scoring and dispersion logic
-free of I/O, which is why 150 tests run without network access or API keys.
+free of I/O, which is why 162 tests run without network access or API keys.
 
 ---
 
