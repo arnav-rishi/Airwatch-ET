@@ -17,6 +17,7 @@ facility to inspect today, and why*.
 | **Architecture diagram** | **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)** — system context, enforcement sequence, module graph, scoring pipeline |
 | **Presentation deck** | **[docs/DECK.md](docs/DECK.md)** — Marp format; `marp DECK.md --pdf` to export |
 | **Demo video** | **[docs/DEMO_SCRIPT.md](docs/DEMO_SCRIPT.md)** — shot list + VO script; recording pending |
+| **Full technical document** | **[docs/TECHNICAL_DOCUMENT.md](docs/TECHNICAL_DOCUMENT.md)** — everything in plain English: architecture, activity + state diagrams, scoring, science |
 | Scalability analysis | **[SCALABILITY.md](SCALABILITY.md)** — measured benchmarks + national rollout path |
 | Handoff notes | **[HANDOFF.md](HANDOFF.md)** — status, gotchas, known gaps |
 
@@ -538,10 +539,12 @@ airwatch/
 
 ```
 docs/
-├── ARCHITECTURE.md    System context, enforcement sequence, module graph,
-│                      scoring pipeline, AQI conversion, deployment (Mermaid)
-├── DECK.md            Presentation deck (Marp)
-└── DEMO_SCRIPT.md     Demo video shot list + VO script
+├── TECHNICAL_DOCUMENT.md  Full plain-English technical doc: architecture,
+│                          activity + state diagrams, scoring, science, testing
+├── ARCHITECTURE.md        System context, enforcement sequence, module graph,
+│                          scoring pipeline, AQI conversion, deployment (Mermaid)
+├── DECK.md                Presentation deck (Marp)
+└── DEMO_SCRIPT.md         Demo video shot list + VO script
 ```
 
 See **[HANDOFF.md](HANDOFF.md)** for status, known gaps and gotchas
