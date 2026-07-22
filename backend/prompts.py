@@ -165,32 +165,106 @@ Respond ONLY with this JSON:
 # ─── Enforcement Intelligence ─────────────────────────────────────────────────
 
 ENFORCEMENT_SYSTEM = """You are an enforcement intelligence officer for India's Central
-Pollution Control Board. Given real-time AQI data from multiple cities, you generate
-prioritised, evidence-backed field enforcement recommendations for pollution control
-authorities. Always respond with ONLY valid JSON - no preamble, no markdown fences.
+Pollution Control Board. You generate prioritised, evidence-backed field enforcement
+recommendations for pollution control authorities. Always respond with ONLY valid JSON -
+no preamble, no markdown fences.
 
-Some cities below already carry a "dominant_source" — the output of a separate Source
-Attribution Agent that reasoned over that city's live weather, time of day, and CPCB
-baseline data before you were called. Treat that as a upstream finding, not a fresh
-guess: your recommended violation_type and action for that city MUST target that
-specific source (e.g. dominant_source "Industry" → industrial stack inspection, not
-generic dust control) rather than reasoning about the city from AQI alone."""
+You do NOT choose where to inspect. Two upstream systems have already done that:
+
+1. A Source Attribution Agent reasoned over each city's live weather, time of day and
+   published CPCB baseline to produce a "dominant_source".
+2. A deterministic geospatial correlation engine (utils/enforcement_scoring.py) then
+   ranked the actual registered emission sources near each hotspot — by distance,
+   by whether the source lies UPWIND of the monitoring station given the live wind
+   direction, and by whether its category matches the attributed dominant source.
+
+Each candidate below is therefore a real, mapped facility with real coordinates and an
+evidence score you can cite. Your job is to turn that ranked shortlist into dispatchable
+enforcement actions.
+
+Hard rules:
+- Every priority MUST name one of the candidate facilities given to you, using its exact
+  label and "id". Never invent a facility, an area, or a zone name.
+- Some candidates are unnamed in the source register and are given a positional label
+  ("Unregistered industry site 2.0 km NW of Kolkata centre"). Use that label verbatim and
+  include the coordinates in your action — an inspector navigates to it by position.
+- Your rationale MUST cite the concrete evidence supplied: the distance in km, the upwind
+  alignment, and the attributed dominant source. That is the evidentiary basis - do not
+  substitute generic reasoning about the city.
+- If a candidate is upwind of the hotspot, say so explicitly; it is the strongest single
+  piece of evidence that this facility can physically be contributing to the reading.
+- Candidates marked SATELLITE THERMAL DETECTION are active fires observed from orbit
+  (NASA FIRMS/VIIRS), not registered facilities. Open waste burning is illegal and
+  therefore absent from any ground register, so satellite observation is the only way it
+  appears at all — treat a high-confidence detection upwind of the hotspot as strong
+  evidence. But word the action as "verify and interdict active burning at these
+  coordinates", never as an inspection of a registered premises: a thermal anomaly is a
+  lead to be confirmed on the ground, not a proven violation, and industrial flares and
+  agricultural fires also register."""
 
 
 def enforcement_user(req) -> str:
-    cities_text = "\n".join(
-        f"- {c['city']}: AQI {c['aqi']} ({c.get('label','')}) | PM2.5: {c.get('pm25') or '-'} μg/m³"
-        + (f" | Source Attribution Agent's dominant_source: {c['dominant_source']}" if c.get('dominant_source') else "")
-        for c in req.top_cities
-    )
-    return f"""Current top pollution cities in India:
+    blocks = []
+    for c in req.top_cities:
+        header = (
+            f"CITY: {c['city']} - AQI {c['aqi']} ({c.get('label','')}), "
+            f"PM2.5 {c.get('pm25') if c.get('pm25') is not None else '-'} μg/m³"
+        )
+        if c.get("dominant_source"):
+            header += f"\n  Attribution Agent dominant_source: {c['dominant_source']}"
+        if c.get("wind_direction") is not None:
+            header += (
+                f"\n  Live wind: from {c['wind_direction']}°"
+                f" at {c.get('wind_speed_kmh', '?')} km/h"
+            )
+
+        candidates = c.get("candidate_sources") or []
+        if candidates:
+            lines = []
+            for s in candidates:
+                align = s.get("upwind_alignment")
+                if align is None:
+                    wind_note = "wind direction unavailable"
+                elif align > 0.6:
+                    wind_note = f"directly UPWIND (alignment {align})"
+                elif align > 0.2:
+                    wind_note = f"partially upwind (alignment {align})"
+                else:
+                    wind_note = f"crosswind (alignment {align})"
+                origin = ""
+                if s.get("source_type") == "satellite":
+                    origin = (
+                        f" | SATELLITE THERMAL DETECTION, observed {s.get('observed_at', 'recently')} UTC, "
+                        f"detection confidence {s.get('detection_confidence')}, "
+                        f"fire radiative power {s.get('frp_mw')} MW"
+                    )
+                lines.append(
+                    f"    - [{s['id']}] {s.get('dispatch_label') or s['name']} | "
+                    f"category: {s['category']} | "
+                    f"{s['distance_km']} km {s.get('compass_from_hotspot', '')} of station | "
+                    f"{wind_note} | evidence score {s['evidence_score']} | "
+                    f"coords {s['lat']},{s['lon']}{origin}"
+                )
+            header += "\n  Ranked registered emission sources near this hotspot:\n" + "\n".join(lines)
+        else:
+            header += (
+                "\n  No registered emission sources on file within range for this city - "
+                "do NOT fabricate one; if you must rank this city, say the evidence is "
+                "AQI-only in the rationale."
+            )
+        blocks.append(header)
+
+    cities_text = "\n\n".join(blocks)
+
+    return f"""Current pollution hotspots in India, each with its geospatially correlated
+candidate emission sources:
 
 {cities_text}
 
-Generate today's top 3 enforcement action priorities. For each, specify: which city,
-what type of violation to inspect (industrial stack, construction dust, diesel generators,
-waste burning, etc.), the specific zone or area type most likely to yield results,
-recommended inspector count, and the evidentiary basis for prioritising this action.
+Generate today's top 3 enforcement action priorities, drawing each one from the ranked
+candidate facilities above. Prefer facilities with a high evidence score and clear upwind
+alignment. Recommend an inspector count proportional to the facility's size and the
+hotspot's severity.
 
 Respond ONLY with this exact JSON (all 3 priority objects must be present):
 {{
@@ -199,33 +273,16 @@ Respond ONLY with this exact JSON (all 3 priority objects must be present):
     {{
       "rank": 1,
       "city": "<city name>",
-      "action": "<specific enforcement action>",
-      "violation_type": "<type of violation>",
-      "target_zone": "<area or zone type>",
+      "source_id": "<exact id of the chosen candidate facility>",
+      "target_facility": "<exact name of the chosen candidate facility>",
+      "action": "<specific enforcement action at that facility>",
+      "violation_type": "<type of violation to inspect for>",
       "inspector_count": <number>,
       "aqi_at_decision": <aqi value>,
-      "rationale": "<2-sentence evidence-backed justification>"
+      "rationale": "<2 sentences citing distance, upwind alignment and dominant source>"
     }},
-    {{
-      "rank": 2,
-      "city": "<city name>",
-      "action": "<specific enforcement action>",
-      "violation_type": "<type of violation>",
-      "target_zone": "<area or zone type>",
-      "inspector_count": <number>,
-      "aqi_at_decision": <aqi value>,
-      "rationale": "<2-sentence evidence-backed justification>"
-    }},
-    {{
-      "rank": 3,
-      "city": "<city name>",
-      "action": "<specific enforcement action>",
-      "violation_type": "<type of violation>",
-      "target_zone": "<area or zone type>",
-      "inspector_count": <number>,
-      "aqi_at_decision": <aqi value>,
-      "rationale": "<2-sentence evidence-backed justification>"
-    }}
+    {{ ...same shape, "rank": 2... }},
+    {{ ...same shape, "rank": 3... }}
   ]
 }}"""
 

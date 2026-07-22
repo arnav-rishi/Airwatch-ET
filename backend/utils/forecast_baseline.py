@@ -22,6 +22,7 @@ It assumes the input history is roughly hourly-spaced, which matches both
 services/openaq.py's real OpenAQ measurements and its synthetic fallback.
 """
 from datetime import datetime, timedelta
+from math import sqrt
 from statistics import mean
 
 
@@ -90,23 +91,74 @@ def compute_baseline_forecast(
     return forecast
 
 
+def _rmse(actual: list[float], predicted: list[float]) -> float:
+    return sqrt(mean((a - p) ** 2 for a, p in zip(actual, predicted)))
+
+
+def _mae(actual: list[float], predicted: list[float]) -> float:
+    return mean(abs(a - p) for a, p in zip(actual, predicted))
+
+
 def backtest_baseline(history: list[dict], holdout: int = 6) -> dict:
     """
-    Held-out accuracy check: forecast the last `holdout` points of `history`
-    using only the points before them, and report MAE against what actually
-    happened. This is the number a judge can ask about instead of "trust me".
-    Returns {"mae": float|None, "n": int} — n=0 if there isn't enough history
-    to backtest meaningfully.
+    Held-out accuracy check against the standard naive benchmark.
+
+    Forecasts the last `holdout` points of `history` using only the points
+    before them, two ways:
+
+      * persistence — "it will stay exactly as it is now", the canonical naive
+        baseline every forecasting result is expected to beat. A model that
+        can't beat persistence has demonstrated no skill at all.
+      * this module's trend model — persistence plus a fitted linear trend.
+
+    and reports RMSE for both plus a skill score. The evaluation criteria ask
+    for "RMSE versus persistence baseline" specifically, so both halves of that
+    comparison are computed rather than reporting one number in isolation.
+
+    skill_vs_persistence = 1 - RMSE_trend / RMSE_persistence
+      > 0  the trend model beats persistence (0.25 = 25% lower error)
+      = 0  no better than doing nothing
+      < 0  actively worse than assuming no change
+
+    Returns mae/n as before for existing callers, plus the RMSE fields. n=0 when
+    there isn't enough history to backtest meaningfully.
     """
+    empty = {
+        "mae": None, "n": 0,
+        "rmse": None, "persistence_rmse": None,
+        "persistence_mae": None, "skill_vs_persistence": None,
+    }
+
     values = [h["aqi"] for h in history if isinstance(h.get("aqi"), (int, float))]
     if len(values) < holdout + 3:
-        return {"mae": None, "n": 0}
+        return empty
 
     train = values[:-holdout]
     actual = values[-holdout:]
-    trend_per_step = _linear_trend(train[-12:])
     base = train[-1]
 
+    # Persistence: the last observed value, held flat across the whole horizon.
+    persistence = [base] * holdout
+
+    trend_per_step = _linear_trend(train[-12:])
     predicted = [max(0, base + trend_per_step * step) for step in range(1, holdout + 1)]
-    errors = [abs(a - p) for a, p in zip(actual, predicted)]
-    return {"mae": round(mean(errors), 1), "n": len(errors)}
+
+    rmse = _rmse(actual, predicted)
+    persistence_rmse = _rmse(actual, persistence)
+
+    # Undefined when persistence is already perfect (a perfectly flat series) —
+    # there is no error to improve on, so reporting a skill score would be
+    # meaningless rather than impressive.
+    skill = (
+        round(1 - (rmse / persistence_rmse), 3)
+        if persistence_rmse > 0 else None
+    )
+
+    return {
+        "mae": round(_mae(actual, predicted), 1),
+        "n": len(actual),
+        "rmse": round(rmse, 1),
+        "persistence_rmse": round(persistence_rmse, 1),
+        "persistence_mae": round(_mae(actual, persistence), 1),
+        "skill_vs_persistence": skill,
+    }

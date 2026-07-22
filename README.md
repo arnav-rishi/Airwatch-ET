@@ -1,698 +1,567 @@
-# AirWatch India — Complete Technical Document
+# 🌫️ AirWatch India
 
-**Urban Air Quality Intelligence Platform**
-ET AI Hackathon 2026 · Problem Statement 5
-Focus track: **Enforcement Intelligence & Prioritisation**
+**Urban Air Quality Intelligence Platform** — real-time air quality across India, with an
+enforcement intelligence agent that tells pollution-control authorities *which specific
+facility to inspect today, and why*.
 
-This document explains the whole system in plain English: what it does, how it is
-built, how data flows through it, and how each part behaves. Every diagram below
-is written in Mermaid, so it renders as a picture directly on GitHub.
-
----
-
-## Table of contents
-
-1. [What the project does, in one page](#1-what-the-project-does-in-one-page)
-2. [The big idea: the computer decides, the AI narrates](#2-the-big-idea-the-computer-decides-the-ai-narrates)
-3. [System architecture](#3-system-architecture)
-4. [The technology stack](#4-the-technology-stack)
-5. [Data sources and how they are trusted](#5-data-sources-and-how-they-are-trusted)
-6. [The enforcement pipeline, step by step](#6-the-enforcement-pipeline-step-by-step)
-7. [Activity diagrams](#7-activity-diagrams)
-8. [State diagrams](#8-state-diagrams)
-9. [How a single emission source is scored](#9-how-a-single-emission-source-is-scored)
-10. [The science: Gaussian plume dispersion](#10-the-science-gaussian-plume-dispersion)
-11. [Keeping the data honest](#11-keeping-the-data-honest)
-12. [The other three agents](#12-the-other-three-agents)
-13. [API reference](#13-api-reference)
-14. [Code map: where everything lives](#14-code-map-where-everything-lives)
-15. [Testing](#15-testing)
-16. [Scalability](#16-scalability)
-17. [Known limits, stated honestly](#17-known-limits-stated-honestly)
+> Built for the ET AI Hackathon 2026 · Problem Statement 5
+> **Primary focus: Enforcement Intelligence & Prioritisation**
 
 ---
 
-## 1. What the project does, in one page
+## 📦 Deliverables
 
-India has over 900 government air quality monitoring stations. The data exists.
-What does not exist is a layer that turns a bad reading into an **action** — a
-2024 government audit found only 31% of cities with monitoring data had any plan
-attached to that data.
-
-A pollution inspector who is told "Delhi's air is bad today" still does not know
-**what to do**. Within range of one Delhi monitoring station there are **213
-registered emission sources** — factories, construction sites, bus depots, waste
-sites. Which one do they visit first, this morning?
-
-**AirWatch answers exactly that question.** For each pollution hotspot it:
-
-1. Reads the live air quality (only if the reading is genuinely recent).
-2. Works out *why* the city is polluted (traffic? industry? burning?).
-3. Finds every registered emission source near that hotspot.
-4. Scores each source by how physically able it is to be causing the reading —
-   distance, wind, weather, source type.
-5. Hands the top few real facilities to an AI, which writes a dispatch order an
-   inspector can act on — with coordinates, evidence, and a map link.
-
-All of this happens in under a minute, and every number behind the decision can
-be checked.
-
-The platform also has three supporting features: a live national AQI map, a 24-
-hour forecast, and a multilingual citizen health advisory chatbot. But the
-enforcement engine is the heart of it.
+| Deliverable | Where |
+|---|---|
+| **Working prototype** | This repo — [Quick Start ↓](#-quick-start) |
+| **Architecture diagram** | **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)** — system context, enforcement sequence, module graph, scoring pipeline |
+| **Presentation deck** | **[docs/DECK.md](docs/DECK.md)** — Marp format; `marp DECK.md --pdf` to export |
+| **Demo video** | **[docs/DEMO_SCRIPT.md](docs/DEMO_SCRIPT.md)** — shot list + VO script; recording pending |
+| **Full technical document** | **[docs/TECHNICAL_DOCUMENT.md](docs/TECHNICAL_DOCUMENT.md)** — everything in plain English: architecture, activity + state diagrams, scoring, science. **Word version:** [docs/word/](docs/word/) |
+| Scalability analysis | **[SCALABILITY.md](SCALABILITY.md)** — measured benchmarks + national rollout path |
+| Handoff notes | **[HANDOFF.md](HANDOFF.md)** — status, gotchas, known gaps |
 
 ---
 
-## 2. The big idea: the computer decides, the AI narrates
+## ✨ Features
 
-Most AI projects ask a language model to make the decision. That is exactly what
-you cannot defend to an expert, because the model can invent things.
-
-**AirWatch does the opposite.** The decision — *which facility, and why* — is made
-by ordinary arithmetic and physics that anyone can check. The AI is called only
-at the very end, and only to turn a ranked list of real facilities into readable
-instructions. It is handed a shortlist it is **not allowed to change**: it must
-pick from the facilities given to it, by their exact ID.
-
-```mermaid
-flowchart LR
-    A["Bad air reading"] --> B["AI: why is it polluted?<br/><i>Attribution Agent</i>"]
-    B --> C["Computer: which real sources<br/>could reach this station?<br/><i>maths + physics, no AI</i>"]
-    C --> D["AI: write the dispatch order<br/><i>Enforcement Agent</i>"]
-    D --> E["Inspector gets a<br/>checkable recommendation"]
-
-    style C fill:#1e3f2f,stroke:#10b981,color:#e2e8f0
-    style B fill:#3a1e3f,stroke:#a855f7,color:#e2e8f0
-    style D fill:#3a1e3f,stroke:#a855f7,color:#e2e8f0
-```
-
-The rule we hold ourselves to: **anything a judge can check is computed;
-anything the AI merely asserts is clearly labelled as such.**
+- **⚖️ Enforcement Intelligence & Prioritisation** *(primary focus)* — Correlates live
+  pollution hotspots against a registry of 7,900+ **registered emission sources** (industries,
+  construction sites, waste sites, diesel fleet depots) with real coordinates, ranks them by a
+  deterministic evidence score — distance, **Gaussian plume dispersion** under live wind and
+  atmospheric stability, and category match to the attributed dominant source — and issues
+  dispatchable, facility-level enforcement actions with supporting geospatial documentation.
+  Narrows a 213-source search space to 5 for a Delhi hotspot (**42.6×**), in ~48 s from signal
+  to dispatch-ready.
+  **[How it works ↓](#️-enforcement-intelligence--how-the-correlation-works)**
+- **🗺️ Live AQI Map** — Interactive map of India (84 cities, 27 states) showing real-time air
+  quality from timestamped CPCB stations (OpenAQ v3), colour-coded on the Indian CPCB scale,
+  each marker showing its reading's age and source.
+- **📊 City Deep-Dive** — Click any city for a pollutant breakdown, live weather, a 24-hour
+  AQI trend, and a hybrid 24h forecast scored against a persistence benchmark.
+- **🔬 AI Source Attribution** — Estimates what's polluting each city (traffic, industry,
+  construction, biomass), anchored to published CPCB/ARAI source-apportionment studies and
+  adjusted for live weather and time of day, with a deterministic confidence score.
+- **💬 Multilingual Health Advisory** — A chatbot that answers citizen air-quality questions
+  in **any Indian language** (English, हिंदी, தமிழ், ಕನ್ನಡ, …), auto-detecting the language
+  and replying in the same script.
 
 ---
 
-## 3. System architecture
+## 🏗️ Tech Stack
 
-This is the whole system on one page: where data comes from, what the backend
-does with it, and what the user sees.
+| Layer | Tech |
+|-------|------|
+| Frontend | React, Vite, Tailwind CSS v4, Leaflet.js (+ marker clustering) |
+| Backend | FastAPI (Python 3.11), httpx, tenacity |
+| AI | Azure OpenAI `gpt-5-nano` (reasoning model), async client |
+| AQI data | OpenAQ v3 (live CPCB, timestamped) → WAQI → static fallback |
+| Geospatial | OpenStreetMap / Overpass API (emission source registry), grid spatial index |
+| Satellite | NASA FIRMS (VIIRS 375 m active-fire detection) |
+| Dispersion | Gaussian plume, Briggs urban σ curves, Pasquill-Gifford stability |
+| Weather | OpenWeatherMap (wind speed + direction drive the plume model) |
 
-```mermaid
-flowchart TB
-    subgraph EXT["Outside data sources"]
-        OAQ["OpenAQ v3<br/><i>PRIMARY air quality<br/>with timestamps</i>"]
-        WAQI["WAQI<br/><i>backup air quality</i>"]
-        OWM["OpenWeatherMap<br/><i>wind + weather</i>"]
-        FIRMS["NASA FIRMS<br/><i>satellite fire detection</i>"]
-        OSM["OpenStreetMap<br/><i>emission source locations</i>"]
-        AZ["Azure OpenAI<br/><i>the AI model</i>"]
-    end
+**Data freshness — an enforcement order is only as good as the reading behind it.** We use
+**OpenAQ v3** as the primary AQI source specifically because every reading carries a UTC
+timestamp, so staleness is *detectable*. This matters more than it sounds: WAQI's named city
+feeds — the original primary — serve whatever a station last reported, however old, with no
+staleness signal. Audited across 84 cities, only 4 had a reading under 6 hours old; the rest
+ranged from days to **years** (Pune's feed was serving a reading 1,710 days old). Those
+readings were driving the enforcement hotspot ranking, so *"signal → dispatch in 47 s"* was
+measuring response time to a signal from 2021. Now readings older than 24 h are excluded from
+the ranking at three layers (source, fallback, and the ranking itself), the endpoint returns
+an honest **503** when nothing is fresh rather than fabricating urgency, and every hotspot
+carries its reading's age and provenance. A city's AQI is the **median** of its stations, not
+the max, so one faulty low-cost sensor can't hijack the ranking; readings above 500 μg/m³ are
+rejected as stuck sensors. See **[Data freshness](#-data-freshness--the-most-important-fix)**.
 
-    subgraph SEED["Prepared once, saved in the repo"]
-        REG[("emission_sources.json<br/>7,900+ sources · 82 cities")]
-        CITIES[("cities_fallback.json<br/>84 cities · 27 states")]
-    end
+**Resilience.** Per-city AQI fallback — one bad reading downgrades that city's freshness
+rather than dropping it off the map — plus a 10-minute station cache warmed at startup,
+retry-with-backoff on all external calls, and rate limiting on the LLM-backed endpoints
+(`X-Forwarded-For` aware, so a proxy doesn't collapse every caller into one bucket).
 
-    subgraph BACK["Backend — FastAPI (Python)"]
-        AQIR["/api/aqi/*<br/>live map, city detail"]
-        INTEL["/api/intel/*<br/>attribution · enforcement<br/>forecast · advisory · sources"]
-    end
-
-    subgraph FRONT["Frontend — React + Leaflet map"]
-        MAP["National AQI map"]
-        ENF["Enforcement tab<br/><i>map + ranked actions</i>"]
-        ADV["Citizen advisory chatbot"]
-    end
-
-    OFFICER(["Pollution control officer /<br/>municipal inspector"])
-    CITIZEN(["Citizen"])
-
-    OSM -.->|"prepared offline"| REG
-    OAQ --> AQIR
-    WAQI --> AQIR
-    CITIES --> AQIR
-    OWM --> INTEL
-    FIRMS --> INTEL
-    REG --> INTEL
-    AZ <--> INTEL
-
-    AQIR --> MAP
-    INTEL --> ENF
-    INTEL --> ADV
-    ENF --> OFFICER
-    ADV --> CITIZEN
-
-    classDef ext fill:#1e3a5f,stroke:#3b82f6,color:#e2e8f0
-    classDef seed fill:#3f2d1e,stroke:#f97316,color:#e2e8f0
-    classDef back fill:#1e3f2f,stroke:#10b981,color:#e2e8f0
-    classDef front fill:#3a1e3f,stroke:#a855f7,color:#e2e8f0
-    class OAQ,WAQI,OWM,FIRMS,OSM,AZ ext
-    class REG,CITIES seed
-    class AQIR,INTEL back
-    class MAP,ENF,ADV front
-```
-
-**In words:** the backend pulls live air quality (OpenAQ first, WAQI as backup),
-weather, and satellite fire data. It combines these with a pre-built list of
-emission sources and a pre-built list of cities. It runs the enforcement logic,
-calls the AI where needed, and serves results to a React web app with three tabs.
+**Concurrency.** All LLM calls go through the *async* Azure client (`services/llm.py`,
+`acall_llm` / `acall_llm_json`). This matters for enforcement: the attribution stage fans out
+one call per hotspot with `asyncio.gather`, and under the synchronous client those coroutines
+ran strictly back to back *and* blocked the event loop for the whole round trip — so the
+fan-out delivered neither parallelism nor concurrency, and froze every other request while it
+worked. A timing test asserts the fan-out actually overlaps.
 
 ---
 
-## 4. The technology stack
+## ⚖️ Enforcement Intelligence — how the correlation works
 
-| Layer | What we used | Why |
+The problem statement asks for an agent that *"correlates pollution hotspot data with
+registered emission sources … and generates prioritised, evidence-backed enforcement action
+recommendations … with supporting geospatial documentation."*
+
+That correlation is done with arithmetic, not by asking a language model to guess a plausible
+zone name. The LLM is called **last**, and only to narrate a shortlist it cannot alter.
+
+### 1. The source registry
+
+`backend/data/emission_sources.json` holds registered emission sources with real coordinates,
+seeded from OpenStreetMap via the Overpass API (`backend/scripts/fetch_emission_sources.py`)
+across the four emitter types named in the problem statement:
+
+| Category | OSM proxy | Count |
 |---|---|---|
-| **Frontend** | React, Vite, Tailwind CSS, Leaflet.js | Fast interactive map, clean UI |
-| **Backend** | FastAPI (Python 3.11), httpx, tenacity | Async web server, reliable API calls with retries |
-| **AI** | Azure OpenAI (`gpt-5-nano`), used asynchronously | Writes the human-readable recommendations |
-| **Air quality** | OpenAQ v3 (primary) → WAQI (backup) → static file | Timestamped, real μg/m³ readings |
-| **Emission sources** | OpenStreetMap via the Overpass API | Free, real coordinates for factories, depots, etc. |
-| **Satellite** | NASA FIRMS (VIIRS 375 m) | Finds open burning that no register contains |
-| **Weather** | OpenWeatherMap | Wind speed and direction drive the physics |
-| **Dispersion science** | Gaussian plume + Pasquill-Gifford stability | Decides if a source can actually reach a station |
-
-The important design property: all the **scoring, physics, and impact maths have
-no external dependencies**. That is why the full test suite (162 tests) runs
-without any internet connection or API keys.
-
----
-
-## 5. Data sources and how they are trusted
-
-Every data source is treated as "guilty until proven fresh". Nothing is assumed
-to be current just because an API returned it.
-
-```mermaid
-flowchart TB
-    START(["Need air quality for a city"]) --> OAQ{"OpenAQ v3 has a<br/>reading under 24h old<br/>within 25 km?"}
-    OAQ -->|yes| USE_OAQ["Use it<br/><i>median of nearby stations,<br/>real μg/m³, tagged 'openaq_live'</i>"]
-    OAQ -->|no| WAQI{"WAQI feed exists<br/>AND is under 24h old?"}
-    WAQI -->|yes| USE_WAQI["Use it<br/><i>convert EPA→CPCB scale,<br/>tagged 'waqi_live'</i>"]
-    WAQI -->|no| FALL["Use last-known static value<br/><i>tagged 'fallback', age unknown</i>"]
-
-    USE_OAQ --> DONE(["City appears on the map"])
-    USE_WAQI --> DONE
-    FALL --> DONE
-
-    classDef good fill:#1e3f2f,stroke:#10b981,color:#e2e8f0
-    classDef warn fill:#3f2d1e,stroke:#f97316,color:#e2e8f0
-    class USE_OAQ,USE_WAQI good
-    class FALL warn
-```
-
-**Why this matters:** the original design used WAQI's feeds and never checked
-their age. When we audited all 84 cities, only 4 had a reading under 6 hours old
-— the rest were days to **years** stale (one city's feed was 1,710 days old, from
-2021). Those stale readings were driving the enforcement recommendations. We
-switched to OpenAQ v3 (which timestamps every reading), and now:
-
-- A city only shows as "live" if we can prove its reading is recent.
-- A city's AQI is the **median** of its nearby stations, not the maximum, so one
-  broken sensor cannot make a city look like an emergency.
-- A reading above 500 μg/m³ is thrown out as a stuck sensor.
-
----
-
-## 6. The enforcement pipeline, step by step
-
-This is the core feature. When someone opens the Enforcement tab, the browser
-calls `GET /api/intel/enforcement/auto`, and the backend runs a three-stage chain.
-
-```mermaid
-sequenceDiagram
-    autonumber
-    participant U as Browser
-    participant R as Backend route
-    participant AQ as Air quality source
-    participant AI1 as Attribution Agent (AI)
-    participant REG as Source registry
-    participant SAT as NASA FIRMS
-    participant SC as Scoring engine (maths)
-    participant AI2 as Enforcement Agent (AI)
-
-    U->>R: Open Enforcement tab
-    Note over R: Start a stopwatch (signal_at)
-
-    R->>AQ: Get all live city readings
-    AQ-->>R: 84 cities with ages
-    Note over R: Drop any reading older than 24h.<br/>Rank the rest by AQI. Take top 5.
-
-    par Stage 1: work out WHY (runs for all 5 at once)
-        R->>AI1: This city + its weather + baseline study
-        AI1-->>R: Main cause (e.g. "industry")
-    end
-
-    Note over R,SC: Stage 2: find and score real sources (NO AI)
-    R->>REG: Give me sources within 25 km of this hotspot
-    REG-->>R: Candidate facilities (crosses city borders)
-    R->>SAT: Any active fires near here?
-    SAT-->>R: Satellite detections (or none)
-    R->>SC: Score each source (distance, wind physics,<br/>category match, can we name it?)
-    SC-->>R: Top 5 ranked, each with full evidence
-
-    Note over R,AI2: Stage 3: write the order (AI narrates only)
-    R->>AI2: Here is the ranked shortlist. Pick from it by ID.
-    AI2-->>R: Dispatch actions citing the evidence
-
-    Note over R: Fix any ID formatting mistakes,<br/>compute impact numbers, stop the stopwatch
-    R-->>U: Priorities + map data + evidence + freshness + timing
-```
-
-**Plain-English summary of the three stages:**
-
-- **Stage 1 — Attribution (AI).** For each of the 5 worst cities, the AI is asked
-  "what is mainly polluting this city right now?" using its live weather and a
-  published government source-apportionment study as a starting point. All 5 run
-  at the same time (concurrently), so this is fast.
-- **Stage 2 — Correlation (pure maths, no AI).** For each hotspot, the system
-  pulls every registered emission source within 25 km, adds any satellite fire
-  detections, and scores them. This is the part that actually decides the answer.
-- **Stage 3 — Narration (AI).** The AI receives the ranked shortlist of real
-  facilities and writes the enforcement action for each. It must reference a real
-  facility by its exact ID; it cannot make one up.
-
----
-
-## 7. Activity diagrams
-
-Activity diagrams show the flow of work as a series of actions and decisions.
-
-### 7.1 Overall enforcement activity
-
-```mermaid
-flowchart TD
-    A([Officer opens Enforcement tab]) --> B[Fetch live city readings]
-    B --> C{Any readings<br/>fresh enough<br/>under 24h?}
-    C -->|No| C1[Return honest 503:<br/>'no recent data']:::stop
-    C -->|Yes| D[Rank fresh cities by AQI<br/>take the worst 5]
-    D --> E[For each city, ask AI:<br/>what is the main cause?]
-    E --> F[For each city, pull registered<br/>sources within 25 km]
-    F --> G[Add satellite fire detections]
-    G --> H[Score every source<br/>see scoring diagram]
-    H --> I{Any sources<br/>survive scoring?}
-    I -->|Yes| J[Keep top 5 with evidence]
-    I -->|No| K[Mark city 'AQI-only'<br/>no fabricated target]
-    J --> L[Send ranked shortlist to AI]
-    K --> L
-    L --> M[AI writes dispatch actions<br/>must cite real source IDs]
-    M --> N[Reconcile IDs, compute impact,<br/>record response time]
-    N --> O([Show ranked priorities + map + evidence])
-
-    classDef stop fill:#3f1e1e,stroke:#ef4444,color:#e2e8f0
-```
-
-### 7.2 Loading the national map
-
-```mermaid
-flowchart TD
-    A([Browser opens the app]) --> B[Ask backend for live stations]
-    B --> C{Cached copy<br/>under 10 min old?}
-    C -->|Yes| D[Return cached stations]
-    C -->|No| E[Fetch from OpenAQ first]
-    E --> F[Fill any gaps with fresh WAQI]
-    F --> G[Fill remaining gaps with<br/>last-known static values]
-    G --> H[Save to cache]
-    D --> I[Draw coloured markers on the map]
-    H --> I
-    I --> J([User sees 84 cities, each showing<br/>its reading's age and source])
-```
-
-### 7.3 Citizen advisory chatbot
-
-```mermaid
-flowchart TD
-    A([Citizen types a question]) --> B[Detect the language<br/>Hindi, Tamil, Kannada, English...]
-    B --> C[Send question + city AQI to AI<br/>with 'reply in the same language']
-    C --> D{AI returned<br/>real text?}
-    D -->|Yes| E[Show advice in the citizen's language]
-    D -->|No, empty| F[Reasoning model ran out of budget:<br/>retry with lower effort]
-    F --> E
-```
-
----
-
-## 8. State diagrams
-
-State diagrams show the different conditions a thing can be in, and how it moves
-between them.
-
-### 8.1 A single air quality station
-
-This is the heart of the freshness fix. A station is only "Live" if we can prove
-its reading is recent.
-
-```mermaid
-stateDiagram-v2
-    [*] --> Requested
-    Requested --> LiveFresh: OpenAQ reading under 24h
-    Requested --> WaqiFresh: no OpenAQ,<br/>WAQI reading under 24h
-    Requested --> Fallback: nothing fresh anywhere
-
-    LiveFresh --> UsableForEnforcement
-    WaqiFresh --> UsableForEnforcement
-    Fallback --> MapOnly
-
-    UsableForEnforcement --> [*]: can drive a recommendation
-    MapOnly --> [*]: shown on map, but<br/>excluded from ranking
-
-    note right of Fallback
-        Age is unknown, so it is
-        never trusted for an
-        enforcement decision.
-    end note
-```
-
-### 8.2 An emission source moving through the scorer
-
-Each source starts as a candidate and is either eliminated or ranked.
-
-```mermaid
-stateDiagram-v2
-    [*] --> Candidate
-    Candidate --> Excluded: hospital / school /<br/>temple (protect, don't raid)
-    Candidate --> Excluded: kerbside bus stop<br/>(nothing to inspect)
-    Candidate --> Excluded: more than 25 km away
-    Candidate --> Excluded: wind blows its<br/>plume away from station
-    Candidate --> Scored: survives all filters
-
-    Scored --> Ranked: top 5 by evidence score
-    Scored --> Dropped: below top 5
-    Ranked --> Narrated: AI writes the action
-    Narrated --> [*]
-
-    Excluded --> [*]
-    Dropped --> [*]
-```
-
-### 8.3 The overall enforcement request
-
-```mermaid
-stateDiagram-v2
-    [*] --> Idle
-    Idle --> Loading: officer opens tab
-    Loading --> NoFreshData: every reading is stale
-    Loading --> Ranking: fresh hotspots found
-    Ranking --> Attributing: worst 5 chosen
-    Attributing --> Correlating: causes identified
-    Correlating --> Narrating: sources scored
-    Narrating --> Done: actions written
-    Done --> Idle: cached 10 min,<br/>ready to show again
-    NoFreshData --> Idle: honest 503 returned
-
-    note right of NoFreshData
-        The system refuses to invent
-        urgency from old data.
-    end note
-```
-
----
-
-## 9. How a single emission source is scored
-
-This is the exact logic that decides which facility an inspector visits. No AI is
-involved. Every source that survives the filters gets a score between 0 and 1.
-
-```mermaid
-flowchart TB
-    START(["A source near the hotspot"]) --> F1{Hospital, school<br/>or place of worship?}
-    F1 -->|yes| X1["REMOVED<br/><i>it is a place to protect,<br/>not a polluter to raid</i>"]:::drop
-    F1 -->|no| F2{Kerbside bus stop?}
-    F2 -->|yes| X2["REMOVED<br/><i>a bus pole has nothing<br/>to inspect</i>"]:::drop
-    F2 -->|no| F3{Within 25 km<br/>of the station?}
-    F3 -->|no| X3["REMOVED<br/><i>too far to matter</i>"]:::drop
-    F3 -->|yes| F4{Is the wind carrying<br/>its smoke AWAY<br/>from the station?}
-    F4 -->|yes| X4["REMOVED<br/><i>it physically cannot be<br/>causing this reading</i>"]:::drop
-    F4 -->|no| SCORE
-
-    subgraph SCORE["Add up the weighted score (0 to 1)"]
-        direction TB
-        S1["Proximity — 35%<br/><i>closer scores higher, zero at 25 km</i>"]
-        S2["Atmospheric transport — 28%<br/><i>Gaussian plume: can the smoke reach here today?</i>"]
-        S3["Category match — 18%<br/><i>does its type match the blamed cause?</i>"]
-        S4["Dispatchability — 12%<br/><i>does it have a real name to send an officer to?</i>"]
-        S5["Hotspot severity — 7%<br/><i>how bad is the city's air overall?</i>"]
-    end
-
-    SCORE --> SAT{Is it a satellite<br/>fire detection?}
-    SAT -->|yes| ADJ["Multiply by the satellite's<br/>own confidence<br/><i>a thermal blip may not be a real fire</i>"]
-    SAT -->|no| RANK["Sort all survivors,<br/>keep the top 5"]
-    ADJ --> RANK
-    RANK --> OUT(["Passed to the AI with:<br/>coordinates, distance, wind alignment,<br/>stability class, OpenStreetMap link"])
-
-    classDef drop fill:#3f1e1e,stroke:#ef4444,color:#e2e8f0
-    style OUT fill:#1e3f2f,stroke:#10b981,color:#e2e8f0
-    style RANK fill:#1e3f2f,stroke:#10b981,color:#e2e8f0
-    style SCORE fill:#1e3f2f,stroke:#10b981,color:#e2e8f0
-```
-
-**Why each filter exists:**
-
-- **Hospitals/schools/temples** — OpenStreetMap names a bus stop outside a
-  hospital after the hospital. Twice, live, the system recommended raiding "Park
-  Circus – Chittaranjan Hospital" and then "Kamakhya Mandir" (a major temple).
-  These are now removed before scoring. An order named after a temple is
-  indefensible.
-- **Kerbside bus stops** — the map data lumps a state bus depot and a numbered
-  roadside pole into the same category. A pole has nothing to inspect, so it is
-  filtered out (using both its shape on the map and its name).
-- **Downwind sources** — if the wind is blowing a factory's smoke *away* from the
-  station, that factory cannot be causing the reading. It is removed, not just
-  ranked low.
-
----
-
-## 10. The science: Gaussian plume dispersion
-
-The "atmospheric transport" score is not a guess. It uses the standard textbook
-equation for how a plume of pollution spreads through the air.
-
-The idea in plain English: **a source being upwind is not enough.** A small
-factory 500 metres away and a large one 20 km away are completely different, and
-the same factory matters far more on a still night than on a windy afternoon.
-
-The model uses:
-
-- **Wind speed and direction** (live, from OpenWeatherMap).
-- **Atmospheric stability** — is the air still and trapping pollution (a night
-  inversion), or churning and mixing it away (a windy day)? This is worked out
-  from wind speed and whether the sun is up, using the standard Pasquill-Gifford
-  categories (classes A to F).
-- **Distance and sideways offset** from the source to the station.
-
-```mermaid
-flowchart LR
-    W["Live wind +<br/>time of day"] --> ST["Work out air stability<br/>class A (churning)<br/>to F (dead still)"]
-    ST --> P["Gaussian plume equation"]
-    D["Distance + angle<br/>source → station"] --> P
-    P --> R["A number: how much could<br/>this source affect this station?"]
-
-    style P fill:#1e3f2f,stroke:#10b981,color:#e2e8f0
-```
-
-**A concrete example from the live system:** on a calm, clear night (class F, a
-strong inversion), a source 13.3 km from the Delhi station ranked **second**,
-because still air holds the plume together over that distance. On a windy
-afternoon (class D, good mixing), that same source dropped off the shortlist
-entirely. A simple "is it upwind?" check could never tell those two situations
-apart.
-
-**Stated honestly:** we do not know each factory's actual emission rate (no
-public database lists it), so every source is treated as emitting the same
-amount. The output is therefore a **relative** score — "which source is more
-likely to be reaching this station" — not a prediction of pollution in μg/m³. It
-is a targeting aid, not a regulatory air-quality model.
-
----
-
-## 11. Keeping the data honest
-
-A recurring theme in this project is refusing to overclaim. Several deliberate
-choices exist purely to keep the system trustworthy under expert questioning.
-
-| Guard | What it does | Why |
+| Industry | `landuse=industrial`, `man_made=works` | 3,948 |
+| Diesel fleet | `amenity=bus_station`, `landuse=depot`, `building=transportation` | 1,607 |
+| Construction | `landuse=construction`, `building=construction` | 1,597 |
+| Waste burning | `landuse=landfill`, `amenity=waste_transfer_station`, `waste_disposal` | 757 |
+
+**7,900+ sources across 82 cities** (3,948 industry · 1,607 diesel fleet · 1,597 construction ·
+757 waste). Seeded once and committed, so a demo never depends on
+Overpass being up — and so a free shared community endpoint isn't hammered per request.
+
+These are honest proxies, not an official register. Open waste burning is unmapped by nature
+(it's illegal and therefore unregistered), so landfills and transfer stations stand in for it.
+That caveat ships inside the registry's own `_meta` block and is surfaced through the API
+rather than hidden. A production deployment would swap in CPCB consent-to-operate and state
+PCB registers, which are not openly available.
+
+### 2. Satellite fire detection
+
+Open waste and biomass burning is the one major emitter that *cannot* appear in any ground
+register. NASA FIRMS (VIIRS, 375 m) fills that gap: active-fire detections are fetched live
+per hotspot (`backend/services/firms.py`) and ranked in the same candidate list as ground
+facilities, weighted by the satellite's own detection confidence so a marginal thermal anomaly
+counts for less than a strong one. They're drawn dashed on the map and labelled
+*"Satellite-detected fire 3.2 km NW of Delhi centre"*.
+
+The LLM is instructed to word these as *"verify and interdict active burning at these
+coordinates"* rather than as an inspection of a registered premises — a thermal anomaly is a
+lead to confirm on the ground, not a proven violation, and industrial flares and agricultural
+fires also register.
+
+Needs a free `FIRMS_MAP_KEY` (see `.env.example`). Purely additive: without one, enforcement
+falls back to the ground registry alone and still works.
+
+> **Seasonality, measured not assumed.** Verified live against the FIRMS API in late July:
+> 138 active-fire detections across India over 3 days, **none within 25 km of any of the 43
+> curated cities**. That is monsoon season doing what monsoon season does, not a broken
+> integration — the pipeline was confirmed end to end by running the scorer against the real
+> Tamil Nadu detections, which it ranked, upwind-filtered and labelled correctly. The layer
+> carries real weight from October to January, when stubble and waste burning drive the
+> northern air crisis. Because "enabled but found nothing" and "not configured" look identical
+> in a response, the API reports `satellite: {enabled, total_detections}` and the UI says which.
+>
+> One API quirk: `FIRMS_DAY_RANGE` accepts 1–10, but over a large bounding box the longer
+> windows silently return an **empty body** rather than an error — 1 day gave 15 detections,
+> 3 gave 138, and 7 and 10 both gave nothing. That's a server-side transaction limit, so the
+> default is 3 and it should not be raised.
+
+### 3. Who must never be a target
+
+Not every OSM entry is a usable enforcement target. Two filters run **before** scoring, so
+geometry can never promote an excluded entry back.
+
+**Hospitals, schools and places of worship.** OSM names transport infrastructure after
+whatever it serves, so a bus terminal outside a hospital or temple inherits that place's name.
+Two live runs surfaced this the hard way: the system recommended sending inspectors to
+*"Park Circus - Chittaranjan Hospital"*, and then to *"Kamakhya Mandir"* — one of the most
+significant Hindu temples in India. The underlying depots may well be real diesel sources, but
+an enforcement order *named after* a hospital, school or place of worship is indefensible in
+front of the authority meant to act on it, and in the religious case actively inflammatory.
+Hospitals and schools are also receptors to protect from poor air, not premises to raid.
+
+The filter matches on **name** rather than tag, precisely because the OSM *tag* says
+`bus_station` while the *name* says temple — the tag is what admitted it, the name is what
+would reach a dispatch order. It is deliberately tuned against over-matching too: an earlier
+version caught `vihar` and removed several genuine bus depots, since across north India
+"Vihar" is a residential locality suffix (Vasant Vihar, Mayur Vihar) far more often than a
+Buddhist monastery. Both directions are covered by tests.
+
+**Kerbside bus stops.** `amenity=bus_station` spans a state transport depot and a numbered
+kerbside halt alike, so the registry fills with entries like "42A BUS STAND". These are
+systematically advantaged — a bus stop sits in the middle of the city right beside the
+monitoring station, so it beats a real depot on the outskirts on proximity — while offering
+nothing to inspect. Geometry and name together decide it: a way or relation has area, so
+something is actually built there; and a node naming itself a depot, terminal or garage is
+kept even though it's a point. That leaves 993 of 1,607 fleet entries. The filter errs toward
+exclusion deliberately, because putting "42A BUS STAND" at rank 1 would discredit every other
+recommendation on the sheet.
+
+### 4. The correlation
+
+`backend/utils/enforcement_scoring.py` — deterministic, no LLM. Sources are found by a
+**spatial query, not a city-name lookup**: pollution doesn't respect municipal boundaries, and
+a station in east Delhi has Noida and Ghaziabad industry well inside its 25 km radius. The NCR
+is one airshed, so the query follows the air rather than the paperwork. Each surviving source
+is then scored on:
+
+| Component | Weight | Why |
 |---|---|---|
-| **Freshness gate** | Excludes any reading older than 24h from enforcement | A recommendation based on 2021 data is worthless |
-| **Median, not max** | A city's AQI is the median of its stations | One broken sensor can't fake an emergency |
-| **Sensor cap** | Rejects PM2.5 above 500 μg/m³ | Stuck sensors would top the ranking |
-| **Honest 503** | Returns "no recent data" rather than ranking stale data | Better to say nothing than to mislead |
-| **Scale conversion** | Converts WAQI's US EPA index to India's CPCB scale | Otherwise cities are compared on two different scales |
-| **Source labels** | Every reading shows its source and age | "Live" becomes a claim you can check |
-| **No fabricated impact** | We report search-space narrowing, not μg/m³ saved or money saved | Those need data that doesn't exist |
-| **Satellite wording** | Fires are "verify and interdict", not "inspect a premises" | A thermal blip is a lead, not proof |
+| Proximity | 0.35 | Linear falloff to zero at 25 km |
+| **Atmospheric transport** | 0.28 | Gaussian plume — can this source physically reach the station today? |
+| Category match | 0.18 | Corroboration from the upstream Attribution Agent |
+| Dispatchability | 0.12 | ~half of OSM sites are unnamed; a named facility can be served notice |
+| Hotspot severity | 0.07 | Only discriminates when ranking across cities |
 
-The clearest example of this philosophy: during monsoon, real air quality is
-genuinely low, so the top hotspot reads around AQI 85, not the 400s the old stale
-feeds implied. We show the true low number and explain why. **Real beats
-dramatic.**
+Sources the wind is carrying *away* from the station are **excluded outright**, not ranked
+low — they are eliminated on physical grounds, and padding a shortlist with them would
+overstate how much evidence exists.
+
+Unnamed sites still have exact coordinates, so they get a navigable positional label
+(*"Unregistered industry site 2.1 km NW of Kolkata centre"*) instead of a useless one.
+
+#### Atmospheric dispersion modelling
+
+The transport score was originally `cos(bearing − wind_direction)`. That says whether a source
+is upwind, but cannot distinguish a facility 500 m upwind from one 20 km upwind, and treats
+crosswind offset and wind speed as if they were irrelevant. Dispersion has a standard
+closed-form solution, so `backend/utils/dispersion.py` uses it:
+
+```
+C(x, y) = Q / (π · u · σy · σz) · exp(−y² / 2σy²)
+```
+
+with **Briggs urban σ curves** selected by **Pasquill-Gifford stability class**, derived from
+wind speed and day/night insolation. Urban curves are the right family — every receptor here
+is a city monitoring station, where surface roughness and the heat-island effect produce far
+more mixing than rural curves assume.
+
+This changes rankings in ways the cosine could not express. Under a **calm clear night
+(class F inversion)** a source 13.3 km from the Delhi station ranks second, because stable air
+holds the plume together over that distance. Under **windy daytime mixing (class D)** the same
+source drops out of the shortlist entirely. That is the difference between *"is it upwind"* and
+*"can it actually reach here under today's conditions"*.
+
+> **Scope, stated honestly.** Emission rate is unknown — the registry records that a facility
+> exists, not what it emits, and there is no public per-facility inventory — so every source is
+> modelled at unit emission rate. The output is a **relative susceptibility**: "given equal
+> emissions, how much more would this source affect this station than that one". It is a
+> targeting aid, not a concentration estimate. It is also a *screening* model: flat terrain,
+> steady uniform wind, ground-level release, no plume rise, deposition or building downwash.
+> AERMOD or CALPUFF would model all of those and need stack parameters, hourly meteorology and
+> terrain grids this system does not have.
+
+Every recommendation carries its stability class, downwind and crosswind distances, and plume
+width, so a domain reviewer can interrogate the physics rather than one opaque number.
+
+### 5. The narration
+
+Only now is the LLM called — with a ranked shortlist of real facilities it must choose from by
+exact ID, citing the distance and upwind evidence it was handed. It no longer decides *where*
+to inspect; it writes the dispatch order. This is what it actually receives:
+
+```
+CITY: Kolkata - AQI 340 (Very Poor), PM2.5 180.0 μg/m³
+  Attribution Agent dominant_source: Industry
+  Live wind: from 315° at 12.0 km/h
+  Ranked registered emission sources near this hotspot:
+    - [way/101750901] Unregistered industry site 2.1 km NW of Kolkata centre |
+      category: industry | 2.05 km NW of station | directly UPWIND (alignment 0.999) |
+      evidence score 0.8288 | coords 22.586089,88.350254
+```
+
+Models copy prompt formatting, so a returned `source_id` of `[way/101750901]` is reconciled
+back to the real entry (falling back to a name match), and any facility that still can't be
+matched is flagged `source_matched: false` and labelled unverified in the UI rather than
+presented as evidenced.
+
+### 6. Geospatial documentation
+
+The Enforcement tab renders the correlation on a map: the monitoring station, every candidate
+source coloured by category and sized by evidence score, the wind axis, the 25 km screening
+radius, and evidence lines from each candidate to the station. Selecting a priority focuses
+its facility.
+
+Each recommendation shows the component-score breakdown that produced it, exact coordinates,
+and a link to the facility on OpenStreetMap — so the evidence is checkable in the UI, not just
+in the API. `GET /api/intel/sources` exposes the registry directly. The endpoint also reports
+`response_time_seconds`, the measured signal-to-dispatch latency the evaluation criteria ask
+to see demonstrated (typically 30–60 s against live data).
 
 ---
 
-## 12. The other three agents
+### 7. Quantified impact
 
-Enforcement is the focus, but three supporting features round out the platform.
+Business impact is measured from the system's own data, not asserted.
+`backend/utils/impact_metrics.py` attaches figures to every enforcement run, so the numbers a
+deck quotes are computed live from the run a reviewer is looking at.
 
-### Source Attribution
-For a city, the AI estimates the split between traffic, industry, construction,
-and biomass burning — starting from a published government study, adjusted for
-live weather. A separate **deterministic check** measures how far the AI's answer
-drifted from that published baseline and reports a confidence level, so a wild
-answer is flagged automatically.
+Measured against the committed registry:
 
-### 24-hour Forecast
-A hybrid. A simple statistical model (no AI) predicts the next 24 hours from
-recent history and wind. The AI then explains or adjusts it. Crucially, the
-forecast's accuracy is measured against the **persistence baseline** ("assume
-tomorrow equals today") that the evaluation criteria ask for — and it honestly
-reports when it does *worse* than that baseline (a negative "skill" score),
-because a number that can only flatter is not a measurement.
+| Hotspot | Eligible sources in 25 km | Shortlisted | Narrowing | Random hit rate |
+|---|---|---|---|---|
+| Delhi | 213 | 5 | **42.6×** | 2.3% |
+| Kolkata | 157 | 5 | **31.4×** | 3.2% |
+| Pune | 148 | 5 | **29.6×** | 3.4% |
+| *A live 5-hotspot run* | *557* | *25* | ***22.3×*** | *4.5%* |
 
-### Citizen Health Advisory
-A chatbot that answers air-quality questions in any Indian language, detecting
-the language automatically and replying in the same script.
+Both sides of that ratio come from the same population — sources that survive the scorer's own
+exclusions and lie within the same operational radius. Comparing a ranked shortlist against
+the raw unfiltered registry would inflate the figure by counting hospitals and bus stops no
+sensible process would visit.
+
+**What is deliberately not claimed**, because a domain expert would puncture each in one
+question and it would cast doubt on the figures that are real:
+
+- **No pollution reduction in μg/m³** — needs per-facility emission rates and a counterfactual
+  for whether an inspection changes behaviour. Neither exists.
+- **No money saved** — inspector salaries, travel costs and penalty recovery rates vary by
+  state and aren't public.
+- **No compliance improvement** — needs longitudinal data from a real deployment.
+
+The single external input, how inspectors are tasked today, cites the CAG's 2024 NCAP audit
+finding (only 31% of cities with monitoring data had any actionable response protocol) rather
+than inventing a baseline.
 
 ---
 
-## 13. API reference
+## 📈 Scalability
 
-| Method | Route | What it returns |
-|---|---|---|
-| `GET` | `/api/aqi/live` | All live city readings for the map, with age and source |
-| `GET` | `/api/aqi/city/{name}` | One city: pollutants, weather, 24-hour history |
+Full detail in **[SCALABILITY.md](SCALABILITY.md)**, including what still constrains scale and
+the path to a national rollout.
+
+The correlation engine scales: sources are bucketed into a ~27 km grid at load time, so a query
+touches only the 3×3 block of cells around its centre regardless of registry size. Going from
+5,000 to 1,000,000 sources — **200× more data** — increases the scanned set only **6×**, because
+the extra sources land in cells the query never opens. Reproduce with
+`backend/scripts/benchmark_spatial.py`.
+
+Everything around it is prototype-grade and SCALABILITY.md says so: per-process in-memory
+caches and rate limiter that break behind multiple workers, a file-backed registry, a static
+43-city station list, LLM latency dominating the 30–60 s end-to-end time, and no persistence of
+recommendations or outcomes.
+
+---
+
+## 🔬 Measurement & data integrity
+
+**One AQI scale, end to end.** WAQI serves **US EPA** AQI *index* values (both `aqi` and
+`iaqi.pm25.v`), not μg/m³ concentrations — a live Delhi feed returning `iaqi.pm25: 25` means
+"EPA sub-index 25" (≈6 μg/m³), not "25 μg/m³". India's CPCB scale is stricter, so the two are
+not interchangeable. Every WAQI reading is inverted back to a concentration (`epa_aqi_to_pm25`,
+`backend/utils/aqi_calculator.py`) and re-expressed on the CPCB scale before use.
+
+This matters most for **enforcement**: the hotspot ranking sorts live stations against static
+fallback ones, so mixing EPA and CPCB values silently mis-ranked the cities feeding the
+Enforcement Agent. Mid-range readings were worst affected — an EPA index of 100 (truly
+"Satisfactory", 35.4 μg/m³) previously rendered as CPCB 234 "Poor". The original EPA value is
+retained as `aqi_epa_raw` so the conversion stays auditable. Pollutants other than PM2.5 need
+their own EPA breakpoint tables to invert, so they are surfaced honestly as `*_index` (EPA
+sub-index) rather than mislabelled as μg/m³.
+
+**Forecast accuracy against the named benchmark.** The evaluation criteria ask for *"RMSE
+versus persistence baseline"*, so both halves of that comparison are computed rather than one
+number in isolation. Persistence — "it will stay exactly as it is now" — is the naive benchmark
+any forecast must beat to have demonstrated skill at all. `backtest_baseline` holds out the
+last 6 hours of real history and reports the statistical model's RMSE, persistence's own RMSE,
+and a skill score (`1 - RMSE_model / RMSE_persistence`).
+
+The metric reports failure honestly. On a series where the trend reverses, the extrapolation
+loses badly to persistence and the UI says so in amber rather than hiding it. On a flat series
+persistence is already perfect, so the skill score returns `null` instead of dividing by zero
+and implying an achievement. A metric that can only flatter isn't a measurement.
+
+The response also reports `llm_divergence_from_baseline` — how far the LLM's delivered forecast
+sits from the baseline it was anchored to. The backtest measures the *baseline's* skill, and
+that only carries over to the line shown to the user insofar as the two agree; quoting the RMSE
+without this would overstate what was verified.
+
+**Beyond a pure LLM wrapper.** The 24h forecast is a hybrid: a deterministic statistical
+baseline (`backend/utils/forecast_baseline.py`, no LLM call) that the LLM must explain or
+justify diverging from, not invent from scratch. Source attribution carries a deterministic
+confidence score (`backend/utils/attribution_confidence.py`) measuring how far the LLM strayed
+from the cited CPCB baseline. Enforcement runs a three-stage chain — Attribution Agent →
+deterministic geospatial correlation → Enforcement Agent — where each stage's output is the
+next stage's evidence, not an independent guess.
+
+---
+
+## 📡 Data freshness — the most important fix
+
+An enforcement recommendation is only as good as the reading it's based on, and this is where
+the original design was quietly broken.
+
+WAQI's named city feeds — the first primary source — return whatever a station *last* reported,
+however old, with no staleness signal in the field the app read. We only found this by checking
+one city (Bhilai showed AQI 8; the live value was ~75) and then auditing all 84:
+
+| Data age | Cities |
+|---|---|
+| < 6 hours (genuinely live) | **4** |
+| days to **years** old | the other 80 |
+
+Pune's feed was serving a reading **1,710 days old** — from 2021. Jodhpur's was 2,440. And
+those readings were driving the enforcement hotspot ranking, which means *"signal → dispatch-
+ready in 47 s"* was measuring response time to a signal four years stale.
+
+**The fix, in three layers:**
+
+1. **OpenAQ v3 is now the primary source.** Every reading carries a UTC timestamp (WAQI's don't,
+   in the payload we read), it has far better Indian coverage — 2,059 readings in the India
+   bounding box, 1,303 under 24 h old vs WAQI's 4 — and it returns real PM2.5 concentrations in
+   μg/m³, removing the EPA→CPCB inversion and its whole class of scale bugs.
+2. **WAQI is now the fallback**, and its timestamp is parsed and enforced — a feed older than
+   24 h is rejected to a static station rather than presented as live.
+3. **The enforcement ranking excludes any station without a confirmed recent reading**, and the
+   endpoint returns an honest **503** when nothing is fresh rather than fabricating urgency from
+   old data. The response carries `data_freshness` (max age, stale count) and each hotspot its
+   reading age and source.
+
+**Two data-quality guards** on top: a city's AQI is the **median** of its stations, not the max
+(the registry mixes reference monitors with low-cost sensors, and max would hand a city to one
+faulty unit — the worst is still reported as `pm25_max`); and a reading above 500 μg/m³ is
+rejected as a stuck sensor (Aurangabad surfaced at a flat 520 from a single monitor in monsoon,
+which would have topped the national ranking on its own).
+
+> **Honest consequence.** With genuinely fresh, monsoon-season data the top AQI is currently
+> ~85 (Satisfactory), not the 400s the stale feeds implied. The demo is less dramatic and
+> completely real — and *"we refuse to issue an enforcement order on a reading we can't confirm
+> is recent"* is the kind of rigour that should carry more weight than a big number a reviewer
+> can puncture. Off-season, the true severe readings return.
+
+---
+
+## ⚠️ Known gaps
+
+Stated here rather than discovered later:
+
+- **City-level, not ward-level.** The problem statement asks for ward / 1 km grid resolution;
+  this operates on 84 city monitoring points (some served by many stations — Gurugram had 56).
+- **No multi-city comparative dashboard** and **no population vulnerability layer**, though the
+  sensitive-receptor filter already identifies hospitals and schools in the registry.
+- **Monsoon-season demo shows low AQI.** With genuinely fresh data the top reading is currently
+  ~85 (Satisfactory), not the 400s the *stale* feeds implied. That's the freshness fix working,
+  not a defect — off-season it shows the true severe readings. See below.
+- **Two cities unseeded** (Ambala, Rajahmundry) — Overpass failed for them during the sweep.
+  They render on the map but are flagged AQI-only in enforcement rather than breaking. Re-runnable.
+
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Python 3.11+, Node.js 18+
+- API keys: [Azure OpenAI](https://azure.microsoft.com/products/ai-services/openai-service),
+  [WAQI](https://aqicn.org/data-platform/token/),
+  [OpenWeatherMap](https://openweathermap.org/api),
+  and optionally [NASA FIRMS](https://firms.modaps.eosdis.nasa.gov/api/area/) (free)
+
+### Backend
+```bash
+cd backend
+python -m venv venv
+venv\Scripts\activate           # Windows  (source venv/bin/activate on macOS/Linux)
+pip install -r requirements.txt
+
+cp .env.example .env            # then fill in your API keys
+uvicorn main:app --reload --port 8001
+```
+
+### Frontend
+```bash
+cd frontend
+npm install
+npm run dev                     # http://localhost:5173
+```
+
+### Verify
+```bash
+cd backend
+pytest tests/ -q                # 162 unit tests, no network or API keys required
+python test_endpoints.py        # HTTP integration suite, needs a running server + real keys
+```
+
+### Re-seeding the source registry (optional)
+The registry is committed, so this is only needed to refresh it:
+```bash
+cd backend
+python scripts/fetch_emission_sources.py   # ~40 min; resumes if interrupted
+```
+It rotates across three Overpass mirrors on 429/504 and writes after every city, so an
+interrupted run keeps its progress.
+
+---
+
+## 📡 API Endpoints
+
+| Method | Route | Description |
+|--------|-------|-------------|
+| `GET`  | `/api/aqi/live` | All live India stations (cached, CPCB scale) |
+| `GET`  | `/api/aqi/city/{name}?lat=&lon=` | City feed + weather + 24h history |
 | `POST` | `/api/intel/attribution` | Pollution source breakdown + confidence score |
-| `GET` | `/api/intel/enforcement/auto` | **The main one:** ranked hotspots, evidence, impact, freshness, timing |
-| `POST` | `/api/intel/enforcement` | Same, but for a caller-supplied set of cities |
-| `GET` | `/api/intel/sources` | The emission source registry (coverage + provenance) |
-| `POST` | `/api/intel/forecast` | 24-hour forecast + accuracy vs persistence |
-| `POST` | `/api/intel/advisory` | Citizen health advice in the requested language |
-| `GET` | `/health` | Simple health check |
-
-The LLM-backed `/api/intel/*` routes are rate-limited per caller so one user
-cannot run up the AI bill.
+| `GET`  | `/api/intel/enforcement/auto` | **Registry-correlated enforcement priorities for the top-5 live hotspots** |
+| `POST` | `/api/intel/enforcement` | Same correlation, for a caller-supplied set of cities |
+| `GET`  | `/api/intel/sources` | Emission source registry — coverage + provenance (`?city=Delhi` for one city) |
+| `POST` | `/api/intel/forecast` | Hybrid 24h AQI forecast + accuracy vs persistence |
+| `POST` | `/api/intel/advisory` | Multilingual citizen health advisory |
 
 ---
 
-## 14. Code map: where everything lives
+## 📁 Project Structure
 
 ```
 airwatch/
-├── backend/                         FastAPI (Python)
-│   ├── main.py                      App start-up, CORS, rate limiting, cache warm-up
-│   ├── prompts.py                   All the instructions given to the AI
+├── backend/
+│   ├── main.py                        App, CORS, rate-limit middleware, cache warm
+│   ├── prompts.py                     LLM prompts + CPCB source-apportionment table
 │   ├── routes/
-│   │   ├── aqi.py                   /api/aqi/*   (map + city detail)
-│   │   └── intelligence.py          /api/intel/* (the enforcement chain lives here)
-│   ├── services/                    Talking to the outside world
-│   │   ├── openaq.py                PRIMARY air quality (v3, timestamped, μg/m³)
-│   │   ├── waqi.py                  Backup air quality (staleness-gated)
-│   │   ├── openweather.py           Weather + wind (feeds the physics)
-│   │   ├── firms.py                 NASA satellite fire detection
-│   │   ├── source_registry.py       The emission source list + spatial index
-│   │   ├── llm.py                   Azure OpenAI wrapper (sync + async)
-│   │   ├── cache.py                 In-memory caches
-│   │   └── rate_limit.py            Per-caller request limiter
-│   ├── utils/                       Pure logic — no internet, fully testable
-│   │   ├── aqi_calculator.py        AQI maths + EPA→CPCB conversion
-│   │   ├── enforcement_scoring.py   THE scoring engine (filters + weights)
-│   │   ├── dispersion.py            Gaussian plume physics
-│   │   ├── impact_metrics.py        Search-space narrowing numbers
-│   │   ├── forecast_baseline.py     Statistical forecast + persistence backtest
-│   │   └── attribution_confidence.py  Checks the AI against the baseline
+│   │   ├── aqi.py                     /api/aqi/*
+│   │   └── intelligence.py            /api/intel/* — the enforcement chain lives here
+│   ├── services/
+│   │   ├── openaq.py                  PRIMARY AQI source (v3, timestamped, μg/m³)
+│   │   ├── waqi.py                    Fallback AQI (EPA→CPCB, staleness-gated)
+│   │   ├── openweather.py             Weather + wind direction
+│   │   ├── firms.py                   NASA FIRMS satellite fire detection
+│   │   ├── source_registry.py         Emission source registry access layer
+│   │   ├── llm.py                     Azure OpenAI (sync + async clients)
+│   │   ├── cache.py                   Station + attribution caches
+│   │   └── rate_limit.py              Sliding-window limiter
+│   ├── utils/
+│   │   ├── aqi_calculator.py          CPCB breakpoints + EPA→CPCB inversion
+│   │   ├── enforcement_scoring.py     Deterministic hotspot↔source correlation
+│   │   ├── dispersion.py              Gaussian plume + Pasquill-Gifford stability
+│   │   ├── impact_metrics.py          Search-space narrowing, computed from the registry
+│   │   ├── forecast_baseline.py       Statistical forecast + persistence backtest
+│   │   └── attribution_confidence.py  Divergence-from-baseline scoring
 │   ├── scripts/
-│   │   ├── fetch_emission_sources.py  Builds the source registry from OSM
-│   │   ├── probe_waqi_cities.py       Finds new cities to add
-│   │   ├── merge_probed_cities.py     Adds them safely (scale + sanity checks)
-│   │   └── benchmark_spatial.py       Reproduces the scalability figures
+│   │   ├── fetch_emission_sources.py  Overpass seeder (mirrors, resume)
+│   │   └── benchmark_spatial.py       Reproduces the SCALABILITY.md figures
 │   ├── data/
-│   │   ├── cities_fallback.json     84 cities, 27 states
-│   │   └── emission_sources.json    7,900+ registered emission sources
-│   └── tests/                       162 tests, no keys or internet needed
-└── frontend/                        React + Vite + Tailwind
-    └── src/
-        ├── App.jsx                  The three tabs: Map / Enforcement / Advisory
-        └── components/
-            ├── MapView.jsx          National AQI map
-            ├── CityPanel.jsx        Pollutants, trend, forecast for one city
-            ├── EnforcementMap.jsx   Hotspot map: sources, wind axis, radius
-            ├── EnforcementSidebar.jsx  Ranked actions + evidence breakdown
-            ├── ForecastChart.jsx    Forecast vs baseline + skill score
-            └── AdvisoryGenerator.jsx  Multilingual chatbot
+│   │   ├── cities_fallback.json       84 curated cities, 27 states
+│   │   └── emission_sources.json      7,900+ registered emission sources
+│   └── tests/                         162 unit + integration tests
+└── frontend/src/
+    ├── App.jsx                        Tabs: Map / Enforcement / Advisory
+    └── components/
+        ├── MapView.jsx                Clustered national AQI map
+        ├── CityPanel.jsx              Pollutants, trend, attribution, forecast
+        ├── EnforcementMap.jsx         Hotspot, candidates, wind axis, screening radius
+        ├── EnforcementSidebar.jsx     Ranked actions + evidence breakdown
+        ├── ForecastChart.jsx          Baseline vs AI forecast + skill scores
+        └── AdvisoryGenerator.jsx      Multilingual citizen chatbot
 ```
 
-**The key structural fact:** the `utils/` folder never talks to the internet.
-All the decision-making logic lives there, which is why it can be fully tested
-offline and why the recommendations are reproducible.
-
----
-
-## 15. Testing
-
-There are **162 automated tests**, and they run with no API keys and no internet,
-because everything that makes a decision is pure logic.
-
-```mermaid
-flowchart LR
-    subgraph T["What is tested"]
-        A["AQI + EPA→CPCB<br/>scale conversion"]
-        B["Scoring engine:<br/>filters, weights, exclusions"]
-        C["Gaussian plume<br/>physics"]
-        D["Freshness + staleness<br/>rules"]
-        E["Impact maths"]
-        F["Spatial index<br/>(finds the right sources)"]
-        G["Forecast skill<br/>vs persistence"]
-    end
-    T --> R["162 passing<br/>no keys · no network"]
-    style R fill:#1e3f2f,stroke:#10b981,color:#e2e8f0
+```
+docs/
+├── TECHNICAL_DOCUMENT.md  Full plain-English technical doc: architecture,
+│                          activity + state diagrams, scoring, science, testing
+├── ARCHITECTURE.md        System context, enforcement sequence, module graph,
+│                          scoring pipeline, AQI conversion, deployment (Mermaid)
+├── DECK.md                Presentation deck (Marp)
+└── DEMO_SCRIPT.md         Demo video shot list + VO script
 ```
 
-Some tests exist specifically to stop a past bug returning: that a stale reading
-can reach the ranking, that a hospital can be recommended, that the wind
-convention is not silently reversed, that a "skill" score can report failure.
+See **[HANDOFF.md](HANDOFF.md)** for status, known gaps and gotchas
+(reasoning-model token budgets, etc.), and **[SCALABILITY.md](SCALABILITY.md)** for
+measured benchmarks and the national rollout path.
 
 ---
 
-## 16. Scalability
+## 🔑 Configuration
 
-The scoring engine was measured, not guessed. Sources are placed into a grid of
-~27 km squares when the app starts, so a query only ever looks at the handful of
-squares around the hotspot — never the whole country.
-
-| Registry size | Sources actually examined |
-|---|---|
-| 5,000 | 204 |
-| 1,000,000 | 1,307 |
-
-**200 times more data leads to only about 6 times more work.** This is what makes
-a national rollout (India's 900+ stations) realistic. The grid also fixed a
-correctness bug: looking sources up by city name missed nearby sources filed
-under a *neighbouring* city, even though pollution ignores city borders. The grid
-follows the air, not the paperwork.
-
-What still needs work for a true national deployment is documented honestly in
-`SCALABILITY.md`: the in-memory caches, the file-based registry, and the static
-city list would all be replaced with a proper database and shared cache.
+All secrets live in `backend/.env` (gitignored — never committed). Copy `backend/.env.example`
+and fill in your keys. Note: `gpt-5-nano` requires API version `2025-04-01-preview` and
+`reasoning_effort="low"` — with default effort it can burn the entire token budget on hidden
+reasoning and return empty output, especially for token-heavy scripts like Tamil and Kannada.
 
 ---
 
-## 17. Known limits, stated honestly
+## 📝 License
 
-We list these ourselves rather than let a reviewer discover them:
-
-- **City-level, not ward-level.** The system works on 84 city monitoring points.
-  The problem statement's ideal is 1 km grid resolution.
-- **No emission-rate data.** The physics treats every source as emitting equally,
-  so it targets, but does not measure pollution in μg/m³.
-- **OpenStreetMap is a proxy**, not an official pollution register (which is not
-  public). This caveat travels with the data itself.
-- **Monsoon-season readings are genuinely low** right now — that is the freshness
-  fix working, and the true severe readings return in winter.
-- **Two cities (Ambala, Rajahmundry) are not yet seeded** with sources; they show
-  on the map but are flagged "AQI-only" in enforcement rather than breaking.
-- **No comparative dashboard or vulnerability-mapping layer** yet, though the
-  hospital/school data needed for the latter already exists in the registry.
-
----
-
-*This document describes the system as built. For the visual architecture
-diagrams alone, see [`ARCHITECTURE.md`](ARCHITECTURE.md); for the scalability
-numbers and rollout plan, [`SCALABILITY.md`](../SCALABILITY.md); for status and
-gotchas, [`HANDOFF.md`](../HANDOFF.md).*
+Built for a hackathon — no license specified. Contact the author before reuse.

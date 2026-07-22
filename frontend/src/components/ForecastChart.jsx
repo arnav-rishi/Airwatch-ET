@@ -21,6 +21,9 @@ export default function ForecastChart({ forecast }) {
 
   const peakColor = AQI_COLOR(forecast.peak_aqi || 0)
   const hasBacktest = forecast.baseline_backtest_n > 0
+  const acc = forecast.accuracy || {}
+  const skill = acc.skill_vs_persistence
+  const divergence = forecast.llm_divergence_from_baseline
 
   return (
     <div className="space-y-3">
@@ -67,10 +70,45 @@ export default function ForecastChart({ forecast }) {
       )}
 
       {hasBacktest && (
-        <p className="text-xs text-slate-600">
-          Statistical baseline backtested accuracy: MAE {forecast.baseline_backtest_mae} AQI
-          over the last {forecast.baseline_backtest_n} hours of real history
-        </p>
+        <div className="text-xs text-slate-600 space-y-1">
+          <p>
+            Backtested on the last {forecast.baseline_backtest_n} hours of real history:
+            baseline RMSE <span className="text-slate-400">{acc.baseline_rmse ?? '—'}</span>
+            {' '}vs persistence RMSE <span className="text-slate-400">{acc.persistence_rmse ?? '—'}</span>
+            {' '}(MAE {forecast.baseline_backtest_mae})
+          </p>
+
+          {/* Persistence — "it stays as it is now" — is the benchmark any forecast
+              must beat to have shown skill. Reported both ways, including when
+              the model loses, because a metric that can only flatter is not a
+              measurement. */}
+          {skill != null && (
+            <p>
+              {skill > 0 ? (
+                <span className="text-green-400">
+                  {(skill * 100).toFixed(0)}% lower error than persistence
+                </span>
+              ) : (
+                <span className="text-amber-400">
+                  No better than persistence here ({(skill * 100).toFixed(0)}%) — the recent
+                  trend reversed, which a linear extrapolation cannot follow
+                </span>
+              )}
+            </p>
+          )}
+          {skill == null && acc.persistence_rmse === 0 && (
+            <p>AQI held flat over the backtest window, so there is no persistence error to improve on.</p>
+          )}
+
+          {divergence?.mean_abs != null && (
+            <p>
+              AI forecast sits {divergence.mean_abs} AQI from the baseline on average
+              {divergence.max_abs != null && ` (max ${divergence.max_abs})`}
+              {divergence.mean_abs > 25 &&
+                ' — a large gap, so the accuracy above describes the baseline more than the line shown'}
+            </p>
+          )}
+        </div>
       )}
     </div>
   )

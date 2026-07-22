@@ -1,0 +1,427 @@
+"""
+Deterministic correlation of pollution hotspots against the registered emission
+source registry (data/emission_sources.json).
+
+Why this exists: the Enforcement Agent previously asked an LLM to name a
+"target_zone" from a city name and an AQI number. Nothing in the system held a
+list of actual emitters, so there was nothing to correlate against and no way
+to check the answer — the model picked a plausible-sounding area type from the
+menu in its own prompt.
+
+This module does the correlation with arithmetic instead. For a hotspot it
+scores every registered source in that city on four independent, individually
+inspectable components, ranks them, and hands the top candidates to the LLM to
+write the dispatch narrative. The LLM stops inventing *where* to inspect and is
+left doing what it's good at: explaining a ranked, evidence-backed shortlist.
+
+This mirrors the pattern already used by utils/forecast_baseline.py (statistical
+forecast the LLM must reconcile with) and utils/attribution_confidence.py
+(divergence score over LLM output) — a deterministic core the LLM narrates
+rather than replaces.
+
+Scope, stated honestly: proximity + upwind geometry is a screening heuristic,
+not a dispersion model. It answers "which registered sources are physically
+capable of contributing to this hotspot right now, ranked by plausibility",
+which is what an inspector allocating a shift actually needs. It does not
+estimate emission mass or prove causation, and every returned candidate carries
+its component scores so a reviewer can see exactly why it ranked where it did.
+"""
+import re
+from math import atan2, cos, degrees, radians, sin, sqrt
+
+from utils.dispersion import describe_stability, dispersion_factor
+
+EARTH_RADIUS_KM = 6371.0
+
+# Beyond this, a source is treated as unable to contribute meaningfully to a
+# city-centre hotspot reading. Roughly the radius within which a ground-level
+# urban source still measurably affects a monitoring station on a typical day.
+MAX_RELEVANT_KM = 25.0
+
+# Component weights. Proximity and atmospheric dispersion dominate because they
+# are physical constraints; category match is corroborating evidence from the
+# upstream Attribution Agent. Severity is deliberately small — it's constant
+# across every source within a hotspot, so it only discriminates when ranking
+# candidates from different cities against each other.
+#
+# Identifiability is weighted last and lightly, but it is not cosmetic: roughly
+# half of OSM-derived sites are unnamed polygons, and an inspector cannot be
+# dispatched to — or serve a notice on — an unnamed polygon. A named facility is
+# materially more actionable, so it should win a close call. The weight is kept
+# small enough that a markedly closer or better-aligned unnamed site still
+# outranks a named one; dispatchability breaks ties, it doesn't overrule physics.
+_W_PROXIMITY = 0.35
+# Atmospheric transport: a Gaussian plume factor when wind speed is available
+# (utils/dispersion.py), falling back to cosine alignment when it isn't.
+_W_TRANSPORT = 0.28
+_W_CATEGORY = 0.18
+_W_IDENTIFIABILITY = 0.12
+_W_SEVERITY = 0.07
+
+# The Attribution Agent's dominant_source vocabulary (from the CPCB baseline
+# table in prompts.py) mapped onto the registry's category vocabulary. Both
+# sides are free text from different sources, so this mapping is explicit
+# rather than inferred.
+_SOURCE_TO_CATEGORY = {
+    "industry": "industry",
+    "industrial": "industry",
+    "vehicles": "diesel_fleet",
+    "transport": "diesel_fleet",
+    "traffic": "diesel_fleet",
+    "construction": "construction",
+    "biomass burning": "waste_burning",
+    "biomass_burning": "waste_burning",
+    "waste burning": "waste_burning",
+    "road dust": "construction",
+}
+
+
+def haversine_km(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
+    """Great-circle distance in km."""
+    dlat = radians(lat2 - lat1)
+    dlon = radians(lon2 - lon1)
+    a = (
+        sin(dlat / 2) ** 2
+        + cos(radians(lat1)) * cos(radians(lat2)) * sin(dlon / 2) ** 2
+    )
+    return 2 * EARTH_RADIUS_KM * atan2(sqrt(a), sqrt(1 - a))
+
+
+def bearing_deg(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
+    """Initial compass bearing from point 1 to point 2, in degrees from north."""
+    dlon = radians(lon2 - lon1)
+    y = sin(dlon) * cos(radians(lat2))
+    x = cos(radians(lat1)) * sin(radians(lat2)) - sin(radians(lat1)) * cos(
+        radians(lat2)
+    ) * cos(dlon)
+    return (degrees(atan2(y, x)) + 360) % 360
+
+
+def upwind_alignment(
+    hotspot_lat: float, hotspot_lon: float,
+    source_lat: float, source_lon: float,
+    wind_direction_deg: float,
+) -> float:
+    """
+    How well a source sits upwind of the hotspot, in [-1, 1].
+
+    OpenWeatherMap's `wind.deg` follows the meteorological convention: it is the
+    direction the wind blows *from*. So a source can only be carried onto the
+    hotspot if the source lies in roughly that same direction as seen from the
+    hotspot — i.e. bearing(hotspot -> source) should be close to wind.deg.
+
+    Returns 1.0 for a source directly upwind, 0.0 for crosswind, and -1.0 for
+    one directly downwind. A downwind source is physically incapable of causing
+    the reading, which is the single most useful discriminator here and the
+    reason the wind direction is worth fetching at all.
+    """
+    b = bearing_deg(hotspot_lat, hotspot_lon, source_lat, source_lon)
+    return cos(radians(b - wind_direction_deg))
+
+
+def _proximity_score(distance_km: float) -> float:
+    """Linear falloff to zero at MAX_RELEVANT_KM — simple and legible."""
+    if distance_km >= MAX_RELEVANT_KM:
+        return 0.0
+    return 1.0 - (distance_km / MAX_RELEVANT_KM)
+
+
+def _severity_score(aqi: float) -> float:
+    """Normalise CPCB AQI onto [0, 1], saturating at the top of the scale (500)."""
+    return max(0.0, min(1.0, aqi / 500.0))
+
+
+# Names that identify a protected institution or landmark rather than an emitter.
+#
+# OSM names transport infrastructure after whatever it serves, so a bus terminal
+# outside a hospital or temple carries that place's name into the registry as a
+# diesel_fleet source — and pure geometry can rank it first. Two live runs did
+# exactly this, recommending inspectors be sent to "Park Circus - Chittaranjan
+# Hospital" and then to "Kamakhya Mandir", one of the most significant Hindu
+# temples in India.
+#
+# The underlying bus depot may well be a genuine diesel source, but an
+# enforcement action *named after* a hospital, school or place of worship is
+# wrong on its face: indefensible in front of the authority meant to act on it,
+# and in the religious case actively inflammatory. Hospitals and schools are
+# also vulnerable receptors to protect from poor air, not premises to raid.
+#
+# Excluded from the candidate set entirely rather than ranked lower — geometry
+# must not be able to promote one back.
+_SENSITIVE_RECEPTOR_PATTERN = re.compile(
+    # Healthcare and education
+    r"\b(hospital|clinic|nursing\s+home|hospice|dispensary|medical\s+college|"
+    r"medical\s+depot|health\s+cent|school|college|university|vidyalaya|"
+    r"maternity|childre?n'?s?\s+home|orphanage|old\s+age\s+home|"
+    # Places of worship and pilgrimage.
+    #
+    # Deliberately NOT included: "vihar". Although it denotes a Buddhist
+    # monastery, in Indian urban naming it is overwhelmingly a residential
+    # locality suffix — Vasant Vihar, Mayur Vihar, Sukdev Vihar — and including
+    # it excluded several genuine bus depots, which are precisely the
+    # diesel_fleet targets this system exists to find. Actual monasteries are
+    # caught by "monastery", "math" or "stupa".
+    r"mandir|temple|masjid|mosque|church|cathedral|gurudwara|gurdwara|"
+    r"dargah|monastery|matha|math|ashram|shrine|basilica|synagogue|"
+    r"devasthan|devalaya|sahib|idgah|stupa)\b",
+    re.IGNORECASE,
+)
+
+
+def is_sensitive_receptor(source: dict) -> bool:
+    """
+    True when a source's name identifies a hospital, school or place of worship.
+
+    Name-based rather than tag-based because the problem is precisely that the
+    OSM *tag* says bus_station while the *name* says temple — the tag is what
+    put it in the registry, the name is what would end up on a dispatch order.
+    """
+    return bool(_SENSITIVE_RECEPTOR_PATTERN.search(source.get("name") or ""))
+
+
+# Names denoting a facility where diesel vehicles are parked, fuelled or
+# maintained in numbers — as opposed to a kerbside stop they merely pause at.
+_SUBSTANTIAL_FLEET_PATTERN = re.compile(
+    r"\b(depot|terminal|terminus|garage|workshop|car\s*shed|yard|"
+    r"bus\s*station|coach\s*station|parking|transport\s*corporation|"
+    r"roadways|bus\s*port)\b",
+    re.IGNORECASE,
+)
+
+
+def is_minor_fleet_stop(source: dict) -> bool:
+    """
+    True for a roadside bus stop, which is not an enforceable diesel source.
+
+    OSM's `amenity=bus_station` spans everything from a state transport depot to
+    a numbered kerbside halt, so the registry fills with entries like "42A BUS
+    STAND" and "14 No Bus Stop". These outrank real facilities on proximity
+    alone — a bus stop sits in the middle of the city, right next to the
+    monitoring station — and they are useless as enforcement targets: there is
+    nothing to inspect at a pole with a timetable on it. Emissions enforcement
+    happens where vehicles are parked, fuelled and maintained.
+
+    Two signals decide it, because neither is sufficient alone:
+
+      * Geometry. A way or relation has area, so something is actually built
+        there; a bare node is usually just a point on a road.
+      * Name. Some genuine terminals are mapped as nodes ("CSTC Bus Terminal",
+        "Serampore Court Bus Terminus"), so a node naming itself a depot,
+        terminal or garage is kept.
+
+    Only applies to diesel_fleet — the other categories are area features by
+    nature, and satellite detections are points by definition.
+
+    The filter errs toward exclusion on purpose. "Bus Stand" in Indian usage
+    covers both a genuine terminal (Nabanna Bus Stand) and a kerbside halt
+    (45 BUS STAND), and treating it as substantial would readmit the latter. Of
+    ~1150 diesel_fleet entries about 730 survive, so losing a few real terminals
+    costs little, whereas putting "42A BUS STAND" at rank 1 of a dispatch sheet
+    discredits every other recommendation on it.
+    """
+    if source.get("category") != "diesel_fleet":
+        return False
+    osm_type = (source.get("id") or "").split("/")[0]
+    if osm_type in ("way", "relation"):
+        return False
+    return not _SUBSTANTIAL_FLEET_PATTERN.search(source.get("name") or "")
+
+
+_COMPASS_16 = [
+    "N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE",
+    "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW",
+]
+
+
+def compass_point(bearing: float) -> str:
+    """Bearing in degrees to a 16-point compass abbreviation."""
+    return _COMPASS_16[int((bearing % 360) / 22.5 + 0.5) % 16]
+
+
+def dispatch_label(source: dict, distance_km: float, bearing: float) -> str:
+    """
+    A label an inspector can actually navigate to.
+
+    Roughly half of OSM-derived sites are unnamed polygons, and "Unnamed
+    industry site" is useless on a dispatch sheet. But an unnamed site still has
+    exact coordinates, so it can be described positionally — "Industrial site
+    2.0 km NW of Kolkata city centre" — which, with the coordinates and OSM link
+    that travel alongside it, is genuinely actionable. Named sites keep their
+    real name.
+    """
+    # A satellite detection has no register entry by nature — it's located
+    # purely by observation, so describe it that way.
+    if source.get("source_type") == "satellite":
+        return (
+            f"Satellite-detected fire {distance_km:.1f} km "
+            f"{compass_point(bearing)} of {source.get('city', 'city')} centre"
+        )
+    if is_identifiable(source):
+        return source["name"]
+    kind = source.get("category", "emission").replace("_", " ")
+    return (
+        f"Unregistered {kind} site {distance_km:.1f} km "
+        f"{compass_point(bearing)} of {source.get('city', 'city')} centre"
+    )
+
+
+def is_identifiable(source: dict) -> bool:
+    """
+    Whether the source carries a real name (vs. an unnamed OSM polygon).
+
+    scripts/fetch_emission_sources.py synthesises "Unnamed <category> site" when
+    OSM has neither a name nor an operator tag.
+    """
+    name = (source.get("name") or "").strip()
+    return bool(name) and not name.startswith("Unnamed ")
+
+
+def _identifiability_score(source: dict) -> float:
+    return 1.0 if is_identifiable(source) else 0.0
+
+
+def _category_score(category: str, dominant_source: str | None) -> float:
+    """
+    1.0 when the source category matches what the Attribution Agent blamed,
+    0.5 when there's no attribution to corroborate against (absence of evidence
+    shouldn't penalise a source), 0.0 on an explicit mismatch.
+    """
+    if not dominant_source:
+        return 0.5
+    expected = _SOURCE_TO_CATEGORY.get(dominant_source.strip().lower())
+    if expected is None:
+        return 0.5
+    return 1.0 if expected == category else 0.0
+
+
+def score_sources(
+    hotspot: dict,
+    sources: list[dict],
+    wind_direction_deg: float | None = None,
+    dominant_source: str | None = None,
+    limit: int = 5,
+    wind_speed_kmh: float | None = None,
+    is_daytime: bool = True,
+    cloudy: bool = False,
+) -> list[dict]:
+    """
+    Rank registered sources by their plausibility as contributors to a hotspot.
+
+    `hotspot` needs lat/lon/aqi. `sources` is the registry slice for that city.
+    Returns up to `limit` candidates, each carrying its distance, bearing,
+    dispersion physics and the component scores that produced its total — so a
+    recommendation can be audited rather than taken on faith.
+
+    Sources beyond MAX_RELEVANT_KM, and those the wind is carrying away from the
+    station, are dropped rather than ranked low: they are excluded on physical
+    grounds, and padding a shortlist with them would misrepresent how much real
+    evidence exists.
+
+    When wind speed is supplied, a Gaussian plume model (utils/dispersion.py)
+    replaces the crude cosine alignment: it accounts for crosswind spread
+    widening with distance, atmospheric stability, and the inverse wind-speed
+    relationship. Without it, the cosine is used as a fallback so the scorer
+    still functions on partial weather data.
+    """
+    hs_lat, hs_lon = hotspot["lat"], hotspot["lon"]
+    severity = _severity_score(hotspot.get("aqi", 0))
+
+    scored = []
+    for src in sources:
+        # A hospital or school is a receptor to protect, never an enforcement
+        # target — excluded before any scoring so geometry can't promote one.
+        if is_sensitive_receptor(src):
+            continue
+
+        # A kerbside bus stop is not an enforceable diesel source, and sits
+        # close enough to the station to outrank real depots on proximity.
+        if is_minor_fleet_stop(src):
+            continue
+
+        distance = haversine_km(hs_lat, hs_lon, src["lat"], src["lon"])
+        if distance > MAX_RELEVANT_KM:
+            continue
+
+        bearing = bearing_deg(hs_lat, hs_lon, src["lat"], src["lon"])
+        # Bearing from the SOURCE toward the receptor is the reciprocal — that's
+        # the direction the plume must travel, and what the dispersion model wants.
+        bearing_to_receptor = (bearing + 180.0) % 360.0
+
+        dispersion = None
+        if wind_direction_deg is None:
+            alignment = None
+            # No wind data: score the geometry we do have and say so, rather
+            # than inventing a neutral wind and hiding the gap.
+            transport_component = 0.5
+        else:
+            alignment = upwind_alignment(
+                hs_lat, hs_lon, src["lat"], src["lon"], wind_direction_deg
+            )
+            # Physically downwind - it cannot be feeding this reading.
+            if alignment < -0.2:
+                continue
+
+            if wind_speed_kmh is None:
+                # Wind direction but no speed: fall back to the cosine. It knows
+                # the source is upwind, just not how much the plume has spread.
+                transport_component = (alignment + 1) / 2  # [-1,1] -> [0,1]
+            else:
+                dispersion = dispersion_factor(
+                    distance_km=distance,
+                    bearing_source_to_receptor=bearing_to_receptor,
+                    wind_direction_deg=wind_direction_deg,
+                    wind_speed_kmh=wind_speed_kmh,
+                    is_daytime=is_daytime,
+                    cloudy=cloudy,
+                )
+                transport_component = dispersion["factor"]
+
+        proximity = _proximity_score(distance)
+        category = _category_score(src["category"], dominant_source)
+        identifiability = _identifiability_score(src)
+
+        total = (
+            _W_PROXIMITY * proximity
+            + _W_TRANSPORT * transport_component
+            + _W_CATEGORY * category
+            + _W_IDENTIFIABILITY * identifiability
+            + _W_SEVERITY * severity
+        )
+
+        # Satellite fire detections carry their own observation confidence.
+        # A low-confidence thermal anomaly is a weaker lead than a high-confidence
+        # one, and unlike a mapped facility it may not be a real fire at all — so
+        # the score is scaled by it rather than treating every detection alike.
+        if src.get("source_type") == "satellite":
+            total *= 0.5 + 0.5 * src.get("detection_confidence", 0.5)
+
+        scored.append({
+            **src,
+            "dispatch_label": dispatch_label(src, distance, bearing),
+            "distance_km": round(distance, 2),
+            "bearing_from_hotspot_deg": round(bearing, 1),
+            "compass_from_hotspot": compass_point(bearing),
+            "upwind_alignment": round(alignment, 3) if alignment is not None else None,
+            "identifiable": bool(identifiability),
+            "evidence_score": round(total, 4),
+            "score_components": {
+                "proximity": round(proximity, 3),
+                "atmospheric_transport": round(transport_component, 3),
+                "category_match": round(category, 3),
+                "identifiability": round(identifiability, 3),
+                "severity": round(severity, 3),
+            },
+            # The plume physics behind the transport score, so a reviewer can see
+            # crosswind offset and stability class rather than one opaque number.
+            "dispersion": {
+                "model": "gaussian_plume_briggs_urban",
+                "stability_class": dispersion["stability"],
+                "stability_description": describe_stability(dispersion["stability"]),
+                "downwind_km": dispersion["downwind_km"],
+                "crosswind_km": dispersion["crosswind_km"],
+                "plume_width_sigma_y_m": dispersion["sigma_y_m"],
+            } if dispersion else None,
+        })
+
+    scored.sort(key=lambda s: s["evidence_score"], reverse=True)
+    return scored[:limit]

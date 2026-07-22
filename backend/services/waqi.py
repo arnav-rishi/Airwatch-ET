@@ -2,12 +2,37 @@ import asyncio
 import httpx
 import os
 import json
+from datetime import datetime, timezone
 from pathlib import Path
 from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
-from utils.aqi_calculator import pm25_to_aqi, aqi_category, circle_radius
+from utils.aqi_calculator import pm25_to_aqi, epa_aqi_to_pm25, aqi_category, circle_radius
 
 WAQI_BASE = "https://api.waqi.info"
 FALLBACK_PATH = Path(__file__).parent.parent / "data" / "cities_fallback.json"
+
+# WAQI has no staleness signal in `aqi`, and its named feeds were observed
+# serving readings years old. Anything past this is treated as not-live.
+WAQI_MAX_AGE_HOURS = 24
+
+
+def _reading_age_hours(time_block: dict) -> float | None:
+    """
+    Age in hours of a WAQI reading from its `time` block, or None if unknown.
+
+    WAQI gives an ISO timestamp in `time.iso` (with offset) and a plainer
+    `time.s`. Prefer the ISO form; an unparseable or missing timestamp returns
+    None, which the caller treats as "can't verify" rather than "stale".
+    """
+    stamp = time_block.get("iso") or time_block.get("s")
+    if not stamp:
+        return None
+    try:
+        observed = datetime.fromisoformat(stamp.replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    if observed.tzinfo is None:
+        observed = observed.replace(tzinfo=timezone.utc)
+    return round((datetime.now(timezone.utc) - observed).total_seconds() / 3600, 1)
 
 # India bounding box: SW corner (8.07, 68.20) → NE corner (37.08, 97.40)
 INDIA_BOUNDS = "8.07,68.20,37.08,97.40"
@@ -72,6 +97,7 @@ def _fallback_station(city: dict) -> dict:
         "station_raw": city["city"],
         "updated_at": city.get("updated_at", ""),
         "source": "fallback",
+        "age_hours": None,
         **cat,
         "radius": circle_radius(city["aqi"]),
     }
@@ -101,7 +127,25 @@ async def _fetch_city_live(client: httpx.AsyncClient, city: dict) -> dict:
         if not isinstance(raw_aqi, int):
             return _fallback_station(city)
 
-        pm25 = d.get("iaqi", {}).get("pm25", {}).get("v")
+        # WAQI serves whatever a station last reported, however old, with no
+        # staleness signal in `aqi` itself. Audited, its named feeds returned
+        # readings up to *years* old (Pune 1,710 days, Jodhpur 2,440). A reading
+        # that stale is not current air quality and must never drive a hotspot
+        # ranking, so reject it here and fall back rather than present it as live.
+        age_hours = _reading_age_hours(d.get("time", {}))
+        if age_hours is not None and age_hours > WAQI_MAX_AGE_HOURS:
+            return _fallback_station(city)
+
+        # WAQI's `aqi` and `iaqi.pm25.v` are both US EPA AQI *index* values, not
+        # μg/m³ concentrations. Recover the concentration, then re-express it on
+        # India's CPCB scale — otherwise live cities would sit on the EPA scale
+        # while fallback cities (cities_fallback.json) sit on CPCB, and the two
+        # would be silently mixed in every comparison downstream, most damagingly
+        # the enforcement hotspot ranking in routes/intelligence.py.
+        pm25_index = d.get("iaqi", {}).get("pm25", {}).get("v")
+        pm25 = epa_aqi_to_pm25(pm25_index) if pm25_index is not None else None
+        cpcb_aqi = pm25_to_aqi(pm25) if pm25 is not None else pm25_to_aqi(epa_aqi_to_pm25(raw_aqi))
+
         # Prefer the station's own coordinates so the pin sits on the real station.
         geo = d.get("city", {}).get("geo") or [city["lat"], city["lon"]]
         lat, lon = float(geo[0]), float(geo[1])
@@ -113,20 +157,25 @@ async def _fetch_city_live(client: httpx.AsyncClient, city: dict) -> dict:
         if not _in_india(lat, lon):
             return _fallback_station(city)
 
-        cat = aqi_category(raw_aqi)
+        cat = aqi_category(cpcb_aqi)
         return {
             "city": city["city"],
             "state": city["state"],
             "lat": lat,
             "lon": lon,
-            "aqi": raw_aqi,
+            "aqi": cpcb_aqi,
             "pm25": pm25,
+            # The original US EPA index WAQI served, kept alongside the converted
+            # CPCB value so the conversion stays auditable rather than opaque.
+            "aqi_epa_raw": raw_aqi,
+            "aqi_scale": "CPCB",
             "primary_pollutant": d.get("dominentpol", "pm25").upper(),
             "station_raw": d.get("city", {}).get("name", city["city"]),
             "updated_at": d.get("time", {}).get("s", ""),
             "source": "waqi_live",
+            "age_hours": age_hours,
             **cat,
-            "radius": circle_radius(raw_aqi),
+            "radius": circle_radius(cpcb_aqi),
         }
     except Exception:
         return _fallback_station(city)
@@ -134,34 +183,57 @@ async def _fetch_city_live(client: httpx.AsyncClient, city: dict) -> dict:
 
 async def fetch_india_stations() -> list[dict]:
     """
-    Fetch live AQI for a curated list of major Indian cities from WAQI (named feeds,
-    in parallel). Every curated city is always returned — one whose live feed fails
-    falls back to its own last-known static reading (source="fallback") rather than
-    being dropped, so the map always shows the full curated set.
+    Live AQI for the curated cities, from the freshest available source per city.
 
-    If constructing the HTTP client itself fails (rare), falls back to OpenAQ, then
-    the full static dataset, so the app is never blank.
+    Source priority is now OpenAQ → WAQI → static fallback, a reversal from the
+    original WAQI-first design. The reason is data freshness, audited directly:
+    OpenAQ v3 carries per-reading timestamps and had 1,300+ India readings under
+    24h old, while WAQI's named feeds served readings up to *years* old with no
+    staleness signal — and those readings were driving the enforcement hotspot
+    ranking. See services/openaq.py for the full audit.
+
+    Every curated city is still always returned. A city with no fresh reading
+    from either live source falls back to its static last-known value, tagged
+    source="fallback" and age_hours=None, so the map stays complete and the
+    frontend can show which cities are genuinely live.
     """
     cities = _curated_cities()
+
+    # Primary: OpenAQ, keyed by city name.
+    openaq_by_city: dict[str, dict] = {}
     try:
-        async with httpx.AsyncClient(timeout=12.0) as client:
-            results = await asyncio.gather(
-                *[_fetch_city_live(client, c) for c in cities],
-                return_exceptions=True,
-            )
-        stations = [r for r in results if isinstance(r, dict)]
-        if stations:
-            return stations
+        from services.openaq import fetch_live_aqi
+        for s in await fetch_live_aqi():
+            openaq_by_city[s["city"]] = s
+    except Exception:
+        pass
+
+    # Secondary: WAQI, but only for cities OpenAQ didn't already cover, and only
+    # when its reading passes the same staleness gate (_fetch_city_live rejects
+    # stale feeds to a fallback station, so a waqi_live result here is fresh).
+    missing = [c for c in cities if c["city"] not in openaq_by_city]
+    waqi_by_city: dict[str, dict] = {}
+    if missing:
         try:
-            from services.openaq import fetch_live_aqi
-            live = await fetch_live_aqi()
-            if live:
-                return live
+            async with httpx.AsyncClient(timeout=12.0) as client:
+                results = await asyncio.gather(
+                    *[_fetch_city_live(client, c) for c in missing],
+                    return_exceptions=True,
+                )
+            for r in results:
+                if isinstance(r, dict) and r.get("source") == "waqi_live":
+                    waqi_by_city[r["city"]] = r
         except Exception:
             pass
-        return _load_fallback()
-    except Exception:
-        return _load_fallback()
+
+    # Assemble in curated order: OpenAQ, else fresh WAQI, else static fallback.
+    fallback_by_city = {c["city"]: _fallback_station(c) for c in cities}
+    return [
+        openaq_by_city.get(c["city"])
+        or waqi_by_city.get(c["city"])
+        or fallback_by_city[c["city"]]
+        for c in cities
+    ]
 
 
 async def fetch_city_feed(city_name: str) -> dict:
@@ -185,13 +257,23 @@ async def fetch_city_feed(city_name: str) -> dict:
         d = data["data"]
         iaqi = d.get("iaqi", {})
 
-        pm25_raw = iaqi.get("pm25", {}).get("v")
-        pm10_raw = iaqi.get("pm10", {}).get("v")
-        no2_raw  = iaqi.get("no2",  {}).get("v")
-        o3_raw   = iaqi.get("o3",   {}).get("v")
-        co_raw   = iaqi.get("co",   {}).get("v")
+        # Every iaqi.*.v here is a US EPA AQI sub-index, NOT a μg/m³ concentration.
+        # PM2.5 we can invert exactly (epa_aqi_to_pm25), so it's reported as a real
+        # concentration. PM10/NO2/O3/CO each need their own EPA breakpoint table to
+        # invert; rather than fabricate a conversion, they stay as sub-indices and
+        # are named *_index so the frontend can label them honestly instead of
+        # printing an index value under a "μg/m³" heading.
+        pm25_index = iaqi.get("pm25", {}).get("v")
+        pm10_index = iaqi.get("pm10", {}).get("v")
+        no2_index  = iaqi.get("no2",  {}).get("v")
+        o3_index   = iaqi.get("o3",   {}).get("v")
+        co_index   = iaqi.get("co",   {}).get("v")
 
-        cpcb_aqi = pm25_to_aqi(pm25_raw) if pm25_raw else d.get("aqi", 0)
+        pm25 = epa_aqi_to_pm25(pm25_index) if pm25_index is not None else None
+        cpcb_aqi = (
+            pm25_to_aqi(pm25) if pm25 is not None
+            else pm25_to_aqi(epa_aqi_to_pm25(d.get("aqi", 0)))
+        )
 
         forecast_daily = d.get("forecast", {}).get("daily", {})
         pm25_forecast = forecast_daily.get("pm25", [])
@@ -199,11 +281,12 @@ async def fetch_city_feed(city_name: str) -> dict:
         return {
             "city": city_name,
             "aqi": cpcb_aqi,
-            "pm25": pm25_raw,
-            "pm10": pm10_raw,
-            "no2": no2_raw,
-            "o3": o3_raw,
-            "co": co_raw,
+            "aqi_scale": "CPCB",
+            "pm25": pm25,
+            "pm10_index": pm10_index,
+            "no2_index": no2_index,
+            "o3_index": o3_index,
+            "co_index": co_index,
             "dominant_pollutant": d.get("dominentpol", "pm25").upper(),
             "updated_at": d.get("time", {}).get("s", ""),
             "pm25_forecast": pm25_forecast,
