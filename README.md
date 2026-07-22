@@ -17,7 +17,7 @@ facility to inspect today, and why*.
 | **Architecture diagram** | **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)** — system context, enforcement sequence, module graph, scoring pipeline |
 | **Presentation deck** | **[docs/DECK.md](docs/DECK.md)** — Marp format; `marp DECK.md --pdf` to export |
 | **Demo video** | **[docs/DEMO_SCRIPT.md](docs/DEMO_SCRIPT.md)** — shot list + VO script; recording pending |
-| **Full technical document** | **[docs/TECHNICAL_DOCUMENT.md](docs/TECHNICAL_DOCUMENT.md)** — everything in plain English: architecture, activity + state diagrams, scoring, science |
+| **Full technical document** | **[docs/TECHNICAL_DOCUMENT.md](docs/TECHNICAL_DOCUMENT.md)** — everything in plain English: architecture, activity + state diagrams, scoring, science. **Word version:** [docs/word/](docs/word/) |
 | Scalability analysis | **[SCALABILITY.md](SCALABILITY.md)** — measured benchmarks + national rollout path |
 | Handoff notes | **[HANDOFF.md](HANDOFF.md)** — status, gotchas, known gaps |
 
