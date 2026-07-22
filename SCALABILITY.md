@@ -12,8 +12,8 @@ Numbers here are measured on this machine, not estimated. Reproduce them with
 
 | Dimension | Today |
 |---|---|
-| Monitoring stations | 43 curated cities |
-| Emission sources | 5,154 across 43 cities |
+| Monitoring stations | 84 curated cities, 27 states |
+| Emission sources | 7,900+ across 82 cities |
 | Hotspots scored per run | 5 |
 | Signal → dispatch-ready | 30–60 s (LLM-bound) |
 | Source correlation | ~2 ms per hotspot |
@@ -23,7 +23,7 @@ Numbers here are measured on this machine, not estimated. Reproduce them with
 ## What was fixed: spatial indexing
 
 The scorer originally received every source in a city and computed a haversine
-for each — a linear scan. That is fine at 5,154 sources and fails badly beyond it.
+for each — a linear scan. That is fine at 7,900 sources and fails badly beyond it.
 
 Sources are now bucketed into a ~27 km grid (`GRID_DEG = 0.25°`) at load time, so
 a query touches only the 3×3 block of cells around its centre regardless of
@@ -68,7 +68,7 @@ rate limiter under-counts by a factor of however many instances are live. The
 rate limiter's own docstring says this; it blunts runaway cost from one caller,
 it is not a gateway-level limiter.
 
-**The registry is a committed JSON file.** 5,154 sources load fine at import
+**The registry is a committed JSON file.** 7,900 sources load fine at import
 (~10 MB, parsed once). At national scale this becomes a database question, not a
 file question — and re-seeding currently means re-running a 40-minute Overpass
 sweep rather than an incremental update.

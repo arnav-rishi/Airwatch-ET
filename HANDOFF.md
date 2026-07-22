@@ -10,18 +10,18 @@ prioritisation, forecasting, and a multilingual citizen health advisory chatbot.
 ## 1. Current Status
 
 **Working end-to-end**, verified against live WAQI, OpenWeatherMap, Azure OpenAI and NASA
-FIRMS. 150 unit/integration tests pass with no keys or network required.
+FIRMS. 162 unit/integration tests pass with no keys or network required.
 
 | Area | Status |
 |------|--------|
-| **Enforcement: registry correlation (5,154 sources, 43 cities)** | ✅ Working — the primary focus |
+| **Enforcement: registry correlation (7,900+ sources, 82 cities)** | ✅ Working — the primary focus |
 | **Enforcement: Gaussian plume dispersion (Pasquill-Gifford)** | ✅ Working |
 | **Enforcement: geospatial map + auditable evidence** | ✅ Working |
 | **Enforcement: quantified impact (search-space narrowing)** | ✅ Working, computed live |
 | Satellite fire detection (NASA FIRMS / VIIRS) | ✅ Working — 0 detections in monsoon; see README |
 | Spatial grid index (cross-city airshed queries) | ✅ Working |
-| Live AQI map (Leaflet, 43 curated cities via WAQI, per-city fallback) | ✅ Working — now on the CPCB scale |
-| City detail panel (feed + weather + 24h history) | ✅ Working — 24h history is always synthetic, see §Known gaps |
+| Live AQI map (Leaflet, 84 cities, OpenAQ-primary, per-city fallback) | ✅ Working — CPCB scale, timestamped |
+| City detail panel (feed + weather + 24h history) | ✅ Working — real OpenAQ history when available |
 | Source attribution (LLM, CPCB-anchored, deterministic confidence score) | ✅ Working |
 | 24h forecast (hybrid + RMSE vs persistence + skill score) | ✅ Working |
 | Citizen advisory chatbot (multilingual) | ✅ Working |
@@ -43,8 +43,8 @@ airwatch/
 │   │   ├── aqi.py           /api/aqi/live, /api/aqi/city/{name}
 │   │   └── intelligence.py  /api/intel/{attribution,enforcement,forecast,advisory}
 │   ├── services/
-│   │   ├── waqi.py          Primary AQI source (EPA->CPCB conversion, per-city fallback)
-│   │   ├── openaq.py        Backup AQI + 24h history (NON-FUNCTIONAL - see Known gaps)
+│   │   ├── openaq.py        PRIMARY AQI source (v3, timestamped, ug/m3, freshness-gated)
+│   │   ├── waqi.py          Fallback AQI (EPA->CPCB conversion, staleness-gated)
 │   │   ├── openweather.py   Weather; wind speed + direction drive the plume model
 │   │   ├── firms.py         NASA FIRMS satellite active-fire detection
 │   │   ├── source_registry.py  Emission source registry + spatial grid index
@@ -63,10 +63,10 @@ airwatch/
 │   │   ├── fetch_emission_sources.py Overpass seeder (mirrors, resume)
 │   │   └── benchmark_spatial.py      Reproduces SCALABILITY.md figures
 │   ├── data/
-│   │   ├── cities_fallback.json      Static fallback data (43 cities)
-│   │   └── emission_sources.json     5,154 registered emission sources
+│   │   ├── cities_fallback.json      Static fallback data (84 cities)
+│   │   └── emission_sources.json     7,900+ registered emission sources
 │   ├── test_endpoints.py    HTTP integration suite (run against live server)
-│   └── tests/               150 unit + integration tests, no keys needed
+│   └── tests/               162 unit + integration tests, no keys needed
 └── frontend/                React + Vite + Tailwind v4
     └── src/
         ├── App.jsx          Tabs: Map / Enforcement / Advisory
@@ -79,7 +79,7 @@ airwatch/
 ```
 
 **Data flow (map stations):** A curated list of major Indian cities
-(`data/cities_fallback.json`, 43 cities as of 2026-07-17, each with a WAQI `slug`) is fetched
+(`data/cities_fallback.json`, 84 cities across 27 states, each with a WAQI `slug`) is fetched
 **live** in parallel via WAQI's **named city feeds** (`/feed/{slug}/`). Every curated city is
 always shown: one whose live feed fails (bad slug, timeout, no current reading) falls back to
 its own last-known static reading (`source: "fallback"`) instead of being dropped — so a single
@@ -248,11 +248,12 @@ See `PS5_AirQuality_Implementation_Plan.md` (repo root) for the original full pl
 
 Recorded here so they are not rediscovered under time pressure. Full detail in the README.
 
-- **OpenAQ tier is non-functional.** `services/openaq.py` points at `api.openaq.io/v2`, a host
-  that no longer resolves (OpenAQ retired v2; v3 needs a key). The AQI fallback is therefore
-  **WAQI -> static dataset**, not three tiers, and the 24h history in the city panel is always
-  the synthetic diurnal estimate. The UI does disclose this ("Modelled estimate"), but the
-  underlying integration has never worked.
+- **Monsoon-season demo shows low AQI.** With genuinely fresh data the top reading is currently
+  ~85 (Satisfactory), not the 400s the old *stale* feeds implied. This is the freshness fix
+  working (OpenAQ v3 primary, staleness-gated), not a defect — off-season it shows the true
+  severe readings. Full story in the README's Data-freshness section.
+- **Two cities unseeded** (Ambala, Rajahmundry) — Overpass failed for them; they render on the
+  map but are flagged AQI-only in enforcement. Re-run `scripts/fetch_emission_sources.py`.
 - **City-level, not ward-level.** The problem statement asks for ward / 1 km grid resolution.
 - **No multi-city comparative dashboard**, and **no population vulnerability layer** — though
   the sensitive-receptor filter already identifies hospitals and schools in the registry.
